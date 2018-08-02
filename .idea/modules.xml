@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stix2gson.iml" filepath="$PROJECT_DIR$/.idea/modules/stix2gson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stix2gson_main.iml" filepath="$PROJECT_DIR$/.idea/modules/stix2gson_main.iml" group="stix2gson" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stix2gson_test.iml" filepath="$PROJECT_DIR$/.idea/modules/stix2gson_test.iml" group="stix2gson" />
+    </modules>
+  </component>
+</project>

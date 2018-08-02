@@ -1,0 +1,9 @@
+{
+	"type":"identity",
+	"id":"identity--023d105b-752e-4e3c-941c-7d3f3cb15e9e",
+	"created":"2016-08-23T18:05:49.307Z",
+	"modified":"2016-08-23T18:05:49.307Z",
+	"revoked":"false",
+	"name":"larissa_LPA",
+	"identity_class":"organization",
+	"labels":["Local","public","administration"]}
