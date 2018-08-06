@@ -50,11 +50,10 @@ public class BundleTest {
 
 		testBundle = Bundle.buildFromString(jsonString);
 
-
 		URL url = this.getClass().getResource("bundle_test.json");
 		String path = url.getPath();
 		String newPath = path.replace("bundle_test.json", "bundle_test_out.json");
-		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(newPath)));
+		PrintWriter pw = new PrintWriter(newPath);
 		if (pw != null) {
 			System.out.println("writing to: " + newPath);
 			pw.write(gson.toJson(testBundle));

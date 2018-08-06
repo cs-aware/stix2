@@ -1,8 +1,6 @@
 
 package eu.csaware.stix2.common;
 
-
-
 /**
  * hashes
  * <p>
@@ -10,6 +8,7 @@ package eu.csaware.stix2.common;
  * 
  */
 public class HashesType {
+
 
 
     @Override

@@ -95,6 +95,7 @@ public class Bundle {
 //		Map<String, Object> jsonMap = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
 //		}.getType());
 
+//		System.out.println("jsonString: " + jsonString);
 		Bundle bundle = gson.fromJson(jsonString, Bundle.class);
 		Bundle resultBundle = new Bundle();
 		resultBundle.setType(Types.BUNDLE_TYPE);

@@ -1,7 +1,7 @@
 {
 	"type": "bundle",
 	"id": "bundle--ab68225c-91cf-47fc-b27b-78949b703437",
-   "objects": [
+    "objects": [
 		{
 			"type": "vulnerability",
 			"id": "vulnerability--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061",
@@ -51,7 +51,7 @@
 			"revoked": "false",
 			"name": "larissa_LPA",
 			"identity_class": "organization",
-			"labels" : ["Local", "public", "administration"] 
+			"labels" : ["local", "public", "administration"]
 		},
 		
 		{
@@ -60,21 +60,21 @@
 			"created": "2016-08-23T18:05:49.307Z",
 			"first_observed": "2018-03-26T14:21:25.283Z",
 			"last_observed": "2018-03-26T14:21:25.283Z",
-         "modified": "2018-03-26T14:21:25.283Z",
-         "number_observed": 1,
+            "modified": "2018-03-26T14:21:25.283Z",
+            "number_observed": 1,
 			"objects": {
                 "0": {
                     "type": "software",
                     "vendor": "Red Hat",
-							"name": "Red Hat Linux OS",
-							"version": "7.0",
-							"cpe": "cpe:2.3:o:redhat:linux:7.0:*:*:*:*:*:*:*"
+					"name": "Red Hat Linux OS",
+					"version": "7.0",
+					"cpe": "cpe:2.3:o:redhat:linux:7.0:*:*:*:*:*:*:*"
                 },
 				"1": {
                     "type": "software",
                     "vendor": "Comodo",
-							"name": "Comodo Free Firewall",
-							"version": "11.0.0.6606"
+					"name": "Comodo Free Firewall",
+					"version": "11.0.0.6606"
                 }
             }
 		},
