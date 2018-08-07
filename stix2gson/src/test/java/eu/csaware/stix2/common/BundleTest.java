@@ -42,6 +42,7 @@ public class BundleTest {
 
 		Gson gson = new GsonBuilder()
 				  .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeTypeAdapter())
+				  .registerTypeAdapter(HashesType.class, new HashesTypeTypeAdapter())
 				  .setPrettyPrinting()
 				  .create();
 
