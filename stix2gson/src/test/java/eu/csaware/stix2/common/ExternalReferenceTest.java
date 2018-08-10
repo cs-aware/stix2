@@ -33,8 +33,6 @@ public class ExternalReferenceTest {
 	@Test
 	public void writeToFile() {
 		Gson gson = new GsonBuilder()
-				  .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeTypeAdapter())
-				  .registerTypeAdapter(HashesType.class, new HashesTypeTypeAdapter())
 				  .setPrettyPrinting()
 				  .create();
 
@@ -63,7 +61,6 @@ public class ExternalReferenceTest {
 	public void readFromFile() throws Exception {
 		Gson gson = new GsonBuilder()
 				  .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeTypeAdapter())
-				  .registerTypeAdapter(HashesType.class, new HashesTypeTypeAdapter())
 				  .setPrettyPrinting()
 				  .create();
 

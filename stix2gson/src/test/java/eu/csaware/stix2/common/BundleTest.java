@@ -2,20 +2,16 @@ package eu.csaware.stix2.common;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import eu.csaware.stix2.sdos.CourseOfAction;
-import eu.csaware.stix2.sdos.Identity;
-import eu.csaware.stix2.sdos.ObservedData;
-import eu.csaware.stix2.sdos.Vulnerability;
-import eu.csaware.stix2.sros.Relationship;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.time.LocalDateTime;
-import java.util.Map;
-
 
 public class BundleTest {
 
@@ -41,8 +37,6 @@ public class BundleTest {
 		jsonString = sb.toString();
 
 		Gson gson = new GsonBuilder()
-				  .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeTypeAdapter())
-				  .registerTypeAdapter(HashesType.class, new HashesTypeTypeAdapter())
 				  .setPrettyPrinting()
 				  .create();
 

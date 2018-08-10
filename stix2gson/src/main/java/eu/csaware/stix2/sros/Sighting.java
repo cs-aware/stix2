@@ -2,11 +2,9 @@
 package eu.csaware.stix2.sros;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import eu.csaware.stix2.common.Core;
-import eu.csaware.stix2.common.ExternalReference;
-import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -43,12 +41,14 @@ public class Sighting
 	 */
 	@SerializedName("first_seen")
 	@Expose
+	@JsonAdapter(LocalDateTimeTypeAdapter.class)
 	private LocalDateTime firstSeen;
 	/**
 	 * The end of the time window during which the SDO referenced by the sighting_of_ref property was sighted.
 	 */
 	@SerializedName("last_seen")
 	@Expose
+	@JsonAdapter(LocalDateTimeTypeAdapter.class)
 	private LocalDateTime lastSeen;
 	/**
 	 * This is an integer between 0 and 999,999,999 inclusive and represents the number of times the object was sighted.

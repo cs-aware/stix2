@@ -2,6 +2,7 @@
 package eu.csaware.stix2.common;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -15,6 +16,7 @@ import com.google.gson.annotations.SerializedName;
 //			"SHA-256": "effb46bba03f6c8aea5c653f9cf984f170dcdd3bbbe2ff6843c3e5da0e698766"
 //			}
 
+@JsonAdapter(HashesTypeTypeAdapter.class)
 public class HashesType {
 
 	@SerializedName("hashes")
@@ -35,7 +37,7 @@ public class HashesType {
 	 * @param hashType
 	 * @param key
 	 */
-	public HashesType (HashType hashType, String key) {
+	public HashesType(HashType hashType, String key) {
 		super();
 		this.hashType = hashType;
 		this.key = key;
@@ -72,7 +74,7 @@ public class HashesType {
 	@Override
 	public int hashCode() {
 		int result = 1;
-		 result = ((result * 31) + ((hashType == null) ? 0 : hashType.hashCode()));
+		result = ((result * 31) + ((hashType == null) ? 0 : hashType.hashCode()));
 		result = ((result * 31) + ((key == null) ? 0 : key.hashCode()));
 		return result;
 	}
@@ -88,6 +90,6 @@ public class HashesType {
 		HashesType rhs = ((HashesType) other);
 
 		return (((this.hashType == rhs.hashType) || ((this.hashType != null) && this.hashType.equals(rhs.hashType))) &&
-		((this.key == rhs.key)|| ((this.key != null) && this.key.equals(rhs.key))));
+				  ((this.key == rhs.key) || ((this.key != null) && this.key.equals(rhs.key))));
 	}
 }

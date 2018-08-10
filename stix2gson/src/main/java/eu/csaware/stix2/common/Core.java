@@ -2,6 +2,7 @@
 package eu.csaware.stix2.common;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import javax.validation.Valid;
@@ -44,6 +45,7 @@ public abstract class Core {
 	@SerializedName("created")
 	@Expose
 	@NotNull
+	@JsonAdapter(LocalDateTimeTypeAdapter.class)
 	private LocalDateTime created;
 	/**
 	 * The modified property represents the time that this particular version of the object was created. The timstamp value MUST be precise to the nearest millisecond.
@@ -52,6 +54,7 @@ public abstract class Core {
 	@SerializedName("modified")
 	@Expose
 	@NotNull
+	@JsonAdapter(LocalDateTimeTypeAdapter.class)
 	private LocalDateTime modified;
 	/**
 	 * The revoked property indicates whether the object has been revoked.

@@ -13,7 +13,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +24,9 @@ import java.util.Map;
  * A Bundle is a collection of arbitrary STIX Objects and Marking Definitions grouped together in a single container.
  */
 public class Bundle {
+
+
+	public static final String SPEC_VERSION = "2.1";
 
 	/**
 	 * The type of this object, which MUST be the literal `bundle`.
@@ -67,6 +69,7 @@ public class Bundle {
 	 * No args constructor for use in serialization
 	 */
 	public Bundle() {
+		this.specVersion = SPEC_VERSION;
 	}
 
 	/**
@@ -80,28 +83,29 @@ public class Bundle {
 		if (!type.equals(Types.BUNDLE_TYPE)) {
 			type = Types.BUNDLE_TYPE;
 		}
+		if (specVersion == null) {
+			this.specVersion = SPEC_VERSION;
+		}
 		this.type = type;
 		this.id = id;
 		this.specVersion = specVersion;
 		this.objects = objects;
 	}
 
-	public static Bundle buildFromString (String jsonString) {
+	public static Bundle buildFromString(String jsonString) {
 
 		Gson gson = new GsonBuilder()
-				  .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeTypeAdapter())
 				  .setPrettyPrinting()
 				  .create();
-//		Map<String, Object> jsonMap = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
-//		}.getType());
 
-//		System.out.println("jsonString: " + jsonString);
 		Bundle bundle = gson.fromJson(jsonString, Bundle.class);
 		Bundle resultBundle = new Bundle();
 		resultBundle.setType(Types.BUNDLE_TYPE);
 		resultBundle.setId(bundle.getId());
 		if (bundle.getSpecVersion() != null) {
 			resultBundle.setSpecVersion(bundle.getSpecVersion());
+		} else {
+			resultBundle.setSpecVersion(SPEC_VERSION);
 		}
 
 		bundle.getObjects().forEach((obj) -> {
@@ -169,6 +173,7 @@ public class Bundle {
 		});
 		return resultBundle;
 	}
+
 	/**
 	 * The type of this object, which MUST be the literal `bundle`.
 	 * (Required)
@@ -256,16 +261,16 @@ public class Bundle {
 		sb.append(',');
 		sb.append("objects");
 		sb.append('=');
-		if (this.objects == null)  {
+		if (this.objects == null) {
 			sb.append("<null>");
 		} else {
 			sb.append("[");
 			this.objects.forEach((obj) -> {
 //				String type = obj.toString();
 				Map<String, Object> objMap = (Map<String, Object>) obj;
-				String type = (String)objMap.get("type");
+				String type = (String) objMap.get("type");
 				String id = (String) objMap.get("id");
-				sb.append( "\ntype: "+ type + " id: " + id + " - " + obj.toString());
+				sb.append("\ntype: " + type + " id: " + id + " - " + obj.toString());
 //				sb.append("\n ("+ obj.getClass().getCanonicalName() + ") " + obj.toString());
 			});
 			sb.append("]");

@@ -52,7 +52,7 @@ public class ExternalReference {
 	@SerializedName("hashes")
 	@Expose
 	@Valid
-	private HashesType hashes;
+	private HashesType hashes = null;
 
 	/**
 	 * No args constructor for use in serialization

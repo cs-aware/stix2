@@ -2,9 +2,11 @@
 package eu.csaware.stix2.observables;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.HashesType;
+import eu.csaware.stix2.common.LocalDateTimeTypeAdapter;
 import eu.csaware.stix2.common.Types;
 
 import javax.validation.Valid;
@@ -86,6 +88,7 @@ public class File extends CyberObservableCore {
 	@SerializedName("created")
 	@Expose
 	@Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$")
+	@JsonAdapter(LocalDateTimeTypeAdapter.class)
 	private LocalDateTime created;
 	/**
 	 * timestamp
@@ -95,6 +98,7 @@ public class File extends CyberObservableCore {
 	@SerializedName("modified")
 	@Expose
 	@Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$")
+	@JsonAdapter(LocalDateTimeTypeAdapter.class)
 	private LocalDateTime modified;
 	/**
 	 * timestamp

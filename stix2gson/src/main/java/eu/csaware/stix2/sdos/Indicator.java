@@ -2,6 +2,7 @@
 package eu.csaware.stix2.sdos;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.*;
 
@@ -74,12 +75,14 @@ public class Indicator
 	@SerializedName("valid_from")
 	@Expose
 	@NotNull
+	@JsonAdapter(LocalDateTimeTypeAdapter.class)
 	private LocalDateTime validFrom;
 	/**
 	 * The time at which this indicator should no longer be considered valuable intelligence.
 	 */
 	@SerializedName("valid_until")
 	@Expose
+	@JsonAdapter(LocalDateTimeTypeAdapter.class)
 	private LocalDateTime validUntil;
 	/**
 	 * The phases of the kill chain that this indicator detects.
