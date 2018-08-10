@@ -1,12 +1,10 @@
 package eu.csaware.stix2.common;
 
-import org.jetbrains.annotations.Contract;
-
 public enum HashType {
 
 	MD5("MD5", "^MD5$", "^[a-fA-F0-9]{32}$", "Specifies the MD5 message digest algorithm."),
 	MD6("MD6", "^MD6$", "^[a-fA-F0-9]{32}|[a-fA-F0-9]{40}|[a-fA-F0-9]{56}|[a-fA-F0-9]{64}|[a-fA-F0-9]{96}|[a-fA-F0-9]{128}$", "Specifies the MD6 message digest algorithm."),
-	RIPEMD160("RIPEMD-160", "^RIPEMD-160$", "^[a-fA-F0-9]{40}$", "Specifies the RIPEMD\u00ad-160 (R​ACE​ Integrity Primitives Evaluation Message Digest)​ cryptographic hash function."),
+	RIPEMD160("RIPEMD-160", "^RIPEMD-160$", "^[a-fA-F0-9]{40}$", "Specifies the RIPEMD-160 (R​ACE​ Integrity Primitives Evaluation Message Digest)​ cryptographic hash function."),
 	SHA1("SHA-1", "^SHA-1$", "^[a-fA-F0-9]{40}$", "Specifies the SHA-1 (secure-hash algorithm 1) cryptographic hash function."),
 	SHA224("SHA-224", "^SHA-224$", "^[a-fA-F0-9]{56}$", "Specifies the SHA-224 cryptographic hash function (part of the SHA2 family)."),
 	SHA256("SHA-256", "^SHA-256$", "^[a-fA-F0-9]{64}$", "Specifies the SHA-256 cryptographic hash function (part of the SHA2 family)."),

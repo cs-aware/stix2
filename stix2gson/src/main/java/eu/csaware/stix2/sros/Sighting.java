@@ -7,7 +7,6 @@ import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.GranularMarking;
 import eu.csaware.stix2.common.Types;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -44,13 +43,13 @@ public class Sighting
 	 */
 	@SerializedName("first_seen")
 	@Expose
-	private DateTime firstSeen;
+	private LocalDateTime firstSeen;
 	/**
 	 * The end of the time window during which the SDO referenced by the sighting_of_ref property was sighted.
 	 */
 	@SerializedName("last_seen")
 	@Expose
-	private DateTime lastSeen;
+	private LocalDateTime lastSeen;
 	/**
 	 * This is an integer between 0 and 999,999,999 inclusive and represents the number of times the object was sighted.
 	 */
@@ -115,7 +114,7 @@ public class Sighting
 	 * @param objectMarkingRefs
 	 * @param sightingOfRef
 	 */
-	public Sighting(String type, String id, DateTime firstSeen, DateTime lastSeen, Integer count, Object sightingOfRef,
+	public Sighting(String type, String id, LocalDateTime firstSeen, LocalDateTime lastSeen, Integer count, Object sightingOfRef,
 						 List<Object> observedDataRefs, List<Object> whereSightedRefs, Boolean summary, String createdByRef,
 						 List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
 						 List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
@@ -170,28 +169,28 @@ public class Sighting
 	/**
 	 * The beginning of the time window during which the SDO referenced by the sighting_of_ref property was sighted.
 	 */
-	public DateTime getFirstSeen() {
+	public LocalDateTime getFirstSeen() {
 		return firstSeen;
 	}
 
 	/**
 	 * The beginning of the time window during which the SDO referenced by the sighting_of_ref property was sighted.
 	 */
-	public void setFirstSeen(DateTime firstSeen) {
+	public void setFirstSeen(LocalDateTime firstSeen) {
 		this.firstSeen = firstSeen;
 	}
 
 	/**
 	 * The end of the time window during which the SDO referenced by the sighting_of_ref property was sighted.
 	 */
-	public DateTime getLastSeen() {
+	public LocalDateTime getLastSeen() {
 		return lastSeen;
 	}
 
 	/**
 	 * The end of the time window during which the SDO referenced by the sighting_of_ref property was sighted.
 	 */
-	public void setLastSeen(DateTime lastSeen) {
+	public void setLastSeen(LocalDateTime lastSeen) {
 		this.lastSeen = lastSeen;
 	}
 

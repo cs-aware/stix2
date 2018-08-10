@@ -6,12 +6,12 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.HashesType;
 import eu.csaware.stix2.common.Types;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,7 +86,7 @@ public class File extends CyberObservableCore {
 	@SerializedName("created")
 	@Expose
 	@Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$")
-	private DateTime created;
+	private LocalDateTime created;
 	/**
 	 * timestamp
 	 * <p>
@@ -95,7 +95,7 @@ public class File extends CyberObservableCore {
 	@SerializedName("modified")
 	@Expose
 	@Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$")
-	private DateTime modified;
+	private LocalDateTime modified;
 	/**
 	 * timestamp
 	 * <p>
@@ -148,7 +148,8 @@ public class File extends CyberObservableCore {
 	 * @param modified
 	 * @param contentRef
 	 */
-	public File(String type, FileExtensionsDictionary extensions, HashesType hashes, Integer size, String name, String nameEnc, String magicNumberHex, String mimeType, DateTime created, DateTime modified, String accessed, String parentDirectoryRef, List<String> containsRefs, String contentRef) {
+	public File(String type, FileExtensionsDictionary extensions, HashesType hashes, Integer size, String name, 
+					String nameEnc, String magicNumberHex, String mimeType, LocalDateTime created, LocalDateTime modified, String accessed, String parentDirectoryRef, List<String> containsRefs, String contentRef) {
 		super(extensions);
 		if (!type.equals(Types.FILE_TYPE)) {
 			type = Types.FILE_TYPE;
@@ -291,7 +292,7 @@ public class File extends CyberObservableCore {
 	 * <p>
 	 * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
 	 */
-	public DateTime getCreated() {
+	public LocalDateTime getCreated() {
 		return created;
 	}
 
@@ -300,7 +301,7 @@ public class File extends CyberObservableCore {
 	 * <p>
 	 * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
 	 */
-	public void setCreated(DateTime created) {
+	public void setCreated(LocalDateTime created) {
 		this.created = created;
 	}
 
@@ -309,7 +310,7 @@ public class File extends CyberObservableCore {
 	 * <p>
 	 * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
 	 */
-	public DateTime getModified() {
+	public LocalDateTime getModified() {
 		return modified;
 	}
 
@@ -318,7 +319,7 @@ public class File extends CyberObservableCore {
 	 * <p>
 	 * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
 	 */
-	public void setModified(DateTime modified) {
+	public void setModified(LocalDateTime modified) {
 		this.modified = modified;
 	}
 

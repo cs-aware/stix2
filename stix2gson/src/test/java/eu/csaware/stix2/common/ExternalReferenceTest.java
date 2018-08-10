@@ -20,10 +20,10 @@ public class ExternalReferenceTest {
 		HashesType hashes = new HashesType();
 		hashes.setHashType(HashType.SHA256);
 		hashes.setKey("35a01331e9ad96f751278b891b6ea09699806faedfa237d40513d92ad1b7100f");
-
-		externalReference.setSourceName("cve");
-		externalReference.setExternalId("CVE-1234-0321");
 		externalReference.setHashes(hashes);
+
+		externalReference.setExternalId("CVE-1234-0321");
+		externalReference.setSourceName("cve");
 	}
 
 	@After

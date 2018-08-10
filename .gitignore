@@ -1,3 +1,4 @@
 .idea
 .gradle
 /stix2gson/out/
+/stix2gson/build/

@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
 import eu.csaware.stix2.common.Types;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +54,7 @@ public class WindowsRegistryKey
 	@SerializedName("modified")
 	@Expose
 	@Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$")
-	private DateTime modified;
+	private LocalDateTime modified;
 	/**
 	 * Specifies a reference to a user account, represented as a User Account Object, that created the registry key.
 	 */
@@ -83,7 +83,7 @@ public class WindowsRegistryKey
 	 * @param numberOfSubkeys
 	 * @param key
 	 */
-	public WindowsRegistryKey(String type, String key, List<WindowsRegistryValueType> values, DateTime modified, String creatorUserRef, Integer numberOfSubkeys, Dictionary extensions) {
+	public WindowsRegistryKey(String type, String key, List<WindowsRegistryValueType> values, LocalDateTime modified, String creatorUserRef, Integer numberOfSubkeys, Dictionary extensions) {
 		super(extensions);
 		if (!type.equals(Types.WINDOWS_REGISTRY_KEY_TYPE)) {
 			type = Types.WINDOWS_REGISTRY_KEY_TYPE;
@@ -148,7 +148,7 @@ public class WindowsRegistryKey
 	 * <p>
 	 * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
 	 */
-	public DateTime getModified() {
+	public LocalDateTime getModified() {
 		return modified;
 	}
 
@@ -157,7 +157,7 @@ public class WindowsRegistryKey
 	 * <p>
 	 * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
 	 */
-	public void setModified(DateTime modified) {
+	public void setModified(LocalDateTime modified) {
 		this.modified = modified;
 	}
 
