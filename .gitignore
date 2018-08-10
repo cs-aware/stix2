@@ -2,3 +2,4 @@
 .gradle
 /stix2gson/out/
 /stix2gson/build/
+/stix2gson/.gradle/
