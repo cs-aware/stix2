@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/stix2gson.iml" filepath="$PROJECT_DIR$/.idea/modules/stix2gson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stix2validator/stix2validator.iml" filepath="$PROJECT_DIR$/stix2validator/stix2validator.iml" />
     </modules>
   </component>
 </project>
