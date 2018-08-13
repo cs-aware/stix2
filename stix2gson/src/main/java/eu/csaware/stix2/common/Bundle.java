@@ -69,7 +69,6 @@ public class Bundle {
 	 * No args constructor for use in serialization
 	 */
 	public Bundle() {
-		this.specVersion = SPEC_VERSION;
 	}
 
 	/**
@@ -82,9 +81,6 @@ public class Bundle {
 		super();
 		if (!type.equals(Types.BUNDLE_TYPE)) {
 			type = Types.BUNDLE_TYPE;
-		}
-		if (specVersion == null) {
-			this.specVersion = SPEC_VERSION;
 		}
 		this.type = type;
 		this.id = id;
@@ -102,11 +98,6 @@ public class Bundle {
 		Bundle resultBundle = new Bundle();
 		resultBundle.setType(Types.BUNDLE_TYPE);
 		resultBundle.setId(bundle.getId());
-		if (bundle.getSpecVersion() != null) {
-			resultBundle.setSpecVersion(bundle.getSpecVersion());
-		} else {
-			resultBundle.setSpecVersion(SPEC_VERSION);
-		}
 
 		bundle.getObjects().forEach((obj) -> {
 			Map<String, Object> objMap = (Map<String, Object>) obj;

@@ -5,21 +5,21 @@
 		{
 			"type": "vulnerability",
 			"id": "vulnerability--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061",
-			"created": "2016-08-23T18:05:49.307Z",
-			"modified": "2016-08-23T18:05:49.307Z",
-			"name": "jqueryui",
-			"decription": "Cross-site scripting (XSS) vulnerability in the default content option in jquery.ui.tooltip.js in the Tooltip widget in jQuery UI before 1.10.0 allows remote attackers to inject arbitrary web script or HTML via the title attribute, which is not properly handled in the autocomplete combo box demo.",
-			"x_da_threat_severity": 8,
-			"x_da_risk_level" : 90,	
-			"x_da_exploitability_level": 50,
-			"x_da_threat_group": "WEB threat",
-			"external_references": [
-				{
-					"source_name": "cve",
-					"external_id": "CVE-2012-6662"
-				}
-			],
-			"x_dp_affected_products": [
+            "name": "jqueryui",
+            "description": "Cross-site scripting (XSS) vulnerability in the default content option in jquery.ui.tooltip.js in the Tooltip widget in jQuery UI before 1.10.0 allows remote attackers to inject arbitrary web script or HTML via the title attribute, which is not properly handled in the autocomplete combo box demo.",
+            "x_da_threat_severity": 8,
+            "x_da_threat_group": "WEB threat",
+            "x_da_risk_level" : 90,
+            "x_da_exploitability_level": 50,
+            "created": "2016-08-23T18:05:49.307Z",
+            "modified": "2016-08-23T18:05:49.307Z",
+            "external_references": [
+              {
+                "source_name": "cve",
+                "external_id": "CVE-2012-6662"
+              }
+            ],
+  			"x_dp_affected_products": [
 				{
 					"vendor_name": "RedHat",
 					"product_name": "enterprise_linux_desktop",
@@ -42,7 +42,6 @@
 				}
 			]
 		},
-		
 		{
 			"type": "identity",
 			"id": "identity--023d105b-752e-4e3c-941c-7d3f3cb15e9e",
@@ -51,9 +50,11 @@
 			"revoked": "false",
 			"name": "larissa_LPA",
 			"identity_class": "organization",
-			"labels" : ["local", "public", "administration"]
+			"labels" : [
+              "local",
+              "public",
+              "administration"]
 		},
-		
 		{
 			"type": "observed-data",
 			"id": "observed-data--32dab7d0-1522-4a08-826b-015fc1369bdb",

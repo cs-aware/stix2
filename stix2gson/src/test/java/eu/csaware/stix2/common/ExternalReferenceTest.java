@@ -60,7 +60,6 @@ public class ExternalReferenceTest {
 	@Test
 	public void readFromFile() throws Exception {
 		Gson gson = new GsonBuilder()
-				  .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeTypeAdapter())
 				  .setPrettyPrinting()
 				  .create();
 
