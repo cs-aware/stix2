@@ -1,4 +1,6 @@
-.idea
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
 .gradle
 /stix2gson/out/
 /stix2gson/build/
