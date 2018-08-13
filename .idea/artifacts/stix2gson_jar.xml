@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="stix2gson:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/stix2gson_jar</output-path>
+    <root id="archive" name="stix2gson.jar">
+      <element id="module-output" name="stix2gson" />
+    </root>
+  </artifact>
+</component>
