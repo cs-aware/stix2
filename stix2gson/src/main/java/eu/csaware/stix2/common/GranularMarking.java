@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -14,14 +15,12 @@ import com.google.gson.annotations.SerializedName;
  * granular-marking
  * <p>
  * The granular-marking type defines how the list of marking-definition objects referenced by the marking_refs property to apply to a set of content identified by the list of selectors in the selectors property.
- * 
  */
 public class GranularMarking {
 
     /**
      * A list of selectors for content contained within the STIX object in which this property appears.
      * (Required)
-     * 
      */
     @SerializedName("selectors")
     @Expose
@@ -30,9 +29,7 @@ public class GranularMarking {
     @NotNull
     private List<String> selectors = new ArrayList<String>();
     /**
-     * 
      * (Required)
-     * 
      */
     @SerializedName("marking_ref")
     @Expose
@@ -41,13 +38,11 @@ public class GranularMarking {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public GranularMarking() {
     }
 
     /**
-     * 
      * @param markingRef
      * @param selectors
      */
@@ -60,7 +55,6 @@ public class GranularMarking {
     /**
      * A list of selectors for content contained within the STIX object in which this property appears.
      * (Required)
-     * 
      */
     public List<String> getSelectors() {
         return selectors;
@@ -69,25 +63,20 @@ public class GranularMarking {
     /**
      * A list of selectors for content contained within the STIX object in which this property appears.
      * (Required)
-     * 
      */
     public void setSelectors(List<String> selectors) {
         this.selectors = selectors;
     }
 
     /**
-     * 
      * (Required)
-     * 
      */
     public Object getMarkingRef() {
         return markingRef;
     }
 
     /**
-     * 
      * (Required)
-     * 
      */
     public void setMarkingRef(Object markingRef) {
         this.markingRef = markingRef;
@@ -99,14 +88,14 @@ public class GranularMarking {
         sb.append(GranularMarking.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("selectors");
         sb.append('=');
-        sb.append(((this.selectors == null)?"<null>":this.selectors));
+        sb.append(((this.selectors == null) ? "<null>" : this.selectors));
         sb.append(',');
         sb.append("markingRef");
         sb.append('=');
-        sb.append(((this.markingRef == null)?"<null>":this.markingRef));
+        sb.append(((this.markingRef == null) ? "<null>" : this.markingRef));
         sb.append(',');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
         } else {
             sb.append(']');
         }
@@ -116,8 +105,8 @@ public class GranularMarking {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result* 31)+((this.selectors == null)? 0 :this.selectors.hashCode()));
-        result = ((result* 31)+((this.markingRef == null)? 0 :this.markingRef.hashCode()));
+        result = ((result * 31) + ((this.selectors == null) ? 0 : this.selectors.hashCode()));
+        result = ((result * 31) + ((this.markingRef == null) ? 0 : this.markingRef.hashCode()));
         return result;
     }
 
@@ -130,7 +119,7 @@ public class GranularMarking {
             return false;
         }
         GranularMarking rhs = ((GranularMarking) other);
-        return (((this.selectors == rhs.selectors)||((this.selectors!= null)&&this.selectors.equals(rhs.selectors)))&&((this.markingRef == rhs.markingRef)||((this.markingRef!= null)&&this.markingRef.equals(rhs.markingRef))));
+        return (((this.selectors == rhs.selectors) || ((this.selectors != null) && this.selectors.equals(rhs.selectors))) && ((this.markingRef == rhs.markingRef) || ((this.markingRef != null) && this.markingRef.equals(rhs.markingRef))));
     }
 
 }

@@ -2,12 +2,10 @@
 package eu.csaware.stix2.observables;
 
 
-
 /**
  * process
  * <p>
  * The Process Object represents common properties of an instance of a computer program as executed on an operating system.
- * 
  */
 public class Process {
 
@@ -16,8 +14,8 @@ public class Process {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(Process.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
         } else {
             sb.append(']');
         }

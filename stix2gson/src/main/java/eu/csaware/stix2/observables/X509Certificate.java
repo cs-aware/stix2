@@ -2,12 +2,10 @@
 package eu.csaware.stix2.observables;
 
 
-
 /**
  * x509-certificate
  * <p>
  * The X509 Certificate Object represents the properties of an X.509 certificate.
- * 
  */
 public class X509Certificate {
 
@@ -16,8 +14,8 @@ public class X509Certificate {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(X509Certificate.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
         } else {
             sb.append(']');
         }

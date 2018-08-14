@@ -16,45 +16,45 @@ import java.time.LocalDateTime;
 
 public class BundleTest {
 
-	private Bundle testBundle;
-	private String jsonString;
+    private Bundle testBundle;
+    private String jsonString;
 
-	@Before
-	public void setUp() throws Exception {
-		String jsonString = TestUtil.readResourceFile("common/bundle_test.json");
+    @Before
+    public void setUp() throws Exception {
+        String jsonString = TestUtil.readResourceFile("common/bundle_test.json");
 
-		Gson gson = new GsonBuilder()
-				  .setPrettyPrinting()
-				  .create();
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
 
 //		Map<String, Object> jsonMap = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
 //		}.getType());
 
-		testBundle = Bundle.buildFromString(jsonString);
+        testBundle = Bundle.buildFromString(jsonString);
 
-		URL url = this.getClass().getResource("bundle_test.json");
-		String path = url.getPath();
-		String newPath = path.replace("bundle_test.json", "bundle_test_out.json");
-		PrintWriter pw = new PrintWriter(newPath);
-		if (pw != null) {
-			System.out.println("writing to: " + newPath);
-			pw.write(gson.toJson(testBundle));
-			pw.close();
-		} else {
-			System.out.println("output not found: " + newPath);
-		}
-		System.out.println("bundle: " + gson.toJson(testBundle));
-	}
+        URL url = this.getClass().getResource("bundle_test.json");
+        String path = url.getPath();
+        String newPath = path.replace("bundle_test.json", "bundle_test_out.json");
+        PrintWriter pw = new PrintWriter(newPath);
+        if (pw != null) {
+            System.out.println("writing to: " + newPath);
+            pw.write(gson.toJson(testBundle));
+            pw.close();
+        } else {
+            System.out.println("output not found: " + newPath);
+        }
+        System.out.println("bundle: " + gson.toJson(testBundle));
+    }
 
-	@After
-	public void tearDown() throws Exception {
-	}
+    @After
+    public void tearDown() throws Exception {
+    }
 
-	@Test
-	public void getType() {
+    @Test
+    public void getType() {
 
-		assert (testBundle.getType().equals(Types.BUNDLE_TYPE));
-	}
+        assert (testBundle.getType().equals(Types.BUNDLE_TYPE));
+    }
 //
 //	@Test
 //	public void setType() {

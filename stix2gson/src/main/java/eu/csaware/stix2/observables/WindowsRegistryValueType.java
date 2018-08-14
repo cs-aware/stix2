@@ -4,6 +4,7 @@ package eu.csaware.stix2.observables;
 import java.util.HashMap;
 import java.util.Map;
 import javax.validation.constraints.NotNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -12,7 +13,6 @@ public class WindowsRegistryValueType {
     /**
      * Specifies the name of the registry value. For specifying the default value in a registry key, an empty string MUST be used.
      * (Required)
-     * 
      */
     @SerializedName("name")
     @Expose
@@ -20,14 +20,12 @@ public class WindowsRegistryValueType {
     private String name;
     /**
      * Specifies the data contained in the registry value.
-     * 
      */
     @SerializedName("data")
     @Expose
     private String data;
     /**
      * Specifies the registry (REG_*) data type used in the registry value.
-     * 
      */
     @SerializedName("data_type")
     @Expose
@@ -35,13 +33,11 @@ public class WindowsRegistryValueType {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public WindowsRegistryValueType() {
     }
 
     /**
-     * 
      * @param data
      * @param dataType
      * @param name
@@ -56,7 +52,6 @@ public class WindowsRegistryValueType {
     /**
      * Specifies the name of the registry value. For specifying the default value in a registry key, an empty string MUST be used.
      * (Required)
-     * 
      */
     public String getName() {
         return name;
@@ -65,7 +60,6 @@ public class WindowsRegistryValueType {
     /**
      * Specifies the name of the registry value. For specifying the default value in a registry key, an empty string MUST be used.
      * (Required)
-     * 
      */
     public void setName(String name) {
         this.name = name;
@@ -73,7 +67,6 @@ public class WindowsRegistryValueType {
 
     /**
      * Specifies the data contained in the registry value.
-     * 
      */
     public String getData() {
         return data;
@@ -81,7 +74,6 @@ public class WindowsRegistryValueType {
 
     /**
      * Specifies the data contained in the registry value.
-     * 
      */
     public void setData(String data) {
         this.data = data;
@@ -89,7 +81,6 @@ public class WindowsRegistryValueType {
 
     /**
      * Specifies the registry (REG_*) data type used in the registry value.
-     * 
      */
     public DataType getDataType() {
         return dataType;
@@ -97,7 +88,6 @@ public class WindowsRegistryValueType {
 
     /**
      * Specifies the registry (REG_*) data type used in the registry value.
-     * 
      */
     public void setDataType(DataType dataType) {
         this.dataType = dataType;
@@ -109,18 +99,18 @@ public class WindowsRegistryValueType {
         sb.append(WindowsRegistryValueType.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("name");
         sb.append('=');
-        sb.append(((this.name == null)?"<null>":this.name));
+        sb.append(((this.name == null) ? "<null>" : this.name));
         sb.append(',');
         sb.append("data");
         sb.append('=');
-        sb.append(((this.data == null)?"<null>":this.data));
+        sb.append(((this.data == null) ? "<null>" : this.data));
         sb.append(',');
         sb.append("dataType");
         sb.append('=');
-        sb.append(((this.dataType == null)?"<null>":this.dataType));
+        sb.append(((this.dataType == null) ? "<null>" : this.dataType));
         sb.append(',');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
         } else {
             sb.append(']');
         }
@@ -130,9 +120,9 @@ public class WindowsRegistryValueType {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result* 31)+((this.name == null)? 0 :this.name.hashCode()));
-        result = ((result* 31)+((this.data == null)? 0 :this.data.hashCode()));
-        result = ((result* 31)+((this.dataType == null)? 0 :this.dataType.hashCode()));
+        result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
+        result = ((result * 31) + ((this.data == null) ? 0 : this.data.hashCode()));
+        result = ((result * 31) + ((this.dataType == null) ? 0 : this.dataType.hashCode()));
         return result;
     }
 
@@ -145,7 +135,7 @@ public class WindowsRegistryValueType {
             return false;
         }
         WindowsRegistryValueType rhs = ((WindowsRegistryValueType) other);
-        return ((((this.name == rhs.name)||((this.name!= null)&&this.name.equals(rhs.name)))&&((this.data == rhs.data)||((this.data!= null)&&this.data.equals(rhs.data))))&&((this.dataType == rhs.dataType)||((this.dataType!= null)&&this.dataType.equals(rhs.dataType))));
+        return ((((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name))) && ((this.data == rhs.data) || ((this.data != null) && this.data.equals(rhs.data)))) && ((this.dataType == rhs.dataType) || ((this.dataType != null) && this.dataType.equals(rhs.dataType))));
     }
 
     public enum DataType {
@@ -180,7 +170,7 @@ public class WindowsRegistryValueType {
         private final static Map<String, DataType> CONSTANTS = new HashMap<String, DataType>();
 
         static {
-            for (DataType c: values()) {
+            for (DataType c : values()) {
                 CONSTANTS.put(c.value, c);
             }
         }
