@@ -3,7 +3,7 @@
 	"id":"identity--023d105b-752e-4e3c-941c-7d3f3cb15e9e",
 	"name":"larissa_LPA",
 	"identity_class":"organization",
-	"sectors":[],
+	"sectors":["government-local"],
 	"labels":
 		[
 			"Local","public","administration"
