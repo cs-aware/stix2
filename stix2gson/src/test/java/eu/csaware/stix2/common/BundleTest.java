@@ -2,6 +2,7 @@ package eu.csaware.stix2.common;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import eu.csaware.stix2.util.TestUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,21 +21,7 @@ public class BundleTest {
 
 	@Before
 	public void setUp() throws Exception {
-		StringBuffer sb = new StringBuffer();
-		String line;
-		InputStream inputStream = this.getClass().getResourceAsStream("bundle_test.json");
-		if (inputStream != null) {
-			BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-
-			while ((line = br.readLine()) != null) {
-				sb.append(line);
-			}
-			inputStream.close();
-		} else {
-			System.out.println("input stream not found");
-			return;
-		}
-		jsonString = sb.toString();
+		String jsonString = TestUtil.readResourceFile("common/bundle_test.json");
 
 		Gson gson = new GsonBuilder()
 				  .setPrettyPrinting()

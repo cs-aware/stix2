@@ -2,6 +2,7 @@ package eu.csaware.stix2.common;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import eu.csaware.stix2.util.TestUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -63,23 +64,8 @@ public class ExternalReferenceTest {
 				  .setPrettyPrinting()
 				  .create();
 
-		StringBuffer sb = new StringBuffer();
-		String line;
-		String jsonString;
-		InputStream inputStream = this.getClass().getResourceAsStream("externalRefence.json");
+		String jsonString = TestUtil.readResourceFile("common/externalRefence.json");
 
-		if (inputStream != null) {
-			BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-
-			while ((line = br.readLine()) != null) {
-				sb.append(line);
-			}
-			inputStream.close();
-		} else {
-			System.out.println("input stream not found");
-			return;
-		}
-		jsonString = sb.toString();
 		ExternalReference er = gson.fromJson(jsonString, ExternalReference.class);
 		System.out.println("er: " + gson.toJson(er));
 	}
