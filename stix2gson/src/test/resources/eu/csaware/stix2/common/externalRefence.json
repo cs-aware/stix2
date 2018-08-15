@@ -1,0 +1,7 @@
+{
+  "source_name": "cve",
+  "external_id": "CVE-1234-0321",
+  "hashes": {
+    "SHA-256": "35a01331e9ad96f751278b891b6ea09699806faedfa237d40513d92ad1b7100f"
+  }
+}

@@ -1,0 +1,16 @@
+antlr4-python3-runtime==4.7.1
+appdirs==1.4.3
+certifi==2018.4.16
+chardet==3.0.4
+colorama==0.3.9
+idna==2.7
+jsonschema==2.5.1
+python-dateutil==2.7.3
+requests==2.19.1
+requests-cache==0.4.13
+simplejson==3.16.0
+six==1.11.0
+stix2-patterns==1.0.0
+stix2-validator==1.0.1
+urllib3==1.23
+wincertstore==0.2

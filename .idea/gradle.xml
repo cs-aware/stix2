@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$/stix2gson" />
           </set>
         </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

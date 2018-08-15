@@ -11,20 +11,20 @@ import java.time.format.DateTimeFormatter;
 
 public class LocalDateTimeTypeAdapter extends TypeAdapter<LocalDateTime> {
 
-	private static String pattern = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'";
+    private static String pattern = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'";
 
-	@Override
-	public void write(JsonWriter out, LocalDateTime value) throws IOException {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-		String timeString = value.format(formatter);
-		out.value(timeString);
-	}
+    @Override
+    public void write(JsonWriter out, LocalDateTime value) throws IOException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        String timeString = value.format(formatter);
+        out.value(timeString);
+    }
 
-	@Override
-	public LocalDateTime read(JsonReader in) throws IOException {
-		String timeString = in.nextString();
-		ZonedDateTime zdt = ZonedDateTime.parse(timeString);
-		LocalDateTime localDateTime = zdt.toLocalDateTime();
-		return localDateTime;
-	}
+    @Override
+    public LocalDateTime read(JsonReader in) throws IOException {
+        String timeString = in.nextString();
+        ZonedDateTime zdt = ZonedDateTime.parse(timeString);
+        LocalDateTime localDateTime = zdt.toLocalDateTime();
+        return localDateTime;
+    }
 }

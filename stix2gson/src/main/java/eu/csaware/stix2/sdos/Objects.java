@@ -2,10 +2,8 @@
 package eu.csaware.stix2.sdos;
 
 
-
 /**
  * A dictionary of Cyber Observable Objects that describes the single 'fact' that was observed.
- * 
  */
 public class Objects {
 
@@ -14,8 +12,8 @@ public class Objects {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(Objects.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
         } else {
             sb.append(']');
         }

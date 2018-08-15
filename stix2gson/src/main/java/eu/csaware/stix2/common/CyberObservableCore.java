@@ -11,14 +11,13 @@ import com.google.gson.annotations.SerializedName;
  * cyber-observable-core
  * <p>
  * Common properties and behavior across all Cyber Observable Objects.
- * 
  */
 public class CyberObservableCore {
 
     /**
      * Indicates that this object is an Observable Object. The value of this property MUST be a valid Observable Object type name, but to allow for custom objects this has been removed from the schema.
      * (Required)
-     * 
+     *
      */
 //    @SerializedName("type")
 //    @Expose
@@ -30,7 +29,6 @@ public class CyberObservableCore {
      * dictionary
      * <p>
      * A dictionary captures a set of key/value pairs
-     * 
      */
     @SerializedName("extensions")
     @Expose
@@ -39,17 +37,14 @@ public class CyberObservableCore {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public CyberObservableCore() {
     }
 
     /**
-     * 
-     * @param extensions
-//     * @param type
+     * @param extensions //     * @param type
      */
-    public CyberObservableCore( Dictionary extensions) {
+    public CyberObservableCore(Dictionary extensions) {
         super();
 //        this.type = type;
         this.extensions = extensions;
@@ -77,7 +72,6 @@ public class CyberObservableCore {
      * dictionary
      * <p>
      * A dictionary captures a set of key/value pairs
-     * 
      */
     public Dictionary getExtensions() {
         return extensions;
@@ -87,7 +81,6 @@ public class CyberObservableCore {
      * dictionary
      * <p>
      * A dictionary captures a set of key/value pairs
-     * 
      */
     public void setExtensions(Dictionary extensions) {
         this.extensions = extensions;
@@ -103,10 +96,10 @@ public class CyberObservableCore {
         sb.append(',');
         sb.append("extensions");
         sb.append('=');
-        sb.append(((this.extensions == null)?"<null>":this.extensions));
+        sb.append(((this.extensions == null) ? "<null>" : this.extensions));
         sb.append(',');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
         } else {
             sb.append(']');
         }
@@ -117,7 +110,7 @@ public class CyberObservableCore {
     public int hashCode() {
         int result = 1;
 //        result = ((result* 31)+((this.type == null)? 0 :this.type.hashCode()));
-        result = ((result* 31)+((this.extensions == null)? 0 :this.extensions.hashCode()));
+        result = ((result * 31) + ((this.extensions == null) ? 0 : this.extensions.hashCode()));
         return result;
     }
 
@@ -130,7 +123,7 @@ public class CyberObservableCore {
             return false;
         }
         CyberObservableCore rhs = ((CyberObservableCore) other);
-        return (((this.extensions == rhs.extensions)||((this.extensions!= null)&&this.extensions.equals(rhs.extensions))));
+        return (((this.extensions == rhs.extensions) || ((this.extensions != null) && this.extensions.equals(rhs.extensions))));
     }
 
 }
