@@ -34,8 +34,8 @@ public class ExternalReferenceTest {
     @Test
     public void writeToFile() {
         Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .create();
+            .setPrettyPrinting()
+            .create();
 
         URL url = this.getClass().getResource("externalRefence.json");
         String path = url.getPath();
@@ -61,8 +61,8 @@ public class ExternalReferenceTest {
     @Test
     public void readFromFile() throws Exception {
         Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .create();
+            .setPrettyPrinting()
+            .create();
 
         String jsonString = TestUtil.readResourceFile("common/externalRefence.json");
 
