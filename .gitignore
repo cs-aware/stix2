@@ -6,3 +6,5 @@
 /stix2gson/build/
 /stix2gson/.gradle/
 out
+venv
+
