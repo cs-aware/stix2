@@ -30,8 +30,10 @@ public class Types {
     public static final String MAC_ADDR_TYPE = "mac-addr";
     public static final String MUTEX_TYPE = "mutex";
     public static final String NETWORK_TRAFFIC_TYPE = "network-traffic";
+    public static final String PROCESS = "process";
     public static final String SOFTWARE_TYPE = "software";
     public static final String URL_TYPE = "url";
     public static final String USER_ACCOUNT_TYPE = "user-account";
     public static final String WINDOWS_REGISTRY_KEY_TYPE = "windows-registry-key";
+    public static final String X_509_CERTIFICATE = "x509-certificate";
 }

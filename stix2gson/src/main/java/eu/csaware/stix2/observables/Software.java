@@ -51,7 +51,7 @@ public class Software extends CyberObservableCore {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> languages = new ArrayList<String>();
+    private List<String> languages;
     /**
      * Specifies the name of the vendor of the software.
      */

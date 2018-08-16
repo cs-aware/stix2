@@ -4,16 +4,13 @@ package eu.csaware.stix2.observables;
 
 import eu.csaware.stix2.common.Dictionary;
 
-public class FileExtensionsDictionary extends Dictionary {
+public class ProcessExtensionsDictionary extends Dictionary {
 
-    public FileExtensionsDictionary() {
-        super();
-    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(FileExtensionsDictionary.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(ProcessExtensionsDictionary.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         if (sb.charAt((sb.length() - 1)) == ',') {
             sb.setCharAt((sb.length() - 1), ']');
         } else {
@@ -33,10 +30,10 @@ public class FileExtensionsDictionary extends Dictionary {
         if (other == this) {
             return true;
         }
-        if ((other instanceof FileExtensionsDictionary) == false) {
+        if ((other instanceof ProcessExtensionsDictionary) == false) {
             return false;
         }
-        FileExtensionsDictionary rhs = ((FileExtensionsDictionary) other);
+        ProcessExtensionsDictionary rhs = ((ProcessExtensionsDictionary) other);
         return true;
     }
 

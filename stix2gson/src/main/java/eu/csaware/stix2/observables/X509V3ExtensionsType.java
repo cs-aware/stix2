@@ -4,18 +4,15 @@ package eu.csaware.stix2.observables;
 
 import eu.csaware.stix2.common.Dictionary;
 
-public class FileExtensionsDictionary extends Dictionary {
+public class X509V3ExtensionsType extends Dictionary {
 
-    public FileExtensionsDictionary() {
-        super();
-    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(FileExtensionsDictionary.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        if (sb.charAt((sb.length() - 1)) == ',') {
-            sb.setCharAt((sb.length() - 1), ']');
+        sb.append(X509V3ExtensionsType.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        if (sb.charAt((sb.length()- 1)) == ',') {
+            sb.setCharAt((sb.length()- 1), ']');
         } else {
             sb.append(']');
         }
@@ -33,10 +30,10 @@ public class FileExtensionsDictionary extends Dictionary {
         if (other == this) {
             return true;
         }
-        if ((other instanceof FileExtensionsDictionary) == false) {
+        if ((other instanceof X509V3ExtensionsType) == false) {
             return false;
         }
-        FileExtensionsDictionary rhs = ((FileExtensionsDictionary) other);
+        X509V3ExtensionsType rhs = ((X509V3ExtensionsType) other);
         return true;
     }
 

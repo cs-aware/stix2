@@ -5,6 +5,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
+import eu.csaware.stix2.observables.*;
+import eu.csaware.stix2.observables.Process;
 import eu.csaware.stix2.sdos.*;
 import eu.csaware.stix2.sros.Relationship;
 import eu.csaware.stix2.sros.Sighting;
@@ -98,7 +101,29 @@ public class Bundle {
      */
     public static Bundle buildFromString(String jsonString) {
 
+        final RuntimeTypeAdapterFactory<CyberObservableCore> typeFactory = RuntimeTypeAdapterFactory
+            .of(CyberObservableCore.class, "type")
+            .registerSubtype(Artifact.class, Types.ARTIFACT_TYPE)
+            .registerSubtype(AutonomousSystem.class, Types.AUTONOMOUS_SYSTEM_TYPE)
+            .registerSubtype(Directory.class, Types.DIRECTORY_TYPE)
+            .registerSubtype(DomainName.class, Types.DOMAIN_NAME_TYPE)
+            .registerSubtype(EmailAddr.class, Types.EMAIL_ADDR_TYPE)
+            .registerSubtype(EmailMessage.class, Types.EMAIL_MESSAGE_TYPE)
+            .registerSubtype(File.class, Types.FILE_TYPE)
+            .registerSubtype(Ipv4Addr.class, Types.IPV4_ADDR_TYPE)
+            .registerSubtype(Ipv6Addr.class, Types.IPV6_ADDR_TYPE)
+            .registerSubtype(MacAddr.class, Types.MAC_ADDR_TYPE)
+            .registerSubtype(Mutex.class, Types.MUTEX_TYPE)
+            .registerSubtype(NetworkTraffic.class, Types.NETWORK_TRAFFIC_TYPE)
+            .registerSubtype(Process.class, Types.PROCESS)
+            .registerSubtype(Software.class, Types.SOFTWARE_TYPE)
+            .registerSubtype(Url.class, Types.URL_TYPE)
+            .registerSubtype(UserAccount.class, Types.USER_ACCOUNT_TYPE)
+            .registerSubtype(WindowsRegistryKey.class, Types.WINDOWS_REGISTRY_KEY_TYPE)
+            .registerSubtype(X509Certificate.class, Types.X_509_CERTIFICATE);
+
         Gson gson = new GsonBuilder()
+            .registerTypeAdapterFactory(typeFactory)
             .setPrettyPrinting()
             .create();
 
