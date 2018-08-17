@@ -280,6 +280,9 @@ public class Bundle {
             return false;
         }
         Bundle rhs = ((Bundle) other);
-        return (((((this.specVersion == rhs.specVersion) || ((this.specVersion != null) && this.specVersion.equals(rhs.specVersion))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))));
+        return (((((this.specVersion == rhs.specVersion) || ((this.specVersion != null) && this.specVersion.equals(rhs.specVersion))) &&
+            ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) &&
+            ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) &&
+            ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))));
     }
 }
