@@ -238,80 +238,80 @@ public abstract class Core {
         this.granularMarkings = granularMarkings;
     }
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(Core.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-		sb.append("createdByRef");
-		sb.append('=');
-		sb.append(((this.createdByRef == null) ? "<null>" : this.createdByRef));
-		sb.append(',');
-		sb.append("labels");
-		sb.append('=');
-		sb.append(((this.labels == null) ? "<null>" : this.labels));
-		sb.append(',');
-		sb.append("created");
-		sb.append('=');
-		sb.append(((this.created == null) ? "<null>" : this.created));
-		sb.append(',');
-		sb.append("modified");
-		sb.append('=');
-		sb.append(((this.modified == null) ? "<null>" : this.modified));
-		sb.append(',');
-		sb.append("revoked");
-		sb.append('=');
-		sb.append(((this.revoked == null) ? "<null>" : this.revoked));
-		sb.append(',');
-		sb.append("externalReferences");
-		sb.append('=');
-		sb.append(((this.externalReferences == null) ? "<null>" : this.externalReferences));
-		sb.append(',');
-		sb.append("objectMarkingRefs");
-		sb.append('=');
-		sb.append(((this.objectMarkingRefs == null) ? "<null>" : this.objectMarkingRefs));
-		sb.append(',');
-		sb.append("granularMarkings");
-		sb.append('=');
-		sb.append(((this.granularMarkings == null) ? "<null>" : this.granularMarkings));
-		sb.append(',');
-		if (sb.charAt((sb.length() - 1)) == ',') {
-			sb.setCharAt((sb.length() - 1), ']');
-		} else {
-			sb.append(']');
-		}
-		return sb.toString();
-	}
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Core.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("createdByRef");
+        sb.append('=');
+        sb.append(((this.createdByRef == null) ? "<null>" : this.createdByRef));
+        sb.append(',');
+        sb.append("labels");
+        sb.append('=');
+        sb.append(((this.labels == null) ? "<null>" : this.labels));
+        sb.append(',');
+        sb.append("created");
+        sb.append('=');
+        sb.append(((this.created == null) ? "<null>" : this.created));
+        sb.append(',');
+        sb.append("modified");
+        sb.append('=');
+        sb.append(((this.modified == null) ? "<null>" : this.modified));
+        sb.append(',');
+        sb.append("revoked");
+        sb.append('=');
+        sb.append(((this.revoked == null) ? "<null>" : this.revoked));
+        sb.append(',');
+        sb.append("externalReferences");
+        sb.append('=');
+        sb.append(((this.externalReferences == null) ? "<null>" : this.externalReferences));
+        sb.append(',');
+        sb.append("objectMarkingRefs");
+        sb.append('=');
+        sb.append(((this.objectMarkingRefs == null) ? "<null>" : this.objectMarkingRefs));
+        sb.append(',');
+        sb.append("granularMarkings");
+        sb.append('=');
+        sb.append(((this.granularMarkings == null) ? "<null>" : this.granularMarkings));
+        sb.append(',');
+        if (sb.charAt((sb.length() - 1)) == ',') {
+            sb.setCharAt((sb.length() - 1), ']');
+        } else {
+            sb.append(']');
+        }
+        return sb.toString();
+    }
 
-	@Override
-	public int hashCode() {
-		int result = 1;
-		result = ((result * 31) + ((this.externalReferences == null) ? 0 : this.externalReferences.hashCode()));
-		result = ((result * 31) + ((this.created == null) ? 0 : this.created.hashCode()));
-		result = ((result * 31) + ((this.granularMarkings == null) ? 0 : this.granularMarkings.hashCode()));
-		result = ((result * 31) + ((this.modified == null) ? 0 : this.modified.hashCode()));
-		result = ((result * 31) + ((this.createdByRef == null) ? 0 : this.createdByRef.hashCode()));
-		result = ((result * 31) + ((this.objectMarkingRefs == null) ? 0 : this.objectMarkingRefs.hashCode()));
-		result = ((result * 31) + ((this.revoked == null) ? 0 : this.revoked.hashCode()));
-		result = ((result * 31) + ((this.labels == null) ? 0 : this.labels.hashCode()));
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        int result = 1;
+        result = ((result * 31) + ((this.externalReferences == null) ? 0 : this.externalReferences.hashCode()));
+        result = ((result * 31) + ((this.created == null) ? 0 : this.created.hashCode()));
+        result = ((result * 31) + ((this.granularMarkings == null) ? 0 : this.granularMarkings.hashCode()));
+        result = ((result * 31) + ((this.modified == null) ? 0 : this.modified.hashCode()));
+        result = ((result * 31) + ((this.createdByRef == null) ? 0 : this.createdByRef.hashCode()));
+        result = ((result * 31) + ((this.objectMarkingRefs == null) ? 0 : this.objectMarkingRefs.hashCode()));
+        result = ((result * 31) + ((this.revoked == null) ? 0 : this.revoked.hashCode()));
+        result = ((result * 31) + ((this.labels == null) ? 0 : this.labels.hashCode()));
+        return result;
+    }
 
-	@Override
-	public boolean equals(Object other) {
-		if (other == this) {
-			return true;
-		}
-		if ((other instanceof Core) == false) {
-			return false;
-		}
-		Core rhs = ((Core) other);
-		return (((((((((this.externalReferences == rhs.externalReferences) || ((this.externalReferences != null) && this.externalReferences.equals(rhs.externalReferences))) &&
-				  ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) &&
-				  ((this.granularMarkings == rhs.granularMarkings) || ((this.granularMarkings != null) && this.granularMarkings.equals(rhs.granularMarkings)))) &&
-				  ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified)))) &&
-				  ((this.createdByRef == rhs.createdByRef) || ((this.createdByRef != null) && this.createdByRef.equals(rhs.createdByRef)))) &&
-				  ((this.objectMarkingRefs == rhs.objectMarkingRefs) || ((this.objectMarkingRefs != null) && this.objectMarkingRefs.equals(rhs.objectMarkingRefs)))) &&
-				  ((this.revoked == rhs.revoked) || ((this.revoked != null) && this.revoked.equals(rhs.revoked)))) &&
-				  ((this.labels == rhs.labels) || ((this.labels != null) && this.labels.equals(rhs.labels))));
-	}
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof Core) == false) {
+            return false;
+        }
+        Core rhs = ((Core) other);
+        return (((((((((this.externalReferences == rhs.externalReferences) || ((this.externalReferences != null) && this.externalReferences.equals(rhs.externalReferences))) &&
+            ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) &&
+            ((this.granularMarkings == rhs.granularMarkings) || ((this.granularMarkings != null) && this.granularMarkings.equals(rhs.granularMarkings)))) &&
+            ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified)))) &&
+            ((this.createdByRef == rhs.createdByRef) || ((this.createdByRef != null) && this.createdByRef.equals(rhs.createdByRef)))) &&
+            ((this.objectMarkingRefs == rhs.objectMarkingRefs) || ((this.objectMarkingRefs != null) && this.objectMarkingRefs.equals(rhs.objectMarkingRefs)))) &&
+            ((this.revoked == rhs.revoked) || ((this.revoked != null) && this.revoked.equals(rhs.revoked)))) &&
+            ((this.labels == rhs.labels) || ((this.labels != null) && this.labels.equals(rhs.labels))));
+    }
 }

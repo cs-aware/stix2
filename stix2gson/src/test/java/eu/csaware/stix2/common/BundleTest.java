@@ -24,8 +24,8 @@ public class BundleTest {
         String jsonString = TestUtil.readResourceFile("common/bundle_test.json");
 
         Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .create();
+            .setPrettyPrinting()
+            .create();
 
 //		Map<String, Object> jsonMap = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
 //		}.getType());

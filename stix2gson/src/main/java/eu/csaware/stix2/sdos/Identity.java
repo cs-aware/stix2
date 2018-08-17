@@ -302,12 +302,12 @@ public class Identity extends Core {
         }
         Identity rhs = ((Identity) other);
         return ((((((((super.equals(rhs) && ((this.sectors == rhs.sectors) || ((this.sectors != null) && this.sectors.equals(rhs.sectors))))
-                && ((this.identityClass == rhs.identityClass) || ((this.identityClass != null) && this.identityClass.equals(rhs.identityClass))))
-                && ((this.contactInformation == rhs.contactInformation) || ((this.contactInformation != null)
-                && this.contactInformation.equals(rhs.contactInformation))))
-                && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name))))
-                && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description))))
-                && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id))))
-                && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+            && ((this.identityClass == rhs.identityClass) || ((this.identityClass != null) && this.identityClass.equals(rhs.identityClass))))
+            && ((this.contactInformation == rhs.contactInformation) || ((this.contactInformation != null)
+            && this.contactInformation.equals(rhs.contactInformation))))
+            && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name))))
+            && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description))))
+            && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id))))
+            && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
     }
 }
