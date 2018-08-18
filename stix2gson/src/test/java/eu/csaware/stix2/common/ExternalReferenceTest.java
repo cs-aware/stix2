@@ -7,9 +7,11 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.rmi.server.ExportException;
 
 class ExternalReferenceTest {
 
@@ -32,28 +34,17 @@ class ExternalReferenceTest {
     }
 
     @Test
-    void writeToFile() {
+    void writeToFile() throws Exception {
         Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .create();
 
-        URL url = this.getClass().getResource("externalRefence.json");
-        String path = url.getPath();
-        String newPath = path.replace("externalRefence.json", "externalRefence_out.json");
-        System.out.println("path: " + path.toString() + " newPath: " + newPath.toString());
-        PrintWriter pw = null;
-        try {
-            pw = new PrintWriter(newPath);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (pw != null) {
-            System.out.println("writing to: " + newPath);
-            pw.write(gson.toJson(externalReference));
-            pw.close();
-        } else {
-            System.out.println("output not found: " + newPath);
-        }
+        File outputFile = TestUtil.getSerializedOutputFile("external_refence.json");
+
+        PrintWriter pw =  new PrintWriter(outputFile);
+        System.out.println("writing to: " + outputFile);
+        pw.write(gson.toJson(externalReference));
+        pw.close();
         System.out.println("externalReference: " + gson.toJson(externalReference));
 
     }
