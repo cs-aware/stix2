@@ -3,20 +3,20 @@ package eu.csaware.stix2.common;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import eu.csaware.stix2.util.TestUtil;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.net.URL;
-import java.time.LocalDateTime;
 
-public class ExternalReferenceTest {
+class ExternalReferenceTest {
 
-    private ExternalReference externalReference;
+    private static ExternalReference externalReference;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeAll
+    static void setUp() throws Exception {
         externalReference = new ExternalReference();
         HashesType hashes = new HashesType();
         hashes.setHashType(HashType.SHA256);
@@ -27,12 +27,12 @@ public class ExternalReferenceTest {
         externalReference.setSourceName("cve");
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @AfterAll
+    static void tearDown() throws Exception {
     }
 
     @Test
-    public void writeToFile() {
+    void writeToFile() {
         Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .create();
@@ -59,7 +59,7 @@ public class ExternalReferenceTest {
     }
 
     @Test
-    public void readFromFile() throws Exception {
+    void readFromFile() throws Exception {
         Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .create();
