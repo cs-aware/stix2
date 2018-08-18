@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import eu.csaware.stix2.util.TestUtil;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -52,8 +53,7 @@ public class BundleTest {
 
     @Test
     public void getType() {
-
-        assert (testBundle.getType().equals(Types.BUNDLE_TYPE));
+        Assert.assertEquals(Types.BUNDLE_TYPE, testBundle.getType());
     }
 //
 //	@Test
