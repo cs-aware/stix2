@@ -18,15 +18,29 @@ public class TestUtil {
         return readFile(RESOURCE_BASE_PATH + path);
     }
 
-    public static File getSerializedOutputFile(String filename) throws IOException {
-        File base = new File(SERIALIZED_BASE_PATH);
-        base.mkdirs();
-        return new File(base, filename);
+    public static Path writeSerializedOutputFile(String filename, String content) throws IOException {
+        ensureDirectoryExists(SERIALIZED_BASE_PATH);
+        return writeFile(SERIALIZED_BASE_PATH + filename, content);
+    }
+
+    public static Path getSerializedOutputPath(String filename) throws IOException {
+        ensureDirectoryExists(SERIALIZED_BASE_PATH);
+        return Paths.get(SERIALIZED_BASE_PATH + filename);
     }
 
     public static String readFile(String path) throws IOException {
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return new String(encoded, StandardCharsets.UTF_8);
+    }
+
+    public static Path writeFile(String path, String content) throws IOException {
+        return Files.write(Paths.get(path), content.getBytes());
+    }
+
+    private static File ensureDirectoryExists(String path) {
+        File base = new File(path);
+        base.mkdirs();
+        return base;
     }
 
 }

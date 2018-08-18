@@ -39,14 +39,9 @@ class ExternalReferenceTest {
             .setPrettyPrinting()
             .create();
 
-        File outputFile = TestUtil.getSerializedOutputFile("external_refence.json");
-
-        PrintWriter pw =  new PrintWriter(outputFile);
-        System.out.println("writing to: " + outputFile);
-        pw.write(gson.toJson(externalReference));
-        pw.close();
-        System.out.println("externalReference: " + gson.toJson(externalReference));
-
+        String content = gson.toJson(externalReference);
+        TestUtil.writeSerializedOutputFile("external_refence.json", content);
+        System.out.println(content);
     }
 
     @Test
@@ -56,7 +51,6 @@ class ExternalReferenceTest {
             .create();
 
         String jsonString = TestUtil.readResourceFile("common/externalRefence.json");
-
         ExternalReference er = gson.fromJson(jsonString, ExternalReference.class);
         System.out.println("er: " + gson.toJson(er));
     }

@@ -33,12 +33,9 @@ class BundleTest {
             .setPrettyPrinting()
             .create();
 
-        File outputFile = TestUtil.getSerializedOutputFile("bundle_test.json");
-        PrintWriter pw = new PrintWriter(outputFile);
-        System.out.println("writing to: " + outputFile);
-        pw.write(gson.toJson(testBundle));
-        pw.close();
-        System.out.println("bundle: " + gson.toJson(testBundle));
+        String content = gson.toJson(testBundle);
+        TestUtil.writeSerializedOutputFile("bundle.json", content);
+        System.out.println("bundle: " + content);
     }
 
     @Test
