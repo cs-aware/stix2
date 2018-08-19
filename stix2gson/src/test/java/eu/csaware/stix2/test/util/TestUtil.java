@@ -1,4 +1,4 @@
-package eu.csaware.stix2.util;
+package eu.csaware.stix2.test.util;
 
 import java.io.File;
 import java.io.IOException;

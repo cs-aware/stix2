@@ -1,17 +1,14 @@
-package eu.csaware.stix2.common;
+package eu.csaware.stix2.test.custom.common;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import eu.csaware.stix2.util.TestUtil;
+import eu.csaware.stix2.common.ExternalReference;
+import eu.csaware.stix2.common.HashType;
+import eu.csaware.stix2.common.HashesType;
+import eu.csaware.stix2.test.util.TestUtil;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.net.URL;
-import java.rmi.server.ExportException;
 
 class ExternalReferenceTest {
 

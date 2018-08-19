@@ -1,15 +1,14 @@
-package eu.csaware.stix2.common;
+package eu.csaware.stix2.test.custom.common;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import eu.csaware.stix2.util.TestUtil;
+import eu.csaware.stix2.common.Bundle;
+import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.test.util.TestUtil;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
-import java.io.PrintWriter;
-import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -40,7 +39,7 @@ class BundleTest {
 
     @Test
     void getType() {
-        assertEquals(Types.BUNDLE_TYPE, testBundle.getType());
+        Assertions.assertEquals(Types.BUNDLE_TYPE, testBundle.getType());
     }
 //
 //	@Test
