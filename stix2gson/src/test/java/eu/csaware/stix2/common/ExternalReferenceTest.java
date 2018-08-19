@@ -3,20 +3,22 @@ package eu.csaware.stix2.common;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import eu.csaware.stix2.util.TestUtil;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.net.URL;
-import java.time.LocalDateTime;
+import java.rmi.server.ExportException;
 
-public class ExternalReferenceTest {
+class ExternalReferenceTest {
 
-    private ExternalReference externalReference;
+    private static ExternalReference externalReference;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeAll
+    static void setUp() throws Exception {
         externalReference = new ExternalReference();
         HashesType hashes = new HashesType();
         hashes.setHashType(HashType.SHA256);
@@ -27,45 +29,28 @@ public class ExternalReferenceTest {
         externalReference.setSourceName("cve");
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @AfterAll
+    static void tearDown() throws Exception {
     }
 
     @Test
-    public void writeToFile() {
+    void writeToFile() throws Exception {
         Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .create();
+            .setPrettyPrinting()
+            .create();
 
-        URL url = this.getClass().getResource("externalRefence.json");
-        String path = url.getPath();
-        String newPath = path.replace("externalRefence.json", "externalRefence_out.json");
-        System.out.println("path: " + path.toString() + " newPath: " + newPath.toString());
-        PrintWriter pw = null;
-        try {
-            pw = new PrintWriter(newPath);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (pw != null) {
-            System.out.println("writing to: " + newPath);
-            pw.write(gson.toJson(externalReference));
-            pw.close();
-        } else {
-            System.out.println("output not found: " + newPath);
-        }
-        System.out.println("externalReference: " + gson.toJson(externalReference));
-
+        String content = gson.toJson(externalReference);
+        TestUtil.writeSerializedOutputFile("external_refence.json", content);
+        System.out.println(content);
     }
 
     @Test
-    public void readFromFile() throws Exception {
+    void readFromFile() throws Exception {
         Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .create();
+            .setPrettyPrinting()
+            .create();
 
         String jsonString = TestUtil.readResourceFile("common/externalRefence.json");
-
         ExternalReference er = gson.fromJson(jsonString, ExternalReference.class);
         System.out.println("er: " + gson.toJson(er));
     }

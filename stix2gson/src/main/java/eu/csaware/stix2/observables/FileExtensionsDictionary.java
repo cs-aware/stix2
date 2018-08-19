@@ -1,6 +1,7 @@
 
 package eu.csaware.stix2.observables;
 
+
 import eu.csaware.stix2.common.Dictionary;
 
 public class FileExtensionsDictionary extends Dictionary {

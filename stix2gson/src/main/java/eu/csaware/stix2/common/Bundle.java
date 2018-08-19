@@ -5,6 +5,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
+import eu.csaware.stix2.observables.*;
+import eu.csaware.stix2.observables.Process;
 import eu.csaware.stix2.sdos.*;
 import eu.csaware.stix2.sros.Relationship;
 import eu.csaware.stix2.sros.Sighting;
@@ -88,81 +91,64 @@ public class Bundle {
         this.objects = objects;
     }
 
+
+    /**
+     * Build a Bundle object from a JSON string.
+     * The list of objects in Bundle will be added objects of the type stated in the string.
+     *
+     * @param jsonString String with valid JSON structure
+     * @return Bundle object with data from the jsonString string
+     */
     public static Bundle buildFromString(String jsonString) {
 
+        final RuntimeTypeAdapterFactory<CyberObservableCore> cyberObservableTypeAdaptor = RuntimeTypeAdapterFactory
+            .of(CyberObservableCore.class, "type")
+            .registerSubtype(Artifact.class, Types.ARTIFACT_TYPE)
+            .registerSubtype(AutonomousSystem.class, Types.AUTONOMOUS_SYSTEM_TYPE)
+            .registerSubtype(Directory.class, Types.DIRECTORY_TYPE)
+            .registerSubtype(DomainName.class, Types.DOMAIN_NAME_TYPE)
+            .registerSubtype(EmailAddr.class, Types.EMAIL_ADDR_TYPE)
+            .registerSubtype(EmailMessage.class, Types.EMAIL_MESSAGE_TYPE)
+            .registerSubtype(File.class, Types.FILE_TYPE)
+            .registerSubtype(Ipv4Addr.class, Types.IPV4_ADDR_TYPE)
+            .registerSubtype(Ipv6Addr.class, Types.IPV6_ADDR_TYPE)
+            .registerSubtype(MacAddr.class, Types.MAC_ADDR_TYPE)
+            .registerSubtype(Mutex.class, Types.MUTEX_TYPE)
+            .registerSubtype(NetworkTraffic.class, Types.NETWORK_TRAFFIC_TYPE)
+            .registerSubtype(Process.class, Types.PROCESS)
+            .registerSubtype(Software.class, Types.SOFTWARE_TYPE)
+            .registerSubtype(Url.class, Types.URL_TYPE)
+            .registerSubtype(UserAccount.class, Types.USER_ACCOUNT_TYPE)
+            .registerSubtype(WindowsRegistryKey.class, Types.WINDOWS_REGISTRY_KEY_TYPE)
+            .registerSubtype(X509Certificate.class, Types.X_509_CERTIFICATE);
+
+        final RuntimeTypeAdapterFactory<Core> coreTypeAdptor = RuntimeTypeAdapterFactory
+            .of(Core.class, "type")
+            .registerSubtype(AttackPattern.class, Types.ATTACK_PATTERS_TYPE)
+            .registerSubtype(Campaign.class, Types.CAMPAIGN_TYPE)
+            .registerSubtype(CourseOfAction.class, Types.COURSE_OF_ACTION_TYPE)
+            .registerSubtype(Identity.class, Types.IDENTITY_TYPE)
+            .registerSubtype(Indicator.class, Types.INDICATOR_TYPE)
+            .registerSubtype(IntrusionSet.class, Types.INTRUSION_SET_TYPE)
+            .registerSubtype(Malware.class, Types.MALWARE_TYPE)
+            .registerSubtype(ObservedData.class, Types.OBSERVED_DATA_TYPE)
+            .registerSubtype(Report.class, Types.REPORT_TYPE)
+            .registerSubtype(ThreatActor.class, Types.THREAT_ACTOR_TYPE)
+            .registerSubtype(Relationship.class, Types.RELATIONSHIP_TYPE)
+            .registerSubtype(Sighting.class, Types.SIGHTING_TYPE)
+            .registerSubtype(Tool.class, Types.TOOL_TYPE)
+            .registerSubtype(Vulnerability.class, Types.VULNERABILITY_TYPE);
+
+
         Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .create();
+            .registerTypeAdapterFactory(cyberObservableTypeAdaptor)
+            .registerTypeAdapterFactory(coreTypeAdptor)
+            .setPrettyPrinting()
+            .create();
 
         Bundle bundle = gson.fromJson(jsonString, Bundle.class);
-        Bundle resultBundle = new Bundle();
-        resultBundle.setType(Types.BUNDLE_TYPE);
-        resultBundle.setId(bundle.getId());
 
-        bundle.getObjects().forEach((obj) -> {
-            Map<String, Object> objMap = (Map<String, Object>) obj;
-            String type = (String) objMap.get("type");
-            String objectString = gson.toJson(obj);
-            switch (type) {
-                case Types.ATTACK_PATTERS_TYPE:
-                    AttackPattern attackPattern = gson.fromJson(objectString, AttackPattern.class);
-                    resultBundle.getObjects().add(attackPattern);
-                    break;
-                case Types.CAMPAIGN_TYPE:
-                    Campaign campaign = gson.fromJson(objectString, Campaign.class);
-                    resultBundle.getObjects().add(campaign);
-                case Types.COURSE_OF_ACTION_TYPE:
-                    CourseOfAction courseOfAction = gson.fromJson(objectString, CourseOfAction.class);
-                    resultBundle.getObjects().add(courseOfAction);
-                    break;
-                case Types.IDENTITY_TYPE:
-                    Identity identity = gson.fromJson(objectString, Identity.class);
-                    resultBundle.getObjects().add(identity);
-                    break;
-                case Types.INDICATOR_TYPE:
-                    Indicator indicator = gson.fromJson(objectString, Indicator.class);
-                    resultBundle.getObjects().add(indicator);
-                    break;
-                case Types.INTRUSION_SET_TYPE:
-                    IntrusionSet intrusionSet = gson.fromJson(objectString, IntrusionSet.class);
-                    resultBundle.getObjects().add(intrusionSet);
-                    break;
-                case Types.MALWARE_TYPE:
-                    Malware malware = gson.fromJson(objectString, Malware.class);
-                    resultBundle.getObjects().add(malware);
-                    break;
-                case Types.OBSERVED_DATA_TYPE:
-                    ObservedData observedData = gson.fromJson(objectString, ObservedData.class);
-                    resultBundle.getObjects().add(observedData);
-                    break;
-                case Types.REPORT_TYPE:
-                    Report report = gson.fromJson(objectString, Report.class);
-                    resultBundle.getObjects().add(report);
-                    break;
-                case Types.THREAT_ACTOR_TYPE:
-                    ThreatActor threatActor = gson.fromJson(objectString, ThreatActor.class);
-                    resultBundle.getObjects().add(threatActor);
-                case Types.RELATIONSHIP_TYPE:
-                    Relationship relationship = gson.fromJson(objectString, Relationship.class);
-                    resultBundle.getObjects().add(relationship);
-                    break;
-                case Types.SIGHTING_TYPE:
-                    Sighting sighting = gson.fromJson(objectString, Sighting.class);
-                    resultBundle.getObjects().add(sighting);
-                    break;
-                case Types.TOOL_TYPE:
-                    Tool tool = gson.fromJson(objectString, Tool.class);
-                    resultBundle.getObjects().add(tool);
-                    break;
-                case Types.VULNERABILITY_TYPE:
-                    Vulnerability vulnerability = gson.fromJson(objectString, Vulnerability.class);
-                    resultBundle.getObjects().add(vulnerability);
-                    break;
-                default:
-                    throw new IllegalArgumentException("found unknown object type: " + type);
-            }
-        });
-        return resultBundle;
+        return bundle;
     }
 
     /**
@@ -294,6 +280,9 @@ public class Bundle {
             return false;
         }
         Bundle rhs = ((Bundle) other);
-        return (((((this.specVersion == rhs.specVersion) || ((this.specVersion != null) && this.specVersion.equals(rhs.specVersion))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))));
+        return (((((this.specVersion == rhs.specVersion) || ((this.specVersion != null) && this.specVersion.equals(rhs.specVersion))) &&
+            ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) &&
+            ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) &&
+            ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))));
     }
 }

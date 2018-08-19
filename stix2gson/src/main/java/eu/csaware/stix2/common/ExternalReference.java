@@ -196,9 +196,9 @@ public class ExternalReference {
         }
         ExternalReference rhs = ((ExternalReference) other);
         return ((((((this.hashes == rhs.hashes) || ((this.hashes != null) && this.hashes.equals(rhs.hashes))) &&
-                ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) &&
-                ((this.url == rhs.url) || ((this.url != null) && this.url.equals(rhs.url)))) &&
-                ((this.sourceName == rhs.sourceName) || ((this.sourceName != null) && this.sourceName.equals(rhs.sourceName)))) &&
-                ((this.externalId == rhs.externalId) || ((this.externalId != null) && this.externalId.equals(rhs.externalId))));
+            ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) &&
+            ((this.url == rhs.url) || ((this.url != null) && this.url.equals(rhs.url)))) &&
+            ((this.sourceName == rhs.sourceName) || ((this.sourceName != null) && this.sourceName.equals(rhs.sourceName)))) &&
+            ((this.externalId == rhs.externalId) || ((this.externalId != null) && this.externalId.equals(rhs.externalId))));
     }
 }

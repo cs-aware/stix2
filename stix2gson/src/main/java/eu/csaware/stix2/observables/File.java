@@ -32,6 +32,7 @@ public class File extends CyberObservableCore {
     @Expose
     @Pattern(regexp = Types.FILE_TYPE)
     private String type = Types.FILE_TYPE;
+
     @SerializedName("extensions")
     @Expose
     @Valid
@@ -122,7 +123,7 @@ public class File extends CyberObservableCore {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> containsRefs = new ArrayList<String>();
+    private List<String> containsRefs;
     /**
      * Specifies the content of the file, represented as an Artifact Object.
      */

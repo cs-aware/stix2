@@ -90,6 +90,6 @@ public class HashesType {
         HashesType rhs = ((HashesType) other);
 
         return (((this.hashType == rhs.hashType) || ((this.hashType != null) && this.hashType.equals(rhs.hashType))) &&
-                ((this.key == rhs.key) || ((this.key != null) && this.key.equals(rhs.key))));
+            ((this.key == rhs.key) || ((this.key != null) && this.key.equals(rhs.key))));
     }
 }

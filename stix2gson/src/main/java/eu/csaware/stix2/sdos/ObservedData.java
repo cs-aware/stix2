@@ -3,10 +3,7 @@ package eu.csaware.stix2.sdos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import eu.csaware.stix2.common.Core;
-import eu.csaware.stix2.common.ExternalReference;
-import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
@@ -15,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -109,7 +107,8 @@ public class ObservedData extends Core {
     @Expose
     @Valid
     @NotNull
-    private Objects objects;
+//	private Objects objects;
+    private Map<String, CyberObservableCore> objects;
 
     /**
      * No args constructor for use in serialization
@@ -138,7 +137,7 @@ public class ObservedData extends Core {
      * @param objectMarkingRefs
      */
     public ObservedData(String type, String id, String firstObserved, String lastObserved, Integer numberObserved, Integer xDaThreatSeverity,
-                        Integer xDaRiskLevel, Integer xDaExploitabilityLevel, String xDaThreatGroup, Objects objects, String createdByRef,
+                        Integer xDaRiskLevel, Integer xDaExploitabilityLevel, String xDaThreatGroup, Map<String, CyberObservableCore> objects, String createdByRef,
                         List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                         List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
@@ -306,7 +305,7 @@ public class ObservedData extends Core {
      * A dictionary of Cyber Observable Objects that describes the single 'fact' that was observed.
      * (Required)
      */
-    public Objects getObjects() {
+    public Map<String, CyberObservableCore> getObjects() {
         return objects;
     }
 
@@ -314,7 +313,7 @@ public class ObservedData extends Core {
      * A dictionary of Cyber Observable Objects that describes the single 'fact' that was observed.
      * (Required)
      */
-    public void setObjects(Objects objects) {
+    public void setObjects(Map<String, CyberObservableCore> objects) {
         this.objects = objects;
     }
 
@@ -412,5 +411,4 @@ public class ObservedData extends Core {
         ObservedData rhs = ((ObservedData) other);
         return ((((((((((super.equals(rhs) && ((this.xDaRiskLevel == rhs.xDaRiskLevel) || ((this.xDaRiskLevel != null) && this.xDaRiskLevel.equals(rhs.xDaRiskLevel)))) && ((this.xDaThreatGroup == rhs.xDaThreatGroup) || ((this.xDaThreatGroup != null) && this.xDaThreatGroup.equals(rhs.xDaThreatGroup)))) && ((this.firstObserved == rhs.firstObserved) || ((this.firstObserved != null) && this.firstObserved.equals(rhs.firstObserved)))) && ((this.numberObserved == rhs.numberObserved) || ((this.numberObserved != null) && this.numberObserved.equals(rhs.numberObserved)))) && ((this.lastObserved == rhs.lastObserved) || ((this.lastObserved != null) && this.lastObserved.equals(rhs.lastObserved)))) && ((this.xDaExploitabilityLevel == rhs.xDaExploitabilityLevel) || ((this.xDaExploitabilityLevel != null) && this.xDaExploitabilityLevel.equals(rhs.xDaExploitabilityLevel)))) && ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects)))) && ((this.xDaThreatSeverity == rhs.xDaThreatSeverity) || ((this.xDaThreatSeverity != null) && this.xDaThreatSeverity.equals(rhs.xDaThreatSeverity)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type))));
     }
-
 }

@@ -69,7 +69,7 @@ public abstract class Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<ExternalReference> externalReferences = new ArrayList<ExternalReference>();
+    private List<ExternalReference> externalReferences;
     /**
      * The list of marking-definition objects to be applied to this object.
      */
@@ -77,7 +77,7 @@ public abstract class Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> objectMarkingRefs = new ArrayList<String>();
+    private List<String> objectMarkingRefs;
     /**
      * The set of granular markings that apply to this object.
      */
@@ -85,7 +85,7 @@ public abstract class Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<GranularMarking> granularMarkings = new ArrayList<GranularMarking>();
+    private List<GranularMarking> granularMarkings;
 
     /**
      * No args constructor for use in serialization
@@ -242,14 +242,6 @@ public abstract class Core {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(Core.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-//        sb.append("type");
-//        sb.append('=');
-//        sb.append(((this.type == null)?"<null>":this.type));
-//        sb.append(',');
-//		sb.append("id");
-//		sb.append('=');
-//		sb.append(((this.id == null) ? "<null>" : this.id));
-//		sb.append(',');
         sb.append("createdByRef");
         sb.append('=');
         sb.append(((this.createdByRef == null) ? "<null>" : this.createdByRef));
@@ -298,9 +290,7 @@ public abstract class Core {
         result = ((result * 31) + ((this.granularMarkings == null) ? 0 : this.granularMarkings.hashCode()));
         result = ((result * 31) + ((this.modified == null) ? 0 : this.modified.hashCode()));
         result = ((result * 31) + ((this.createdByRef == null) ? 0 : this.createdByRef.hashCode()));
-//		result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.objectMarkingRefs == null) ? 0 : this.objectMarkingRefs.hashCode()));
-//        result = ((result* 31)+((this.type == null)? 0 :this.type.hashCode()));
         result = ((result * 31) + ((this.revoked == null) ? 0 : this.revoked.hashCode()));
         result = ((result * 31) + ((this.labels == null) ? 0 : this.labels.hashCode()));
         return result;
@@ -316,14 +306,12 @@ public abstract class Core {
         }
         Core rhs = ((Core) other);
         return (((((((((this.externalReferences == rhs.externalReferences) || ((this.externalReferences != null) && this.externalReferences.equals(rhs.externalReferences))) &&
-                ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) &&
-                ((this.granularMarkings == rhs.granularMarkings) || ((this.granularMarkings != null) && this.granularMarkings.equals(rhs.granularMarkings)))) &&
-                ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified)))) &&
-                ((this.createdByRef == rhs.createdByRef) || ((this.createdByRef != null) && this.createdByRef.equals(rhs.createdByRef)))) &&
-//				  ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) &&
-                ((this.objectMarkingRefs == rhs.objectMarkingRefs) || ((this.objectMarkingRefs != null) && this.objectMarkingRefs.equals(rhs.objectMarkingRefs)))) &&
-                ((this.revoked == rhs.revoked) || ((this.revoked != null) && this.revoked.equals(rhs.revoked)))) &&
-                ((this.labels == rhs.labels) || ((this.labels != null) && this.labels.equals(rhs.labels))));
+            ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) &&
+            ((this.granularMarkings == rhs.granularMarkings) || ((this.granularMarkings != null) && this.granularMarkings.equals(rhs.granularMarkings)))) &&
+            ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified)))) &&
+            ((this.createdByRef == rhs.createdByRef) || ((this.createdByRef != null) && this.createdByRef.equals(rhs.createdByRef)))) &&
+            ((this.objectMarkingRefs == rhs.objectMarkingRefs) || ((this.objectMarkingRefs != null) && this.objectMarkingRefs.equals(rhs.objectMarkingRefs)))) &&
+            ((this.revoked == rhs.revoked) || ((this.revoked != null) && this.revoked.equals(rhs.revoked)))) &&
+            ((this.labels == rhs.labels) || ((this.labels != null) && this.labels.equals(rhs.labels))));
     }
-
 }
