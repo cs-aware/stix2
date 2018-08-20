@@ -47,7 +47,7 @@ class ExternalReferenceTest {
             .setPrettyPrinting()
             .create();
 
-        String jsonString = TestUtil.readResourceFile("common/externalRefence.json");
+        String jsonString = TestUtil.readResourceFile("custom/common/externalRefence.json");
         ExternalReference er = gson.fromJson(jsonString, ExternalReference.class);
         System.out.println("er: " + gson.toJson(er));
     }

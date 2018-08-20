@@ -11,7 +11,7 @@ import java.nio.file.Paths;
  *
  */
 public class TestUtil {
-    private static final String RESOURCE_BASE_PATH = "src/test/resources/custom/";
+    private static final String RESOURCE_BASE_PATH = "src/test/resources/";
     private static final String INTEGRATION_BASE_PATH = "src/test/resources/integration/";
     private static final String SERIALIZED_BASE_PATH = "out/test/serialized/";
 

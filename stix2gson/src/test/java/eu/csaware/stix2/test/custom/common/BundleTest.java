@@ -18,7 +18,7 @@ class BundleTest {
 
     @BeforeAll
     static void setUp() throws Exception {
-        String jsonString = TestUtil.readResourceFile("common/bundle_test.json");
+        String jsonString = TestUtil.readResourceFile("custom/common/bundle_test.json");
         testBundle = Bundle.buildFromString(jsonString);
     }
 
