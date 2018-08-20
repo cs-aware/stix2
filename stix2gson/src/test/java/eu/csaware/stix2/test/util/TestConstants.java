@@ -1,9 +1,13 @@
 package eu.csaware.stix2.test.util;
 
+import java.time.LocalDateTime;
+
 /**
- *
+ * Constant used for test cases.
  */
 public class TestConstants {
+
+    public static LocalDateTime DATE_TIME = LocalDateTime.of(2016, 5, 12, 8, 17, 27);
 
     public static String ATTACK_PATTERN_ID = "attack-pattern--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061";
     public static String CAMPAIGN_ID = "campaign--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f";

@@ -15,11 +15,11 @@ public enum GsonSingleton {
     SINGLETON_DEBUG(new GsonBuilder().setPrettyPrinting().create());
 
     /**
-     * Convenience method to fetch the debug Gson instance directly.
+     * Convenience field to fetch the debug Gson instance directly.
      */
     public static final Gson DEBUG = SINGLETON_DEBUG.getGson();
     /**
-     * Convenience method to fetch the production Gson instance directly.
+     * Convenience field to fetch the production Gson instance directly.
      */
     public static final Gson PRODUCTION = SINGLETON_PRODUCTION.getGson();
 
