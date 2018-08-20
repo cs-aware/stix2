@@ -121,4 +121,10 @@ class AttackPatternTest {
         Assertions.assertNull(attackPattern.getExternalReferences().get(0).getHashes());
     }
 
+    @Test
+    void testNullSafety() {
+        AttackPattern attackPattern = new AttackPattern();
+        Assertions.assertNotNull(attackPattern.getKillChainPhases());
+    }
+
 }
