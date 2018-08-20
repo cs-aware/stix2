@@ -17,11 +17,11 @@ public enum GsonSingleton {
     /**
      * Convenience method to fetch the debug Gson instance directly.
      */
-    public static final Gson PRODUCTION = SINGLETON_PRODUCTION.getGson();
+    public static final Gson DEBUG = SINGLETON_DEBUG.getGson();
     /**
      * Convenience method to fetch the production Gson instance directly.
      */
-    public static final Gson DEBUG = SINGLETON_DEBUG.getGson();
+    public static final Gson PRODUCTION = SINGLETON_PRODUCTION.getGson();
 
     private Gson gson;
 
