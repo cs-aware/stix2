@@ -57,7 +57,7 @@ public class AttackPattern extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<KillChainPhase> killChainPhases = new ArrayList<KillChainPhase>();
+    private List<KillChainPhase> killChainPhases = new ArrayList<>();
 
     /**
      * No args constructor for use in serialization
