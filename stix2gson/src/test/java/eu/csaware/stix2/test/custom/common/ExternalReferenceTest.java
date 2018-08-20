@@ -6,6 +6,7 @@ import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.HashType;
 import eu.csaware.stix2.common.HashesType;
 import eu.csaware.stix2.test.util.TestUtil;
+import eu.csaware.stix2.util.GsonSingleton;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -32,24 +33,16 @@ class ExternalReferenceTest {
 
     @Test
     void writeToFile() throws Exception {
-        Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .create();
-
-        String content = gson.toJson(externalReference);
+        String content = GsonSingleton.DEBUG.toJson(externalReference);
         TestUtil.writeSerializedOutputFile("external_refence.json", content);
         System.out.println(content);
     }
 
     @Test
     void readFromFile() throws Exception {
-        Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .create();
-
         String jsonString = TestUtil.readResourceFile("custom/common/externalRefence.json");
-        ExternalReference er = gson.fromJson(jsonString, ExternalReference.class);
-        System.out.println("er: " + gson.toJson(er));
+        ExternalReference er = GsonSingleton.DEBUG.fromJson(jsonString, ExternalReference.class);
+        System.out.println("er: " + GsonSingleton.DEBUG.toJson(er));
     }
 
 //

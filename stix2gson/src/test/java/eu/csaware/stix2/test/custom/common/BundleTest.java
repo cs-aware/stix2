@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import eu.csaware.stix2.common.Bundle;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.test.util.TestUtil;
+import eu.csaware.stix2.util.GsonSingleton;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -28,11 +29,7 @@ class BundleTest {
 
     @Test
     void writeToFile() throws Exception {
-        Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .create();
-
-        String content = gson.toJson(testBundle);
+        String content = GsonSingleton.DEBUG.toJson(testBundle);
         TestUtil.writeSerializedOutputFile("bundle.json", content);
         System.out.println("bundle: " + content);
     }
