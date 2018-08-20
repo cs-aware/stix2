@@ -19,9 +19,10 @@ public class TestUtil {
         return readFile(RESOURCE_BASE_PATH + path);
     }
 
-    public static Path writeSerializedOutputFile(String filename, String content) throws IOException {
+    public static Path writeSerializedOutputFile(String path, String content) throws IOException {
         ensureDirectoryExists(SERIALIZED_BASE_PATH);
-        return writeFile(SERIALIZED_BASE_PATH + filename, content);
+        ensureDirectoryExists(SERIALIZED_BASE_PATH + path.substring(0, path.lastIndexOf("/")));
+        return writeFile(SERIALIZED_BASE_PATH + path, content);
     }
 
     public static Path getSerializedOutputPath(String filename) throws IOException {

@@ -15,11 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BundleTest {
 
+    public static final String PATH = "custom/common/bundle_test.json";
     private static Bundle testBundle;
 
     @BeforeAll
     static void setUp() throws Exception {
-        String jsonString = TestUtil.readResourceFile("custom/common/bundle_test.json");
+        String jsonString = TestUtil.readResourceFile(PATH);
         testBundle = Bundle.buildFromString(jsonString);
     }
 
@@ -30,7 +31,7 @@ class BundleTest {
     @Test
     void writeToFile() throws Exception {
         String content = GsonSingleton.DEBUG.toJson(testBundle);
-        TestUtil.writeSerializedOutputFile("bundle.json", content);
+        TestUtil.writeSerializedOutputFile(PATH, content);
         System.out.println("bundle: " + content);
     }
 

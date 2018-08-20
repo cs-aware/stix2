@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 
 class ExternalReferenceTest {
 
+    public static final String PATH = "custom/common/external_refence.json";
     private static ExternalReference externalReference;
 
     @BeforeAll
@@ -34,13 +35,13 @@ class ExternalReferenceTest {
     @Test
     void writeToFile() throws Exception {
         String content = GsonSingleton.DEBUG.toJson(externalReference);
-        TestUtil.writeSerializedOutputFile("external_refence.json", content);
+        TestUtil.writeSerializedOutputFile(PATH, content);
         System.out.println(content);
     }
 
     @Test
     void readFromFile() throws Exception {
-        String jsonString = TestUtil.readResourceFile("custom/common/externalRefence.json");
+        String jsonString = TestUtil.readResourceFile(PATH);
         ExternalReference er = GsonSingleton.DEBUG.fromJson(jsonString, ExternalReference.class);
         System.out.println("er: " + GsonSingleton.DEBUG.toJson(er));
     }
