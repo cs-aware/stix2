@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BundleTest {
 
-    public static final String PATH = "custom/common/bundle_test.json";
+    private static final String PATH = "custom/common/bundle_test.json";
     private static Bundle testBundle;
 
     @BeforeAll

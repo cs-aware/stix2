@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 class ExternalReferenceTest {
 
-    public static final String PATH = "custom/common/external_refence.json";
+    private static final String PATH = "custom/common/external_refence.json";
     private static ExternalReference externalReference;
 
     @BeforeAll
