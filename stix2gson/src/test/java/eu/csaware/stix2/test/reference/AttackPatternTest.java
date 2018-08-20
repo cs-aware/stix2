@@ -37,7 +37,7 @@ class AttackPatternTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.ATTACK_PATTERS_TYPE, attackPattern.getType());
+        Assertions.assertEquals(Types.ATTACK_PATTERN_TYPE, attackPattern.getType());
     }
 
     @Test

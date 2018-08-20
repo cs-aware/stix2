@@ -124,7 +124,7 @@ public class Bundle {
 
         final RuntimeTypeAdapterFactory<Core> coreTypeAdptor = RuntimeTypeAdapterFactory
             .of(Core.class, "type")
-            .registerSubtype(AttackPattern.class, Types.ATTACK_PATTERS_TYPE)
+            .registerSubtype(AttackPattern.class, Types.ATTACK_PATTERN_TYPE)
             .registerSubtype(Campaign.class, Types.CAMPAIGN_TYPE)
             .registerSubtype(CourseOfAction.class, Types.COURSE_OF_ACTION_TYPE)
             .registerSubtype(Identity.class, Types.IDENTITY_TYPE)
