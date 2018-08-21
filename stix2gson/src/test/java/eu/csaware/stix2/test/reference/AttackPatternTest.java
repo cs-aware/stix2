@@ -1,5 +1,6 @@
 package eu.csaware.stix2.test.reference;
 
+import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.AttackPattern;
 import eu.csaware.stix2.test.util.TestConstants;
@@ -9,6 +10,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 
 /**
  *
@@ -21,18 +24,11 @@ class AttackPatternTest {
     @BeforeAll
     static void setUp() throws Exception {
         String jsonString = TestUtil.readResourceFile(PATH);
-
         attackPattern = GsonSingleton.DEBUG.fromJson(jsonString, AttackPattern.class);
     }
 
     @AfterAll
     static void tearDown() throws Exception {
-    }
-
-    @Test
-    void writeToFile() throws Exception {
-        String content = GsonSingleton.DEBUG.toJson(attackPattern);
-        TestUtil.writeSerializedOutputFile(PATH, content);
     }
 
     @Test
@@ -77,17 +73,20 @@ class AttackPatternTest {
 
     @Test
     void testGranularMarkings() {
-        Assertions.assertNull(attackPattern.getGranularMarkings());
+        Assertions.assertNotNull(attackPattern.getGranularMarkings());
+        Assertions.assertEquals(0, attackPattern.getGranularMarkings().size());
     }
 
     @Test
     void testObjectMarkingRefs() {
-        Assertions.assertNull(attackPattern.getObjectMarkingRefs());
+        Assertions.assertNotNull(attackPattern.getObjectMarkingRefs());
+        Assertions.assertEquals(0, attackPattern.getObjectMarkingRefs().size());
     }
 
     @Test
     void testLabels() {
-        Assertions.assertNull(attackPattern.getLabels());
+        Assertions.assertNotNull(attackPattern.getLabels());
+        Assertions.assertEquals(0, attackPattern.getLabels().size());
     }
 
     @Test
@@ -125,6 +124,27 @@ class AttackPatternTest {
     void testNullSafety() {
         AttackPattern attackPattern = new AttackPattern();
         Assertions.assertNotNull(attackPattern.getKillChainPhases());
+        Assertions.assertNotNull(attackPattern.getGranularMarkings());
+        Assertions.assertNotNull(attackPattern.getObjectMarkingRefs());
+        Assertions.assertNotNull(attackPattern.getLabels());
+    }
+
+    @Test
+    void testCreation() throws IOException {
+        AttackPattern createdAttackPattern = new AttackPattern(
+            Types.ATTACK_PATTERN_TYPE,
+            TestConstants.ATTACK_PATTERN_ID,
+            "Spear Phishing",
+            "...",
+            TestConstants.DATE_TIME,
+            TestConstants.DATE_TIME
+        );
+        createdAttackPattern.getExternalReferences().add(new ExternalReference("capec", "CAPEC-163"));
+        Assertions.assertNotNull(createdAttackPattern);
+        String created = GsonSingleton.DEBUG.toJson(createdAttackPattern);
+        String reserialized = GsonSingleton.DEBUG.toJson(attackPattern);
+        Assertions.assertEquals(reserialized, created);
+        TestUtil.writeSerializedOutputFile(PATH, created);
     }
 
 }
