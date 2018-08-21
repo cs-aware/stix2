@@ -10,6 +10,7 @@ public class TestConstants {
     public static LocalDateTime DATE_TIME = LocalDateTime.of(2016, 5, 12, 8, 17, 27);
 
     public static String ATTACK_PATTERN_ID = "attack-pattern--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061";
+    public static String BUNDLE_ID = "bundle--00000000-0000-4000-8000-000000000007";
     public static String CAMPAIGN_ID = "campaign--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f";
     public static String COURSE_OF_ACTION_ID = "course-of-action--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f";
     public static String IDENTITY_ID = "identity--311b2d2d-f010-4473-83ec-1edf84858f4c";
