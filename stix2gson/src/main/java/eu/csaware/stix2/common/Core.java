@@ -93,16 +93,12 @@ public abstract class Core {
     public Core() {
     }
 
-    /**
-     * @param externalReferences
-     * @param created
-     * @param granularMarkings
-     * @param modified
-     * @param createdByRef
-     * @param objectMarkingRefs
-     * @param revoked
-     * @param labels
-     */
+    public Core(LocalDateTime created, LocalDateTime modified) {
+        super();
+        this.created = created;
+        this.modified = modified;
+    }
+
     public Core(String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
                 Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,
                 List<GranularMarking> granularMarkings) {

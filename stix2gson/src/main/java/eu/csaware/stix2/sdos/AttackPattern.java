@@ -65,21 +65,19 @@ public class AttackPattern extends Core {
     public AttackPattern() {
     }
 
-    /**
-     * @param externalReferences
-     * @param killChainPhases
-     * @param created
-     * @param description
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param granularMarkings
-     * @param name
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     */
+    public AttackPattern(String type, String id, String name, String description,
+                         LocalDateTime created, LocalDateTime modified) {
+        super(created, modified);
+        if (!type.equals(Types.ATTACK_PATTERN_TYPE)) {
+            type = Types.ATTACK_PATTERN_TYPE;
+        }
+        this.type = type;
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.killChainPhases = killChainPhases;
+    }
+
     public AttackPattern(String type, String id, String name, String description, List<KillChainPhase> killChainPhases, String createdByRef,
                          List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                          List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
