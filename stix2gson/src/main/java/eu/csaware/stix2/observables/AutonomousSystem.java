@@ -52,19 +52,8 @@ public class AutonomousSystem extends CyberObservableCore {
     public AutonomousSystem() {
     }
 
-    /**
-     * @param number
-     * @param extensions
-     * @param name
-     * @param rir
-     * @param type
-     */
-    public AutonomousSystem(String type, Integer number, String name, String rir, Dictionary extensions) {
+    public AutonomousSystem(Integer number, String name, String rir, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.AUTONOMOUS_SYSTEM_TYPE)) {
-            type = Types.AUTONOMOUS_SYSTEM_TYPE;
-        }
-        this.type = type;
         this.number = number;
         this.name = name;
         this.rir = rir;
@@ -75,16 +64,6 @@ public class AutonomousSystem extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `autonomous-system`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.AUTONOMOUS_SYSTEM_TYPE)) {
-            type = Types.AUTONOMOUS_SYSTEM_TYPE;
-        }
-        this.type = type;
     }
 
     /**

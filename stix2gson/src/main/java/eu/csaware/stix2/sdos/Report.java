@@ -91,30 +91,10 @@ public class Report extends Core {
     public Report() {
     }
 
-    /**
-     * @param externalReferences
-     * @param created
-     * @param description
-     * @param objectRefs
-     * @param published
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param granularMarkings
-     * @param name
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     */
-    public Report(String type, String id, List<String> labels, String name, String description, String published, List<String> objectRefs,
+    public Report(String id, List<String> labels, String name, String description, String published, List<String> objectRefs,
                   String createdByRef, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                   List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.REPORT_TYPE)) {
-            type = Types.REPORT_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.labels = labels;
         this.name = name;
@@ -128,16 +108,6 @@ public class Report extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `report`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.REPORT_TYPE)) {
-            type = Types.REPORT_TYPE;
-        }
-        this.type = type;
     }
 
     /**

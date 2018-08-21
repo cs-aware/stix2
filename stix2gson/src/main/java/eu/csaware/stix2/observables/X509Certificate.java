@@ -120,33 +120,12 @@ public class X509Certificate extends CyberObservableCore {
     public X509Certificate() {
     }
 
-    /**
-     * @param subjectPublicKeyExponent
-     * @param serialNumber
-     * @param subject
-     * @param validityNotBefore
-     * @param type
-     * @param version
-     * @param signatureAlgorithm
-     * @param issuer
-     * @param subjectPublicKeyAlgorithm
-     * @param isSelfSigned
-     * @param subjectPublicKeyModulus
-     * @param extensions
-     * @param x509V3Extensions
-     * @param hashes
-     * @param validityNotAfter
-     */
-    public X509Certificate(String type, Boolean isSelfSigned, HashesType hashes, String version, String serialNumber,
+    public X509Certificate(Boolean isSelfSigned, HashesType hashes, String version, String serialNumber,
                            String signatureAlgorithm, String issuer, String validityNotBefore, String validityNotAfter,
                            String subject, String subjectPublicKeyAlgorithm, String subjectPublicKeyModulus,
                            Integer subjectPublicKeyExponent, X509V3ExtensionsType x509V3Extensions,
                            Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.X_509_CERTIFICATE)) {
-            type = Types.X_509_CERTIFICATE;
-        }
-        this.type = type;
         this.isSelfSigned = isSelfSigned;
         this.hashes = hashes;
         this.version = version;
@@ -167,16 +146,6 @@ public class X509Certificate extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `x509-certificate`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.X_509_CERTIFICATE)) {
-            type = Types.X_509_CERTIFICATE;
-        }
-        this.type = type;
     }
 
     /**

@@ -74,20 +74,8 @@ public class MarkingDefinition {
     public MarkingDefinition() {
     }
 
-    /**
-     * @param externalReferences
-     * @param created
-     * @param granularMarkings
-     * @param createdByRef
-     * @param objectMarkingRefs
-     * @param type
-     */
-    public MarkingDefinition(String type, String createdByRef, String created, List<ExternalReference> externalReferences, List<Object> objectMarkingRefs, List<GranularMarking> granularMarkings) {
+    public MarkingDefinition(String createdByRef, String created, List<ExternalReference> externalReferences, List<Object> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super();
-        if (!type.equals(Types.MARKING_DEFINITION_TYPE)) {
-            type = Types.MARKING_DEFINITION_TYPE;
-        }
-        this.type = type;
         this.createdByRef = createdByRef;
         this.created = created;
         this.externalReferences = externalReferences;
@@ -100,16 +88,6 @@ public class MarkingDefinition {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `marking-definition`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.MARKING_DEFINITION_TYPE)) {
-            type = Types.MARKING_DEFINITION_TYPE;
-        }
-        this.type = type;
     }
 
     /**

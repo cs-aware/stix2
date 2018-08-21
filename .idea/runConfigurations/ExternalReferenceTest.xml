@@ -3,12 +3,12 @@
     <module name="stix2gson" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="eu.csaware.stix2.common.*" />
+        <option name="PATTERN" value="eu.csaware.stix2.test.custom.sdos.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
-    <option name="PACKAGE_NAME" value="eu.csaware.stix2.common" />
-    <option name="MAIN_CLASS_NAME" value="eu.csaware.stix2.common.ExternalReferenceTest" />
+    <option name="PACKAGE_NAME" value="eu.csaware.stix2.test.custom.common" />
+    <option name="MAIN_CLASS_NAME" value="eu.csaware.stix2.test.custom.common.ExternalReferenceTest" />
     <option name="METHOD_NAME" value="" />
     <option name="PARAMETERS" value="" />
     <method v="2">

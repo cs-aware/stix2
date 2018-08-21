@@ -1,20 +1,19 @@
-package eu.csaware.stix2.common;
+package eu.csaware.stix2.test.custom.common;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import eu.csaware.stix2.util.TestUtil;
+import eu.csaware.stix2.common.ExternalReference;
+import eu.csaware.stix2.common.HashType;
+import eu.csaware.stix2.common.HashesType;
+import eu.csaware.stix2.test.util.TestUtil;
+import eu.csaware.stix2.util.GsonSingleton;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.net.URL;
-import java.rmi.server.ExportException;
-
 class ExternalReferenceTest {
 
+    private static final String PATH = "custom/common/external_refence.json";
     private static ExternalReference externalReference;
 
     @BeforeAll
@@ -35,24 +34,16 @@ class ExternalReferenceTest {
 
     @Test
     void writeToFile() throws Exception {
-        Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .create();
-
-        String content = gson.toJson(externalReference);
-        TestUtil.writeSerializedOutputFile("external_refence.json", content);
+        String content = GsonSingleton.DEBUG.toJson(externalReference);
+        TestUtil.writeSerializedOutputFile(PATH, content);
         System.out.println(content);
     }
 
     @Test
     void readFromFile() throws Exception {
-        Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .create();
-
-        String jsonString = TestUtil.readResourceFile("common/externalRefence.json");
-        ExternalReference er = gson.fromJson(jsonString, ExternalReference.class);
-        System.out.println("er: " + gson.toJson(er));
+        String jsonString = TestUtil.readResourceFile(PATH);
+        ExternalReference er = GsonSingleton.DEBUG.fromJson(jsonString, ExternalReference.class);
+        System.out.println("er: " + GsonSingleton.DEBUG.toJson(er));
     }
 
 //

@@ -28,7 +28,6 @@ import java.util.Map;
  */
 public class Bundle {
 
-
     public static final String SPEC_VERSION = "2.1";
 
     /**
@@ -74,18 +73,8 @@ public class Bundle {
     public Bundle() {
     }
 
-    /**
-     * @param specVersion
-     * @param objects
-     * @param id
-     * @param type
-     */
-    public Bundle(String type, String id, String specVersion, List<Object> objects) {
+    public Bundle(String id, String specVersion, List<Object> objects) {
         super();
-        if (!type.equals(Types.BUNDLE_TYPE)) {
-            type = Types.BUNDLE_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.specVersion = specVersion;
         this.objects = objects;
@@ -124,7 +113,7 @@ public class Bundle {
 
         final RuntimeTypeAdapterFactory<Core> coreTypeAdptor = RuntimeTypeAdapterFactory
             .of(Core.class, "type")
-            .registerSubtype(AttackPattern.class, Types.ATTACK_PATTERS_TYPE)
+            .registerSubtype(AttackPattern.class, Types.ATTACK_PATTERN_TYPE)
             .registerSubtype(Campaign.class, Types.CAMPAIGN_TYPE)
             .registerSubtype(CourseOfAction.class, Types.COURSE_OF_ACTION_TYPE)
             .registerSubtype(Identity.class, Types.IDENTITY_TYPE)
@@ -157,17 +146,6 @@ public class Bundle {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `bundle`.
-     * (Required)
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.BUNDLE_TYPE)) {
-            type = Types.BUNDLE_TYPE;
-        }
-        this.type = type;
     }
 
     /**

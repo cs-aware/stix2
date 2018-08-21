@@ -37,10 +37,6 @@ public class KillChainPhase {
     public KillChainPhase() {
     }
 
-    /**
-     * @param killChainName
-     * @param phaseName
-     */
     public KillChainPhase(String killChainName, String phaseName) {
         super();
         this.killChainName = killChainName;

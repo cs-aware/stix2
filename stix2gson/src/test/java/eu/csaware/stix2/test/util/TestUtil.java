@@ -1,4 +1,4 @@
-package eu.csaware.stix2.util;
+package eu.csaware.stix2.test.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.nio.file.Paths;
  *
  */
 public class TestUtil {
-    private static final String RESOURCE_BASE_PATH = "src/test/resources/custom/";
+    private static final String RESOURCE_BASE_PATH = "src/test/resources/";
     private static final String INTEGRATION_BASE_PATH = "src/test/resources/integration/";
     private static final String SERIALIZED_BASE_PATH = "out/test/serialized/";
 
@@ -19,9 +19,10 @@ public class TestUtil {
         return readFile(RESOURCE_BASE_PATH + path);
     }
 
-    public static Path writeSerializedOutputFile(String filename, String content) throws IOException {
+    public static Path writeSerializedOutputFile(String path, String content) throws IOException {
         ensureDirectoryExists(SERIALIZED_BASE_PATH);
-        return writeFile(SERIALIZED_BASE_PATH + filename, content);
+        ensureDirectoryExists(SERIALIZED_BASE_PATH + path.substring(0, path.lastIndexOf("/")));
+        return writeFile(SERIALIZED_BASE_PATH + path, content);
     }
 
     public static Path getSerializedOutputPath(String filename) throws IOException {

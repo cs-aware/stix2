@@ -57,27 +57,9 @@ public class CourseOfAction extends Core {
     public CourseOfAction() {
     }
 
-    /**
-     * @param externalReferences
-     * @param created
-     * @param granularMarkings
-     * @param name
-     * @param description
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     * @param type
-     * @param revoked
-     * @param labels
-     */
-    public CourseOfAction(String type, String id, String name, String description, String createdByRef, List<String> labels,
+    public CourseOfAction(String id, String name, String description, String createdByRef, List<String> labels,
                           LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.COURSE_OF_ACTION_TYPE)) {
-            type = Types.COURSE_OF_ACTION_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.name = name;
         this.description = description;
@@ -88,13 +70,6 @@ public class CourseOfAction extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `course-of-action`.
-     */
-    public void setType(String type) {
-        this.type = type;
     }
 
     /**

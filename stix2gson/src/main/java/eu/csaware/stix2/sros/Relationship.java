@@ -76,29 +76,9 @@ public class Relationship extends Core {
     public Relationship() {
     }
 
-    /**
-     * @param targetRef
-     * @param externalReferences
-     * @param relationshipType
-     * @param created
-     * @param description
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param granularMarkings
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     * @param sourceRef
-     */
-    public Relationship(String type, String id, String relationshipType, String description, Object sourceRef, Object targetRef,
+    public Relationship(String id, String relationshipType, String description, Object sourceRef, Object targetRef,
                         String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.RELATIONSHIP_TYPE)) {
-            type = Types.RELATIONSHIP_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.relationshipType = relationshipType;
         this.description = description;
@@ -111,16 +91,6 @@ public class Relationship extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `relationship`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.RELATIONSHIP_TYPE)) {
-            type = Types.RELATIONSHIP_TYPE;
-        }
-        this.type = type;
     }
 
     /**

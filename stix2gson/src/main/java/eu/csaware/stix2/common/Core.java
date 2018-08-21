@@ -37,7 +37,7 @@ public abstract class Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> labels;
+    private List<String> labels = new ArrayList<>();
     /**
      * The created property represents the time at which the first version of this object was created. The timstamp value MUST be precise to the nearest millisecond.
      * (Required)
@@ -69,7 +69,7 @@ public abstract class Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<ExternalReference> externalReferences;
+    private List<ExternalReference> externalReferences = new ArrayList<>();
     /**
      * The list of marking-definition objects to be applied to this object.
      */
@@ -77,7 +77,7 @@ public abstract class Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> objectMarkingRefs;
+    private List<String> objectMarkingRefs = new ArrayList<>();
     /**
      * The set of granular markings that apply to this object.
      */
@@ -85,7 +85,7 @@ public abstract class Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<GranularMarking> granularMarkings;
+    private List<GranularMarking> granularMarkings = new ArrayList<>();
 
     /**
      * No args constructor for use in serialization
@@ -93,21 +93,16 @@ public abstract class Core {
     public Core() {
     }
 
-    /**
-     * @param externalReferences
-     * @param created
-     * @param granularMarkings
-     * @param modified
-     * @param createdByRef
-     * @param objectMarkingRefs
-     * @param revoked
-     * @param labels
-     */
+    public Core(LocalDateTime created, LocalDateTime modified) {
+        super();
+        this.created = created;
+        this.modified = modified;
+    }
+
     public Core(String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
                 Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,
                 List<GranularMarking> granularMarkings) {
         super();
-//		this.id = id;
         this.createdByRef = createdByRef;
         this.labels = labels;
         this.created = created;

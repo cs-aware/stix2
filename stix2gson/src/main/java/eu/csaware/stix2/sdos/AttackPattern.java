@@ -26,8 +26,8 @@ public class AttackPattern extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.ATTACK_PATTERS_TYPE)
-    private String type = Types.ATTACK_PATTERS_TYPE;
+    @Pattern(regexp = Types.ATTACK_PATTERN_TYPE)
+    private String type = Types.ATTACK_PATTERN_TYPE;
     /**
      * id
      * <p>
@@ -57,7 +57,7 @@ public class AttackPattern extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<KillChainPhase> killChainPhases = new ArrayList<KillChainPhase>();
+    private List<KillChainPhase> killChainPhases = new ArrayList<>();
 
     /**
      * No args constructor for use in serialization
@@ -65,29 +65,18 @@ public class AttackPattern extends Core {
     public AttackPattern() {
     }
 
-    /**
-     * @param externalReferences
-     * @param killChainPhases
-     * @param created
-     * @param description
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param granularMarkings
-     * @param name
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     */
-    public AttackPattern(String type, String id, String name, String description, List<KillChainPhase> killChainPhases, String createdByRef,
+    public AttackPattern(String id, String name, String description,
+                         LocalDateTime created, LocalDateTime modified) {
+        super(created, modified);
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
+    public AttackPattern(String id, String name, String description, List<KillChainPhase> killChainPhases, String createdByRef,
                          List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                          List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.ATTACK_PATTERS_TYPE)) {
-            type = Types.ATTACK_PATTERS_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.name = name;
         this.description = description;
@@ -100,17 +89,6 @@ public class AttackPattern extends Core {
     public String getType() {
         return type;
     }
-
-    /**
-     * The type of this object, which MUST be the literal `attack-pattern`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.ATTACK_PATTERS_TYPE)) {
-            type = Types.ATTACK_PATTERS_TYPE;
-        }
-        this.type = type;
-    }
-
 
     /**
      * id

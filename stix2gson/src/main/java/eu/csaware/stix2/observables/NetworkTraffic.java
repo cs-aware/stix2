@@ -146,32 +146,8 @@ public class NetworkTraffic extends CyberObservableCore {
     public NetworkTraffic() {
     }
 
-    /**
-     * @param dstRef
-     * @param srcPayloadRef
-     * @param start
-     * @param encapsulatedByRef
-     * @param dstByteCount
-     * @param srcPort
-     * @param type
-     * @param srcByteCount
-     * @param srcPackets
-     * @param extensions
-     * @param dstPackets
-     * @param ipfix
-     * @param dstPort
-     * @param dstPayloadRef
-     * @param end
-     * @param protocols
-     * @param srcRef
-     * @param encapsulatesRefs
-     */
-    public NetworkTraffic(String type, NetworkTrafficExtensionsDictionary extensions, String start, String end, String srcRef, String dstRef, Integer srcPort, Integer dstPort, List<String> protocols, Integer srcByteCount, Integer dstByteCount, Integer srcPackets, Integer dstPackets, Ipfix ipfix, String srcPayloadRef, String dstPayloadRef, List<String> encapsulatesRefs, String encapsulatedByRef) {
+    public NetworkTraffic(NetworkTrafficExtensionsDictionary extensions, String start, String end, String srcRef, String dstRef, Integer srcPort, Integer dstPort, List<String> protocols, Integer srcByteCount, Integer dstByteCount, Integer srcPackets, Integer dstPackets, Ipfix ipfix, String srcPayloadRef, String dstPayloadRef, List<String> encapsulatesRefs, String encapsulatedByRef) {
         super(extensions);
-        if (!type.equals(Types.NETWORK_TRAFFIC_TYPE)) {
-            type = Types.NETWORK_TRAFFIC_TYPE;
-        }
-        this.type = type;
         this.extensions = extensions;
         this.start = start;
         this.end = end;
@@ -196,16 +172,6 @@ public class NetworkTraffic extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `network-traffic`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.NETWORK_TRAFFIC_TYPE)) {
-            type = Types.NETWORK_TRAFFIC_TYPE;
-        }
-        this.type = type;
     }
 
     public NetworkTrafficExtensionsDictionary getExtensions() {

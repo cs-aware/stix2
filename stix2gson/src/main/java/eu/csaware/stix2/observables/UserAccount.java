@@ -131,29 +131,8 @@ public class UserAccount extends CyberObservableCore {
     public UserAccount() {
     }
 
-    /**
-     * @param accountCreated
-     * @param accountLogin
-     * @param displayName
-     * @param accountExpires
-     * @param accountType
-     * @param type
-     * @param userId
-     * @param extensions
-     * @param isPrivileged
-     * @param passwordLastChanged
-     * @param accountLastLogin
-     * @param accountFirstLogin
-     * @param canEscalatePrivs
-     * @param isDisabled
-     * @param isServiceAccount
-     */
-    public UserAccount(String type, UserAccountExtensionsDictionary extensions, String userId, String accountLogin, String accountType, String displayName, Boolean isServiceAccount, Boolean isPrivileged, Boolean canEscalatePrivs, Boolean isDisabled, String accountCreated, String accountExpires, String passwordLastChanged, String accountFirstLogin, String accountLastLogin) {
+    public UserAccount(UserAccountExtensionsDictionary extensions, String userId, String accountLogin, String accountType, String displayName, Boolean isServiceAccount, Boolean isPrivileged, Boolean canEscalatePrivs, Boolean isDisabled, String accountCreated, String accountExpires, String passwordLastChanged, String accountFirstLogin, String accountLastLogin) {
         super(extensions);
-        if (!type.equals(Types.USER_ACCOUNT_TYPE)) {
-            type = Types.USER_ACCOUNT_TYPE;
-        }
-        this.type = type;
         this.extensions = extensions;
         this.userId = userId;
         this.accountLogin = accountLogin;
@@ -175,16 +154,6 @@ public class UserAccount extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `user-account`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.USER_ACCOUNT_TYPE)) {
-            type = Types.USER_ACCOUNT_TYPE;
-        }
-        this.type = type;
     }
 
     public UserAccountExtensionsDictionary getExtensions() {

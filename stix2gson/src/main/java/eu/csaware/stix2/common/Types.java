@@ -2,7 +2,7 @@ package eu.csaware.stix2.common;
 
 public class Types {
 
-    public static final String ATTACK_PATTERS_TYPE = "attack-pattern";
+    public static final String ATTACK_PATTERN_TYPE = "attack-pattern";
     public static final String CAMPAIGN_TYPE = "campaign";
     public static final String COURSE_OF_ACTION_TYPE = "course-of-action";
     public static final String IDENTITY_TYPE = "identity";

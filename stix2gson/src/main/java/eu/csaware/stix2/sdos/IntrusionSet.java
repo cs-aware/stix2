@@ -114,36 +114,11 @@ public class IntrusionSet extends Core {
     public IntrusionSet() {
     }
 
-    /**
-     * @param externalReferences
-     * @param aliases
-     * @param firstSeen
-     * @param created
-     * @param resourceLevel
-     * @param description
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param lastSeen
-     * @param primaryMotivation
-     * @param granularMarkings
-     * @param name
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param secondaryMotivations
-     * @param objectMarkingRefs
-     * @param goals
-     */
-    public IntrusionSet(String type, String id, String name, String description, List<String> aliases, String firstSeen, String lastSeen,
+    public IntrusionSet(String id, String name, String description, List<String> aliases, String firstSeen, String lastSeen,
                         List<String> goals, String resourceLevel, String primaryMotivation, List<String> secondaryMotivations,
                         String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked,
                         List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.INTRUSION_SET_TYPE)) {
-            type = Types.INTRUSION_SET_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.name = name;
         this.description = description;
@@ -161,16 +136,6 @@ public class IntrusionSet extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `intrusion-set`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.INTRUSION_SET_TYPE)) {
-            type = Types.INTRUSION_SET_TYPE;
-        }
-        this.type = type;
     }
 
     /**

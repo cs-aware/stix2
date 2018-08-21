@@ -76,21 +76,8 @@ public class WindowsRegistryKey extends CyberObservableCore {
     public WindowsRegistryKey() {
     }
 
-    /**
-     * @param extensions
-     * @param creatorUserRef
-     * @param values
-     * @param modified
-     * @param type
-     * @param numberOfSubkeys
-     * @param key
-     */
-    public WindowsRegistryKey(String type, String key, List<WindowsRegistryValueType> values, LocalDateTime modified, String creatorUserRef, Integer numberOfSubkeys, Dictionary extensions) {
+    public WindowsRegistryKey(String key, List<WindowsRegistryValueType> values, LocalDateTime modified, String creatorUserRef, Integer numberOfSubkeys, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.WINDOWS_REGISTRY_KEY_TYPE)) {
-            type = Types.WINDOWS_REGISTRY_KEY_TYPE;
-        }
-        this.type = type;
         this.key = key;
         this.values = values;
         this.modified = modified;
@@ -103,16 +90,6 @@ public class WindowsRegistryKey extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `windows-registry-key`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.WINDOWS_REGISTRY_KEY_TYPE)) {
-            type = Types.WINDOWS_REGISTRY_KEY_TYPE;
-        }
-        this.type = type;
     }
 
     /**

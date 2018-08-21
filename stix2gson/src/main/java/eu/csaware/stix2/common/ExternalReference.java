@@ -60,13 +60,12 @@ public class ExternalReference {
     public ExternalReference() {
     }
 
-    /**
-     * @param hashes
-     * @param description
-     * @param url
-     * @param sourceName
-     * @param externalId
-     */
+    public ExternalReference(String sourceName, String externalId) {
+        super();
+        this.sourceName = sourceName;
+        this.externalId = externalId;
+    }
+
     public ExternalReference(String description, String url, String sourceName, String externalId, HashesType hashes) {
         super();
         this.description = description;

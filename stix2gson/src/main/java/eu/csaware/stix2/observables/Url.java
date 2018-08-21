@@ -43,17 +43,8 @@ public class Url extends CyberObservableCore {
     public Url() {
     }
 
-    /**
-     * @param extensions
-     * @param type
-     * @param value
-     */
-    public Url(String type, String value, Dictionary extensions) {
+    public Url(String value, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.URL_TYPE)) {
-            type = Types.URL_TYPE;
-        }
-        this.type = type;
         this.value = value;
     }
 
@@ -62,16 +53,6 @@ public class Url extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `url`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.URL_TYPE)) {
-            type = Types.URL_TYPE;
-        }
-        this.type = type;
     }
 
     /**

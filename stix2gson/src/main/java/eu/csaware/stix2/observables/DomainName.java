@@ -50,18 +50,8 @@ public class DomainName extends CyberObservableCore {
     public DomainName() {
     }
 
-    /**
-     * @param resolvesToRefs
-     * @param extensions
-     * @param type
-     * @param value
-     */
-    public DomainName(String type, String value, List<String> resolvesToRefs, Dictionary extensions) {
+    public DomainName(String value, List<String> resolvesToRefs, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.DOMAIN_NAME_TYPE)) {
-            type = Types.DOMAIN_NAME_TYPE;
-        }
-        this.type = type;
         this.value = value;
         this.resolvesToRefs = resolvesToRefs;
     }
@@ -71,16 +61,6 @@ public class DomainName extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `domain-name`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.DOMAIN_NAME_TYPE)) {
-            type = Types.DOMAIN_NAME_TYPE;
-        }
-        this.type = type;
     }
 
     /**

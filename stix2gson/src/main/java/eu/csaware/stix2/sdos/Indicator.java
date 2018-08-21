@@ -98,33 +98,11 @@ public class Indicator extends Core {
     public Indicator() {
     }
 
-    /**
-     * @param externalReferences
-     * @param killChainPhases
-     * @param created
-     * @param pattern
-     * @param description
-     * @param validFrom
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param granularMarkings
-     * @param name
-     * @param validUntil
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     */
-    public Indicator(String type, String id, List<String> labels, String name, String description, String pattern, LocalDateTime validFrom,
+    public Indicator(String id, List<String> labels, String name, String description, String pattern, LocalDateTime validFrom,
                      LocalDateTime validUntil, List<KillChainPhase> killChainPhases, String createdByRef, LocalDateTime created,
                      LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,
                      List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.INDICATOR_TYPE)) {
-            type = Types.INDICATOR_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.labels = labels;
         this.name = name;
@@ -140,16 +118,6 @@ public class Indicator extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `indicator`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.INDICATOR_TYPE)) {
-            type = Types.INDICATOR_TYPE;
-        }
-        this.type = type;
     }
 
     /**
