@@ -40,16 +40,6 @@ public class Report extends Core {
     @Pattern(regexp = "^report--")
     private String id;
     /**
-     * This field is an Open Vocabulary that specifies the primary subject of this report. The suggested values for this field are in report-label-ov.
-     * (Required)
-     */
-    @SerializedName("labels")
-    @Expose
-    @Size(min = 1)
-    @Valid
-    @NotNull
-    private List<String> labels = new ArrayList<String>();
-    /**
      * The name used to identify the Report.
      * (Required)
      */
@@ -96,7 +86,6 @@ public class Report extends Core {
                   List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.id = id;
-        this.labels = labels;
         this.name = name;
         this.description = description;
         this.published = published;
@@ -124,22 +113,6 @@ public class Report extends Core {
      */
     public void setId(String id) {
         this.id = id;
-    }
-
-    /**
-     * This field is an Open Vocabulary that specifies the primary subject of this report. The suggested values for this field are in report-label-ov.
-     * (Required)
-     */
-    public List<String> getLabels() {
-        return labels;
-    }
-
-    /**
-     * This field is an Open Vocabulary that specifies the primary subject of this report. The suggested values for this field are in report-label-ov.
-     * (Required)
-     */
-    public void setLabels(List<String> labels) {
-        this.labels = labels;
     }
 
     /**
@@ -234,10 +207,6 @@ public class Report extends Core {
         sb.append('=');
         sb.append(((this.id == null) ? "<null>" : this.id));
         sb.append(',');
-        sb.append("labels");
-        sb.append('=');
-        sb.append(((this.labels == null) ? "<null>" : this.labels));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -271,7 +240,6 @@ public class Report extends Core {
         result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.published == null) ? 0 : this.published.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
-        result = ((result * 31) + ((this.labels == null) ? 0 : this.labels.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -285,7 +253,7 @@ public class Report extends Core {
             return false;
         }
         Report rhs = ((Report) other);
-        return (((((((super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.objectRefs == rhs.objectRefs) || ((this.objectRefs != null) && this.objectRefs.equals(rhs.objectRefs)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.published == rhs.published) || ((this.published != null) && this.published.equals(rhs.published)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.labels == rhs.labels) || ((this.labels != null) && this.labels.equals(rhs.labels))));
+        return (((((((super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.objectRefs == rhs.objectRefs) || ((this.objectRefs != null) && this.objectRefs.equals(rhs.objectRefs)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.published == rhs.published) || ((this.published != null) && this.published.equals(rhs.published)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
     }
 
 }

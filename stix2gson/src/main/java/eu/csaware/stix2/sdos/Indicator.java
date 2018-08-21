@@ -38,16 +38,6 @@ public class Indicator extends Core {
     @Pattern(regexp = "^indicator--")
     private String id;
     /**
-     * This field is an Open Vocabulary that specifies the type of indicator. Open vocab - indicator-label-ov
-     * (Required)
-     */
-    @SerializedName("labels")
-    @Expose
-    @Size(min = 1)
-    @Valid
-    @NotNull
-    private List<String> labels = new ArrayList<String>();
-    /**
      * The name used to identify the Indicator.
      */
     @SerializedName("name")
@@ -104,7 +94,6 @@ public class Indicator extends Core {
                      List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.id = id;
-        this.labels = labels;
         this.name = name;
         this.description = description;
         this.pattern = pattern;
@@ -134,22 +123,6 @@ public class Indicator extends Core {
      */
     public void setId(String id) {
         this.id = id;
-    }
-
-    /**
-     * This field is an Open Vocabulary that specifies the type of indicator. Open vocab - indicator-label-ov
-     * (Required)
-     */
-    public List<String> getLabels() {
-        return labels;
-    }
-
-    /**
-     * This field is an Open Vocabulary that specifies the type of indicator. Open vocab - indicator-label-ov
-     * (Required)
-     */
-    public void setLabels(List<String> labels) {
-        this.labels = labels;
     }
 
     /**
@@ -266,10 +239,6 @@ public class Indicator extends Core {
         sb.append('=');
         sb.append(((this.id == null) ? "<null>" : this.id));
         sb.append(',');
-        sb.append("labels");
-        sb.append('=');
-        sb.append(((this.labels == null) ? "<null>" : this.labels));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -313,7 +282,6 @@ public class Indicator extends Core {
         result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.validFrom == null) ? 0 : this.validFrom.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
-        result = ((result * 31) + ((this.labels == null) ? 0 : this.labels.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -327,7 +295,7 @@ public class Indicator extends Core {
             return false;
         }
         Indicator rhs = ((Indicator) other);
-        return (((((((((super.equals(rhs) && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.pattern == rhs.pattern) || ((this.pattern != null) && this.pattern.equals(rhs.pattern)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.validUntil == rhs.validUntil) || ((this.validUntil != null) && this.validUntil.equals(rhs.validUntil)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.validFrom == rhs.validFrom) || ((this.validFrom != null) && this.validFrom.equals(rhs.validFrom)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.labels == rhs.labels) || ((this.labels != null) && this.labels.equals(rhs.labels))));
+        return (((((((((super.equals(rhs) && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.pattern == rhs.pattern) || ((this.pattern != null) && this.pattern.equals(rhs.pattern)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.validUntil == rhs.validUntil) || ((this.validUntil != null) && this.validUntil.equals(rhs.validUntil)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.validFrom == rhs.validFrom) || ((this.validFrom != null) && this.validFrom.equals(rhs.validFrom)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
     }
 
 }

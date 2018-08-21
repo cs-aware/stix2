@@ -40,16 +40,6 @@ public class ThreatActor extends Core {
     @Pattern(regexp = "^threat-actor--")
     private String id;
     /**
-     * This field specifies the type of threat actor. Open Vocab - threat-actor-label-ov
-     * (Required)
-     */
-    @SerializedName("labels")
-    @Expose
-    @Size(min = 1)
-    @Valid
-    @NotNull
-    private List<String> labels = new ArrayList<String>();
-    /**
      * A name used to identify this Threat Actor or Threat Actor group.
      * (Required)
      */
@@ -135,7 +125,6 @@ public class ThreatActor extends Core {
                        List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.id = id;
-        this.labels = labels;
         this.name = name;
         this.description = description;
         this.aliases = aliases;
@@ -169,22 +158,6 @@ public class ThreatActor extends Core {
      */
     public void setId(String id) {
         this.id = id;
-    }
-
-    /**
-     * This field specifies the type of threat actor. Open Vocab - threat-actor-label-ov
-     * (Required)
-     */
-    public List<String> getLabels() {
-        return labels;
-    }
-
-    /**
-     * This field specifies the type of threat actor. Open Vocab - threat-actor-label-ov
-     * (Required)
-     */
-    public void setLabels(List<String> labels) {
-        this.labels = labels;
     }
 
     /**
@@ -355,10 +328,6 @@ public class ThreatActor extends Core {
         sb.append('=');
         sb.append(((this.id == null) ? "<null>" : this.id));
         sb.append(',');
-        sb.append("labels");
-        sb.append('=');
-        sb.append(((this.labels == null) ? "<null>" : this.labels));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -416,7 +385,6 @@ public class ThreatActor extends Core {
         result = ((result * 31) + ((this.resourceLevel == null) ? 0 : this.resourceLevel.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
-        result = ((result * 31) + ((this.labels == null) ? 0 : this.labels.hashCode()));
         result = ((result * 31) + ((this.primaryMotivation == null) ? 0 : this.primaryMotivation.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.personalMotivations == null) ? 0 : this.personalMotivations.hashCode()));
@@ -436,7 +404,7 @@ public class ThreatActor extends Core {
             return false;
         }
         ThreatActor rhs = ((ThreatActor) other);
-        return (((((((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.sophistication == rhs.sophistication) || ((this.sophistication != null) && this.sophistication.equals(rhs.sophistication)))) && ((this.roles == rhs.roles) || ((this.roles != null) && this.roles.equals(rhs.roles)))) && ((this.resourceLevel == rhs.resourceLevel) || ((this.resourceLevel != null) && this.resourceLevel.equals(rhs.resourceLevel)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.labels == rhs.labels) || ((this.labels != null) && this.labels.equals(rhs.labels)))) && ((this.primaryMotivation == rhs.primaryMotivation) || ((this.primaryMotivation != null) && this.primaryMotivation.equals(rhs.primaryMotivation)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.personalMotivations == rhs.personalMotivations) || ((this.personalMotivations != null) && this.personalMotivations.equals(rhs.personalMotivations)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.secondaryMotivations == rhs.secondaryMotivations) || ((this.secondaryMotivations != null) && this.secondaryMotivations.equals(rhs.secondaryMotivations)))) && ((this.goals == rhs.goals) || ((this.goals != null) && this.goals.equals(rhs.goals))));
+        return (((((((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.sophistication == rhs.sophistication) || ((this.sophistication != null) && this.sophistication.equals(rhs.sophistication)))) && ((this.roles == rhs.roles) || ((this.roles != null) && this.roles.equals(rhs.roles)))) && ((this.resourceLevel == rhs.resourceLevel) || ((this.resourceLevel != null) && this.resourceLevel.equals(rhs.resourceLevel)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type))))) && ((this.primaryMotivation == rhs.primaryMotivation) || ((this.primaryMotivation != null) && this.primaryMotivation.equals(rhs.primaryMotivation)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.personalMotivations == rhs.personalMotivations) || ((this.personalMotivations != null) && this.personalMotivations.equals(rhs.personalMotivations)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.secondaryMotivations == rhs.secondaryMotivations) || ((this.secondaryMotivations != null) && this.secondaryMotivations.equals(rhs.secondaryMotivations)))) && ((this.goals == rhs.goals) || ((this.goals != null) && this.goals.equals(rhs.goals))));
     }
 
 }
