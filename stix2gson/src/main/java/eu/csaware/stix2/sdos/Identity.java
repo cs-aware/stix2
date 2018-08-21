@@ -82,31 +82,10 @@ public class Identity extends Core {
     public Identity() {
     }
 
-    /**
-     * @param sectors
-     * @param externalReferences
-     * @param identityClass
-     * @param created
-     * @param description
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param contactInformation
-     * @param granularMarkings
-     * @param name
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     */
-    public Identity(String type, String id, List<String> labels, String name, String description, String identityClass,
+    public Identity(String id, List<String> labels, String name, String description, String identityClass,
                     List<String> sectors, String contactInformation, String createdByRef, LocalDateTime created, LocalDateTime modified,
                     Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.IDENTITY_TYPE)) {
-            type = Types.IDENTITY_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.name = name;
         this.description = description;
@@ -120,17 +99,6 @@ public class Identity extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `identity`.
-     */
-    public void setType(String type) {
-
-        if (!type.equals(Types.IDENTITY_TYPE)) {
-            type = Types.IDENTITY_TYPE;
-        }
-        this.type = type;
     }
 
     /**

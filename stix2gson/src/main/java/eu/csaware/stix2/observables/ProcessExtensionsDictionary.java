@@ -6,7 +6,6 @@ import eu.csaware.stix2.common.Dictionary;
 
 public class ProcessExtensionsDictionary extends Dictionary {
 
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

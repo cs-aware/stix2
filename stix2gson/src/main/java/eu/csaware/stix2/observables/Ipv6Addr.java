@@ -60,19 +60,8 @@ public class Ipv6Addr extends CyberObservableCore {
     public Ipv6Addr() {
     }
 
-    /**
-     * @param resolvesToRefs
-     * @param extensions
-     * @param belongsToRefs
-     * @param type
-     * @param value
-     */
-    public Ipv6Addr(String type, String value, List<String> resolvesToRefs, List<String> belongsToRefs, Dictionary extensions) {
+    public Ipv6Addr(String value, List<String> resolvesToRefs, List<String> belongsToRefs, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.IPV6_ADDR_TYPE)) {
-            type = Types.IPV6_ADDR_TYPE;
-        }
-        this.type = type;
         this.value = value;
         this.resolvesToRefs = resolvesToRefs;
         this.belongsToRefs = belongsToRefs;
@@ -83,16 +72,6 @@ public class Ipv6Addr extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `ipv6-addr`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.IPV6_ADDR_TYPE)) {
-            type = Types.IPV6_ADDR_TYPE;
-        }
-        this.type = type;
     }
 
     /**

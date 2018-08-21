@@ -129,29 +129,8 @@ public class Process extends CyberObservableCore {
     public Process() {
     }
 
-    /**
-     * @param created
-     * @param pid
-     * @param type
-     * @param childRefs
-     * @param isHidden
-     * @param parentRef
-     * @param cwd
-     * @param extensions
-     * @param binaryRef
-     * @param creatorUserRef
-     * @param environmentVariables
-     * @param name
-     * @param openedConnectionRefs
-     * @param arguments
-     * @param commandLine
-     */
-    public Process(String type, ProcessExtensionsDictionary extensions, Boolean isHidden, Integer pid, String name, String created, String cwd, List<String> arguments, String commandLine, Dictionary environmentVariables, List<String> openedConnectionRefs, String creatorUserRef, String binaryRef, String parentRef, List<String> childRefs) {
+    public Process(ProcessExtensionsDictionary extensions, Boolean isHidden, Integer pid, String name, String created, String cwd, List<String> arguments, String commandLine, Dictionary environmentVariables, List<String> openedConnectionRefs, String creatorUserRef, String binaryRef, String parentRef, List<String> childRefs) {
         super(extensions);
-        if (!type.equals(Types.PROCESS)) {
-            type = Types.PROCESS;
-        }
-        this.type = type;
         this.extensions = extensions;
         this.isHidden = isHidden;
         this.pid = pid;
@@ -173,16 +152,6 @@ public class Process extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `process`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.PROCESS)) {
-            type = Types.PROCESS;
-        }
-        this.type = type;
     }
 
     public ProcessExtensionsDictionary getExtensions() {

@@ -65,27 +65,18 @@ public class AttackPattern extends Core {
     public AttackPattern() {
     }
 
-    public AttackPattern(String type, String id, String name, String description,
+    public AttackPattern(String id, String name, String description,
                          LocalDateTime created, LocalDateTime modified) {
         super(created, modified);
-        if (!type.equals(Types.ATTACK_PATTERN_TYPE)) {
-            type = Types.ATTACK_PATTERN_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.name = name;
         this.description = description;
-        this.killChainPhases = killChainPhases;
     }
 
-    public AttackPattern(String type, String id, String name, String description, List<KillChainPhase> killChainPhases, String createdByRef,
+    public AttackPattern(String id, String name, String description, List<KillChainPhase> killChainPhases, String createdByRef,
                          List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                          List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.ATTACK_PATTERN_TYPE)) {
-            type = Types.ATTACK_PATTERN_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.name = name;
         this.description = description;
@@ -98,17 +89,6 @@ public class AttackPattern extends Core {
     public String getType() {
         return type;
     }
-
-    /**
-     * The type of this object, which MUST be the literal `attack-pattern`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.ATTACK_PATTERN_TYPE)) {
-            type = Types.ATTACK_PATTERN_TYPE;
-        }
-        this.type = type;
-    }
-
 
     /**
      * id

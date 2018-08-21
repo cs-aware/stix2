@@ -71,21 +71,8 @@ public class Software extends CyberObservableCore {
     public Software() {
     }
 
-    /**
-     * @param extensions
-     * @param languages
-     * @param vendor
-     * @param name
-     * @param cpe
-     * @param type
-     * @param version
-     */
-    public Software(String type, String name, String cpe, List<String> languages, String vendor, String version, Dictionary extensions) {
+    public Software(String name, String cpe, List<String> languages, String vendor, String version, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.SOFTWARE_TYPE)) {
-            type = Types.SOFTWARE_TYPE;
-        }
-        this.type = type;
         this.name = name;
         this.cpe = cpe;
         this.languages = languages;
@@ -98,16 +85,6 @@ public class Software extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `software`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.SOFTWARE_TYPE)) {
-            type = Types.SOFTWARE_TYPE;
-        }
-        this.type = type;
     }
 
     /**

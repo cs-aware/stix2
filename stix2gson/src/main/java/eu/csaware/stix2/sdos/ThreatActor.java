@@ -128,38 +128,12 @@ public class ThreatActor extends Core {
     public ThreatActor() {
     }
 
-    /**
-     * @param externalReferences
-     * @param aliases
-     * @param sophistication
-     * @param created
-     * @param roles
-     * @param resourceLevel
-     * @param description
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param primaryMotivation
-     * @param granularMarkings
-     * @param name
-     * @param personalMotivations
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param secondaryMotivations
-     * @param objectMarkingRefs
-     * @param goals
-     */
-    public ThreatActor(String type, String id, List<String> labels, String name, String description, List<String> aliases,
+    public ThreatActor(String id, List<String> labels, String name, String description, List<String> aliases,
                        List<String> roles, List<String> goals, String sophistication, String resourceLevel, String primaryMotivation,
                        List<String> secondaryMotivations, List<String> personalMotivations, String createdByRef, LocalDateTime created,
                        LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,
                        List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.THREAT_ACTOR_TYPE)) {
-            type = Types.THREAT_ACTOR_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.labels = labels;
         this.name = name;
@@ -179,16 +153,6 @@ public class ThreatActor extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `threat-actor`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.THREAT_ACTOR_TYPE)) {
-            type = Types.THREAT_ACTOR_TYPE;
-        }
-        this.type = type;
     }
 
     /**

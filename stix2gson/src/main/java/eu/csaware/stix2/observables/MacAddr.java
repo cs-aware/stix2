@@ -41,17 +41,8 @@ public class MacAddr extends CyberObservableCore {
     public MacAddr() {
     }
 
-    /**
-     * @param extensions
-     * @param type
-     * @param value
-     */
-    public MacAddr(String type, String value, Dictionary extensions) {
+    public MacAddr(String value, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.MAC_ADDR_TYPE)) {
-            type = Types.MAC_ADDR_TYPE;
-        }
-        this.type = type;
         this.value = value;
     }
 
@@ -60,16 +51,6 @@ public class MacAddr extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `mac-addr`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.MAC_ADDR_TYPE)) {
-            type = Types.MAC_ADDR_TYPE;
-        }
-        this.type = type;
     }
 
     /**

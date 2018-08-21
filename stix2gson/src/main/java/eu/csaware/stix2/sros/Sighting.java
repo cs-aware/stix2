@@ -94,34 +94,11 @@ public class Sighting extends Core {
     public Sighting() {
     }
 
-    /**
-     * @param summary
-     * @param externalReferences
-     * @param firstSeen
-     * @param created
-     * @param count
-     * @param whereSightedRefs
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param lastSeen
-     * @param granularMarkings
-     * @param modified
-     * @param observedDataRefs
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     * @param sightingOfRef
-     */
-    public Sighting(String type, String id, LocalDateTime firstSeen, LocalDateTime lastSeen, Integer count, Object sightingOfRef,
+    public Sighting(String id, LocalDateTime firstSeen, LocalDateTime lastSeen, Integer count, Object sightingOfRef,
                     List<Object> observedDataRefs, List<Object> whereSightedRefs, Boolean summary, String createdByRef,
                     List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                     List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.SIGHTING_TYPE)) {
-            type = Types.SIGHTING_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.firstSeen = firstSeen;
         this.lastSeen = lastSeen;
@@ -137,16 +114,6 @@ public class Sighting extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `sighting`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.SIGHTING_TYPE)) {
-            type = Types.SIGHTING_TYPE;
-        }
-        this.type = type;
     }
 
     /**

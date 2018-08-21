@@ -81,30 +81,10 @@ public class Tool extends Core {
     public Tool() {
     }
 
-    /**
-     * @param externalReferences
-     * @param killChainPhases
-     * @param created
-     * @param description
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param toolVersion
-     * @param granularMarkings
-     * @param name
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     */
-    public Tool(String type, String id, List<String> labels, String name, String description, String toolVersion, List<KillChainPhase> killChainPhases,
+    public Tool(String id, List<String> labels, String name, String description, String toolVersion, List<KillChainPhase> killChainPhases,
                 String createdByRef, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                 List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.TOOL_TYPE)) {
-            type = Types.TOOL_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.labels = labels;
         this.name = name;
@@ -118,16 +98,6 @@ public class Tool extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `tool`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.TOOL_TYPE)) {
-            type = Types.TOOL_TYPE;
-        }
-        this.type = type;
     }
 
     /**

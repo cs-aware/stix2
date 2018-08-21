@@ -53,19 +53,8 @@ public class EmailAddr extends CyberObservableCore {
     public EmailAddr() {
     }
 
-    /**
-     * @param extensions
-     * @param belongsToRef
-     * @param displayName
-     * @param type
-     * @param value
-     */
-    public EmailAddr(String type, String value, String displayName, String belongsToRef, Dictionary extensions) {
+    public EmailAddr(String value, String displayName, String belongsToRef, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.EMAIL_ADDR_TYPE)) {
-            type = Types.EMAIL_ADDR_TYPE;
-        }
-        this.type = type;
         this.value = value;
         this.displayName = displayName;
         this.belongsToRef = belongsToRef;
@@ -76,16 +65,6 @@ public class EmailAddr extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `email-addr`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.EMAIL_ADDR_TYPE)) {
-            type = Types.EMAIL_ADDR_TYPE;
-        }
-        this.type = type;
     }
 
     /**

@@ -59,19 +59,8 @@ public class Ipv4Addr extends CyberObservableCore {
     public Ipv4Addr() {
     }
 
-    /**
-     * @param resolvesToRefs
-     * @param extensions
-     * @param belongsToRefs
-     * @param type
-     * @param value
-     */
-    public Ipv4Addr(String type, String value, List<String> resolvesToRefs, List<String> belongsToRefs, Dictionary extensions) {
+    public Ipv4Addr(String value, List<String> resolvesToRefs, List<String> belongsToRefs, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.IPV4_ADDR_TYPE)) {
-            type = Types.IPV4_ADDR_TYPE;
-        }
-        this.type = type;
         this.value = value;
         this.resolvesToRefs = resolvesToRefs;
         this.belongsToRefs = belongsToRefs;
@@ -82,16 +71,6 @@ public class Ipv4Addr extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `ipv4-addr`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.IPV4_ADDR_TYPE)) {
-            type = Types.IPV4_ADDR_TYPE;
-        }
-        this.type = type;
     }
 
     /**

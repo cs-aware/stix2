@@ -38,17 +38,8 @@ public class Artifact extends CyberObservableCore {
     public Artifact() {
     }
 
-    /**
-     * @param extensions
-     * @param mimeType
-     * @param type
-     */
-    public Artifact(String type, String mimeType, Dictionary extensions) {
+    public Artifact(String mimeType, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.ARTIFACT_TYPE)) {
-            type = Types.ARTIFACT_TYPE;
-        }
-        this.type = type;
         this.mimeType = mimeType;
     }
 
@@ -57,16 +48,6 @@ public class Artifact extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `artifact`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.ARTIFACT_TYPE)) {
-            type = Types.ARTIFACT_TYPE;
-        }
-        this.type = type;
     }
 
     /**

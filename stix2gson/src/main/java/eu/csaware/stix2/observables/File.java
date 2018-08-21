@@ -137,29 +137,9 @@ public class File extends CyberObservableCore {
     public File() {
     }
 
-    /**
-     * @param containsRefs
-     * @param created
-     * @param mimeType
-     * @param type
-     * @param accessed
-     * @param nameEnc
-     * @param magicNumberHex
-     * @param extensions
-     * @param parentDirectoryRef
-     * @param size
-     * @param hashes
-     * @param name
-     * @param modified
-     * @param contentRef
-     */
-    public File(String type, FileExtensionsDictionary extensions, HashesType hashes, Integer size, String name,
+    public File(FileExtensionsDictionary extensions, HashesType hashes, Integer size, String name,
                 String nameEnc, String magicNumberHex, String mimeType, LocalDateTime created, LocalDateTime modified, String accessed, String parentDirectoryRef, List<String> containsRefs, String contentRef) {
         super(extensions);
-        if (!type.equals(Types.FILE_TYPE)) {
-            type = Types.FILE_TYPE;
-        }
-        this.type = type;
         this.extensions = extensions;
         this.hashes = hashes;
         this.size = size;
@@ -180,16 +160,6 @@ public class File extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `file`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.FILE_TYPE)) {
-            type = Types.FILE_TYPE;
-        }
-        this.type = type;
     }
 
     public FileExtensionsDictionary getExtensions() {

@@ -116,35 +116,11 @@ public class ObservedData extends Core {
     public ObservedData() {
     }
 
-    /**
-     * @param xDaRiskLevel
-     * @param xDaThreatGroup
-     * @param numberObserved
-     * @param externalReferences
-     * @param lastObserved
-     * @param created
-     * @param objects
-     * @param xDaThreatSeverity
-     * @param type
-     * @param revoked
-     * @param labels
-     * @param firstObserved
-     * @param xDaExploitabilityLevel
-     * @param granularMarkings
-     * @param modified
-     * @param createdByRef
-     * @param id
-     * @param objectMarkingRefs
-     */
-    public ObservedData(String type, String id, String firstObserved, String lastObserved, Integer numberObserved, Integer xDaThreatSeverity,
+    public ObservedData(String id, String firstObserved, String lastObserved, Integer numberObserved, Integer xDaThreatSeverity,
                         Integer xDaRiskLevel, Integer xDaExploitabilityLevel, String xDaThreatGroup, Map<String, CyberObservableCore> objects, String createdByRef,
                         List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                         List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        if (!type.equals(Types.OBSERVED_DATA_TYPE)) {
-            type = Types.OBSERVED_DATA_TYPE;
-        }
-        this.type = type;
         this.id = id;
         this.firstObserved = firstObserved;
         this.lastObserved = lastObserved;
@@ -161,16 +137,6 @@ public class ObservedData extends Core {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `observed-data`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.OBSERVED_DATA_TYPE)) {
-            type = Types.OBSERVED_DATA_TYPE;
-        }
-        this.type = type;
     }
 
     /**

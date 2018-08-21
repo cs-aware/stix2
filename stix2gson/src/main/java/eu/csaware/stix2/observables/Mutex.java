@@ -40,17 +40,8 @@ public class Mutex extends CyberObservableCore {
     public Mutex() {
     }
 
-    /**
-     * @param extensions
-     * @param name
-     * @param type
-     */
-    public Mutex(String type, String name, Dictionary extensions) {
+    public Mutex(String name, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.MUTEX_TYPE)) {
-            type = Types.MUTEX_TYPE;
-        }
-        this.type = type;
         this.name = name;
     }
 
@@ -59,16 +50,6 @@ public class Mutex extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `mutex`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.MUTEX_TYPE)) {
-            type = Types.MUTEX_TYPE;
-        }
-        this.type = type;
     }
 
     /**

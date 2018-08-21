@@ -86,22 +86,8 @@ public class Directory extends CyberObservableCore {
     public Directory() {
     }
 
-    /**
-     * @param path
-     * @param containsRefs
-     * @param extensions
-     * @param created
-     * @param pathEnc
-     * @param modified
-     * @param type
-     * @param accessed
-     */
-    public Directory(String type, String path, String pathEnc, String created, String modified, String accessed, List<String> containsRefs, Dictionary extensions) {
+    public Directory(String path, String pathEnc, String created, String modified, String accessed, List<String> containsRefs, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.DIRECTORY_TYPE)) {
-            type = Types.DIRECTORY_TYPE;
-        }
-        this.type = type;
         this.path = path;
         this.pathEnc = pathEnc;
         this.created = created;
@@ -115,16 +101,6 @@ public class Directory extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `directory`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.DIRECTORY_TYPE)) {
-            type = Types.DIRECTORY_TYPE;
-        }
-        this.type = type;
     }
 
     /**

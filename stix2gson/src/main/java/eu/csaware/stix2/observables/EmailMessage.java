@@ -108,27 +108,8 @@ public class EmailMessage extends CyberObservableCore {
     public EmailMessage() {
     }
 
-    /**
-     * @param date
-     * @param subject
-     * @param additionalHeaderFields
-     * @param ccRefs
-     * @param type
-     * @param rawEmailRef
-     * @param toRefs
-     * @param bccRefs
-     * @param receivedLines
-     * @param extensions
-     * @param senderRef
-     * @param fromRef
-     * @param contentType
-     */
-    public EmailMessage(String type, String date, String contentType, String fromRef, String senderRef, List<String> toRefs, List<String> ccRefs, List<String> bccRefs, String subject, List<String> receivedLines, EmailAdditionalHeaderFields additionalHeaderFields, String rawEmailRef, Dictionary extensions) {
+    public EmailMessage(String date, String contentType, String fromRef, String senderRef, List<String> toRefs, List<String> ccRefs, List<String> bccRefs, String subject, List<String> receivedLines, EmailAdditionalHeaderFields additionalHeaderFields, String rawEmailRef, Dictionary extensions) {
         super(extensions);
-        if (!type.equals(Types.EMAIL_MESSAGE_TYPE)) {
-            type = Types.EMAIL_MESSAGE_TYPE;
-        }
-        this.type = type;
         this.date = date;
         this.contentType = contentType;
         this.fromRef = fromRef;
@@ -147,16 +128,6 @@ public class EmailMessage extends CyberObservableCore {
      */
     public String getType() {
         return type;
-    }
-
-    /**
-     * The value of this property MUST be `email-message`.
-     */
-    public void setType(String type) {
-        if (!type.equals(Types.EMAIL_MESSAGE_TYPE)) {
-            type = Types.EMAIL_MESSAGE_TYPE;
-        }
-        this.type = type;
     }
 
     /**

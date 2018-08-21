@@ -37,11 +37,6 @@ public class WindowsRegistryValueType {
     public WindowsRegistryValueType() {
     }
 
-    /**
-     * @param data
-     * @param dataType
-     * @param name
-     */
     public WindowsRegistryValueType(String name, String data, DataType dataType) {
         super();
         this.name = name;
