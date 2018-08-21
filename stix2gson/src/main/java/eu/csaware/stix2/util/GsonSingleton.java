@@ -15,9 +15,11 @@ public enum GsonSingleton {
     //prefix these with SINGLETON to make autocomplete pick up the PRODUCTION and DEBUG instances below directly
     SINGLETON_PRODUCTION(new GsonBuilder()
         .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
+        .registerTypeAdapterFactory(GsonConstants.RUNTIME_TYPE_ADAPTER_FACTORY)
         .create()),
     SINGLETON_DEBUG(new GsonBuilder()
         .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
+        .registerTypeAdapterFactory(GsonConstants.RUNTIME_TYPE_ADAPTER_FACTORY)
         .setPrettyPrinting()
         .create());
 
