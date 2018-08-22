@@ -92,6 +92,13 @@ public class Campaign extends Core {
     public Campaign() {
     }
 
+    public Campaign(String id, String name, String description, String createdByRef, LocalDateTime created, LocalDateTime modified) {
+        super(createdByRef, created, modified);
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
     public Campaign(String id, String name, String description, List<String> aliases, String firstSeen, String lastSeen,
                     String objective, String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
                     Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
