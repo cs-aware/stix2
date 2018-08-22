@@ -99,6 +99,13 @@ public abstract class Core {
         this.modified = modified;
     }
 
+    public Core(String createdByRef, LocalDateTime created, LocalDateTime modified) {
+        super();
+        this.createdByRef = createdByRef;
+        this.created = created;
+        this.modified = modified;
+    }
+
     public Core(String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
                 Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,
                 List<GranularMarking> granularMarkings) {

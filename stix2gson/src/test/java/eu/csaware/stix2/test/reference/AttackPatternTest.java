@@ -1,5 +1,6 @@
 package eu.csaware.stix2.test.reference;
 
+import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.AttackPattern;
@@ -146,4 +147,10 @@ class AttackPatternTest {
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
 
+    @Test
+    void testAutoType() throws IOException {
+        String jsonString = TestUtil.readResourceFile(PATH);
+        Core core = GsonSingleton.DEBUG.fromJson(jsonString, Core.class);
+        Assertions.assertTrue(core instanceof AttackPattern);
+    }
 }
