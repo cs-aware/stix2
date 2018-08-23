@@ -80,66 +80,6 @@ public class Bundle implements TypedStixObject {
         this.objects = objects;
     }
 
-
-    /**
-     * Build a Bundle object from a JSON string.
-     * The list of objects in Bundle will be added objects of the type stated in the string.
-     *
-     * @param jsonString String with valid JSON structure
-     * @return Bundle object with data from the jsonString string
-     */
-    public static Bundle buildFromString(String jsonString) {
-
-        final RuntimeTypeAdapterFactory<CyberObservableCore> cyberObservableTypeAdaptor = RuntimeTypeAdapterFactory
-            .of(CyberObservableCore.class, "type")
-            .registerSubtype(Artifact.class, Types.ARTIFACT_TYPE)
-            .registerSubtype(AutonomousSystem.class, Types.AUTONOMOUS_SYSTEM_TYPE)
-            .registerSubtype(Directory.class, Types.DIRECTORY_TYPE)
-            .registerSubtype(DomainName.class, Types.DOMAIN_NAME_TYPE)
-            .registerSubtype(EmailAddr.class, Types.EMAIL_ADDR_TYPE)
-            .registerSubtype(EmailMessage.class, Types.EMAIL_MESSAGE_TYPE)
-            .registerSubtype(File.class, Types.FILE_TYPE)
-            .registerSubtype(Ipv4Addr.class, Types.IPV4_ADDR_TYPE)
-            .registerSubtype(Ipv6Addr.class, Types.IPV6_ADDR_TYPE)
-            .registerSubtype(MacAddr.class, Types.MAC_ADDR_TYPE)
-            .registerSubtype(Mutex.class, Types.MUTEX_TYPE)
-            .registerSubtype(NetworkTraffic.class, Types.NETWORK_TRAFFIC_TYPE)
-            .registerSubtype(Process.class, Types.PROCESS)
-            .registerSubtype(Software.class, Types.SOFTWARE_TYPE)
-            .registerSubtype(Url.class, Types.URL_TYPE)
-            .registerSubtype(UserAccount.class, Types.USER_ACCOUNT_TYPE)
-            .registerSubtype(WindowsRegistryKey.class, Types.WINDOWS_REGISTRY_KEY_TYPE)
-            .registerSubtype(X509Certificate.class, Types.X_509_CERTIFICATE);
-
-        final RuntimeTypeAdapterFactory<Core> coreTypeAdptor = RuntimeTypeAdapterFactory
-            .of(Core.class, "type")
-            .registerSubtype(AttackPattern.class, Types.ATTACK_PATTERN_TYPE)
-            .registerSubtype(Campaign.class, Types.CAMPAIGN_TYPE)
-            .registerSubtype(CourseOfAction.class, Types.COURSE_OF_ACTION_TYPE)
-            .registerSubtype(Identity.class, Types.IDENTITY_TYPE)
-            .registerSubtype(Indicator.class, Types.INDICATOR_TYPE)
-            .registerSubtype(IntrusionSet.class, Types.INTRUSION_SET_TYPE)
-            .registerSubtype(Malware.class, Types.MALWARE_TYPE)
-            .registerSubtype(ObservedData.class, Types.OBSERVED_DATA_TYPE)
-            .registerSubtype(Report.class, Types.REPORT_TYPE)
-            .registerSubtype(ThreatActor.class, Types.THREAT_ACTOR_TYPE)
-            .registerSubtype(Relationship.class, Types.RELATIONSHIP_TYPE)
-            .registerSubtype(Sighting.class, Types.SIGHTING_TYPE)
-            .registerSubtype(Tool.class, Types.TOOL_TYPE)
-            .registerSubtype(Vulnerability.class, Types.VULNERABILITY_TYPE);
-
-
-        Gson gson = new GsonBuilder()
-            .registerTypeAdapterFactory(cyberObservableTypeAdaptor)
-            .registerTypeAdapterFactory(coreTypeAdptor)
-            .setPrettyPrinting()
-            .create();
-
-        Bundle bundle = gson.fromJson(jsonString, Bundle.class);
-
-        return bundle;
-    }
-
     /**
      * The type of this object, which MUST be the literal `bundle`.
      * (Required)
