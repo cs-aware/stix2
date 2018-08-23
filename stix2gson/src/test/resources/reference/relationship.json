@@ -2,7 +2,7 @@
   "type": "relationship",
   "id": "relationship--df7c87eb-75d2-4948-af81-9d49d246f301",
   "created": "2016-04-06T20:06:37.000Z",
-  "modified": "2016-04-06T20:06:37.000Z",
+  "modified": "2017-03-20T01:27:32.000Z",
   "relationship_type": "indicates",
   "source_ref": "indicator--a740531e-63ff-4e49-a9e1-a0a3eed0e3e7",
   "target_ref": "malware--9c4638ec-f1de-4ddb-abf4-1b760417654e"

@@ -99,8 +99,8 @@ class ObservedDataTest {
 
         ObservedData observedData = new ObservedData(
             TestConstants.OBSERVED_DATA_ID,
-            TestConstants.DATE_TIME_EXTRA,
-            TestConstants.DATE_TIME_EXTRA,
+            TestConstants.DATE_TIME_FIRST_OBSERVED,
+            TestConstants.DATE_TIME_LAST_OBSERVED,
             50,
             objects,
             TestConstants.IDENTITY_ID,
