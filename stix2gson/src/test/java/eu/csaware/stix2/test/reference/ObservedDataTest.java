@@ -56,6 +56,16 @@ class ObservedDataTest {
     }
 
     @Test
+    void testFirstObserved() {
+        Assertions.assertEquals(TestConstants.DATE_TIME_FIRST_OBSERVED, observedData.getFirstObserved());
+    }
+
+    @Test
+    void testLastObserved() {
+        Assertions.assertEquals(TestConstants.DATE_TIME_LAST_OBSERVED, observedData.getLastObserved());
+    }
+
+    @Test
     void testCreatedByRef() {
         Assertions.assertEquals(TestConstants.IDENTITY_ID, observedData.getCreatedByRef());
     }
