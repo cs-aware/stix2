@@ -47,12 +47,12 @@ class ObservedDataTest {
 
     @Test
     void testCreated() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, observedData.getCreated());
+        Assertions.assertEquals(TestConstants.DATE_TIME_CREATED, observedData.getCreated());
     }
 
     @Test
     void testModified() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, observedData.getModified());
+        Assertions.assertEquals(TestConstants.DATE_TIME_MODIFIED, observedData.getModified());
     }
 
     @Test
@@ -99,13 +99,13 @@ class ObservedDataTest {
 
         ObservedData observedData = new ObservedData(
             TestConstants.OBSERVED_DATA_ID,
-            TestConstants.DATE_TIME,
-            TestConstants.DATE_TIME,
+            TestConstants.DATE_TIME_EXTRA,
+            TestConstants.DATE_TIME_EXTRA,
             50,
             objects,
             TestConstants.IDENTITY_ID,
-            TestConstants.DATE_TIME,
-            TestConstants.DATE_TIME
+            TestConstants.DATE_TIME_CREATED,
+            TestConstants.DATE_TIME_MODIFIED
         );
         Assertions.assertNotNull(observedData);
         String created = GsonSingleton.DEBUG.toJson(observedData);

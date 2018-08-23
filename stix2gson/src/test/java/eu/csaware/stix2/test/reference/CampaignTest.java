@@ -54,12 +54,12 @@ class CampaignTest {
 
     @Test
     void testCreated() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, campaign.getCreated());
+        Assertions.assertEquals(TestConstants.DATE_TIME_CREATED, campaign.getCreated());
     }
 
     @Test
     void testModified() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, campaign.getModified());
+        Assertions.assertEquals(TestConstants.DATE_TIME_MODIFIED, campaign.getModified());
     }
 
     @Test
@@ -105,8 +105,8 @@ class CampaignTest {
             "Green Group Attacks Against Finance",
             "Campaign by Green Group against a series of targets in the financial services sector.",
             TestConstants.IDENTITY_ID,
-            TestConstants.DATE_TIME,
-            TestConstants.DATE_TIME
+            TestConstants.DATE_TIME_CREATED,
+            TestConstants.DATE_TIME_MODIFIED
         );
         Assertions.assertNotNull(createdCampaign);
         String created = GsonSingleton.DEBUG.toJson(createdCampaign);

@@ -7,7 +7,9 @@ import java.time.LocalDateTime;
  */
 public class TestConstants {
 
-    public static LocalDateTime DATE_TIME = LocalDateTime.of(2016, 5, 12, 8, 17, 27);
+    public static LocalDateTime DATE_TIME_CREATED = LocalDateTime.of(2016, 5, 12, 8, 17, 27);
+    public static LocalDateTime DATE_TIME_MODIFIED = LocalDateTime.of(2017, 3, 20, 1, 20, 32);
+    public static LocalDateTime DATE_TIME_EXTRA = LocalDateTime.of(2015, 8, 1, 10, 30, 21);
 
     public static String ATTACK_PATTERN_ID = "attack-pattern--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061";
     public static String BUNDLE_ID = "bundle--00000000-0000-4000-8000-000000000007";

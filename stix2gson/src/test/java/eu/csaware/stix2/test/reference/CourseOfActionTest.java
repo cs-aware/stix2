@@ -55,12 +55,12 @@ class CourseOfActionTest {
 
     @Test
     void testCreated() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, courseOfAction.getCreated());
+        Assertions.assertEquals(TestConstants.DATE_TIME_CREATED, courseOfAction.getCreated());
     }
 
     @Test
     void testModified() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, courseOfAction.getModified());
+        Assertions.assertEquals(TestConstants.DATE_TIME_MODIFIED, courseOfAction.getModified());
     }
 
     @Test
@@ -106,8 +106,8 @@ class CourseOfActionTest {
             "Add TCP port 80 Filter Rule to the existing Block UDP 1434 Filter",
             "This is how to add a filter rule to block inbound access to TCP port 80 to the existing UDP 1434 filter ...",
             TestConstants.IDENTITY_ID,
-            TestConstants.DATE_TIME,
-            TestConstants.DATE_TIME
+            TestConstants.DATE_TIME_CREATED,
+            TestConstants.DATE_TIME_MODIFIED
         );
         Assertions.assertNotNull(courseOfAction);
         String created = GsonSingleton.DEBUG.toJson(courseOfAction);
