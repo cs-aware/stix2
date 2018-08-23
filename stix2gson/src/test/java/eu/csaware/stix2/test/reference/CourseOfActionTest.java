@@ -1,6 +1,7 @@
 package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.Core;
+import eu.csaware.stix2.common.TypedStixObject;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.Campaign;
 import eu.csaware.stix2.sdos.CourseOfAction;
@@ -118,7 +119,7 @@ class CourseOfActionTest {
     @Test
     void testAutoType() throws IOException {
         String jsonString = TestUtil.readResourceFile(PATH);
-        Core core = GsonSingleton.DEBUG.fromJson(jsonString, Core.class);
+        TypedStixObject core = GsonSingleton.DEBUG.fromJson(jsonString, TypedStixObject.class);
         Assertions.assertTrue(core instanceof CourseOfAction);
     }
 }

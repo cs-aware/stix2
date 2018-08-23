@@ -19,7 +19,7 @@ import java.util.List;
  * <p>
  * Common properties and behavior across all STIX Domain Objects and STIX Relationship Objects.
  */
-public abstract class Core {
+public abstract class Core implements TypedStixObject {
 
     /**
      * identifier

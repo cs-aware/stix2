@@ -26,7 +26,7 @@ import java.util.Map;
  * <p>
  * A Bundle is a collection of arbitrary STIX Objects and Marking Definitions grouped together in a single container.
  */
-public class Bundle {
+public class Bundle implements TypedStixObject {
 
     public static final String SPEC_VERSION = "2.1";
 
@@ -65,7 +65,7 @@ public class Bundle {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<Object> objects = new ArrayList<Object>();
+    private List<TypedStixObject> objects = new ArrayList<>();
 
     /**
      * No args constructor for use in serialization
@@ -73,7 +73,7 @@ public class Bundle {
     public Bundle() {
     }
 
-    public Bundle(String id, String specVersion, List<Object> objects) {
+    public Bundle(String id, String specVersion, List<TypedStixObject> objects) {
         super();
         this.id = id;
         this.specVersion = specVersion;
@@ -187,14 +187,14 @@ public class Bundle {
     /**
      * Specifies a set of one or more STIX Objects.
      */
-    public List<Object> getObjects() {
+    public List<TypedStixObject> getObjects() {
         return objects;
     }
 
     /**
      * Specifies a set of one or more STIX Objects.
      */
-    public void setObjects(List<Object> objects) {
+    public void setObjects(List<TypedStixObject> objects) {
         this.objects = objects;
     }
 
