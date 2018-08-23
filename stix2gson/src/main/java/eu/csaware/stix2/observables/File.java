@@ -137,6 +137,11 @@ public class File extends CyberObservableCore {
     public File() {
     }
 
+    public File(String name) {
+        super();
+        this.name = name;
+    }
+
     public File(FileExtensionsDictionary extensions, HashesType hashes, Integer size, String name,
                 String nameEnc, String magicNumberHex, String mimeType, LocalDateTime created, LocalDateTime modified, String accessed, String parentDirectoryRef, List<String> containsRefs, String contentRef) {
         super(extensions);
