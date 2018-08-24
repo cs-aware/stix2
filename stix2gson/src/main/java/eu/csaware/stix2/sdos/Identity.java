@@ -82,6 +82,13 @@ public class Identity extends Core {
     public Identity() {
     }
 
+    public Identity(String id, String name, String identityClass, LocalDateTime created, LocalDateTime modified) {
+        super(created, modified);
+        this.id = id;
+        this.name = name;
+        this.identityClass = identityClass;
+    }
+
     public Identity(String id, List<String> labels, String name, String description, String identityClass,
                     List<String> sectors, String contactInformation, String createdByRef, LocalDateTime created, LocalDateTime modified,
                     Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
