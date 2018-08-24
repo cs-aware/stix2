@@ -1,9 +1,8 @@
 package eu.csaware.stix2.test.reference;
 
-import eu.csaware.stix2.common.ExternalReference;
+import eu.csaware.stix2.common.OpenVocabularyDefaults;
 import eu.csaware.stix2.common.TypedStixObject;
 import eu.csaware.stix2.common.Types;
-import eu.csaware.stix2.sdos.AttackPattern;
 import eu.csaware.stix2.sdos.Identity;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
@@ -45,7 +44,7 @@ class IdentityTest {
 
     @Test
     void testIdentityClass() {
-        Assertions.assertEquals("individual", identity.getIdentityClass());
+        Assertions.assertEquals(OpenVocabularyDefaults.IDENTITY_CLASS_INDIVIDUAL, identity.getIdentityClass());
     }
 
     @Test
@@ -105,7 +104,7 @@ class IdentityTest {
         Identity identity = new Identity(
             TestConstants.IDENTITY_ID,
             "John Smith",
-            "individual",
+            OpenVocabularyDefaults.IDENTITY_CLASS_INDIVIDUAL,
             TestConstants.DATE_TIME_CREATED,
             TestConstants.DATE_TIME_MODIFIED
         );
