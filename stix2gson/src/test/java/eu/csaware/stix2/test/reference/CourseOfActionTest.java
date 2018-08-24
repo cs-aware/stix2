@@ -111,8 +111,9 @@ class CourseOfActionTest {
         );
         Assertions.assertNotNull(courseOfAction);
         String created = GsonSingleton.DEBUG.toJson(courseOfAction);
+        String jsonString = TestUtil.readResourceFile(PATH);
         String reserialized = GsonSingleton.DEBUG.toJson(CourseOfActionTest.courseOfAction);
-        Assertions.assertEquals(reserialized, created);
+        Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
 

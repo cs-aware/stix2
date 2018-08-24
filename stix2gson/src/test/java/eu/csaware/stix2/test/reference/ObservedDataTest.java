@@ -125,8 +125,6 @@ class ObservedDataTest {
 
     @Test
     void testSerializationOfEmptyMap() throws IOException {
-        String json = TestUtil.readResourceFile(PATH_EMPTY_MAP);
-        ObservedData observedDataNullMap = GsonSingleton.DEBUG.fromJson(json, ObservedData.class);
         ObservedData observedData = new ObservedData(
             TestConstants.OBSERVED_DATA_ID,
             TestConstants.DATE_TIME_FIRST_OBSERVED,
@@ -139,9 +137,9 @@ class ObservedDataTest {
         );
         Assertions.assertNotNull(observedData);
         String created = GsonSingleton.DEBUG.toJson(observedData);
-        String reserialized = GsonSingleton.DEBUG.toJson(observedDataNullMap);
+        String jsonString = TestUtil.readResourceFile(PATH_EMPTY_MAP);
         TestUtil.writeSerializedOutputFile(PATH_EMPTY_MAP, created);
-        Assertions.assertEquals(reserialized, created);
+        Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
     }
 
     @Test

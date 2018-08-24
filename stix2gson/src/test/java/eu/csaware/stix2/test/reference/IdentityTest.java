@@ -110,8 +110,8 @@ class IdentityTest {
         );
         Assertions.assertNotNull(identity);
         String created = GsonSingleton.DEBUG.toJson(identity);
-        String reserialized = GsonSingleton.DEBUG.toJson(IdentityTest.identity);
-        Assertions.assertEquals(reserialized, created);
+        String jsonString = TestUtil.readResourceFile(PATH);
+        Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
 
