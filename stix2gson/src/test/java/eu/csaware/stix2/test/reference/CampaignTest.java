@@ -96,6 +96,7 @@ class CampaignTest {
         Assertions.assertNotNull(campaign.getGranularMarkings());
         Assertions.assertNotNull(campaign.getObjectMarkingRefs());
         Assertions.assertNotNull(campaign.getLabels());
+        Assertions.assertNotNull(campaign.getAliases());
     }
 
     @Test
