@@ -95,10 +95,11 @@ class ObservedDataTest {
 
     @Test
     void testNullSafety() {
-        Campaign campaign = new Campaign();
-        Assertions.assertNotNull(campaign.getGranularMarkings());
-        Assertions.assertNotNull(campaign.getObjectMarkingRefs());
-        Assertions.assertNotNull(campaign.getLabels());
+        ObservedData observedData = new ObservedData();
+        Assertions.assertNotNull(observedData.getGranularMarkings());
+        Assertions.assertNotNull(observedData.getObjectMarkingRefs());
+        Assertions.assertNotNull(observedData.getLabels());
+        Assertions.assertNotNull(observedData.getObjects());
     }
 
     @Test

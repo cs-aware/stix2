@@ -93,10 +93,10 @@ class CourseOfActionTest {
 
     @Test
     void testNullSafety() {
-        Campaign campaign = new Campaign();
-        Assertions.assertNotNull(campaign.getGranularMarkings());
-        Assertions.assertNotNull(campaign.getObjectMarkingRefs());
-        Assertions.assertNotNull(campaign.getLabels());
+        CourseOfAction courseOfAction = new CourseOfAction();
+        Assertions.assertNotNull(courseOfAction.getGranularMarkings());
+        Assertions.assertNotNull(courseOfAction.getObjectMarkingRefs());
+        Assertions.assertNotNull(courseOfAction.getLabels());
     }
 
     @Test
