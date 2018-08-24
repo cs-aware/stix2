@@ -1,10 +1,8 @@
 package eu.csaware.stix2.test.reference;
 
-import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.TypedStixObject;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.observables.File;
-import eu.csaware.stix2.sdos.Campaign;
 import eu.csaware.stix2.sdos.ObservedData;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
@@ -23,12 +21,12 @@ import java.util.HashMap;
 class ObservedDataTest {
 
     private static final String PATH = "reference/observed_data.json";
+    private static final String PATH_EMPTY_MAP = "reference/observed_data_empty_map.json";
     private static ObservedData observedData;
 
     @BeforeAll
     static void setUp() throws Exception {
-        String jsonString = TestUtil.readResourceFile(PATH);
-        observedData = GsonSingleton.DEBUG.fromJson(jsonString, ObservedData.class);
+        observedData = GsonSingleton.DEBUG.fromJson(TestUtil.readResourceFile(PATH), ObservedData.class);
     }
 
     @AfterAll
@@ -123,6 +121,27 @@ class ObservedDataTest {
         String reserialized = GsonSingleton.DEBUG.toJson(ObservedDataTest.observedData);
         Assertions.assertEquals(reserialized, created);
         TestUtil.writeSerializedOutputFile(PATH, created);
+    }
+
+    @Test
+    void testSerializationOfEmptyMap() throws IOException {
+        String json = TestUtil.readResourceFile(PATH_EMPTY_MAP);
+        ObservedData observedDataNullMap = GsonSingleton.DEBUG.fromJson(json, ObservedData.class);
+        ObservedData observedData = new ObservedData(
+            TestConstants.OBSERVED_DATA_ID,
+            TestConstants.DATE_TIME_FIRST_OBSERVED,
+            TestConstants.DATE_TIME_LAST_OBSERVED,
+            50,
+            new HashMap<>(),
+            TestConstants.IDENTITY_ID,
+            TestConstants.DATE_TIME_CREATED,
+            TestConstants.DATE_TIME_MODIFIED
+        );
+        Assertions.assertNotNull(observedData);
+        String created = GsonSingleton.DEBUG.toJson(observedData);
+        String reserialized = GsonSingleton.DEBUG.toJson(observedDataNullMap);
+        TestUtil.writeSerializedOutputFile(PATH_EMPTY_MAP, created);
+        Assertions.assertEquals(reserialized, created);
     }
 
     @Test
