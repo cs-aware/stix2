@@ -68,7 +68,7 @@ public class Identity extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> sectors;
+    private List<String> sectors = new ArrayList<>();
     /**
      * The contact information (e-mail, phone number, etc.) for this Identity.
      */
