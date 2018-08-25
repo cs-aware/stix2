@@ -9,8 +9,6 @@ import java.util.Set;
  */
 public class OpenVocabularyDefaults {
 
-
-
     public static final String ATTACK_MOTIVATION_ACCIDENTAL = "accidental";
     public static final String ATTACK_MOTIVATION_COERCION = "coercion";
     public static final String ATTACK_MOTIVATION_DOMINANCE = "dominance";
@@ -22,7 +20,7 @@ public class OpenVocabularyDefaults {
     public static final String ATTACK_MOTIVATION_REVENGE = "revenge";
     public static final String ATTACK_MOTIVATION_UNPREDICTABLE = "unpredictable";
 
-    public static final String[] ATTACK_MOTIVATION_VOCABULARY = new String[]{
+    public static final String[] ATTACK_MOTIVATION_VOCABULARY = new String[] {
         ATTACK_MOTIVATION_ACCIDENTAL,
         ATTACK_MOTIVATION_COERCION,
         ATTACK_MOTIVATION_DOMINANCE,
@@ -42,7 +40,7 @@ public class OpenVocabularyDefaults {
     public static final String ATTACK_RESOURCE_LEVEL_ORGANIZATION = "organization";
     public static final String ATTACK_RESOURCE_LEVEL_GOVERNMENT = "government";
 
-    public static final String[] ATTACK_RESOURCE_LEVEL_VOCABULARY = new String[]{
+    public static final String[] ATTACK_RESOURCE_LEVEL_VOCABULARY = new String[] {
         ATTACK_RESOURCE_LEVEL_INDIVIDUAL,
         ATTACK_RESOURCE_LEVEL_CLUB,
         ATTACK_RESOURCE_LEVEL_CONTEST,
@@ -57,12 +55,29 @@ public class OpenVocabularyDefaults {
     public static final String IDENTITY_CLASS_CLASS = "class";
     public static final String IDENTITY_CLASS_UNKNOWN = "unknown";
 
-    public static final String[] IDENTITY_CLASS_VOCABULARY = new String[]{
+    public static final String[] IDENTITY_CLASS_VOCABULARY = new String[] {
         IDENTITY_CLASS_INDIVIDUAL,
         IDENTITY_CLASS_GROUP,
         IDENTITY_CLASS_ORGANIZATION,
         IDENTITY_CLASS_CLASS,
         IDENTITY_CLASS_UNKNOWN
     };
+
+    public static final String INDICATOR_LABEL_ANOMALOUS_ACTIVITY = "anomalous-activity";
+    public static final String INDICATOR_LABEL_ANONYMIZATION = "anonymization";
+    public static final String INDICATOR_LABEL_BENIGN = "benign";
+    public static final String INDICATOR_LABEL_COMPROMISED = "compromised";
+    public static final String INDICATOR_LABEL_MALICIOUS_ACTIVITY = "malicious-activity";
+    public static final String INDICATOR_LABEL_ATTRIBUTION = "attribution";
+
+    public static final String[] INDICATOR_LABEL_VOCABULARY = new String[] {
+        INDICATOR_LABEL_ANOMALOUS_ACTIVITY,
+        INDICATOR_LABEL_ANONYMIZATION,
+        INDICATOR_LABEL_BENIGN,
+        INDICATOR_LABEL_COMPROMISED,
+        INDICATOR_LABEL_MALICIOUS_ACTIVITY,
+        INDICATOR_LABEL_ATTRIBUTION
+    };
+
 
 }
