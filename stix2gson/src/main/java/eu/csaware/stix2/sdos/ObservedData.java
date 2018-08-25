@@ -2,6 +2,7 @@
 package eu.csaware.stix2.sdos;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.*;
 
@@ -11,6 +12,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,9 +47,9 @@ public class ObservedData extends Core {
      */
     @SerializedName("first_observed")
     @Expose
-    @Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$")
     @NotNull
-    private String firstObserved;
+    @JsonAdapter(LocalDateTimeTypeAdapter.class)
+    private LocalDateTime firstObserved;
     /**
      * timestamp
      * <p>
@@ -56,9 +58,9 @@ public class ObservedData extends Core {
      */
     @SerializedName("last_observed")
     @Expose
-    @Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$")
     @NotNull
-    private String lastObserved;
+    @JsonAdapter(LocalDateTimeTypeAdapter.class)
+    private LocalDateTime lastObserved;
     /**
      * The number of times the data represented in the objects property was observed. This MUST be an integer between 1 and 999,999,999 inclusive.
      * (Required)
@@ -107,8 +109,7 @@ public class ObservedData extends Core {
     @Expose
     @Valid
     @NotNull
-//	private Objects objects;
-    private Map<String, CyberObservableCore> objects;
+    private Map<String, Object> objects = new HashMap<>();
 
     /**
      * No args constructor for use in serialization
@@ -116,8 +117,18 @@ public class ObservedData extends Core {
     public ObservedData() {
     }
 
-    public ObservedData(String id, String firstObserved, String lastObserved, Integer numberObserved, Integer xDaThreatSeverity,
-                        Integer xDaRiskLevel, Integer xDaExploitabilityLevel, String xDaThreatGroup, Map<String, CyberObservableCore> objects, String createdByRef,
+    public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved, Map<String, Object> objects, String createdByRef,
+                        LocalDateTime created, LocalDateTime modified) {
+        super(createdByRef, created, modified);
+        this.id = id;
+        this.firstObserved = firstObserved;
+        this.lastObserved = lastObserved;
+        this.numberObserved = numberObserved;
+        this.objects = objects;
+    }
+
+    public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved, Integer xDaThreatSeverity,
+                        Integer xDaRiskLevel, Integer xDaExploitabilityLevel, String xDaThreatGroup, Map<String, Object> objects, String createdByRef,
                         List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                         List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
@@ -161,7 +172,7 @@ public class ObservedData extends Core {
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
      * (Required)
      */
-    public String getFirstObserved() {
+    public LocalDateTime getFirstObserved() {
         return firstObserved;
     }
 
@@ -171,7 +182,7 @@ public class ObservedData extends Core {
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
      * (Required)
      */
-    public void setFirstObserved(String firstObserved) {
+    public void setFirstObserved(LocalDateTime firstObserved) {
         this.firstObserved = firstObserved;
     }
 
@@ -181,7 +192,7 @@ public class ObservedData extends Core {
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
      * (Required)
      */
-    public String getLastObserved() {
+    public LocalDateTime getLastObserved() {
         return lastObserved;
     }
 
@@ -191,7 +202,7 @@ public class ObservedData extends Core {
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
      * (Required)
      */
-    public void setLastObserved(String lastObserved) {
+    public void setLastObserved(LocalDateTime lastObserved) {
         this.lastObserved = lastObserved;
     }
 
@@ -271,7 +282,7 @@ public class ObservedData extends Core {
      * A dictionary of Cyber Observable Objects that describes the single 'fact' that was observed.
      * (Required)
      */
-    public Map<String, CyberObservableCore> getObjects() {
+    public Map<String, Object> getObjects() {
         return objects;
     }
 
@@ -279,7 +290,7 @@ public class ObservedData extends Core {
      * A dictionary of Cyber Observable Objects that describes the single 'fact' that was observed.
      * (Required)
      */
-    public void setObjects(Map<String, CyberObservableCore> objects) {
+    public void setObjects(Map<String, Object> objects) {
         this.objects = objects;
     }
 

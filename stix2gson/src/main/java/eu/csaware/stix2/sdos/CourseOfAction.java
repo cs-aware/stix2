@@ -57,6 +57,14 @@ public class CourseOfAction extends Core {
     public CourseOfAction() {
     }
 
+    public CourseOfAction(String id, String name, String description, String createdByRef,
+                          LocalDateTime created, LocalDateTime modified) {
+        super(createdByRef, created, modified);
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
     public CourseOfAction(String id, String name, String description, String createdByRef, List<String> labels,
                           LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);

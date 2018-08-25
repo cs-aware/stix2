@@ -68,7 +68,7 @@ public class Identity extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> sectors;
+    private List<String> sectors = new ArrayList<>();
     /**
      * The contact information (e-mail, phone number, etc.) for this Identity.
      */
@@ -80,6 +80,13 @@ public class Identity extends Core {
      * No args constructor for use in serialization
      */
     public Identity() {
+    }
+
+    public Identity(String id, String name, String identityClass, LocalDateTime created, LocalDateTime modified) {
+        super(created, modified);
+        this.id = id;
+        this.name = name;
+        this.identityClass = identityClass;
     }
 
     public Identity(String id, List<String> labels, String name, String description, String identityClass,

@@ -19,6 +19,13 @@ public class TestUtil {
         return readFile(RESOURCE_BASE_PATH + path);
     }
 
+    /**
+     * Prepare a string containing JSON for comparison.
+     */
+    public static String sanitizeJson(String content) throws IOException {
+        return content.replace("\r", "");
+    }
+
     public static Path writeSerializedOutputFile(String path, String content) throws IOException {
         ensureDirectoryExists(SERIALIZED_BASE_PATH);
         ensureDirectoryExists(SERIALIZED_BASE_PATH + path.substring(0, path.lastIndexOf("/")));

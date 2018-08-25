@@ -2,6 +2,7 @@ package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
+import eu.csaware.stix2.common.TypedStixObject;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.AttackPattern;
 import eu.csaware.stix2.test.util.TestConstants;
@@ -54,12 +55,12 @@ class AttackPatternTest {
 
     @Test
     void testCreated() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, attackPattern.getCreated());
+        Assertions.assertEquals(TestConstants.DATE_TIME_CREATED, attackPattern.getCreated());
     }
 
     @Test
     void testModified() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, attackPattern.getModified());
+        Assertions.assertEquals(TestConstants.DATE_TIME_MODIFIED, attackPattern.getModified());
     }
 
     @Test
@@ -136,21 +137,22 @@ class AttackPatternTest {
             TestConstants.ATTACK_PATTERN_ID,
             "Spear Phishing",
             "...",
-            TestConstants.DATE_TIME,
-            TestConstants.DATE_TIME
+            TestConstants.DATE_TIME_CREATED,
+            TestConstants.DATE_TIME_MODIFIED
         );
         createdAttackPattern.getExternalReferences().add(new ExternalReference("capec", "CAPEC-163"));
         Assertions.assertNotNull(createdAttackPattern);
         String created = GsonSingleton.DEBUG.toJson(createdAttackPattern);
+        String jsonString = TestUtil.readResourceFile(PATH);
         String reserialized = GsonSingleton.DEBUG.toJson(attackPattern);
-        Assertions.assertEquals(reserialized, created);
+        Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
 
     @Test
     void testAutoType() throws IOException {
         String jsonString = TestUtil.readResourceFile(PATH);
-        Core core = GsonSingleton.DEBUG.fromJson(jsonString, Core.class);
+        TypedStixObject core = GsonSingleton.DEBUG.fromJson(jsonString, TypedStixObject.class);
         Assertions.assertTrue(core instanceof AttackPattern);
     }
 }
