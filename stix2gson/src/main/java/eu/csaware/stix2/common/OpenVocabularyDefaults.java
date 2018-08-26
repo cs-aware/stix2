@@ -79,5 +79,62 @@ public class OpenVocabularyDefaults {
         INDICATOR_LABEL_ATTRIBUTION
     };
 
+    public static final String INDUSTRY_SECTOR_AGRICULTURE = "agriculture";
+    public static final String INDUSTRY_SECTOR_AEROSPACE = "aerospace";
+    public static final String INDUSTRY_SECTOR_AUTOMOTIVE = "automotive";
+    public static final String INDUSTRY_SECTOR_COMMUNICATIONS = "communications";
+    public static final String INDUSTRY_SECTOR_CONSTRUCTION = "construction";
+    public static final String INDUSTRY_SECTOR_DEFENCE = "defence";
+    public static final String INDUSTRY_SECTOR_EDUCATION = "education";
+    public static final String INDUSTRY_SECTOR_ENERGY = "energy";
+    public static final String INDUSTRY_SECTOR_ENTERTAINMENT = "entertainment";
+    public static final String INDUSTRY_SECTOR_FINANCIAL_SERVICES = "financial-services";
+    public static final String INDUSTRY_SECTOR_GOVERNMENT_NATIONAL = "government-national";
+    public static final String INDUSTRY_SECTOR_GOVERNMENT_REGIONAL = "government-regional";
+    public static final String INDUSTRY_SECTOR_GOVERNMENT_LOCAL = "government-local";
+    public static final String INDUSTRY_SECTOR_GOVERNMENT_PUBLIC_SERVICES = "government-public-services";
+    public static final String INDUSTRY_SECTOR_HEALTHCARE = "healthcare";
+    public static final String INDUSTRY_SECTOR_HOSPITALITY_LEISURE = "hospitality-leisure";
+    public static final String INDUSTRY_SECTOR_INFRASTRUCTURE = "infrastructure";
+    public static final String INDUSTRY_SECTOR_INSURANCE = "insurance";
+    public static final String INDUSTRY_SECTOR_MANUFACTURING = "manufacturing";
+    public static final String INDUSTRY_SECTOR_MINING = "mining";
+    public static final String INDUSTRY_SECTOR_NON_PROFIT = "non-profit";
+    public static final String INDUSTRY_SECTOR_PHARMACEUTICALS = "pharmaceuticals";
+    public static final String INDUSTRY_SECTOR_RETAIL = "retail";
+    public static final String INDUSTRY_SECTOR_TECHNOLOGY = "technology";
+    public static final String INDUSTRY_SECTOR_TELECOMMUNICATIONS = "telecommunications";
+    public static final String INDUSTRY_SECTOR_TRANSPORTATION = "transportation";
+    public static final String INDUSTRY_SECTOR_UTILITIES = "utilities";
+
+    public static final String[] INDUSTRY_SECTOR_VOCABULARY = new String[] {
+        INDUSTRY_SECTOR_AGRICULTURE,
+        INDUSTRY_SECTOR_AEROSPACE,
+        INDUSTRY_SECTOR_AUTOMOTIVE,
+        INDUSTRY_SECTOR_COMMUNICATIONS,
+        INDUSTRY_SECTOR_CONSTRUCTION,
+        INDUSTRY_SECTOR_DEFENCE,
+        INDUSTRY_SECTOR_EDUCATION,
+        INDUSTRY_SECTOR_ENERGY,
+        INDUSTRY_SECTOR_ENTERTAINMENT,
+        INDUSTRY_SECTOR_FINANCIAL_SERVICES,
+        INDUSTRY_SECTOR_GOVERNMENT_NATIONAL,
+        INDUSTRY_SECTOR_GOVERNMENT_REGIONAL,
+        INDUSTRY_SECTOR_GOVERNMENT_LOCAL,
+        INDUSTRY_SECTOR_GOVERNMENT_PUBLIC_SERVICES,
+        INDUSTRY_SECTOR_HEALTHCARE,
+        INDUSTRY_SECTOR_HOSPITALITY_LEISURE,
+        INDUSTRY_SECTOR_INFRASTRUCTURE,
+        INDUSTRY_SECTOR_INSURANCE,
+        INDUSTRY_SECTOR_MANUFACTURING,
+        INDUSTRY_SECTOR_MINING,
+        INDUSTRY_SECTOR_NON_PROFIT,
+        INDUSTRY_SECTOR_PHARMACEUTICALS,
+        INDUSTRY_SECTOR_RETAIL,
+        INDUSTRY_SECTOR_TECHNOLOGY,
+        INDUSTRY_SECTOR_TELECOMMUNICATIONS,
+        INDUSTRY_SECTOR_TRANSPORTATION,
+        INDUSTRY_SECTOR_UTILITIES
+    };
 
 }
