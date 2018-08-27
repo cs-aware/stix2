@@ -9,15 +9,77 @@ import java.util.Set;
  */
 public class OpenVocabularyDefaults {
 
+    /**
+     * A non-hostile actor whose benevolent or harmless intent inadvertently causes harm.
+     * For example, a well-meaning and dedicated employee who through distraction or poor training unintentionally
+     * causes harm to his or her organization.
+     */
     public static final String ATTACK_MOTIVATION_ACCIDENTAL = "accidental";
+    /**
+     * Being forced to act on someone else's behalf.
+     * Adversaries who are motivated by coercion are often forced through intimidation or blackmail to act illegally
+     * for someone else’s benefit. Unlike the other motivations, a coerced person does not act for personal gain,
+     * but out of fear of incurring a loss.
+     */
     public static final String ATTACK_MOTIVATION_COERCION = "coercion";
+    /**
+     * A desire to assert superiority over someone or something else.
+     * Adversaries who are seeking dominance over a target are focused on using their power to force their target
+     * into submission or irrelevance. Dominance may be found with ideology in some state-sponsored attacks and with
+     * notoriety in some cyber vandalism based attacks.
+     */
     public static final String ATTACK_MOTIVATION_DOMINANCE = "dominance";
+    /**
+     * A passion to express a set of ideas, beliefs, and values that may shape and drive harmful and illegal acts.
+     * Adversaries who act for ideological reasons (e.g., political, religious, human rights, environmental, desire
+     * to cause chaos/anarchy, etc.) are not usually motivated primarily by the desire for profit; they are acting
+     * on their own sense of morality, justice, or political loyalty.
+     * For example, an activist group may sabotage a company’s equipment because they believe the company is
+     * harming the environment.
+     */
     public static final String ATTACK_MOTIVATION_IDEOLOGY = "ideology";
+    /**
+     * Seeking prestige or to become well known through some activity.
+     * Adversaries motivated by notoriety are often seeking either personal validation or respect within a community
+     * and staying covert is not a priority. In fact one of the main goals is to garner the respect of their target
+     * audience.
+     */
     public static final String ATTACK_MOTIVATION_NOTORIETY = "notoriety";
+    /**
+     * Seeking advantage over a competing organization, including a military organization.
+     * Adversaries motivated by increased profit or other gains through an unfairly obtained competitive advantage are
+     * often seeking theft of intellectual property, business processes, or supply chain agreements and thus
+     * accelerating their position in a market or capability.
+     */
     public static final String ATTACK_MOTIVATION_ORGANIZATIONAL_GAIN = "organizational-gain";
+    /**
+     * The desire to improve one’s own financial status.
+     * Adversaries motivated by a selfish desire for personal gain are often out for gains that come from financial
+     * fraud, hacking for hire, or intellectual property theft.
+     * While a Threat Actor or Intrusion Set may be seeking personal gain this does not mean they are acting alone.
+     * Individuals can band together solely to maximize their own personal profits.
+     */
     public static final String ATTACK_MOTIVATION_PERSONAL_GAIN = "personal-gain";
+    /**
+     * A desire to satisfy a strictly personal goal, including curiosity, thrill-seeking, amusement, etc.
+     * Threat Actors or Intrusion Set driven by personal satisfaction may incidentally receive some other gain from
+     * their actions, such as a profit, but their primary motivation is to gratify a personal, emotional need.
+     * Individuals can band together with others toward a mutual, but not necessarily organizational, objective.
+     */
     public static final String ATTACK_MOTIVATION_PERSONAL_SATISFACTION = "personal-satisfaction";
+    /**
+     * A desire to avenge perceived wrongs through harmful actions such as sabotage, violence, theft, fraud, or
+     * embarrassing certain individuals or the organization.
+     * A disgruntled Threat Actor or Intrusion Set seeking revenge can include current or former employees, who may
+     * have extensive knowledge to leverage when conducting attacks. Individuals can band together with others if the
+     * individual believes that doing so will enable them to cause more harm.
+     */
     public static final String ATTACK_MOTIVATION_REVENGE = "revenge";
+    /**
+     * Acting without identifiable reason or purpose and creating unpredictable events.
+     * Unpredictable is not a miscellaneous or default category. Unpredictable means a truly random and likely
+     * bizarre event, which seems to have no logical purpose to the victims.
+     */
     public static final String ATTACK_MOTIVATION_UNPREDICTABLE = "unpredictable";
 
     public static final String[] ATTACK_MOTIVATION_VOCABULARY = new String[] {
