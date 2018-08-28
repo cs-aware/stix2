@@ -61,7 +61,7 @@ public abstract class Core implements TypedStixObject {
      */
     @SerializedName("revoked")
     @Expose
-    private Boolean revoked; //TODO decide whether we should return false then this is not present(null)
+    private Boolean revoked;
     /**
      * A list of external references which refers to non-STIX information.
      */
@@ -193,6 +193,8 @@ public abstract class Core implements TypedStixObject {
 
     /**
      * The revoked property indicates whether the object has been revoked.
+     * Returns null when the optional revoked attribute is not present.
+     * STIX consumers should use {@link #isRevoked()} instead which is null safe.
      */
     public Boolean getRevoked() {
         return revoked;
@@ -200,9 +202,19 @@ public abstract class Core implements TypedStixObject {
 
     /**
      * The revoked property indicates whether the object has been revoked.
+     * May be set to null s
      */
     public void setRevoked(Boolean revoked) {
         this.revoked = revoked;
+    }
+
+    /**
+     * The revoked property indicates whether the object has been revoked.
+     * This method never return null, instead it return false when the
+     * optional revoked attribute is not presen.
+     */
+    public Boolean isRevoked() {
+        return revoked == null ? false : revoked;
     }
 
     /**
