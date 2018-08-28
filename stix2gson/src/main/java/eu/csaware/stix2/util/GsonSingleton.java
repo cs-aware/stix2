@@ -13,17 +13,15 @@ import java.util.Collection;
  */
 public enum GsonSingleton {
     //prefix these with SINGLETON to make autocomplete pick up the PRODUCTION and DEBUG instances below directly
-    SINGLETON_PRODUCTION(new GsonBuilder()
-        .disableHtmlEscaping() //without this patterns don't serialize correctly
-        .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
-        .registerTypeAdapterFactory(GsonConstants.RUNTIME_TYPE_ADAPTER_FACTORY)
-        .create()),
-    SINGLETON_DEBUG(new GsonBuilder()
-        .disableHtmlEscaping() //without this patterns don't serialize correctly
-        .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
-        .registerTypeAdapterFactory(GsonConstants.RUNTIME_TYPE_ADAPTER_FACTORY)
-        .setPrettyPrinting()
-        .create());
+    SINGLETON_PRODUCTION(commonGsonBuilder().create()),
+    SINGLETON_DEBUG(commonGsonBuilder().setPrettyPrinting().create());
+
+    private static GsonBuilder commonGsonBuilder() {
+        return new GsonBuilder()
+            .disableHtmlEscaping() //without this patterns don't serialize correctly
+            .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
+            .registerTypeAdapterFactory(GsonConstants.RUNTIME_TYPE_ADAPTER_FACTORY);
+    }
 
     /**
      * Convenience field to fetch the debug Gson instance directly.
