@@ -199,4 +199,43 @@ public class OpenVocabularyDefaults {
         INDUSTRY_SECTOR_UTILITIES
     };
 
+    public static final String MALWARE_LABEL_ADWARE = "adware";
+    public static final String MALWARE_LABEL_BACKDOOR = "backdoor";
+    public static final String MALWARE_LABEL_BOT = "bot";
+    public static final String MALWARE_LABEL_DDOS = "ddos";
+    public static final String MALWARE_LABEL_DROPPER = "dropper";
+    public static final String MALWARE_LABEL_EXPLOIT_KIT = "exploit-kit";
+    public static final String MALWARE_LABEL_KEYLOGGER = "keylogger";
+    public static final String MALWARE_LABEL_RANSOMWARE = "ransomware";
+    public static final String MALWARE_LABEL_REMOTE_ACCESS_TROJAN = "remote-access-trojan";
+    public static final String MALWARE_LABEL_RESOURCE_EXPLOITATION = "resource-exploitation";
+    public static final String MALWARE_LABEL_ROGUE_SECURITY_SOFTWARE = "rogue-security-software";
+    public static final String MALWARE_LABEL_ROOTKIT = "rootkit";
+    public static final String MALWARE_LABEL_SCREEN_CAPTURE = "screen-capture";
+    public static final String MALWARE_LABEL_SPYWARE = "spyware";
+    public static final String MALWARE_LABEL_TROJAN = "trojan";
+    public static final String MALWARE_LABEL_VIRUS = "virus";
+    public static final String MALWARE_LABEL_WORM = "worm";
+
+    public static final String[] MALWARE_LABEL_VOCABULARY = new String[]{
+        MALWARE_LABEL_ADWARE,
+        MALWARE_LABEL_BACKDOOR,
+        MALWARE_LABEL_BOT,
+        MALWARE_LABEL_DDOS,
+        MALWARE_LABEL_DROPPER,
+        MALWARE_LABEL_EXPLOIT_KIT,
+        MALWARE_LABEL_KEYLOGGER,
+        MALWARE_LABEL_RANSOMWARE,
+        MALWARE_LABEL_REMOTE_ACCESS_TROJAN,
+        MALWARE_LABEL_RESOURCE_EXPLOITATION,
+        MALWARE_LABEL_ROGUE_SECURITY_SOFTWARE,
+        MALWARE_LABEL_ROOTKIT,
+        MALWARE_LABEL_SCREEN_CAPTURE,
+        MALWARE_LABEL_SPYWARE,
+        MALWARE_LABEL_TROJAN,
+        MALWARE_LABEL_VIRUS,
+        MALWARE_LABEL_WORM
+    };
+
+
 }
