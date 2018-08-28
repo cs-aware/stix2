@@ -61,7 +61,7 @@ public abstract class Core implements TypedStixObject {
      */
     @SerializedName("revoked")
     @Expose
-    private Boolean revoked;
+    private Boolean revoked; //TODO decide whether we should return false then this is not present(null)
     /**
      * A list of external references which refers to non-STIX information.
      */
