@@ -60,7 +60,7 @@ public class Relationship extends Core {
     @SerializedName("source_ref")
     @Expose
     @NotNull
-    private Object sourceRef;
+    private String sourceRef;
     /**
      * The ID of the target (to) object.
      * (Required)
@@ -68,7 +68,7 @@ public class Relationship extends Core {
     @SerializedName("target_ref")
     @Expose
     @NotNull
-    private Object targetRef;
+    private String targetRef;
 
     /**
      * No args constructor for use in serialization
@@ -76,7 +76,7 @@ public class Relationship extends Core {
     public Relationship() {
     }
 
-    public Relationship(String id, String relationshipType, String description, Object sourceRef, Object targetRef,
+    public Relationship(String id, String relationshipType, String description, String sourceRef, String targetRef,
                         String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.id = id;
@@ -147,7 +147,7 @@ public class Relationship extends Core {
      * The ID of the source (from) object.
      * (Required)
      */
-    public Object getSourceRef() {
+    public String getSourceRef() {
         return sourceRef;
     }
 
@@ -155,7 +155,7 @@ public class Relationship extends Core {
      * The ID of the source (from) object.
      * (Required)
      */
-    public void setSourceRef(Object sourceRef) {
+    public void setSourceRef(String sourceRef) {
         this.sourceRef = sourceRef;
     }
 
@@ -163,7 +163,7 @@ public class Relationship extends Core {
      * The ID of the target (to) object.
      * (Required)
      */
-    public Object getTargetRef() {
+    public String getTargetRef() {
         return targetRef;
     }
 
@@ -171,7 +171,7 @@ public class Relationship extends Core {
      * The ID of the target (to) object.
      * (Required)
      */
-    public void setTargetRef(Object targetRef) {
+    public void setTargetRef(String targetRef) {
         this.targetRef = targetRef;
     }
 

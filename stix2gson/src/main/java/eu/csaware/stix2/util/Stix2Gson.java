@@ -11,17 +11,17 @@ import java.util.Collection;
  * for usage in live systems and a DEBUG instance which is intended for development and comes with pretty
  * printing to make development easier.
  */
-public enum GsonSingleton {
+public enum Stix2Gson {
     //prefix these with SINGLETON to make autocomplete pick up the PRODUCTION and DEBUG instances below directly
-    SINGLETON_PRODUCTION(new GsonBuilder()
-        .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
-        .registerTypeAdapterFactory(GsonConstants.RUNTIME_TYPE_ADAPTER_FACTORY)
-        .create()),
-    SINGLETON_DEBUG(new GsonBuilder()
-        .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
-        .registerTypeAdapterFactory(GsonConstants.RUNTIME_TYPE_ADAPTER_FACTORY)
-        .setPrettyPrinting()
-        .create());
+    SINGLETON_PRODUCTION(commonGsonBuilder().create()),
+    SINGLETON_DEBUG(commonGsonBuilder().setPrettyPrinting().create());
+
+    private static GsonBuilder commonGsonBuilder() {
+        return new GsonBuilder()
+            .disableHtmlEscaping() //without this patterns don't serialize correctly
+            .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
+            .registerTypeAdapterFactory(GsonConstants.RUNTIME_TYPE_ADAPTER_FACTORY);
+    }
 
     /**
      * Convenience field to fetch the debug Gson instance directly.
@@ -34,7 +34,7 @@ public enum GsonSingleton {
 
     private Gson gson;
 
-    GsonSingleton(Gson gson) {
+    Stix2Gson(Gson gson) {
         this.gson = gson;
     }
 

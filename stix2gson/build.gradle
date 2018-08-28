@@ -12,6 +12,13 @@ repositories {
     mavenCentral()
 }
 
+jar {
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 dependencies {
     compile  fileTree(dir: "lib", include: "*.jar" )
     compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
