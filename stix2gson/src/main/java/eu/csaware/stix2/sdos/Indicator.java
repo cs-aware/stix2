@@ -56,7 +56,7 @@ public class Indicator extends Core {
     @SerializedName("pattern")
     @Expose
     @NotNull
-    private String pattern;
+    private String pattern; //TODO pattern class
     /**
      * The time from which this indicator should be considered valuable intelligence.
      * (Required)
@@ -86,6 +86,14 @@ public class Indicator extends Core {
      * No args constructor for use in serialization
      */
     public Indicator() {
+    }
+
+    public Indicator(String id, List<String> labels, String pattern, LocalDateTime validFrom,
+                     LocalDateTime created, LocalDateTime modified) {
+        super(labels, created, modified);
+        this.id = id;
+        this.pattern = pattern;
+        this.validFrom = validFrom;
     }
 
     public Indicator(String id, List<String> labels, String name, String description, String pattern, LocalDateTime validFrom,
