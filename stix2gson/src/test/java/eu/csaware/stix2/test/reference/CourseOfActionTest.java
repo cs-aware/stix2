@@ -55,12 +55,12 @@ class CourseOfActionTest {
 
     @Test
     void testCreated() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, courseOfAction.getCreated());
+        Assertions.assertEquals(TestConstants.DATE_TIME_CREATED, courseOfAction.getCreated());
     }
 
     @Test
     void testModified() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, courseOfAction.getModified());
+        Assertions.assertEquals(TestConstants.DATE_TIME_MODIFIED, courseOfAction.getModified());
     }
 
     @Test
@@ -93,10 +93,10 @@ class CourseOfActionTest {
 
     @Test
     void testNullSafety() {
-        Campaign campaign = new Campaign();
-        Assertions.assertNotNull(campaign.getGranularMarkings());
-        Assertions.assertNotNull(campaign.getObjectMarkingRefs());
-        Assertions.assertNotNull(campaign.getLabels());
+        CourseOfAction courseOfAction = new CourseOfAction();
+        Assertions.assertNotNull(courseOfAction.getGranularMarkings());
+        Assertions.assertNotNull(courseOfAction.getObjectMarkingRefs());
+        Assertions.assertNotNull(courseOfAction.getLabels());
     }
 
     @Test
@@ -106,13 +106,14 @@ class CourseOfActionTest {
             "Add TCP port 80 Filter Rule to the existing Block UDP 1434 Filter",
             "This is how to add a filter rule to block inbound access to TCP port 80 to the existing UDP 1434 filter ...",
             TestConstants.IDENTITY_ID,
-            TestConstants.DATE_TIME,
-            TestConstants.DATE_TIME
+            TestConstants.DATE_TIME_CREATED,
+            TestConstants.DATE_TIME_MODIFIED
         );
         Assertions.assertNotNull(courseOfAction);
         String created = GsonSingleton.DEBUG.toJson(courseOfAction);
+        String jsonString = TestUtil.readResourceFile(PATH);
         String reserialized = GsonSingleton.DEBUG.toJson(CourseOfActionTest.courseOfAction);
-        Assertions.assertEquals(reserialized, created);
+        Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
 

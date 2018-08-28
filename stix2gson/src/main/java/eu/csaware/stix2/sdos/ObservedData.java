@@ -12,6 +12,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -108,8 +109,7 @@ public class ObservedData extends Core {
     @Expose
     @Valid
     @NotNull
-//	private Objects objects;
-    private Map<String, Object> objects;
+    private Map<String, Object> objects = new HashMap<>();
 
     /**
      * No args constructor for use in serialization

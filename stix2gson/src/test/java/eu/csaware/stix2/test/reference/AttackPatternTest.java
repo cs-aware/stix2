@@ -55,12 +55,12 @@ class AttackPatternTest {
 
     @Test
     void testCreated() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, attackPattern.getCreated());
+        Assertions.assertEquals(TestConstants.DATE_TIME_CREATED, attackPattern.getCreated());
     }
 
     @Test
     void testModified() {
-        Assertions.assertEquals(TestConstants.DATE_TIME, attackPattern.getModified());
+        Assertions.assertEquals(TestConstants.DATE_TIME_MODIFIED, attackPattern.getModified());
     }
 
     @Test
@@ -137,14 +137,15 @@ class AttackPatternTest {
             TestConstants.ATTACK_PATTERN_ID,
             "Spear Phishing",
             "...",
-            TestConstants.DATE_TIME,
-            TestConstants.DATE_TIME
+            TestConstants.DATE_TIME_CREATED,
+            TestConstants.DATE_TIME_MODIFIED
         );
         createdAttackPattern.getExternalReferences().add(new ExternalReference("capec", "CAPEC-163"));
         Assertions.assertNotNull(createdAttackPattern);
         String created = GsonSingleton.DEBUG.toJson(createdAttackPattern);
+        String jsonString = TestUtil.readResourceFile(PATH);
         String reserialized = GsonSingleton.DEBUG.toJson(attackPattern);
-        Assertions.assertEquals(reserialized, created);
+        Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
 
