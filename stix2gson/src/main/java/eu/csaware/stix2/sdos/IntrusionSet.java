@@ -114,6 +114,16 @@ public class IntrusionSet extends Core {
     public IntrusionSet() {
     }
 
+    public IntrusionSet(String id, String name, String description, List<String> aliases,
+                        List<String> goals, String createdByRef, LocalDateTime created, LocalDateTime modified) {
+        super(createdByRef, created, modified);
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.aliases = aliases;
+        this.goals = goals;
+    }
+
     public IntrusionSet(String id, String name, String description, List<String> aliases, String firstSeen, String lastSeen,
                         List<String> goals, String resourceLevel, String primaryMotivation, List<String> secondaryMotivations,
                         String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked,
