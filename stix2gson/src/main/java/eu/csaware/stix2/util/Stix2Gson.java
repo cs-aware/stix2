@@ -11,7 +11,7 @@ import java.util.Collection;
  * for usage in live systems and a DEBUG instance which is intended for development and comes with pretty
  * printing to make development easier.
  */
-public enum GsonSingleton {
+public enum Stix2Gson {
     //prefix these with SINGLETON to make autocomplete pick up the PRODUCTION and DEBUG instances below directly
     SINGLETON_PRODUCTION(commonGsonBuilder().create()),
     SINGLETON_DEBUG(commonGsonBuilder().setPrettyPrinting().create());
@@ -34,7 +34,7 @@ public enum GsonSingleton {
 
     private Gson gson;
 
-    GsonSingleton(Gson gson) {
+    Stix2Gson(Gson gson) {
         this.gson = gson;
     }
 

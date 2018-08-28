@@ -1,12 +1,11 @@
 package eu.csaware.stix2.test.reference;
 
-import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.TypedStixObject;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.Campaign;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
-import eu.csaware.stix2.util.GsonSingleton;
+import eu.csaware.stix2.util.Stix2Gson;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,7 +24,7 @@ class CampaignTest {
     @BeforeAll
     static void setUp() throws Exception {
         String jsonString = TestUtil.readResourceFile(PATH);
-        campaign = GsonSingleton.DEBUG.fromJson(jsonString, Campaign.class);
+        campaign = Stix2Gson.DEBUG.fromJson(jsonString, Campaign.class);
     }
 
     @AfterAll
@@ -110,9 +109,9 @@ class CampaignTest {
             TestConstants.DATE_TIME_MODIFIED
         );
         Assertions.assertNotNull(createdCampaign);
-        String created = GsonSingleton.DEBUG.toJson(createdCampaign);
+        String created = Stix2Gson.DEBUG.toJson(createdCampaign);
         String jsonString = TestUtil.readResourceFile(PATH);
-        String reserialized = GsonSingleton.DEBUG.toJson(campaign);
+        String reserialized = Stix2Gson.DEBUG.toJson(campaign);
         Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
@@ -120,7 +119,7 @@ class CampaignTest {
     @Test
     void testAutoType() throws IOException {
         String jsonString = TestUtil.readResourceFile(PATH);
-        TypedStixObject core = GsonSingleton.DEBUG.fromJson(jsonString, TypedStixObject.class);
+        TypedStixObject core = Stix2Gson.DEBUG.fromJson(jsonString, TypedStixObject.class);
         Assertions.assertTrue(core instanceof Campaign);
     }
 }

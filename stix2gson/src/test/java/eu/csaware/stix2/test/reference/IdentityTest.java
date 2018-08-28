@@ -6,7 +6,7 @@ import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.Identity;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
-import eu.csaware.stix2.util.GsonSingleton;
+import eu.csaware.stix2.util.Stix2Gson;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,7 +25,7 @@ class IdentityTest {
     @BeforeAll
     static void setUp() throws Exception {
         String jsonString = TestUtil.readResourceFile(PATH);
-        identity = GsonSingleton.DEBUG.fromJson(jsonString, Identity.class);
+        identity = Stix2Gson.DEBUG.fromJson(jsonString, Identity.class);
     }
 
     @AfterAll
@@ -109,7 +109,7 @@ class IdentityTest {
             TestConstants.DATE_TIME_MODIFIED
         );
         Assertions.assertNotNull(identity);
-        String created = GsonSingleton.DEBUG.toJson(identity);
+        String created = Stix2Gson.DEBUG.toJson(identity);
         String jsonString = TestUtil.readResourceFile(PATH);
         Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
@@ -118,7 +118,7 @@ class IdentityTest {
     @Test
     void testAutoType() throws IOException {
         String jsonString = TestUtil.readResourceFile(PATH);
-        TypedStixObject core = GsonSingleton.DEBUG.fromJson(jsonString, TypedStixObject.class);
+        TypedStixObject core = Stix2Gson.DEBUG.fromJson(jsonString, TypedStixObject.class);
         Assertions.assertTrue(core instanceof Identity);
     }
 }

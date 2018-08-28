@@ -6,7 +6,7 @@ import eu.csaware.stix2.observables.File;
 import eu.csaware.stix2.sdos.ObservedData;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
-import eu.csaware.stix2.util.GsonSingleton;
+import eu.csaware.stix2.util.Stix2Gson;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,7 +26,7 @@ class ObservedDataTest {
 
     @BeforeAll
     static void setUp() throws Exception {
-        observedData = GsonSingleton.DEBUG.fromJson(TestUtil.readResourceFile(PATH), ObservedData.class);
+        observedData = Stix2Gson.DEBUG.fromJson(TestUtil.readResourceFile(PATH), ObservedData.class);
     }
 
     @AfterAll
@@ -117,8 +117,8 @@ class ObservedDataTest {
             TestConstants.DATE_TIME_MODIFIED
         );
         Assertions.assertNotNull(observedData);
-        String created = GsonSingleton.DEBUG.toJson(observedData);
-        String reserialized = GsonSingleton.DEBUG.toJson(ObservedDataTest.observedData);
+        String created = Stix2Gson.DEBUG.toJson(observedData);
+        String reserialized = Stix2Gson.DEBUG.toJson(ObservedDataTest.observedData);
         Assertions.assertEquals(reserialized, created);
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
@@ -136,7 +136,7 @@ class ObservedDataTest {
             TestConstants.DATE_TIME_MODIFIED
         );
         Assertions.assertNotNull(observedData);
-        String created = GsonSingleton.DEBUG.toJson(observedData);
+        String created = Stix2Gson.DEBUG.toJson(observedData);
         String jsonString = TestUtil.readResourceFile(PATH_EMPTY_MAP);
         TestUtil.writeSerializedOutputFile(PATH_EMPTY_MAP, created);
         Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
@@ -145,7 +145,7 @@ class ObservedDataTest {
     @Test
     void testAutoType() throws IOException {
         String jsonString = TestUtil.readResourceFile(PATH);
-        TypedStixObject core = GsonSingleton.DEBUG.fromJson(jsonString, TypedStixObject.class);
+        TypedStixObject core = Stix2Gson.DEBUG.fromJson(jsonString, TypedStixObject.class);
         Assertions.assertTrue(core instanceof ObservedData);
     }
 }

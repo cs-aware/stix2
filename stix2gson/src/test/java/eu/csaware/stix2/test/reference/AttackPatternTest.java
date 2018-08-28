@@ -1,13 +1,12 @@
 package eu.csaware.stix2.test.reference;
 
-import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.TypedStixObject;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.AttackPattern;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
-import eu.csaware.stix2.util.GsonSingleton;
+import eu.csaware.stix2.util.Stix2Gson;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,7 +25,7 @@ class AttackPatternTest {
     @BeforeAll
     static void setUp() throws Exception {
         String jsonString = TestUtil.readResourceFile(PATH);
-        attackPattern = GsonSingleton.DEBUG.fromJson(jsonString, AttackPattern.class);
+        attackPattern = Stix2Gson.DEBUG.fromJson(jsonString, AttackPattern.class);
     }
 
     @AfterAll
@@ -142,9 +141,9 @@ class AttackPatternTest {
         );
         createdAttackPattern.getExternalReferences().add(new ExternalReference("capec", "CAPEC-163"));
         Assertions.assertNotNull(createdAttackPattern);
-        String created = GsonSingleton.DEBUG.toJson(createdAttackPattern);
+        String created = Stix2Gson.DEBUG.toJson(createdAttackPattern);
         String jsonString = TestUtil.readResourceFile(PATH);
-        String reserialized = GsonSingleton.DEBUG.toJson(attackPattern);
+        String reserialized = Stix2Gson.DEBUG.toJson(attackPattern);
         Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
@@ -152,7 +151,7 @@ class AttackPatternTest {
     @Test
     void testAutoType() throws IOException {
         String jsonString = TestUtil.readResourceFile(PATH);
-        TypedStixObject core = GsonSingleton.DEBUG.fromJson(jsonString, TypedStixObject.class);
+        TypedStixObject core = Stix2Gson.DEBUG.fromJson(jsonString, TypedStixObject.class);
         Assertions.assertTrue(core instanceof AttackPattern);
     }
 }

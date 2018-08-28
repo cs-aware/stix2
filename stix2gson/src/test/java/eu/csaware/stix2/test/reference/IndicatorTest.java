@@ -6,7 +6,7 @@ import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.Indicator;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
-import eu.csaware.stix2.util.GsonSingleton;
+import eu.csaware.stix2.util.Stix2Gson;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -27,7 +27,7 @@ class IndicatorTest {
     @BeforeAll
     static void setUp() throws Exception {
         String jsonString = TestUtil.readResourceFile(PATH);
-        indicator = GsonSingleton.DEBUG.fromJson(jsonString, Indicator.class);
+        indicator = Stix2Gson.DEBUG.fromJson(jsonString, Indicator.class);
     }
 
     @AfterAll
@@ -115,7 +115,7 @@ class IndicatorTest {
             TestConstants.DATE_TIME_MODIFIED
         );
         Assertions.assertNotNull(indicator);
-        String created = GsonSingleton.DEBUG.toJson(indicator);
+        String created = Stix2Gson.DEBUG.toJson(indicator);
         String jsonString = TestUtil.readResourceFile(PATH);
         TestUtil.writeSerializedOutputFile(PATH, created);
         Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
@@ -124,7 +124,7 @@ class IndicatorTest {
     @Test
     void testAutoType() throws IOException {
         String jsonString = TestUtil.readResourceFile(PATH);
-        TypedStixObject core = GsonSingleton.DEBUG.fromJson(jsonString, TypedStixObject.class);
+        TypedStixObject core = Stix2Gson.DEBUG.fromJson(jsonString, TypedStixObject.class);
         Assertions.assertTrue(core instanceof Indicator);
     }
 }
