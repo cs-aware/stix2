@@ -64,7 +64,7 @@ public class Sighting extends Core {
     @SerializedName("sighting_of_ref")
     @Expose
     @NotNull
-    private Object sightingOfRef;
+    private String sightingOfRef;
     /**
      * A list of ID references to the Observed Data objects that contain the raw cyber data for this Sighting.
      */
@@ -94,7 +94,7 @@ public class Sighting extends Core {
     public Sighting() {
     }
 
-    public Sighting(String id, LocalDateTime firstSeen, LocalDateTime lastSeen, Integer count, Object sightingOfRef,
+    public Sighting(String id, LocalDateTime firstSeen, LocalDateTime lastSeen, Integer count, String sightingOfRef,
                     List<Object> observedDataRefs, List<Object> whereSightedRefs, Boolean summary, String createdByRef,
                     List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                     List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
@@ -178,7 +178,7 @@ public class Sighting extends Core {
      * An ID reference to the object that has been sighted.
      * (Required)
      */
-    public Object getSightingOfRef() {
+    public String getSightingOfRef() {
         return sightingOfRef;
     }
 
@@ -186,7 +186,7 @@ public class Sighting extends Core {
      * An ID reference to the object that has been sighted.
      * (Required)
      */
-    public void setSightingOfRef(Object sightingOfRef) {
+    public void setSightingOfRef(String sightingOfRef) {
         this.sightingOfRef = sightingOfRef;
     }
 
