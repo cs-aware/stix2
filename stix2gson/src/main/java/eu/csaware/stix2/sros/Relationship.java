@@ -21,6 +21,14 @@ import java.util.List;
  */
 public class Relationship extends Core {
 
+    public static final String TYPE_TARGETS = "target";
+    public static final String TYPE_USES = "uses";
+    public static final String TYPE_ATTRIBUTED_TO = "attributed-to";
+    public static final String TYPE_MITIGATES = "mitigates";
+    public static final String TYPE_INDICATES = "indicates";
+    public static final String TYPE_VARIANT_OF = "variant-of";
+    public static final String TYPE_IMPERSONATES = "impersonates";
+
     /**
      * The type of this object, which MUST be the literal `relationship`.
      */
@@ -74,6 +82,15 @@ public class Relationship extends Core {
      * No args constructor for use in serialization
      */
     public Relationship() {
+    }
+
+    public Relationship(String id, String relationshipType, String sourceRef, String targetRef,
+                        LocalDateTime created, LocalDateTime modified) {
+        super(created, modified);
+        this.id = id;
+        this.relationshipType = relationshipType;
+        this.sourceRef = sourceRef;
+        this.targetRef = targetRef;
     }
 
     public Relationship(String id, String relationshipType, String description, String sourceRef, String targetRef,
