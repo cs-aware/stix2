@@ -60,7 +60,7 @@ public class ThreatActor extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> aliases = new ArrayList<String>();
+    private List<String> aliases = new ArrayList<>();
     /**
      * This is a list of roles the Threat Actor plays. Open Vocab - threat-actor-role-ov
      */
@@ -68,7 +68,7 @@ public class ThreatActor extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> roles = new ArrayList<String>();
+    private List<String> roles = new ArrayList<>();
     /**
      * The high level goals of this Threat Actor, namely, what are they trying to do.
      */
@@ -76,7 +76,7 @@ public class ThreatActor extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> goals = new ArrayList<String>();
+    private List<String> goals = new ArrayList<>();
     /**
      * The skill, specific knowledge, special training, or expertise a Threat Actor must have to perform the attack. Open Vocab - threat-actor-sophistication-ov
      */
@@ -102,7 +102,7 @@ public class ThreatActor extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> secondaryMotivations = new ArrayList<String>();
+    private List<String> secondaryMotivations = new ArrayList<>();
     /**
      * The personal reasons, motivations, or purposes of the Threat Actor regardless of organizational goals. Open Vocab - attack-motivation-ov
      */
@@ -110,12 +110,20 @@ public class ThreatActor extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<String> personalMotivations = new ArrayList<String>();
+    private List<String> personalMotivations = new ArrayList<>();
 
     /**
      * No args constructor for use in serialization
      */
     public ThreatActor() {
+    }
+
+    public ThreatActor(String id, List<String> labels, String name, String description, String createdByRef,
+                       LocalDateTime created, LocalDateTime modified) {
+        super(createdByRef, labels, created, modified);
+        this.id = id;
+        this.name = name;
+        this.description = description;
     }
 
     public ThreatActor(String id, List<String> labels, String name, String description, List<String> aliases,
