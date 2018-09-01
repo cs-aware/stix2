@@ -80,6 +80,16 @@ public class Report extends Core {
     }
 
     public Report(String id, List<String> labels, String name, String description, LocalDateTime published, List<String> objectRefs,
+                  String createdByRef, LocalDateTime created, LocalDateTime modified) {
+        super(createdByRef, labels, created, modified);
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.published = published;
+        this.objectRefs = objectRefs;
+    }
+
+    public Report(String id, List<String> labels, String name, String description, LocalDateTime published, List<String> objectRefs,
                   String createdByRef, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                   List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
