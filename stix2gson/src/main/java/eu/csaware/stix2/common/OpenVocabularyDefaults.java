@@ -323,4 +323,21 @@ public class OpenVocabularyDefaults {
         THREAT_ACTOR_SOPHISTICATION_STRATEGIC
     };
 
+    public static final String TOOL_LABEL_DENIAL_OF_SERVICE = "denial-of-service";
+    public static final String TOOL_LABEL_EXPLOITATION  = "exploitation";
+    public static final String TOOL_LABEL_INFORMATION_GATHERING = "information-gathering";
+    public static final String TOOL_LABEL_NETWORK_CAPTURE = "network-capture";
+    public static final String TOOL_LABEL_CREDENTIAL_EXPLOITATION = "credential-exploitation";
+    public static final String TOOL_LABEL_REMOTE_ACCESS = "remote-access";
+    public static final String TOOL_LABEL_VULNERABILITY_SCANNING = "vulnerability-scanning";
+
+    public static final String[] TOOL_LABEL_VOCABULARY = new String[] {
+        TOOL_LABEL_DENIAL_OF_SERVICE,
+        TOOL_LABEL_EXPLOITATION,
+        TOOL_LABEL_INFORMATION_GATHERING,
+        TOOL_LABEL_NETWORK_CAPTURE,
+        TOOL_LABEL_CREDENTIAL_EXPLOITATION,
+        TOOL_LABEL_REMOTE_ACCESS,
+        TOOL_LABEL_VULNERABILITY_SCANNING
+    };
 }
