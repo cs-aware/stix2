@@ -1,5 +1,6 @@
 package eu.csaware.stix2.test.reference;
 
+import eu.csaware.stix2.common.OpenVocabularyDefaults;
 import eu.csaware.stix2.common.TypedStixObject;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.Report;
@@ -95,7 +96,7 @@ class ReportTest {
     void testLabels() {
         Assertions.assertNotNull(report.getLabels());
         Assertions.assertEquals(1, report.getLabels().size());
-        Assertions.assertEquals("campaign", report.getLabels().get(0));
+        Assertions.assertEquals(OpenVocabularyDefaults.REPORT_LABEL_CAMPAIGN, report.getLabels().get(0));
     }
 
     @Test
@@ -118,7 +119,7 @@ class ReportTest {
 
     @Test
     void testCreation() throws IOException {
-        List<String> labels = Collections.singletonList("campaign");
+        List<String> labels = Collections.singletonList(OpenVocabularyDefaults.REPORT_LABEL_CAMPAIGN);
         List<String> objectsRefs = Arrays.asList(TestConstants.INDICATOR_ID, TestConstants.CAMPAIGN_ID, TestConstants.RELATIONSHIP_ID);
         Report report = new Report(
             TestConstants.REPORT_ID,

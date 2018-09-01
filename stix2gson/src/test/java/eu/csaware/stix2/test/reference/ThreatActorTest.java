@@ -1,5 +1,6 @@
 package eu.csaware.stix2.test.reference;
 
+import eu.csaware.stix2.common.OpenVocabularyDefaults;
 import eu.csaware.stix2.common.TypedStixObject;
 import eu.csaware.stix2.common.Types;
 import eu.csaware.stix2.sdos.ThreatActor;
@@ -90,7 +91,7 @@ class ThreatActorTest {
         Assertions.assertNotNull(threatActor.getLabels());
         Assertions.assertEquals(1, threatActor.getLabels().size());
         String label = threatActor.getLabels().get(0);
-        Assertions.assertEquals("crime-syndicate", label);
+        Assertions.assertEquals(OpenVocabularyDefaults.THREAT_ACTOR_LABEL_CRIME_SYNDICATE, label);
     }
 
     @Test
@@ -108,7 +109,7 @@ class ThreatActorTest {
 
     @Test
     void testCreation() throws IOException {
-        List<String> labels = Collections.singletonList("crime-syndicate");
+        List<String> labels = Collections.singletonList(OpenVocabularyDefaults.THREAT_ACTOR_LABEL_CRIME_SYNDICATE);
         ThreatActor threatActor = new ThreatActor(
             TestConstants.THREAT_ACTOR_ID,
             labels,
