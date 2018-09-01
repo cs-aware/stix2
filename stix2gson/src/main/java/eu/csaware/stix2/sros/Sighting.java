@@ -72,7 +72,7 @@ public class Sighting extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<Object> observedDataRefs = new ArrayList<Object>();
+    private List<String> observedDataRefs = new ArrayList<>();
     /**
      * The ID of the Victim Target objects of the entities that saw the sighting.
      */
@@ -80,7 +80,7 @@ public class Sighting extends Core {
     @Expose
     @Size(min = 1)
     @Valid
-    private List<Object> whereSightedRefs = new ArrayList<Object>();
+    private List<String> whereSightedRefs = new ArrayList<>();
     /**
      * The summary property indicates whether the Sighting should be considered summary data.
      */
@@ -94,8 +94,16 @@ public class Sighting extends Core {
     public Sighting() {
     }
 
+    public Sighting(String id, String sightingOfRef, List<String> whereSightedRefs,
+                    LocalDateTime created, LocalDateTime modified) {
+        super(created, modified);
+        this.id = id;
+        this.sightingOfRef = sightingOfRef;
+        this.whereSightedRefs = whereSightedRefs;
+    }
+
     public Sighting(String id, LocalDateTime firstSeen, LocalDateTime lastSeen, Integer count, String sightingOfRef,
-                    List<Object> observedDataRefs, List<Object> whereSightedRefs, Boolean summary, String createdByRef,
+                    List<String> observedDataRefs, List<String> whereSightedRefs, Boolean summary, String createdByRef,
                     List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                     List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
@@ -193,28 +201,28 @@ public class Sighting extends Core {
     /**
      * A list of ID references to the Observed Data objects that contain the raw cyber data for this Sighting.
      */
-    public List<Object> getObservedDataRefs() {
+    public List<String> getObservedDataRefs() {
         return observedDataRefs;
     }
 
     /**
      * A list of ID references to the Observed Data objects that contain the raw cyber data for this Sighting.
      */
-    public void setObservedDataRefs(List<Object> observedDataRefs) {
+    public void setObservedDataRefs(List<String> observedDataRefs) {
         this.observedDataRefs = observedDataRefs;
     }
 
     /**
      * The ID of the Victim Target objects of the entities that saw the sighting.
      */
-    public List<Object> getWhereSightedRefs() {
+    public List<String> getWhereSightedRefs() {
         return whereSightedRefs;
     }
 
     /**
      * The ID of the Victim Target objects of the entities that saw the sighting.
      */
-    public void setWhereSightedRefs(List<Object> whereSightedRefs) {
+    public void setWhereSightedRefs(List<String> whereSightedRefs) {
         this.whereSightedRefs = whereSightedRefs;
     }
 
