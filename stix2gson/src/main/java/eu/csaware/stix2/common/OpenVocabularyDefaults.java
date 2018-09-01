@@ -237,5 +237,54 @@ public class OpenVocabularyDefaults {
         MALWARE_LABEL_WORM
     };
 
+    public static final String REPORT_LABEL_THREAT_REPORT = "threat-report";
+    public static final String REPORT_LABEL_ATTACK_PATTERN = "attack-pattern";
+    public static final String REPORT_LABEL_CAMPAIGN = "campaign";
+    public static final String REPORT_LABEL_IDENTITY = "identity";
+    public static final String REPORT_LABEL_INDICATOR = "indicator";
+    public static final String REPORT_LABEL_MALWARE = "malware";
+    public static final String REPORT_LABEL_OBSERVED_DATA = "observed-data";
+    public static final String REPORT_LABEL_THREAT_ACTOR = "threat-actor";
+    public static final String REPORT_LABEL_TOOL = "tool";
+    public static final String REPORT_LABEL_VULNERABILITY = "vulnerability";
+
+    public static final String[] REPORT_LABEL_VOCABULARY = new String[] {
+        REPORT_LABEL_THREAT_REPORT,
+        REPORT_LABEL_ATTACK_PATTERN,
+        REPORT_LABEL_CAMPAIGN,
+        REPORT_LABEL_IDENTITY,
+        REPORT_LABEL_INDICATOR,
+        REPORT_LABEL_MALWARE,
+        REPORT_LABEL_OBSERVED_DATA,
+        REPORT_LABEL_THREAT_ACTOR,
+        REPORT_LABEL_TOOL,
+        REPORT_LABEL_VULNERABILITY
+    };
+
+    public static final String THREAT_ACTOR_LABEL_ACTIVIST = "activist";
+    public static final String THREAT_ACTOR_LABEL_COMPETITOR = "competitor";
+    public static final String THREAT_ACTOR_LABEL_CRIME_SYNDICATE = "crime-syndicate";
+    public static final String THREAT_ACTOR_LABEL_CRIMINAL = "criminal";
+    public static final String THREAT_ACTOR_LABEL_HACKER = "hacker";
+    public static final String THREAT_ACTOR_LABEL_INSIDER_ACCIDENTAL = "insider-accidental";
+    public static final String THREAT_ACTOR_LABEL_INSIDER_DISGRUNTLED = "insider-disgruntled";
+    public static final String THREAT_ACTOR_LABEL_NATION_STATE = "nation-state";
+    public static final String THREAT_ACTOR_LABEL_SENSATIONALIST = "sensationalist";
+    public static final String THREAT_ACTOR_LABEL_SPY = "spy";
+    public static final String THREAT_ACTOR_LABEL_TERRORIST = "terrorist";
+
+    public static final String[] THREAT_ACTOR_LABEL_VOCABULARY = new String[] {
+        THREAT_ACTOR_LABEL_ACTIVIST,
+        THREAT_ACTOR_LABEL_COMPETITOR,
+        THREAT_ACTOR_LABEL_CRIME_SYNDICATE,
+        THREAT_ACTOR_LABEL_CRIMINAL,
+        THREAT_ACTOR_LABEL_HACKER,
+        THREAT_ACTOR_LABEL_INSIDER_ACCIDENTAL,
+        THREAT_ACTOR_LABEL_INSIDER_DISGRUNTLED,
+        THREAT_ACTOR_LABEL_NATION_STATE,
+        THREAT_ACTOR_LABEL_SENSATIONALIST,
+        THREAT_ACTOR_LABEL_SPY,
+        THREAT_ACTOR_LABEL_TERRORIST
+    };
 
 }
