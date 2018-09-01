@@ -106,6 +106,13 @@ public abstract class Core implements TypedStixObject {
         this.modified = modified;
     }
 
+    public Core(String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified) {
+        super();
+        this.createdByRef = createdByRef;
+        this.created = created;
+        this.modified = modified;
+    }
+
     public Core(List<String> labels, LocalDateTime created, LocalDateTime modified) {
         super();
         this.labels = labels;
