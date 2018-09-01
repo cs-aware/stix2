@@ -110,7 +110,6 @@ class CourseOfActionTest {
         Assertions.assertNotNull(courseOfAction);
         String created = Stix2Gson.DEBUG.toJson(courseOfAction);
         String jsonString = TestUtil.readResourceFile(PATH);
-        String reserialized = Stix2Gson.DEBUG.toJson(CourseOfActionTest.courseOfAction);
         Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }

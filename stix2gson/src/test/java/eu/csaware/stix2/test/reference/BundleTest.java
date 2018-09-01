@@ -137,7 +137,6 @@ class BundleTest {
         Assertions.assertNotNull(bundle);
         String created = Stix2Gson.DEBUG.toJson(bundle);
         String jsonString = TestUtil.readResourceFile(PATH);
-        String reserialized = Stix2Gson.DEBUG.toJson(BundleTest.bundle);
         Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }

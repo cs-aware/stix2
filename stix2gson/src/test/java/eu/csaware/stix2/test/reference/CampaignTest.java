@@ -111,7 +111,6 @@ class CampaignTest {
         Assertions.assertNotNull(createdCampaign);
         String created = Stix2Gson.DEBUG.toJson(createdCampaign);
         String jsonString = TestUtil.readResourceFile(PATH);
-        String reserialized = Stix2Gson.DEBUG.toJson(campaign);
         Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }
