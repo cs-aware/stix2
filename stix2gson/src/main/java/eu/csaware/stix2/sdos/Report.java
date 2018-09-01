@@ -2,11 +2,9 @@
 package eu.csaware.stix2.sdos;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import eu.csaware.stix2.common.Core;
-import eu.csaware.stix2.common.ExternalReference;
-import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -61,9 +59,9 @@ public class Report extends Core {
      */
     @SerializedName("published")
     @Expose
-    @Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$")
     @NotNull
-    private String published;
+    @JsonAdapter(LocalDateTimeTypeAdapter.class)
+    private LocalDateTime published;
     /**
      * Specifies the STIX Objects that are referred to by this Report.
      * (Required)
@@ -81,7 +79,7 @@ public class Report extends Core {
     public Report() {
     }
 
-    public Report(String id, List<String> labels, String name, String description, String published, List<String> objectRefs,
+    public Report(String id, List<String> labels, String name, String description, LocalDateTime published, List<String> objectRefs,
                   String createdByRef, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                   List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
@@ -151,7 +149,7 @@ public class Report extends Core {
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
      * (Required)
      */
-    public String getPublished() {
+    public LocalDateTime getPublished() {
         return published;
     }
 
@@ -161,7 +159,7 @@ public class Report extends Core {
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
      * (Required)
      */
-    public void setPublished(String published) {
+    public void setPublished(LocalDateTime published) {
         this.published = published;
     }
 
