@@ -287,4 +287,40 @@ public class OpenVocabularyDefaults {
         THREAT_ACTOR_LABEL_TERRORIST
     };
 
+    public static final String THREAT_ACTOR_ROLE_AGENT = "agent";
+    public static final String THREAT_ACTOR_ROLE_DIRECTOR = "director";
+    public static final String THREAT_ACTOR_ROLE_INDEPENDENT = "independent";
+    public static final String THREAT_ACTOR_ROLE_INFRASTRUCTURE_ARCHITECT = "infrastructure-architect";
+    public static final String THREAT_ACTOR_ROLE_INFRASTRUCTURE_OPERATOR = "infrastructure-operator";
+    public static final String THREAT_ACTOR_ROLE_MALWARE_AUTHOR = "malware-author";
+    public static final String THREAT_ACTOR_ROLE_SPONSOR = "sponsor";
+
+    public static final String[] THREAT_ACTOR_ROLE_VOCABULARY = new String[] {
+        THREAT_ACTOR_ROLE_AGENT,
+        THREAT_ACTOR_ROLE_DIRECTOR,
+        THREAT_ACTOR_ROLE_INDEPENDENT,
+        THREAT_ACTOR_ROLE_INFRASTRUCTURE_ARCHITECT,
+        THREAT_ACTOR_ROLE_INFRASTRUCTURE_OPERATOR,
+        THREAT_ACTOR_ROLE_MALWARE_AUTHOR,
+        THREAT_ACTOR_ROLE_SPONSOR
+    };
+
+    public static final String THREAT_ACTOR_SOPHISTICATION_NONE = "none";
+    public static final String THREAT_ACTOR_SOPHISTICATION_MINIMAL = "minimal";
+    public static final String THREAT_ACTOR_SOPHISTICATION_INTERMEDIATE = "intermediate";
+    public static final String THREAT_ACTOR_SOPHISTICATION_ADVANCED = "advanced";
+    public static final String THREAT_ACTOR_SOPHISTICATION_EXPERT = "expert";
+    public static final String THREAT_ACTOR_SOPHISTICATION_INNOVATOR = "innovator";
+    public static final String THREAT_ACTOR_SOPHISTICATION_STRATEGIC = "strategic";
+
+    public static final String[] THREAT_ACTOR_SOPHISTICATION_VOCABULARY = new String[] {
+        THREAT_ACTOR_SOPHISTICATION_NONE,
+        THREAT_ACTOR_SOPHISTICATION_MINIMAL,
+        THREAT_ACTOR_SOPHISTICATION_INTERMEDIATE,
+        THREAT_ACTOR_SOPHISTICATION_ADVANCED,
+        THREAT_ACTOR_SOPHISTICATION_EXPERT,
+        THREAT_ACTOR_SOPHISTICATION_INNOVATOR,
+        THREAT_ACTOR_SOPHISTICATION_STRATEGIC
+    };
+
 }
