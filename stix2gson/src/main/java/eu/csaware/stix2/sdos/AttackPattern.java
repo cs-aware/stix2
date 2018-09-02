@@ -4,6 +4,7 @@ package eu.csaware.stix2.sdos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.*;
+import eu.csaware.stix2.util.Stix2Util;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -12,6 +13,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -63,6 +65,14 @@ public class AttackPattern extends Core {
      * No args constructor for use in serialization
      */
     public AttackPattern() {
+    }
+
+    public AttackPattern(UUID uuid, String name, String description,
+                         LocalDateTime created, LocalDateTime modified) {
+        super(created, modified);
+        this.id = Stix2Util.assembleId(type, uuid);
+        this.name = name;
+        this.description = description;
     }
 
     public AttackPattern(String id, String name, String description,
