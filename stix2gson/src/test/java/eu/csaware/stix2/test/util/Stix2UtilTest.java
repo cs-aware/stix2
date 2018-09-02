@@ -36,4 +36,23 @@ class Stix2UtilTest {
             Stix2Util.extractUUIDFromId(TEST_ID));
     }
 
+    @Test
+    void testGoodId() {
+        Assertions.assertTrue(Stix2Util.isValidId(TEST_ID));
+    }
+
+    @Test
+    void testBadIdInvalidType() {
+        Assertions.assertFalse(Stix2Util.isValidId("InvalidType" + Stix2Util.ID_SEPARATOR + TEST_UUID));
+    }
+
+    @Test
+    void testBadIdInvalidUUID() {
+        Assertions.assertFalse(Stix2Util.isValidId(Stix2Type.ATTACK_PATTERN.toJsonString() + Stix2Util.ID_SEPARATOR + 111));
+    }
+
+    @Test
+    void testBadIdInvalidSeparator() {
+        Assertions.assertFalse(Stix2Util.isValidId(Stix2Type.ATTACK_PATTERN.toJsonString() + "++" + TEST_UUID));
+    }
 }
