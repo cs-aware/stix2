@@ -1,7 +1,7 @@
 package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.sros.Relationship;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
@@ -33,7 +33,7 @@ class RelationshipTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.RELATIONSHIP_TYPE, relationship.getType());
+        Assertions.assertEquals(Stix2Type.RELATIONSHIP, relationship.getType());
     }
 
     @Test

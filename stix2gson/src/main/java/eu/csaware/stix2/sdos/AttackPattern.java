@@ -28,8 +28,7 @@ public class AttackPattern extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.ATTACK_PATTERN_TYPE)
-    private String type = Types.ATTACK_PATTERN_TYPE;
+    private Stix2Type type = Stix2Type.ATTACK_PATTERN;
     /**
      * id
      * <p>
@@ -96,7 +95,7 @@ public class AttackPattern extends Core {
     /**
      * The type of this object, which MUST be the literal `attack-pattern`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

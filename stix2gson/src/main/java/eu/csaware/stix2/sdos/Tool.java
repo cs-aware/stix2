@@ -26,8 +26,7 @@ public class Tool extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.TOOL_TYPE)
-    private String type = Types.TOOL_TYPE;
+    private Stix2Type type = Stix2Type.TOOL;
     /**
      * id
      * <p>
@@ -101,7 +100,7 @@ public class Tool extends Core {
     /**
      * The type of this object, which MUST be the literal `tool`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

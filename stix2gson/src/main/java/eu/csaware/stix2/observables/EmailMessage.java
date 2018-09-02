@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
@@ -25,8 +25,7 @@ public class EmailMessage extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.EMAIL_MESSAGE_TYPE)
-    private String type = Types.EMAIL_MESSAGE_TYPE;
+    private Stix2Type type = Stix2Type.EMAIL_MESSAGE;
     /**
      * timestamp
      * <p>
@@ -126,7 +125,7 @@ public class EmailMessage extends CyberObservableCore {
     /**
      * The value of this property MUST be `email-message`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

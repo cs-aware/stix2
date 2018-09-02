@@ -29,8 +29,7 @@ public class ObservedData extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.OBSERVED_DATA_TYPE)
-    private String type = Types.OBSERVED_DATA_TYPE;
+    private Stix2Type type = Stix2Type.OBSERVED_DATA;
     /**
      * id
      * <p>
@@ -113,7 +112,7 @@ public class ObservedData extends Core {
     /**
      * The type of this object, which MUST be the literal `observed-data`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

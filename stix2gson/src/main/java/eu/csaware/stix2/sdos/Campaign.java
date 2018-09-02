@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -29,8 +29,7 @@ public class Campaign extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.CAMPAIGN_TYPE)
-    private String type = Types.CAMPAIGN_TYPE;
+    private Stix2Type type = Stix2Type.CAMPAIGN;
     /**
      * id
      * <p>
@@ -115,7 +114,7 @@ public class Campaign extends Core {
     /**
      * The type of this object, which MUST be the literal `campaign`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

@@ -1,7 +1,7 @@
 package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.sdos.CourseOfAction;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
@@ -33,7 +33,7 @@ class CourseOfActionTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.COURSE_OF_ACTION_TYPE, courseOfAction.getType());
+        Assertions.assertEquals(Stix2Type.COURSE_OF_ACTION, courseOfAction.getType());
     }
 
     @Test

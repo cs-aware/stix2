@@ -25,8 +25,7 @@ public class Sighting extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.SIGHTING_TYPE)
-    private String type = Types.SIGHTING_TYPE;
+    private Stix2Type type = Stix2Type.SIGHTING;
     /**
      * id
      * <p>
@@ -120,7 +119,7 @@ public class Sighting extends Core {
     /**
      * The type of this object, which MUST be the literal `sighting`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

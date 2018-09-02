@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -29,8 +29,7 @@ public class IntrusionSet extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.INTRUSION_SET_TYPE)
-    private String type = Types.INTRUSION_SET_TYPE;
+    private Stix2Type type = Stix2Type.INTRUSION_SET;
     /**
      * id
      * <p>
@@ -144,7 +143,7 @@ public class IntrusionSet extends Core {
     /**
      * The type of this object, which MUST be the literal `intrusion-set`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

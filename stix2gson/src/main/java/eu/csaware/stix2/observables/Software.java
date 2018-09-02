@@ -5,13 +5,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,8 +26,7 @@ public class Software extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.SOFTWARE_TYPE)
-    private String type = Types.SOFTWARE_TYPE;
+    private Stix2Type type = Stix2Type.SOFTWARE;
     /**
      * Specifies the name of the software.
      * (Required)
@@ -83,7 +81,7 @@ public class Software extends CyberObservableCore {
     /**
      * The value of this property MUST be `software`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

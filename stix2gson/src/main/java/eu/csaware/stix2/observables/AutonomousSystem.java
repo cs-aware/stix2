@@ -5,10 +5,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 
 /**
@@ -23,8 +22,7 @@ public class AutonomousSystem extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.AUTONOMOUS_SYSTEM_TYPE)
-    private String type = Types.AUTONOMOUS_SYSTEM_TYPE;
+    private Stix2Type type = Stix2Type.AUTONOMOUS_SYSTEM;
     /**
      * Specifies the number assigned to the AS. Such assignments are typically performed by a Regional Internet Registries (RIR).
      * (Required)
@@ -62,7 +60,7 @@ public class AutonomousSystem extends CyberObservableCore {
     /**
      * The value of this property MUST be `autonomous-system`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -27,8 +27,7 @@ public class Directory extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.DIRECTORY_TYPE)
-    private String type = Types.DIRECTORY_TYPE;
+    private Stix2Type type = Stix2Type.DIRECTORY;
     /**
      * Specifies the path, as originally observed, to the directory on the file system.
      * (Required)
@@ -99,7 +98,7 @@ public class Directory extends CyberObservableCore {
     /**
      * The value of this property MUST be `directory`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

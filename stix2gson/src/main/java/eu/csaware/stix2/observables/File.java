@@ -7,14 +7,13 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.HashesType;
 import eu.csaware.stix2.common.LocalDateTimeTypeAdapter;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,8 +29,7 @@ public class File extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.FILE_TYPE)
-    private String type = Types.FILE_TYPE;
+    private Stix2Type type = Stix2Type.FILE;
 
     @SerializedName("extensions")
     @Expose
@@ -163,7 +161,7 @@ public class File extends CyberObservableCore {
     /**
      * The value of this property MUST be `file`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

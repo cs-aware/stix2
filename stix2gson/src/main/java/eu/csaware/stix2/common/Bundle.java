@@ -1,16 +1,8 @@
 
 package eu.csaware.stix2.common;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
-import eu.csaware.stix2.observables.*;
-import eu.csaware.stix2.observables.Process;
-import eu.csaware.stix2.sdos.*;
-import eu.csaware.stix2.sros.Relationship;
-import eu.csaware.stix2.sros.Sighting;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -36,9 +28,8 @@ public class Bundle implements TypedStixObject {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.BUNDLE_TYPE)
     @NotNull
-    private String type = Types.BUNDLE_TYPE;
+    private Stix2Type type = Stix2Type.BUNDLE;
     /**
      * id
      * <p>
@@ -90,7 +81,7 @@ public class Bundle implements TypedStixObject {
      * The type of this object, which MUST be the literal `bundle`.
      * (Required)
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

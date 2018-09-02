@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.constraints.Pattern;
 
@@ -22,8 +22,7 @@ public class Artifact extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.ARTIFACT_TYPE)
-    private String type = Types.ARTIFACT_TYPE;
+    private Stix2Type type = Stix2Type.ARTIFACT;
     /**
      * The value of this property MUST be a valid MIME type as specified in the IANA Media Types registry.
      */
@@ -46,7 +45,7 @@ public class Artifact extends CyberObservableCore {
     /**
      * The value of this property MUST be `artifact`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

@@ -23,8 +23,7 @@ public class MarkingDefinition {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.MARKING_DEFINITION_TYPE)
-    private String type = Types.MARKING_DEFINITION_TYPE;
+    private Stix2Type type = Stix2Type.MARKING_DEFINITION;
     /**
      * identifier
      * <p>
@@ -86,7 +85,7 @@ public class MarkingDefinition {
     /**
      * The type of this object, which MUST be the literal `marking-definition`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

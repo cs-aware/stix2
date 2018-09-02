@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -26,8 +26,7 @@ public class CourseOfAction extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.COURSE_OF_ACTION_TYPE)
-    private String type = Types.COURSE_OF_ACTION_TYPE;
+    private Stix2Type type = Stix2Type.COURSE_OF_ACTION;
     /**
      * id
      * <p>
@@ -76,7 +75,7 @@ public class CourseOfAction extends Core {
     /**
      * The type of this object, which MUST be the literal `course-of-action`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

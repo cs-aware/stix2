@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
 import eu.csaware.stix2.common.LocalDateTimeTypeAdapter;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -29,8 +29,7 @@ public class WindowsRegistryKey extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.WINDOWS_REGISTRY_KEY_TYPE)
-    private String type = Types.WINDOWS_REGISTRY_KEY_TYPE;
+    private Stix2Type type = Stix2Type.WINDOWS_REGISTRY_KEY;
     /**
      * Specifies the full registry key including the hive.
      * (Required)
@@ -88,7 +87,7 @@ public class WindowsRegistryKey extends CyberObservableCore {
     /**
      * The value of this property MUST be `windows-registry-key`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

@@ -1,7 +1,7 @@
 package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.observables.File;
 import eu.csaware.stix2.sdos.ObservedData;
 import eu.csaware.stix2.test.util.TestConstants;
@@ -35,7 +35,7 @@ class ObservedDataTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.OBSERVED_DATA_TYPE, observedData.getType());
+        Assertions.assertEquals(Stix2Type.OBSERVED_DATA, observedData.getType());
     }
 
     @Test

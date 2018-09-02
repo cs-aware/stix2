@@ -27,8 +27,7 @@ public class Report extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.REPORT_TYPE)
-    private String type = Types.REPORT_TYPE;
+    private Stix2Type type = Stix2Type.REPORT;
     /**
      * id
      * <p>
@@ -103,7 +102,7 @@ public class Report extends Core {
     /**
      * The type of this object, which MUST be the literal `report`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

@@ -5,12 +5,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -26,8 +25,8 @@ public class Process extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.PROCESS)
-    private String type = Types.PROCESS;
+    private Stix2Type type = Stix2Type.PROCESS;
+
     @SerializedName("extensions")
     @Expose
     @Valid
@@ -150,7 +149,7 @@ public class Process extends CyberObservableCore {
     /**
      * The value of this property MUST be `process`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -23,8 +23,7 @@ public class Url extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.URL_TYPE)
-    private String type = Types.URL_TYPE;
+    private Stix2Type type = Stix2Type.URL;
     /**
      * url-regex
      * <p>
@@ -51,7 +50,7 @@ public class Url extends CyberObservableCore {
     /**
      * The value of this property MUST be `url`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

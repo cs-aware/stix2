@@ -5,11 +5,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +26,7 @@ public class Ipv4Addr extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.IPV4_ADDR_TYPE)
-    private String type = Types.IPV4_ADDR_TYPE;
+    private Stix2Type type = Stix2Type.IPV4_ADDR;
     /**
      * Specifies one or more IPv4 addresses expressed using CIDR notation.
      * (Required)
@@ -69,7 +67,7 @@ public class Ipv4Addr extends CyberObservableCore {
     /**
      * The value of this property MUST be `ipv4-addr`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

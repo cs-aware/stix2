@@ -5,10 +5,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 
 /**
@@ -23,8 +22,7 @@ public class Mutex extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.MUTEX_TYPE)
-    private String type = Types.MUTEX_TYPE;
+    private Stix2Type type = Stix2Type.MUTEX;
     /**
      * Specifies the name of the mutex object.
      * (Required)
@@ -48,7 +46,7 @@ public class Mutex extends CyberObservableCore {
     /**
      * The value of this property MUST be `mutex`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

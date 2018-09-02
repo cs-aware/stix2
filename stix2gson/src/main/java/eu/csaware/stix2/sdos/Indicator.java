@@ -27,8 +27,7 @@ public class Indicator extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.INDICATOR_TYPE)
-    private String type = Types.INDICATOR_TYPE;
+    private Stix2Type type = Stix2Type.INDICATOR;
     /**
      * id
      * <p>
@@ -113,7 +112,7 @@ public class Indicator extends Core {
     /**
      * The type of this object, which MUST be the literal `indicator`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

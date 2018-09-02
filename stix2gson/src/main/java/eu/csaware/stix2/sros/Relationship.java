@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -34,8 +34,7 @@ public class Relationship extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.RELATIONSHIP_TYPE)
-    private String type = Types.RELATIONSHIP_TYPE;
+    private Stix2Type type = Stix2Type.RELATIONSHIP;
     /**
      * id
      * <p>
@@ -106,7 +105,7 @@ public class Relationship extends Core {
     /**
      * The type of this object, which MUST be the literal `relationship`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

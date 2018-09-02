@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -29,8 +29,7 @@ public class ThreatActor extends Core {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.THREAT_ACTOR_TYPE)
-    private String type = Types.THREAT_ACTOR_TYPE;
+    private Stix2Type type = Stix2Type.THREAT_ACTOR;
     /**
      * id
      * <p>
@@ -148,7 +147,7 @@ public class ThreatActor extends Core {
     /**
      * The type of this object, which MUST be the literal `threat-actor`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

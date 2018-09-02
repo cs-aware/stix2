@@ -6,12 +6,10 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
 import eu.csaware.stix2.common.HashesType;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -26,8 +24,7 @@ public class X509Certificate extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.X_509_CERTIFICATE)
-    private String type = Types.X_509_CERTIFICATE;
+    private Stix2Type type = Stix2Type.X_509_CERTIFICATE;
     /**
      * Specifies whether the certificate is self-signed, i.e., whether it is signed by the same entity whose identity it certifies.
      */
@@ -144,7 +141,7 @@ public class X509Certificate extends CyberObservableCore {
     /**
      * The value of this property MUST be `x509-certificate`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 

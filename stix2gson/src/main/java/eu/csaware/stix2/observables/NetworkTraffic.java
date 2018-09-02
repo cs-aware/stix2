@@ -4,7 +4,7 @@ package eu.csaware.stix2.observables;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -24,8 +24,8 @@ public class NetworkTraffic extends CyberObservableCore {
      */
     @SerializedName("type")
     @Expose
-    @Pattern(regexp = Types.NETWORK_TRAFFIC_TYPE)
-    private String type = Types.NETWORK_TRAFFIC_TYPE;
+    private Stix2Type type = Stix2Type.NETWORK_TRAFFIC;
+
     @SerializedName("extensions")
     @Expose
     @Valid
@@ -170,7 +170,7 @@ public class NetworkTraffic extends CyberObservableCore {
     /**
      * The value of this property MUST be `network-traffic`.
      */
-    public String getType() {
+    public Stix2Type getType() {
         return type;
     }
 
