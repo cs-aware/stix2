@@ -143,7 +143,6 @@ class AttackPatternTest {
         Assertions.assertNotNull(createdAttackPattern);
         String created = Stix2Gson.DEBUG.toJson(createdAttackPattern);
         String jsonString = TestUtil.readResourceFile(PATH);
-        String reserialized = Stix2Gson.DEBUG.toJson(attackPattern);
         Assertions.assertEquals(TestUtil.sanitizeJson(jsonString), TestUtil.sanitizeJson(created));
         TestUtil.writeSerializedOutputFile(PATH, created);
     }

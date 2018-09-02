@@ -199,4 +199,145 @@ public class OpenVocabularyDefaults {
         INDUSTRY_SECTOR_UTILITIES
     };
 
+    public static final String MALWARE_LABEL_ADWARE = "adware";
+    public static final String MALWARE_LABEL_BACKDOOR = "backdoor";
+    public static final String MALWARE_LABEL_BOT = "bot";
+    public static final String MALWARE_LABEL_DDOS = "ddos";
+    public static final String MALWARE_LABEL_DROPPER = "dropper";
+    public static final String MALWARE_LABEL_EXPLOIT_KIT = "exploit-kit";
+    public static final String MALWARE_LABEL_KEYLOGGER = "keylogger";
+    public static final String MALWARE_LABEL_RANSOMWARE = "ransomware";
+    public static final String MALWARE_LABEL_REMOTE_ACCESS_TROJAN = "remote-access-trojan";
+    public static final String MALWARE_LABEL_RESOURCE_EXPLOITATION = "resource-exploitation";
+    public static final String MALWARE_LABEL_ROGUE_SECURITY_SOFTWARE = "rogue-security-software";
+    public static final String MALWARE_LABEL_ROOTKIT = "rootkit";
+    public static final String MALWARE_LABEL_SCREEN_CAPTURE = "screen-capture";
+    public static final String MALWARE_LABEL_SPYWARE = "spyware";
+    public static final String MALWARE_LABEL_TROJAN = "trojan";
+    public static final String MALWARE_LABEL_VIRUS = "virus";
+    public static final String MALWARE_LABEL_WORM = "worm";
+
+    public static final String[] MALWARE_LABEL_VOCABULARY = new String[]{
+        MALWARE_LABEL_ADWARE,
+        MALWARE_LABEL_BACKDOOR,
+        MALWARE_LABEL_BOT,
+        MALWARE_LABEL_DDOS,
+        MALWARE_LABEL_DROPPER,
+        MALWARE_LABEL_EXPLOIT_KIT,
+        MALWARE_LABEL_KEYLOGGER,
+        MALWARE_LABEL_RANSOMWARE,
+        MALWARE_LABEL_REMOTE_ACCESS_TROJAN,
+        MALWARE_LABEL_RESOURCE_EXPLOITATION,
+        MALWARE_LABEL_ROGUE_SECURITY_SOFTWARE,
+        MALWARE_LABEL_ROOTKIT,
+        MALWARE_LABEL_SCREEN_CAPTURE,
+        MALWARE_LABEL_SPYWARE,
+        MALWARE_LABEL_TROJAN,
+        MALWARE_LABEL_VIRUS,
+        MALWARE_LABEL_WORM
+    };
+
+    public static final String REPORT_LABEL_THREAT_REPORT = "threat-report";
+    public static final String REPORT_LABEL_ATTACK_PATTERN = "attack-pattern";
+    public static final String REPORT_LABEL_CAMPAIGN = "campaign";
+    public static final String REPORT_LABEL_IDENTITY = "identity";
+    public static final String REPORT_LABEL_INDICATOR = "indicator";
+    public static final String REPORT_LABEL_MALWARE = "malware";
+    public static final String REPORT_LABEL_OBSERVED_DATA = "observed-data";
+    public static final String REPORT_LABEL_THREAT_ACTOR = "threat-actor";
+    public static final String REPORT_LABEL_TOOL = "tool";
+    public static final String REPORT_LABEL_VULNERABILITY = "vulnerability";
+
+    public static final String[] REPORT_LABEL_VOCABULARY = new String[] {
+        REPORT_LABEL_THREAT_REPORT,
+        REPORT_LABEL_ATTACK_PATTERN,
+        REPORT_LABEL_CAMPAIGN,
+        REPORT_LABEL_IDENTITY,
+        REPORT_LABEL_INDICATOR,
+        REPORT_LABEL_MALWARE,
+        REPORT_LABEL_OBSERVED_DATA,
+        REPORT_LABEL_THREAT_ACTOR,
+        REPORT_LABEL_TOOL,
+        REPORT_LABEL_VULNERABILITY
+    };
+
+    public static final String THREAT_ACTOR_LABEL_ACTIVIST = "activist";
+    public static final String THREAT_ACTOR_LABEL_COMPETITOR = "competitor";
+    public static final String THREAT_ACTOR_LABEL_CRIME_SYNDICATE = "crime-syndicate";
+    public static final String THREAT_ACTOR_LABEL_CRIMINAL = "criminal";
+    public static final String THREAT_ACTOR_LABEL_HACKER = "hacker";
+    public static final String THREAT_ACTOR_LABEL_INSIDER_ACCIDENTAL = "insider-accidental";
+    public static final String THREAT_ACTOR_LABEL_INSIDER_DISGRUNTLED = "insider-disgruntled";
+    public static final String THREAT_ACTOR_LABEL_NATION_STATE = "nation-state";
+    public static final String THREAT_ACTOR_LABEL_SENSATIONALIST = "sensationalist";
+    public static final String THREAT_ACTOR_LABEL_SPY = "spy";
+    public static final String THREAT_ACTOR_LABEL_TERRORIST = "terrorist";
+
+    public static final String[] THREAT_ACTOR_LABEL_VOCABULARY = new String[] {
+        THREAT_ACTOR_LABEL_ACTIVIST,
+        THREAT_ACTOR_LABEL_COMPETITOR,
+        THREAT_ACTOR_LABEL_CRIME_SYNDICATE,
+        THREAT_ACTOR_LABEL_CRIMINAL,
+        THREAT_ACTOR_LABEL_HACKER,
+        THREAT_ACTOR_LABEL_INSIDER_ACCIDENTAL,
+        THREAT_ACTOR_LABEL_INSIDER_DISGRUNTLED,
+        THREAT_ACTOR_LABEL_NATION_STATE,
+        THREAT_ACTOR_LABEL_SENSATIONALIST,
+        THREAT_ACTOR_LABEL_SPY,
+        THREAT_ACTOR_LABEL_TERRORIST
+    };
+
+    public static final String THREAT_ACTOR_ROLE_AGENT = "agent";
+    public static final String THREAT_ACTOR_ROLE_DIRECTOR = "director";
+    public static final String THREAT_ACTOR_ROLE_INDEPENDENT = "independent";
+    public static final String THREAT_ACTOR_ROLE_INFRASTRUCTURE_ARCHITECT = "infrastructure-architect";
+    public static final String THREAT_ACTOR_ROLE_INFRASTRUCTURE_OPERATOR = "infrastructure-operator";
+    public static final String THREAT_ACTOR_ROLE_MALWARE_AUTHOR = "malware-author";
+    public static final String THREAT_ACTOR_ROLE_SPONSOR = "sponsor";
+
+    public static final String[] THREAT_ACTOR_ROLE_VOCABULARY = new String[] {
+        THREAT_ACTOR_ROLE_AGENT,
+        THREAT_ACTOR_ROLE_DIRECTOR,
+        THREAT_ACTOR_ROLE_INDEPENDENT,
+        THREAT_ACTOR_ROLE_INFRASTRUCTURE_ARCHITECT,
+        THREAT_ACTOR_ROLE_INFRASTRUCTURE_OPERATOR,
+        THREAT_ACTOR_ROLE_MALWARE_AUTHOR,
+        THREAT_ACTOR_ROLE_SPONSOR
+    };
+
+    public static final String THREAT_ACTOR_SOPHISTICATION_NONE = "none";
+    public static final String THREAT_ACTOR_SOPHISTICATION_MINIMAL = "minimal";
+    public static final String THREAT_ACTOR_SOPHISTICATION_INTERMEDIATE = "intermediate";
+    public static final String THREAT_ACTOR_SOPHISTICATION_ADVANCED = "advanced";
+    public static final String THREAT_ACTOR_SOPHISTICATION_EXPERT = "expert";
+    public static final String THREAT_ACTOR_SOPHISTICATION_INNOVATOR = "innovator";
+    public static final String THREAT_ACTOR_SOPHISTICATION_STRATEGIC = "strategic";
+
+    public static final String[] THREAT_ACTOR_SOPHISTICATION_VOCABULARY = new String[] {
+        THREAT_ACTOR_SOPHISTICATION_NONE,
+        THREAT_ACTOR_SOPHISTICATION_MINIMAL,
+        THREAT_ACTOR_SOPHISTICATION_INTERMEDIATE,
+        THREAT_ACTOR_SOPHISTICATION_ADVANCED,
+        THREAT_ACTOR_SOPHISTICATION_EXPERT,
+        THREAT_ACTOR_SOPHISTICATION_INNOVATOR,
+        THREAT_ACTOR_SOPHISTICATION_STRATEGIC
+    };
+
+    public static final String TOOL_LABEL_DENIAL_OF_SERVICE = "denial-of-service";
+    public static final String TOOL_LABEL_EXPLOITATION  = "exploitation";
+    public static final String TOOL_LABEL_INFORMATION_GATHERING = "information-gathering";
+    public static final String TOOL_LABEL_NETWORK_CAPTURE = "network-capture";
+    public static final String TOOL_LABEL_CREDENTIAL_EXPLOITATION = "credential-exploitation";
+    public static final String TOOL_LABEL_REMOTE_ACCESS = "remote-access";
+    public static final String TOOL_LABEL_VULNERABILITY_SCANNING = "vulnerability-scanning";
+
+    public static final String[] TOOL_LABEL_VOCABULARY = new String[] {
+        TOOL_LABEL_DENIAL_OF_SERVICE,
+        TOOL_LABEL_EXPLOITATION,
+        TOOL_LABEL_INFORMATION_GATHERING,
+        TOOL_LABEL_NETWORK_CAPTURE,
+        TOOL_LABEL_CREDENTIAL_EXPLOITATION,
+        TOOL_LABEL_REMOTE_ACCESS,
+        TOOL_LABEL_VULNERABILITY_SCANNING
+    };
 }

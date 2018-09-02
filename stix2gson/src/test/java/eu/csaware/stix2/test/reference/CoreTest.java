@@ -11,12 +11,20 @@ import org.junit.jupiter.api.Test;
 class CoreTest {
 
     @Test
-    void testNullSafety() {
+    void testListNullSafety() {
         Core core = new AttackPattern(); // instantiate any Core class here
         Assertions.assertNotNull(core.getLabels());
         Assertions.assertNotNull(core.getExternalReferences());
         Assertions.assertNotNull(core.getObjectMarkingRefs());
         Assertions.assertNotNull(core.getGranularMarkings());
+    }
+
+    @Test
+    void testRevokedNullSafety() {
+        Core core = new AttackPattern(); // instantiate any Core class here
+        Assertions.assertNull(core.getRevoked());
+        Assertions.assertNotNull(core.isRevoked());
+
     }
 
 }

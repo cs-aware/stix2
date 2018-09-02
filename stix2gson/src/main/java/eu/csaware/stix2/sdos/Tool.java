@@ -71,6 +71,22 @@ public class Tool extends Core {
     public Tool() {
     }
 
+    public Tool(String id, List<String> labels, String name, String createdByRef,
+                LocalDateTime created, LocalDateTime modified) {
+        super(createdByRef, labels, created, modified);
+        this.id = id;
+        this.name = name;
+    }
+
+
+    public Tool(String id, List<String> labels, String name, String description, String createdByRef,
+                LocalDateTime created, LocalDateTime modified) {
+        super(createdByRef, labels, created, modified);
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
     public Tool(String id, List<String> labels, String name, String description, String toolVersion, List<KillChainPhase> killChainPhases,
                 String createdByRef, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                 List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {

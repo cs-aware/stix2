@@ -1,4 +1,4 @@
-package eu.csaware.stix2.util;
+package eu.csaware.stix2.extension;
 
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import eu.csaware.stix2.common.Bundle;
@@ -13,10 +13,10 @@ import eu.csaware.stix2.sros.Sighting;
 /**
  *
  */
-class GsonConstants {
+public class CSAwareConstants {
 
     /**
-     * Default RuntimeTypeAdapterFactory for standard compliant STIX 2 classes
+     * Custom RuntimeTypeAdapterFactory with STIX 2 extension classes specific to CS-Aware
      */
     static final RuntimeTypeAdapterFactory<TypedStixObject> RUNTIME_TYPE_ADAPTER_FACTORY = com.google.gson.typeadapters.RuntimeTypeAdapterFactory
         .of(TypedStixObject.class, "type")
@@ -35,7 +35,7 @@ class GsonConstants {
         .registerSubtype(Relationship.class, Types.RELATIONSHIP_TYPE)
         .registerSubtype(Sighting.class, Types.SIGHTING_TYPE)
         .registerSubtype(Tool.class, Types.TOOL_TYPE)
-        .registerSubtype(Vulnerability.class, Types.VULNERABILITY_TYPE)
+        .registerSubtype(CSAwareVulnerability.class, Types.VULNERABILITY_TYPE)
         //CyberObservableCore
         .registerSubtype(Artifact.class, Types.ARTIFACT_TYPE)
         .registerSubtype(AutonomousSystem.class, Types.AUTONOMOUS_SYSTEM_TYPE)

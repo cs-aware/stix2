@@ -73,6 +73,12 @@ public class Bundle implements TypedStixObject {
     public Bundle() {
     }
 
+    public Bundle(String id, String specVersion) {
+        super();
+        this.id = id;
+        this.specVersion = specVersion;
+    }
+
     public Bundle(String id, String specVersion, List<TypedStixObject> objects) {
         super();
         this.id = id;

@@ -71,36 +71,7 @@ public class ObservedData extends Core {
     @DecimalMax("999999999")
     @NotNull
     private Integer numberObserved;
-    /**
-     * Custóm field describing the severity of the incident. The field describes a general clasification that may be defined by other parties (national secutiry authority etc.)
-     */
-    @SerializedName("x_da_threat_severity")
-    @Expose
-    @DecimalMin("1")
-    @DecimalMax("10")
-    private Integer xDaThreatSeverity;
-    /**
-     * Custom field describing the risk that the observed threat will be exploited
-     */
-    @SerializedName("x_da_risk_level")
-    @Expose
-    @DecimalMin("1")
-    @DecimalMax("100")
-    private Integer xDaRiskLevel;
-    /**
-     * Custom field describing how easy it is to exploit the threat in a given context (Local Public Administration or the like)
-     */
-    @SerializedName("x_da_exploitability_level")
-    @Expose
-    @DecimalMin("1")
-    @DecimalMax("100")
-    private Integer xDaExploitabilityLevel;
-    /**
-     * Custom field describing the overall group the observed data belongs to
-     */
-    @SerializedName("x_da_threat_group")
-    @Expose
-    private String xDaThreatGroup;
+
     /**
      * A dictionary of Cyber Observable Objects that describes the single 'fact' that was observed.
      * (Required)
@@ -117,8 +88,8 @@ public class ObservedData extends Core {
     public ObservedData() {
     }
 
-    public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved, Map<String, Object> objects, String createdByRef,
-                        LocalDateTime created, LocalDateTime modified) {
+    public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved,
+                        Map<String, Object> objects, String createdByRef, LocalDateTime created, LocalDateTime modified) {
         super(createdByRef, created, modified);
         this.id = id;
         this.firstObserved = firstObserved;
@@ -127,19 +98,15 @@ public class ObservedData extends Core {
         this.objects = objects;
     }
 
-    public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved, Integer xDaThreatSeverity,
-                        Integer xDaRiskLevel, Integer xDaExploitabilityLevel, String xDaThreatGroup, Map<String, Object> objects, String createdByRef,
-                        List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
+    public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved,
+                        Map<String, Object> objects, String createdByRef, List<String> labels, LocalDateTime created,
+                        LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                         List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.id = id;
         this.firstObserved = firstObserved;
         this.lastObserved = lastObserved;
         this.numberObserved = numberObserved;
-        this.xDaThreatSeverity = xDaThreatSeverity;
-        this.xDaRiskLevel = xDaRiskLevel;
-        this.xDaExploitabilityLevel = xDaExploitabilityLevel;
-        this.xDaThreatGroup = xDaThreatGroup;
         this.objects = objects;
     }
 
@@ -223,62 +190,6 @@ public class ObservedData extends Core {
     }
 
     /**
-     * Custóm field describing the severity of the incident. The field describes a general clasification that may be defined by other parties (national secutiry authority etc.)
-     */
-    public Integer getxDaThreatSeverity() {
-        return xDaThreatSeverity;
-    }
-
-    /**
-     * Custóm field describing the severity of the incident. The field describes a general clasification that may be defined by other parties (national secutiry authority etc.)
-     */
-    public void setxDaThreatSeverity(Integer xDaThreatSeverity) {
-        this.xDaThreatSeverity = xDaThreatSeverity;
-    }
-
-    /**
-     * Custom field describing the risk that the observed threat will be exploited
-     */
-    public Integer getxDaRiskLevel() {
-        return xDaRiskLevel;
-    }
-
-    /**
-     * Custom field describing the risk that the observed threat will be exploited
-     */
-    public void setxDaRiskLevel(Integer xDaRiskLevel) {
-        this.xDaRiskLevel = xDaRiskLevel;
-    }
-
-    /**
-     * Custom field describing how easy it is to exploit the threat in a given context (Local Public Administration or the like)
-     */
-    public Integer getxDaExploitabilityLevel() {
-        return xDaExploitabilityLevel;
-    }
-
-    /**
-     * Custom field describing how easy it is to exploit the threat in a given context (Local Public Administration or the like)
-     */
-    public void setxDaExploitabilityLevel(Integer xDaExploitabilityLevel) {
-        this.xDaExploitabilityLevel = xDaExploitabilityLevel;
-    }
-
-    /**
-     * Custom field describing the overall group the observed data belongs to
-     */
-    public String getxDaThreatGroup() {
-        return xDaThreatGroup;
-    }
-
-    /**
-     * Custom field describing the overall group the observed data belongs to
-     */
-    public void setxDaThreatGroup(String xDaThreatGroup) {
-        this.xDaThreatGroup = xDaThreatGroup;
-    }
-
-    /**
      * A dictionary of Cyber Observable Objects that describes the single 'fact' that was observed.
      * (Required)
      */
@@ -332,22 +243,6 @@ public class ObservedData extends Core {
         sb.append('=');
         sb.append(((this.numberObserved == null) ? "<null>" : this.numberObserved));
         sb.append(',');
-        sb.append("xDaThreatSeverity");
-        sb.append('=');
-        sb.append(((this.xDaThreatSeverity == null) ? "<null>" : this.xDaThreatSeverity));
-        sb.append(',');
-        sb.append("xDaRiskLevel");
-        sb.append('=');
-        sb.append(((this.xDaRiskLevel == null) ? "<null>" : this.xDaRiskLevel));
-        sb.append(',');
-        sb.append("xDaExploitabilityLevel");
-        sb.append('=');
-        sb.append(((this.xDaExploitabilityLevel == null) ? "<null>" : this.xDaExploitabilityLevel));
-        sb.append(',');
-        sb.append("xDaThreatGroup");
-        sb.append('=');
-        sb.append(((this.xDaThreatGroup == null) ? "<null>" : this.xDaThreatGroup));
-        sb.append(',');
         sb.append("objects");
         sb.append('=');
         sb.append(((this.objects == null) ? "<null>" : this.objects));
@@ -363,14 +258,10 @@ public class ObservedData extends Core {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result * 31) + ((this.xDaRiskLevel == null) ? 0 : this.xDaRiskLevel.hashCode()));
-        result = ((result * 31) + ((this.xDaThreatGroup == null) ? 0 : this.xDaThreatGroup.hashCode()));
         result = ((result * 31) + ((this.firstObserved == null) ? 0 : this.firstObserved.hashCode()));
         result = ((result * 31) + ((this.numberObserved == null) ? 0 : this.numberObserved.hashCode()));
         result = ((result * 31) + ((this.lastObserved == null) ? 0 : this.lastObserved.hashCode()));
-        result = ((result * 31) + ((this.xDaExploitabilityLevel == null) ? 0 : this.xDaExploitabilityLevel.hashCode()));
         result = ((result * 31) + ((this.objects == null) ? 0 : this.objects.hashCode()));
-        result = ((result * 31) + ((this.xDaThreatSeverity == null) ? 0 : this.xDaThreatSeverity.hashCode()));
         result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
@@ -386,6 +277,6 @@ public class ObservedData extends Core {
             return false;
         }
         ObservedData rhs = ((ObservedData) other);
-        return ((((((((((super.equals(rhs) && ((this.xDaRiskLevel == rhs.xDaRiskLevel) || ((this.xDaRiskLevel != null) && this.xDaRiskLevel.equals(rhs.xDaRiskLevel)))) && ((this.xDaThreatGroup == rhs.xDaThreatGroup) || ((this.xDaThreatGroup != null) && this.xDaThreatGroup.equals(rhs.xDaThreatGroup)))) && ((this.firstObserved == rhs.firstObserved) || ((this.firstObserved != null) && this.firstObserved.equals(rhs.firstObserved)))) && ((this.numberObserved == rhs.numberObserved) || ((this.numberObserved != null) && this.numberObserved.equals(rhs.numberObserved)))) && ((this.lastObserved == rhs.lastObserved) || ((this.lastObserved != null) && this.lastObserved.equals(rhs.lastObserved)))) && ((this.xDaExploitabilityLevel == rhs.xDaExploitabilityLevel) || ((this.xDaExploitabilityLevel != null) && this.xDaExploitabilityLevel.equals(rhs.xDaExploitabilityLevel)))) && ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects)))) && ((this.xDaThreatSeverity == rhs.xDaThreatSeverity) || ((this.xDaThreatSeverity != null) && this.xDaThreatSeverity.equals(rhs.xDaThreatSeverity)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type))));
+        return ((((((((super.equals(rhs) && ((this.firstObserved == rhs.firstObserved) || ((this.firstObserved != null) && this.firstObserved.equals(rhs.firstObserved)))) && ((this.numberObserved == rhs.numberObserved) || ((this.numberObserved != null) && this.numberObserved.equals(rhs.numberObserved)))) && ((this.lastObserved == rhs.lastObserved) || ((this.lastObserved != null) && this.lastObserved.equals(rhs.lastObserved)))) && ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
     }
 }
