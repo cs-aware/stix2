@@ -1,6 +1,10 @@
 package eu.csaware.stix2.test.util;
 
+import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.util.Stix2Util;
+
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /**
  * Constant used for test cases.
@@ -13,8 +17,12 @@ public class TestConstants {
     public static LocalDateTime DATE_TIME_LAST_OBSERVED = LocalDateTime.of(2012, 8, 1, 10, 30, 21);
     public static LocalDateTime DATE_TIME_EXTRA = LocalDateTime.of(2015, 8, 1, 10, 30, 21);
 
-    public static String ATTACK_PATTERN_ID = "attack-pattern--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061";
-    public static String BUNDLE_ID = "bundle--00000000-0000-4000-8000-000000000007";
+    public static UUID ATTACK_PATTERN_UUID = UUID.fromString("0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061");
+    public static String ATTACK_PATTERN_ID = Stix2Util.assembleId(Types.ATTACK_PATTERN_TYPE, ATTACK_PATTERN_UUID);
+
+    public static UUID BUNDLE_UUID = UUID.fromString("00000000-0000-4000-8000-000000000007");
+    public static String BUNDLE_ID = Stix2Util.assembleId(Types.BUNDLE_TYPE, BUNDLE_UUID);
+
     public static String CAMPAIGN_ID = "campaign--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f";
     public static String COURSE_OF_ACTION_ID = "course-of-action--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f";
     public static String IDENTITY_ID = "identity--311b2d2d-f010-4473-83ec-1edf84858f4c";
