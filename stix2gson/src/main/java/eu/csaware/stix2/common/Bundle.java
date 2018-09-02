@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class Bundle implements TypedStixObject {
 
-    public static final String SPEC_VERSION = "2.1";
+    public static final transient String SPEC_VERSION = "2.1";
 
     /**
      * The type of this object, which MUST be the literal `bundle`.

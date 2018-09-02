@@ -21,13 +21,13 @@ import java.util.List;
  */
 public class Relationship extends Core {
 
-    public static final String TYPE_TARGETS = "target";
-    public static final String TYPE_USES = "uses";
-    public static final String TYPE_ATTRIBUTED_TO = "attributed-to";
-    public static final String TYPE_MITIGATES = "mitigates";
-    public static final String TYPE_INDICATES = "indicates";
-    public static final String TYPE_VARIANT_OF = "variant-of";
-    public static final String TYPE_IMPERSONATES = "impersonates";
+    public static final transient String TYPE_TARGETS = "target";
+    public static final transient String TYPE_USES = "uses";
+    public static final transient String TYPE_ATTRIBUTED_TO = "attributed-to";
+    public static final transient String TYPE_MITIGATES = "mitigates";
+    public static final transient String TYPE_INDICATES = "indicates";
+    public static final transient String TYPE_VARIANT_OF = "variant-of";
+    public static final transient String TYPE_IMPERSONATES = "impersonates";
 
     /**
      * The type of this object, which MUST be the literal `relationship`.
