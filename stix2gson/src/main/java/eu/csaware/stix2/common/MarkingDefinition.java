@@ -16,7 +16,7 @@ import java.util.List;
  * <p>
  * The marking-definition object represents a specific marking.
  */
-public class MarkingDefinition {
+public class MarkingDefinition implements TypedStixObject {
 
     /**
      * The type of this object, which MUST be the literal `marking-definition`.
