@@ -2,11 +2,10 @@ package eu.csaware.stix2.common;
 
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.observables.*;
+import eu.csaware.stix2.observables.Process;
 import eu.csaware.stix2.sdos.*;
 import eu.csaware.stix2.sros.Relationship;
 import eu.csaware.stix2.sros.Sighting;
-
-import java.lang.Process;
 
 /**
  * Represent the type of a STIX 2 object in Java as a type-safe enum with
@@ -49,9 +48,9 @@ public enum Stix2Type {
     @SerializedName("x509-certificate") X_509_CERTIFICATE("x509-certificate", X509Certificate.class);
 
     private final String jsonString;
-    private Class implementation;
+    private Class<? extends TypedStixObject> implementation;
 
-    Stix2Type(String stixType, Class implementation) {
+    Stix2Type(String stixType, Class<? extends TypedStixObject> implementation) {
         this.jsonString = stixType;
         this.implementation = implementation;
     }
@@ -74,11 +73,11 @@ public enum Stix2Type {
         return null;
     }
 
-    public Class getImplementation() {
+    public Class<? extends TypedStixObject> getImplementation() {
         return implementation;
     }
 
-    public void setImplementation(Class implementation) {
+    public void setImplementation(Class<? extends TypedStixObject> implementation) {
         this.implementation = implementation;
     }
 
