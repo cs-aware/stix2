@@ -2,6 +2,7 @@ package eu.csaware.stix2.common;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import eu.csaware.stix2.util.Stix2Util;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -30,6 +31,8 @@ public abstract class IdentifiedStixObject implements TypedStixObject {
 
     public IdentifiedStixObject(String id) {
         this.id = id;
+        if (!Stix2Util.isValidId(id))
+            throw new IllegalArgumentException("Invalid STIX id: " + id);
     }
 
     /**
