@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 public abstract class TypedStixObject {
 
     /**
-     * The type of this object, which
+     * The type of this object, which is determined automatically from the class.
      */
     @SerializedName("type")
     @Expose
