@@ -3,7 +3,7 @@
   "relationship_type": "indicates",
   "source_ref": "indicator--a740531e-63ff-4e49-a9e1-a0a3eed0e3e7",
   "target_ref": "malware--9c4638ec-f1de-4ddb-abf4-1b760417654e",
-  "id": "relationship--df7c87eb-75d2-4948-af81-9d49d246f301",
   "created": "2016-05-12T08:17:27.000Z",
-  "modified": "2017-03-20T01:27:32.000Z"
+  "modified": "2017-03-20T01:27:32.000Z",
+  "id": "relationship--df7c87eb-75d2-4948-af81-9d49d246f301"
 }

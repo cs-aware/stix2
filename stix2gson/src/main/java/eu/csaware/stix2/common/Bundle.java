@@ -18,7 +18,7 @@ import java.util.Map;
  * <p>
  * A Bundle is a collection of arbitrary STIX Objects and Marking Definitions grouped together in a single container.
  */
-public class Bundle implements TypedStixObject {
+public class Bundle extends IdentifiedStixObject {
 
     public static final transient String SPEC_VERSION = "2.1";
 
@@ -30,17 +30,6 @@ public class Bundle implements TypedStixObject {
     @Expose
     @NotNull
     private Stix2Type type = Stix2Type.BUNDLE;
-    /**
-     * id
-     * <p>
-     * <p>
-     * (Required)
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^bundle--[a-z][a-z-]+[a-z]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
-    @NotNull
-    private String id;
     /**
      * The version of the STIX specification used to represent the content in this bundle.
      * (Required)
@@ -65,14 +54,12 @@ public class Bundle implements TypedStixObject {
     }
 
     public Bundle(String id, String specVersion) {
-        super();
-        this.id = id;
+        super(id);
         this.specVersion = specVersion;
     }
 
     public Bundle(String id, String specVersion, List<TypedStixObject> objects) {
-        super();
-        this.id = id;
+        super(id);
         this.specVersion = specVersion;
         this.objects = objects;
     }
@@ -83,26 +70,6 @@ public class Bundle implements TypedStixObject {
      */
     public Stix2Type getType() {
         return type;
-    }
-
-    /**
-     * id
-     * <p>
-     * <p>
-     * (Required)
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     * <p>
-     * (Required)
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -145,7 +112,7 @@ public class Bundle implements TypedStixObject {
         sb.append(',');
         sb.append("id");
         sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
+        sb.append(super.toString());
         sb.append(',');
         sb.append("specVersion");
         sb.append('=');
@@ -180,9 +147,9 @@ public class Bundle implements TypedStixObject {
     public int hashCode() {
         int result = 1;
         result = ((result * 31) + ((this.specVersion == null) ? 0 : this.specVersion.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.objects == null) ? 0 : this.objects.hashCode()));
+        result = ((result * 31) + super.hashCode());
         return result;
     }
 
@@ -196,7 +163,7 @@ public class Bundle implements TypedStixObject {
         }
         Bundle rhs = ((Bundle) other);
         return (((((this.specVersion == rhs.specVersion) || ((this.specVersion != null) && this.specVersion.equals(rhs.specVersion))) &&
-            ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) &&
+            super.equals(rhs)) &&
             ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) &&
             ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))));
     }
