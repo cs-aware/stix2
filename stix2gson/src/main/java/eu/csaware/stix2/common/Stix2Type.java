@@ -48,7 +48,7 @@ public enum Stix2Type {
     @SerializedName("x509-certificate") X_509_CERTIFICATE("x509-certificate", X509Certificate.class);
 
     private final String jsonString;
-    private Class<? extends TypedStixObject> implementation;
+    private Class<? extends TypedStixObject> implementation; // not final to allow changing the implementation dynamically
 
     Stix2Type(String stixType, Class<? extends TypedStixObject> implementation) {
         this.jsonString = stixType;
@@ -77,6 +77,9 @@ public enum Stix2Type {
         return implementation;
     }
 
+    /**
+     * Change the implementation (typically to a subclass of the default implementation).
+     */
     public void setImplementation(Class<? extends TypedStixObject> implementation) {
         this.implementation = implementation;
     }
