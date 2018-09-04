@@ -7,6 +7,7 @@ import eu.csaware.stix2.common.*;
 import eu.csaware.stix2.util.Stix2Util;
 
 import javax.validation.Valid;
+import javax.validation.Validation;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -29,14 +30,6 @@ public class AttackPattern extends Core {
     @SerializedName("type")
     @Expose
     private Stix2Type type = Stix2Type.ATTACK_PATTERN;
-    /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^attack-pattern--")
-    private String id;
     /**
      * The name used to identify the Attack Pattern.
      * (Required)
@@ -66,18 +59,16 @@ public class AttackPattern extends Core {
     public AttackPattern() {
     }
 
-    public AttackPattern(UUID uuid, String name, String description,
-                         LocalDateTime created, LocalDateTime modified) {
-        super(created, modified);
-        this.id = Stix2Util.assembleId(type, uuid);
-        this.name = name;
-        this.description = description;
-    }
+//    public AttackPattern(UUID uuid, String name, String description,
+//                         LocalDateTime created, LocalDateTime modified) {
+//        super(Stix2Util.assembleId(type, uuid), created, modified);
+//        this.name = name;
+//        this.description = description;
+//    }
 
     public AttackPattern(String id, String name, String description,
                          LocalDateTime created, LocalDateTime modified) {
-        super(created, modified);
-        this.id = id;
+        super(id, created, modified);
         this.name = name;
         this.description = description;
     }
@@ -85,8 +76,7 @@ public class AttackPattern extends Core {
     public AttackPattern(String id, String name, String description, List<KillChainPhase> killChainPhases, String createdByRef,
                          List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                          List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.name = name;
         this.description = description;
         this.killChainPhases = killChainPhases;
@@ -97,22 +87,6 @@ public class AttackPattern extends Core {
      */
     public Stix2Type getType() {
         return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -181,10 +155,6 @@ public class AttackPattern extends Core {
         sb.append('=');
         sb.append(((this.type == null) ? "<null>" : this.type));
         sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -210,7 +180,6 @@ public class AttackPattern extends Core {
         int result = 1;
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.killChainPhases == null) ? 0 : this.killChainPhases.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
@@ -226,7 +195,14 @@ public class AttackPattern extends Core {
             return false;
         }
         AttackPattern rhs = ((AttackPattern) other);
-        return (((((super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type))));
+        return (((
+            (
+                (super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name))))
+                && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))
+            )
+        )
+            && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))
+        ) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type))));
     }
 
 }

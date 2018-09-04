@@ -28,14 +28,6 @@ public class Tool extends Core {
     @Expose
     private Stix2Type type = Stix2Type.TOOL;
     /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^tool--")
-    private String id;
-    /**
      * The name used to identify the Tool.
      * (Required)
      */
@@ -72,16 +64,14 @@ public class Tool extends Core {
 
     public Tool(String id, List<String> labels, String name, String createdByRef,
                 LocalDateTime created, LocalDateTime modified) {
-        super(createdByRef, labels, created, modified);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified);
         this.name = name;
     }
 
 
     public Tool(String id, List<String> labels, String name, String description, String createdByRef,
                 LocalDateTime created, LocalDateTime modified) {
-        super(createdByRef, labels, created, modified);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified);
         this.name = name;
         this.description = description;
     }
@@ -89,8 +79,7 @@ public class Tool extends Core {
     public Tool(String id, List<String> labels, String name, String description, String toolVersion, List<KillChainPhase> killChainPhases,
                 String createdByRef, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                 List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.name = name;
         this.description = description;
         this.toolVersion = toolVersion;
@@ -102,22 +91,6 @@ public class Tool extends Core {
      */
     public Stix2Type getType() {
         return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -200,10 +173,6 @@ public class Tool extends Core {
         sb.append('=');
         sb.append(((this.type == null) ? "<null>" : this.type));
         sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -235,7 +204,6 @@ public class Tool extends Core {
         result = ((result * 31) + ((this.killChainPhases == null) ? 0 : this.killChainPhases.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -250,7 +218,7 @@ public class Tool extends Core {
             return false;
         }
         Tool rhs = ((Tool) other);
-        return (((((((super.equals(rhs) && ((this.toolVersion == rhs.toolVersion) || ((this.toolVersion != null) && this.toolVersion.equals(rhs.toolVersion)))) && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+        return (((((((super.equals(rhs) && ((this.toolVersion == rhs.toolVersion) || ((this.toolVersion != null) && this.toolVersion.equals(rhs.toolVersion)))) && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description))))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
     }
 
 }

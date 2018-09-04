@@ -31,14 +31,6 @@ public class Campaign extends Core {
     @Expose
     private Stix2Type type = Stix2Type.CAMPAIGN;
     /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^campaign--")
-    private String id;
-    /**
      * The name used to identify the Campaign.
      * (Required)
      */
@@ -92,8 +84,7 @@ public class Campaign extends Core {
     }
 
     public Campaign(String id, String name, String description, String createdByRef, LocalDateTime created, LocalDateTime modified) {
-        super(createdByRef, created, modified);
-        this.id = id;
+        super(id, createdByRef, created, modified);
         this.name = name;
         this.description = description;
     }
@@ -101,8 +92,7 @@ public class Campaign extends Core {
     public Campaign(String id, String name, String description, List<String> aliases, String firstSeen, String lastSeen,
                     String objective, String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
                     Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.name = name;
         this.description = description;
         this.aliases = aliases;
@@ -116,22 +106,6 @@ public class Campaign extends Core {
      */
     public Stix2Type getType() {
         return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -250,10 +224,6 @@ public class Campaign extends Core {
         sb.append('=');
         sb.append(((this.type == null) ? "<null>" : this.type));
         sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -294,7 +264,6 @@ public class Campaign extends Core {
         result = ((result * 31) + ((this.firstSeen == null) ? 0 : this.firstSeen.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.objective == null) ? 0 : this.objective.hashCode()));
         result = ((result * 31) + super.hashCode());
@@ -310,7 +279,7 @@ public class Campaign extends Core {
             return false;
         }
         Campaign rhs = ((Campaign) other);
-        return ((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.lastSeen == rhs.lastSeen) || ((this.lastSeen != null) && this.lastSeen.equals(rhs.lastSeen)))) && ((this.firstSeen == rhs.firstSeen) || ((this.firstSeen != null) && this.firstSeen.equals(rhs.firstSeen)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.objective == rhs.objective) || ((this.objective != null) && this.objective.equals(rhs.objective))));
+        return ((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.lastSeen == rhs.lastSeen) || ((this.lastSeen != null) && this.lastSeen.equals(rhs.lastSeen)))) && ((this.firstSeen == rhs.firstSeen) || ((this.firstSeen != null) && this.firstSeen.equals(rhs.firstSeen)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description))))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.objective == rhs.objective) || ((this.objective != null) && this.objective.equals(rhs.objective))));
     }
 
 }

@@ -22,6 +22,16 @@ import java.util.List;
 public abstract class Core implements TypedStixObject {
 
     /**
+     * id
+     * <p>
+     */
+    @SerializedName("id")
+    @Expose
+    @Pattern(regexp = "^[a-z][a-z-]+[a-z]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
+    @NotNull
+    private String id;
+
+    /**
      * identifier
      * <p>
      * Represents identifiers across the CTI specifications. The format consists of the name of the top-level object being identified, followed by two dashes (--), followed by a UUIDv4.
@@ -93,45 +103,51 @@ public abstract class Core implements TypedStixObject {
     public Core() {
     }
 
-    public Core(LocalDateTime created, LocalDateTime modified) {
+    public Core(String id, LocalDateTime created, LocalDateTime modified) {
         super();
+        this.id = id;
         this.created = created;
         this.modified = modified;
     }
 
-    public Core(String createdByRef, LocalDateTime created, LocalDateTime modified) {
+    public Core(String id, String createdByRef, LocalDateTime created, LocalDateTime modified) {
         super();
+        this.id = id;
         this.createdByRef = createdByRef;
         this.created = created;
         this.modified = modified;
     }
 
-    public Core(String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified) {
+    public Core(String id, String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified) {
         super();
+        this.id = id;
         this.createdByRef = createdByRef;
         this.labels = labels;
         this.created = created;
         this.modified = modified;
     }
 
-    public Core(List<String> labels, LocalDateTime created, LocalDateTime modified) {
+    public Core(String id, List<String> labels, LocalDateTime created, LocalDateTime modified) {
         super();
+        this.id = id;
         this.labels = labels;
         this.created = created;
         this.modified = modified;
     }
 
-    public Core(LocalDateTime created, LocalDateTime modified, List<ExternalReference> externalReferences) {
+    public Core(String id, LocalDateTime created, LocalDateTime modified, List<ExternalReference> externalReferences) {
         super();
+        this.id = id;
         this.created = created;
         this.modified = modified;
         this.externalReferences = externalReferences;
     }
 
-    public Core(String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
+    public Core(String id, String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
                 Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,
                 List<GranularMarking> granularMarkings) {
         super();
+        this.id = id;
         this.createdByRef = createdByRef;
         this.labels = labels;
         this.created = created;
@@ -140,6 +156,22 @@ public abstract class Core implements TypedStixObject {
         this.externalReferences = externalReferences;
         this.objectMarkingRefs = objectMarkingRefs;
         this.granularMarkings = granularMarkings;
+    }
+
+    /**
+     * id
+     * <p>
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * id
+     * <p>
+     */
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**
@@ -278,6 +310,10 @@ public abstract class Core implements TypedStixObject {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(Core.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("id");
+        sb.append('=');
+        sb.append(((this.id == null) ? "<null>" : this.id));
+        sb.append(',');
         sb.append("createdByRef");
         sb.append('=');
         sb.append(((this.createdByRef == null) ? "<null>" : this.createdByRef));
@@ -321,6 +357,7 @@ public abstract class Core implements TypedStixObject {
     @Override
     public int hashCode() {
         int result = 1;
+        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.externalReferences == null) ? 0 : this.externalReferences.hashCode()));
         result = ((result * 31) + ((this.created == null) ? 0 : this.created.hashCode()));
         result = ((result * 31) + ((this.granularMarkings == null) ? 0 : this.granularMarkings.hashCode()));
@@ -341,7 +378,9 @@ public abstract class Core implements TypedStixObject {
             return false;
         }
         Core rhs = ((Core) other);
-        return (((((((((this.externalReferences == rhs.externalReferences) || ((this.externalReferences != null) && this.externalReferences.equals(rhs.externalReferences))) &&
+        return (((((((
+            ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id))) &&
+            ((this.externalReferences == rhs.externalReferences) || ((this.externalReferences != null) && this.externalReferences.equals(rhs.externalReferences))) &&
             ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) &&
             ((this.granularMarkings == rhs.granularMarkings) || ((this.granularMarkings != null) && this.granularMarkings.equals(rhs.granularMarkings)))) &&
             ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified)))) &&

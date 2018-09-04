@@ -36,14 +36,6 @@ public class Relationship extends Core {
     @Expose
     private Stix2Type type = Stix2Type.RELATIONSHIP;
     /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^relationship--")
-    private String id;
-    /**
      * relationship_type
      * <p>
      * The name used to identify the type of relationship.
@@ -85,8 +77,7 @@ public class Relationship extends Core {
 
     public Relationship(String id, String relationshipType, String sourceRef, String targetRef,
                         LocalDateTime created, LocalDateTime modified) {
-        super(created, modified);
-        this.id = id;
+        super(id, created, modified);
         this.relationshipType = relationshipType;
         this.sourceRef = sourceRef;
         this.targetRef = targetRef;
@@ -94,8 +85,7 @@ public class Relationship extends Core {
 
     public Relationship(String id, String relationshipType, String description, String sourceRef, String targetRef,
                         String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.relationshipType = relationshipType;
         this.description = description;
         this.sourceRef = sourceRef;
@@ -107,22 +97,6 @@ public class Relationship extends Core {
      */
     public Stix2Type getType() {
         return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -213,10 +187,6 @@ public class Relationship extends Core {
         sb.append('=');
         sb.append(((this.type == null) ? "<null>" : this.type));
         sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("relationshipType");
         sb.append('=');
         sb.append(((this.relationshipType == null) ? "<null>" : this.relationshipType));
@@ -247,7 +217,6 @@ public class Relationship extends Core {
         result = ((result * 31) + ((this.targetRef == null) ? 0 : this.targetRef.hashCode()));
         result = ((result * 31) + ((this.relationshipType == null) ? 0 : this.relationshipType.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.sourceRef == null) ? 0 : this.sourceRef.hashCode()));
         result = ((result * 31) + super.hashCode());
@@ -263,7 +232,7 @@ public class Relationship extends Core {
             return false;
         }
         Relationship rhs = ((Relationship) other);
-        return ((((((super.equals(rhs) && ((this.targetRef == rhs.targetRef) || ((this.targetRef != null) && this.targetRef.equals(rhs.targetRef)))) && ((this.relationshipType == rhs.relationshipType) || ((this.relationshipType != null) && this.relationshipType.equals(rhs.relationshipType)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.sourceRef == rhs.sourceRef) || ((this.sourceRef != null) && this.sourceRef.equals(rhs.sourceRef))));
+        return ((((((super.equals(rhs) && ((this.targetRef == rhs.targetRef) || ((this.targetRef != null) && this.targetRef.equals(rhs.targetRef)))) && ((this.relationshipType == rhs.relationshipType) || ((this.relationshipType != null) && this.relationshipType.equals(rhs.relationshipType)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description))))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.sourceRef == rhs.sourceRef) || ((this.sourceRef != null) && this.sourceRef.equals(rhs.sourceRef))));
     }
 
 }

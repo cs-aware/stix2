@@ -29,14 +29,6 @@ public class Indicator extends Core {
     @Expose
     private Stix2Type type = Stix2Type.INDICATOR;
     /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^indicator--")
-    private String id;
-    /**
      * The name used to identify the Indicator.
      */
     @SerializedName("name")
@@ -89,8 +81,7 @@ public class Indicator extends Core {
 
     public Indicator(String id, List<String> labels, String pattern, LocalDateTime validFrom,
                      LocalDateTime created, LocalDateTime modified) {
-        super(labels, created, modified);
-        this.id = id;
+        super(id, labels, created, modified);
         this.pattern = pattern;
         this.validFrom = validFrom;
     }
@@ -99,8 +90,7 @@ public class Indicator extends Core {
                      LocalDateTime validUntil, List<KillChainPhase> killChainPhases, String createdByRef, LocalDateTime created,
                      LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,
                      List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.name = name;
         this.description = description;
         this.pattern = pattern;
@@ -114,22 +104,6 @@ public class Indicator extends Core {
      */
     public Stix2Type getType() {
         return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -242,10 +216,6 @@ public class Indicator extends Core {
         sb.append('=');
         sb.append(((this.type == null) ? "<null>" : this.type));
         sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -286,7 +256,6 @@ public class Indicator extends Core {
         result = ((result * 31) + ((this.pattern == null) ? 0 : this.pattern.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
         result = ((result * 31) + ((this.validUntil == null) ? 0 : this.validUntil.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.validFrom == null) ? 0 : this.validFrom.hashCode()));
         result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
@@ -302,7 +271,7 @@ public class Indicator extends Core {
             return false;
         }
         Indicator rhs = ((Indicator) other);
-        return (((((((((super.equals(rhs) && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.pattern == rhs.pattern) || ((this.pattern != null) && this.pattern.equals(rhs.pattern)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.validUntil == rhs.validUntil) || ((this.validUntil != null) && this.validUntil.equals(rhs.validUntil)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.validFrom == rhs.validFrom) || ((this.validFrom != null) && this.validFrom.equals(rhs.validFrom)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+        return (((((((((super.equals(rhs) && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.pattern == rhs.pattern) || ((this.pattern != null) && this.pattern.equals(rhs.pattern)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.validUntil == rhs.validUntil) || ((this.validUntil != null) && this.validUntil.equals(rhs.validUntil))))) && ((this.validFrom == rhs.validFrom) || ((this.validFrom != null) && this.validFrom.equals(rhs.validFrom)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
     }
 
 }
