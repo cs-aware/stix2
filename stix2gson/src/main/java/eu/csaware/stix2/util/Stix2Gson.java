@@ -2,6 +2,10 @@ package eu.csaware.stix2.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
+import eu.csaware.stix2.common.Stix2Type;
+import eu.csaware.stix2.common.TypedStixObject;
+import eu.csaware.stix2.extension.CSAwareVulnerability;
 
 import java.util.Collection;
 
@@ -17,10 +21,19 @@ public enum Stix2Gson {
     SINGLETON_DEBUG(commonGsonBuilder().setPrettyPrinting().create());
 
     private static GsonBuilder commonGsonBuilder() {
+        RuntimeTypeAdapterFactory<TypedStixObject> factory =
+            RuntimeTypeAdapterFactory.of(TypedStixObject.class, "type");
+
+        //TODO provide way to register custom classes
+//        Stix2Type.VULNERABILITY.setImplementation(CSAwareVulnerability.class);
+        for (Stix2Type value : Stix2Type.values()) {
+            factory.registerSubtype(value.getImplementation(), value.toJsonString());
+        }
+
         return new GsonBuilder()
             .disableHtmlEscaping() //without this patterns don't serialize correctly
             .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
-            .registerTypeAdapterFactory(GsonConstants.RUNTIME_TYPE_ADAPTER_FACTORY);
+            .registerTypeAdapterFactory(factory);
     }
 
     /**
