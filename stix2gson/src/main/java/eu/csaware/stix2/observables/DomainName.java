@@ -21,12 +21,6 @@ import java.util.List;
 public class DomainName extends CyberObservableCore {
 
     /**
-     * The value of this property MUST be `domain-name`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.DOMAIN_NAME;
-    /**
      * Specifies the value of the domain name.
      * (Required)
      */
@@ -52,13 +46,6 @@ public class DomainName extends CyberObservableCore {
         super(extensions);
         this.value = value;
         this.resolvesToRefs = resolvesToRefs;
-    }
-
-    /**
-     * The value of this property MUST be `domain-name`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -109,10 +96,6 @@ public class DomainName extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("value");
         sb.append('=');
         sb.append(((this.value == null) ? "<null>" : this.value));
@@ -133,7 +116,6 @@ public class DomainName extends CyberObservableCore {
     public int hashCode() {
         int result = 1;
         result = ((result * 31) + ((this.resolvesToRefs == null) ? 0 : this.resolvesToRefs.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.value == null) ? 0 : this.value.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -148,7 +130,7 @@ public class DomainName extends CyberObservableCore {
             return false;
         }
         DomainName rhs = ((DomainName) other);
-        return (((super.equals(rhs) && ((this.resolvesToRefs == rhs.resolvesToRefs) || ((this.resolvesToRefs != null) && this.resolvesToRefs.equals(rhs.resolvesToRefs)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value))));
+        return (((super.equals(rhs) && ((this.resolvesToRefs == rhs.resolvesToRefs) || ((this.resolvesToRefs != null) && this.resolvesToRefs.equals(rhs.resolvesToRefs))))) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value))));
     }
 
 }

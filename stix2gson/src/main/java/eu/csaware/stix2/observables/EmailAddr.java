@@ -19,12 +19,6 @@ import javax.validation.constraints.Pattern;
 public class EmailAddr extends CyberObservableCore {
 
     /**
-     * The value of this property MUST be `email-addr`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.EMAIL_ADDR;
-    /**
      * Specifies a single email address. This MUST not include the display name.
      * (Required)
      */
@@ -57,13 +51,6 @@ public class EmailAddr extends CyberObservableCore {
         this.value = value;
         this.displayName = displayName;
         this.belongsToRef = belongsToRef;
-    }
-
-    /**
-     * The value of this property MUST be `email-addr`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -128,10 +115,6 @@ public class EmailAddr extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("value");
         sb.append('=');
         sb.append(((this.value == null) ? "<null>" : this.value));
@@ -156,7 +139,6 @@ public class EmailAddr extends CyberObservableCore {
     public int hashCode() {
         int result = 1;
         result = ((result * 31) + ((this.belongsToRef == null) ? 0 : this.belongsToRef.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.value == null) ? 0 : this.value.hashCode()));
         result = ((result * 31) + ((this.displayName == null) ? 0 : this.displayName.hashCode()));
         result = ((result * 31) + super.hashCode());
@@ -172,7 +154,7 @@ public class EmailAddr extends CyberObservableCore {
             return false;
         }
         EmailAddr rhs = ((EmailAddr) other);
-        return ((((super.equals(rhs) && ((this.belongsToRef == rhs.belongsToRef) || ((this.belongsToRef != null) && this.belongsToRef.equals(rhs.belongsToRef)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value)))) && ((this.displayName == rhs.displayName) || ((this.displayName != null) && this.displayName.equals(rhs.displayName))));
+        return ((((super.equals(rhs) && ((this.belongsToRef == rhs.belongsToRef) || ((this.belongsToRef != null) && this.belongsToRef.equals(rhs.belongsToRef))))) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value)))) && ((this.displayName == rhs.displayName) || ((this.displayName != null) && this.displayName.equals(rhs.displayName))));
     }
 
 }

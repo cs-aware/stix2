@@ -1,9 +1,7 @@
 {
-  "type": "bundle",
   "spec_version": "2.0",
   "objects": [
     {
-      "type": "indicator",
       "pattern": "[file:hashes.MD5 = 'd41d8cd98f00b204e9800998ecf8427e']",
       "valid_from": "2015-08-01T10:30:21.000Z",
       "labels": [
@@ -11,27 +9,29 @@
       ],
       "created": "2016-05-12T08:17:27.000Z",
       "modified": "2017-03-20T01:27:32.000Z",
-      "id": "indicator--a740531e-63ff-4e49-a9e1-a0a3eed0e3e7"
+      "id": "indicator--a740531e-63ff-4e49-a9e1-a0a3eed0e3e7",
+      "type": "indicator"
     },
     {
-      "type": "malware",
       "name": "Cryptolocker",
       "labels": [
         "ransomware"
       ],
       "created": "2016-05-12T08:17:27.000Z",
       "modified": "2017-03-20T01:27:32.000Z",
-      "id": "malware--9c4638ec-f1de-4ddb-abf4-1b760417654e"
+      "id": "malware--9c4638ec-f1de-4ddb-abf4-1b760417654e",
+      "type": "malware"
     },
     {
-      "type": "relationship",
       "relationship_type": "indicates",
       "source_ref": "indicator--a740531e-63ff-4e49-a9e1-a0a3eed0e3e7",
       "target_ref": "malware--9c4638ec-f1de-4ddb-abf4-1b760417654e",
       "created": "2016-05-12T08:17:27.000Z",
       "modified": "2017-03-20T01:27:32.000Z",
-      "id": "relationship--df7c87eb-75d2-4948-af81-9d49d246f301"
+      "id": "relationship--df7c87eb-75d2-4948-af81-9d49d246f301",
+      "type": "relationship"
     }
   ],
-  "id": "bundle--00000000-0000-4000-8000-000000000007"
+  "id": "bundle--00000000-0000-4000-8000-000000000007",
+  "type": "bundle"
 }

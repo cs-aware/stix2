@@ -25,12 +25,6 @@ import java.util.List;
 public class Identity extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `identity`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.IDENTITY;
-    /**
      * The name of this Identity.
      * (Required)
      */
@@ -88,13 +82,6 @@ public class Identity extends Core {
         this.identityClass = identityClass;
         this.sectors = sectors;
         this.contactInformation = contactInformation;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `identity`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -189,10 +176,6 @@ public class Identity extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -229,8 +212,6 @@ public class Identity extends Core {
         result = ((result * 31) + ((this.contactInformation == null) ? 0 : this.contactInformation.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
-
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -250,6 +231,6 @@ public class Identity extends Core {
             && this.contactInformation.equals(rhs.contactInformation))))
             && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name))))
             && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))))
-            && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+            ));
     }
 }

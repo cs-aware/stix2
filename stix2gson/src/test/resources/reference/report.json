@@ -1,5 +1,4 @@
 {
-  "type": "report",
   "name": "The Black Vine Cyberespionage Group",
   "description": "A simple report with an indicator and campaign",
   "published": "2015-08-01T10:30:21.000Z",
@@ -14,5 +13,6 @@
   ],
   "created": "2016-05-12T08:17:27.000Z",
   "modified": "2017-03-20T01:27:32.000Z",
-  "id": "report--84e4d88f-44ea-4bcd-bbf3-b2c1c320bcb3"
+  "id": "report--84e4d88f-44ea-4bcd-bbf3-b2c1c320bcb3",
+  "type": "report"
 }

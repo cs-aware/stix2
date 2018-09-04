@@ -1,5 +1,4 @@
 {
-  "type": "observed-data",
   "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
   "created": "2016-04-06T19:58:16.000Z",
   "modified": "2017-03-20T01:27:32.000Z",
@@ -19,5 +18,6 @@
       ]
     }
   },
-  "id": "observed-data--b67d30ff-02ac-498a-92f9-32f845f448cf"
+  "id": "observed-data--b67d30ff-02ac-498a-92f9-32f845f448cf",
+  "type": "observed-data"
 }

@@ -23,12 +23,6 @@ import java.util.List;
 public class Report extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `report`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.REPORT;
-    /**
      * The name used to identify the Report.
      * (Required)
      */
@@ -87,13 +81,6 @@ public class Report extends Core {
         this.description = description;
         this.published = published;
         this.objectRefs = objectRefs;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `report`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -180,10 +167,6 @@ public class Report extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -215,7 +198,6 @@ public class Report extends Core {
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
         result = ((result * 31) + ((this.objectRefs == null) ? 0 : this.objectRefs.hashCode()));
         result = ((result * 31) + ((this.published == null) ? 0 : this.published.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -229,7 +211,7 @@ public class Report extends Core {
             return false;
         }
         Report rhs = ((Report) other);
-        return (((((((super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.objectRefs == rhs.objectRefs) || ((this.objectRefs != null) && this.objectRefs.equals(rhs.objectRefs))))) && ((this.published == rhs.published) || ((this.published != null) && this.published.equals(rhs.published)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+        return (((((((super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.objectRefs == rhs.objectRefs) || ((this.objectRefs != null) && this.objectRefs.equals(rhs.objectRefs))))) && ((this.published == rhs.published) || ((this.published != null) && this.published.equals(rhs.published))))));
     }
 
 }

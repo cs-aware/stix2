@@ -25,12 +25,6 @@ import java.util.Map;
 public class ObservedData extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `observed-data`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.OBSERVED_DATA;
-    /**
      * timestamp
      * <p>
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
@@ -97,13 +91,6 @@ public class ObservedData extends Core {
         this.lastObserved = lastObserved;
         this.numberObserved = numberObserved;
         this.objects = objects;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `observed-data`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -196,10 +183,6 @@ public class ObservedData extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("firstObserved");
         sb.append('=');
         sb.append(((this.firstObserved == null) ? "<null>" : this.firstObserved));
@@ -231,7 +214,6 @@ public class ObservedData extends Core {
         result = ((result * 31) + ((this.numberObserved == null) ? 0 : this.numberObserved.hashCode()));
         result = ((result * 31) + ((this.lastObserved == null) ? 0 : this.lastObserved.hashCode()));
         result = ((result * 31) + ((this.objects == null) ? 0 : this.objects.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -245,6 +227,6 @@ public class ObservedData extends Core {
             return false;
         }
         ObservedData rhs = ((ObservedData) other);
-        return ((((((((super.equals(rhs) && ((this.firstObserved == rhs.firstObserved) || ((this.firstObserved != null) && this.firstObserved.equals(rhs.firstObserved)))) && ((this.numberObserved == rhs.numberObserved) || ((this.numberObserved != null) && this.numberObserved.equals(rhs.numberObserved)))) && ((this.lastObserved == rhs.lastObserved) || ((this.lastObserved != null) && this.lastObserved.equals(rhs.lastObserved)))) && ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects)))))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+        return ((((((((super.equals(rhs) && ((this.firstObserved == rhs.firstObserved) || ((this.firstObserved != null) && this.firstObserved.equals(rhs.firstObserved)))) && ((this.numberObserved == rhs.numberObserved) || ((this.numberObserved != null) && this.numberObserved.equals(rhs.numberObserved)))) && ((this.lastObserved == rhs.lastObserved) || ((this.lastObserved != null) && this.lastObserved.equals(rhs.lastObserved)))) && ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))))))));
     }
 }

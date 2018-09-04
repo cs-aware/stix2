@@ -7,11 +7,12 @@ import eu.csaware.stix2.util.Stix2Util;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  *
  */
-public abstract class IdentifiedStixObject implements TypedStixObject {
+public abstract class IdentifiedStixObject extends TypedStixObject {
 
     /**
      * id
@@ -33,6 +34,10 @@ public abstract class IdentifiedStixObject implements TypedStixObject {
         this.id = id;
         if (!Stix2Util.isValidId(id))
             throw new IllegalArgumentException("Invalid STIX id: " + id);
+    }
+
+    public IdentifiedStixObject(UUID uuid) {
+        this.id = Stix2Util.assembleId(getType(), uuid);
     }
 
     /**
@@ -63,11 +68,14 @@ public abstract class IdentifiedStixObject implements TypedStixObject {
 
         IdentifiedStixObject that = (IdentifiedStixObject) o;
 
-        return id.equals(that.id);
+        return id.equals(that.id) && super.equals(that);
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        int result = 1;
+        result = ((result * 31) + id.hashCode());
+        result = ((result * 31) + super.hashCode());
+        return result;
     }
 }

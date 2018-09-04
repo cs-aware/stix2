@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -92,6 +93,12 @@ public abstract class Core extends IdentifiedStixObject {
      */
     public Core() {
         super();
+    }
+
+    public Core(UUID uuid, LocalDateTime created, LocalDateTime modified) {
+        super(uuid);
+        this.created = created;
+        this.modified = modified;
     }
 
     public Core(String id, LocalDateTime created, LocalDateTime modified) {

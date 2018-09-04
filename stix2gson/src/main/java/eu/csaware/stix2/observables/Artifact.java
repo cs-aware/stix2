@@ -18,12 +18,6 @@ import javax.validation.constraints.Pattern;
 public class Artifact extends CyberObservableCore {
 
     /**
-     * The value of this property MUST be `artifact`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.ARTIFACT;
-    /**
      * The value of this property MUST be a valid MIME type as specified in the IANA Media Types registry.
      */
     @SerializedName("mime_type")
@@ -40,13 +34,6 @@ public class Artifact extends CyberObservableCore {
     public Artifact(String mimeType, Dictionary extensions) {
         super(extensions);
         this.mimeType = mimeType;
-    }
-
-    /**
-     * The value of this property MUST be `artifact`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -81,10 +68,6 @@ public class Artifact extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("mimeType");
         sb.append('=');
         sb.append(((this.mimeType == null) ? "<null>" : this.mimeType));
@@ -100,7 +83,6 @@ public class Artifact extends CyberObservableCore {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.mimeType == null) ? 0 : this.mimeType.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -115,7 +97,7 @@ public class Artifact extends CyberObservableCore {
             return false;
         }
         Artifact rhs = ((Artifact) other);
-        return ((super.equals(rhs) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.mimeType == rhs.mimeType) || ((this.mimeType != null) && this.mimeType.equals(rhs.mimeType))));
+        return (super.equals(rhs) && ((this.mimeType == rhs.mimeType) || ((this.mimeType != null) && this.mimeType.equals(rhs.mimeType))));
     }
 
 }

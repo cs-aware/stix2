@@ -25,12 +25,6 @@ import java.util.List;
 public class ThreatActor extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `threat-actor`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.THREAT_ACTOR;
-    /**
      * A name used to identify this Threat Actor or Threat Actor group.
      * (Required)
      */
@@ -132,13 +126,6 @@ public class ThreatActor extends Core {
         this.primaryMotivation = primaryMotivation;
         this.secondaryMotivations = secondaryMotivations;
         this.personalMotivations = personalMotivations;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `threat-actor`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -301,10 +288,6 @@ public class ThreatActor extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -361,7 +344,6 @@ public class ThreatActor extends Core {
         result = ((result * 31) + ((this.roles == null) ? 0 : this.roles.hashCode()));
         result = ((result * 31) + ((this.resourceLevel == null) ? 0 : this.resourceLevel.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.primaryMotivation == null) ? 0 : this.primaryMotivation.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.personalMotivations == null) ? 0 : this.personalMotivations.hashCode()));
@@ -380,7 +362,7 @@ public class ThreatActor extends Core {
             return false;
         }
         ThreatActor rhs = ((ThreatActor) other);
-        return (((((((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.sophistication == rhs.sophistication) || ((this.sophistication != null) && this.sophistication.equals(rhs.sophistication)))) && ((this.roles == rhs.roles) || ((this.roles != null) && this.roles.equals(rhs.roles)))) && ((this.resourceLevel == rhs.resourceLevel) || ((this.resourceLevel != null) && this.resourceLevel.equals(rhs.resourceLevel)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type))))) && ((this.primaryMotivation == rhs.primaryMotivation) || ((this.primaryMotivation != null) && this.primaryMotivation.equals(rhs.primaryMotivation)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.personalMotivations == rhs.personalMotivations) || ((this.personalMotivations != null) && this.personalMotivations.equals(rhs.personalMotivations))))) && ((this.secondaryMotivations == rhs.secondaryMotivations) || ((this.secondaryMotivations != null) && this.secondaryMotivations.equals(rhs.secondaryMotivations)))) && ((this.goals == rhs.goals) || ((this.goals != null) && this.goals.equals(rhs.goals))));
+        return (((((((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.sophistication == rhs.sophistication) || ((this.sophistication != null) && this.sophistication.equals(rhs.sophistication)))) && ((this.roles == rhs.roles) || ((this.roles != null) && this.roles.equals(rhs.roles)))) && ((this.resourceLevel == rhs.resourceLevel) || ((this.resourceLevel != null) && this.resourceLevel.equals(rhs.resourceLevel)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))))) && ((this.primaryMotivation == rhs.primaryMotivation) || ((this.primaryMotivation != null) && this.primaryMotivation.equals(rhs.primaryMotivation)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.personalMotivations == rhs.personalMotivations) || ((this.personalMotivations != null) && this.personalMotivations.equals(rhs.personalMotivations))))) && ((this.secondaryMotivations == rhs.secondaryMotivations) || ((this.secondaryMotivations != null) && this.secondaryMotivations.equals(rhs.secondaryMotivations)))) && ((this.goals == rhs.goals) || ((this.goals != null) && this.goals.equals(rhs.goals))));
     }
 
 }

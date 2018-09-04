@@ -21,12 +21,6 @@ import java.util.List;
 public class EmailMessage extends CyberObservableCore {
 
     /**
-     * The value of this property MUST be `email-message`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.EMAIL_MESSAGE;
-    /**
      * timestamp
      * <p>
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
@@ -120,13 +114,6 @@ public class EmailMessage extends CyberObservableCore {
         this.receivedLines = receivedLines;
         this.additionalHeaderFields = additionalHeaderFields;
         this.rawEmailRef = rawEmailRef;
-    }
-
-    /**
-     * The value of this property MUST be `email-message`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -305,10 +292,6 @@ public class EmailMessage extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("date");
         sb.append('=');
         sb.append(((this.date == null) ? "<null>" : this.date));
@@ -368,7 +351,6 @@ public class EmailMessage extends CyberObservableCore {
         result = ((result * 31) + ((this.subject == null) ? 0 : this.subject.hashCode()));
         result = ((result * 31) + ((this.additionalHeaderFields == null) ? 0 : this.additionalHeaderFields.hashCode()));
         result = ((result * 31) + ((this.ccRefs == null) ? 0 : this.ccRefs.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.rawEmailRef == null) ? 0 : this.rawEmailRef.hashCode()));
         result = ((result * 31) + ((this.toRefs == null) ? 0 : this.toRefs.hashCode()));
         result = ((result * 31) + ((this.bccRefs == null) ? 0 : this.bccRefs.hashCode()));
@@ -389,7 +371,7 @@ public class EmailMessage extends CyberObservableCore {
             return false;
         }
         EmailMessage rhs = ((EmailMessage) other);
-        return ((((((((((((super.equals(rhs) && ((this.date == rhs.date) || ((this.date != null) && this.date.equals(rhs.date)))) && ((this.subject == rhs.subject) || ((this.subject != null) && this.subject.equals(rhs.subject)))) && ((this.additionalHeaderFields == rhs.additionalHeaderFields) || ((this.additionalHeaderFields != null) && this.additionalHeaderFields.equals(rhs.additionalHeaderFields)))) && ((this.ccRefs == rhs.ccRefs) || ((this.ccRefs != null) && this.ccRefs.equals(rhs.ccRefs)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.rawEmailRef == rhs.rawEmailRef) || ((this.rawEmailRef != null) && this.rawEmailRef.equals(rhs.rawEmailRef)))) && ((this.toRefs == rhs.toRefs) || ((this.toRefs != null) && this.toRefs.equals(rhs.toRefs)))) && ((this.bccRefs == rhs.bccRefs) || ((this.bccRefs != null) && this.bccRefs.equals(rhs.bccRefs)))) && ((this.receivedLines == rhs.receivedLines) || ((this.receivedLines != null) && this.receivedLines.equals(rhs.receivedLines)))) && ((this.senderRef == rhs.senderRef) || ((this.senderRef != null) && this.senderRef.equals(rhs.senderRef)))) && ((this.fromRef == rhs.fromRef) || ((this.fromRef != null) && this.fromRef.equals(rhs.fromRef)))) && ((this.contentType == rhs.contentType) || ((this.contentType != null) && this.contentType.equals(rhs.contentType))));
+        return ((((((((((((super.equals(rhs) && ((this.date == rhs.date) || ((this.date != null) && this.date.equals(rhs.date)))) && ((this.subject == rhs.subject) || ((this.subject != null) && this.subject.equals(rhs.subject)))) && ((this.additionalHeaderFields == rhs.additionalHeaderFields) || ((this.additionalHeaderFields != null) && this.additionalHeaderFields.equals(rhs.additionalHeaderFields)))) && ((this.ccRefs == rhs.ccRefs) || ((this.ccRefs != null) && this.ccRefs.equals(rhs.ccRefs))))) && ((this.rawEmailRef == rhs.rawEmailRef) || ((this.rawEmailRef != null) && this.rawEmailRef.equals(rhs.rawEmailRef)))) && ((this.toRefs == rhs.toRefs) || ((this.toRefs != null) && this.toRefs.equals(rhs.toRefs)))) && ((this.bccRefs == rhs.bccRefs) || ((this.bccRefs != null) && this.bccRefs.equals(rhs.bccRefs)))) && ((this.receivedLines == rhs.receivedLines) || ((this.receivedLines != null) && this.receivedLines.equals(rhs.receivedLines)))) && ((this.senderRef == rhs.senderRef) || ((this.senderRef != null) && this.senderRef.equals(rhs.senderRef)))) && ((this.fromRef == rhs.fromRef) || ((this.fromRef != null) && this.fromRef.equals(rhs.fromRef)))) && ((this.contentType == rhs.contentType) || ((this.contentType != null) && this.contentType.equals(rhs.contentType))));
     }
 
 }

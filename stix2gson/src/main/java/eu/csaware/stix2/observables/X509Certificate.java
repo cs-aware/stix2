@@ -20,12 +20,6 @@ import javax.validation.constraints.Pattern;
 public class X509Certificate extends CyberObservableCore {
 
     /**
-     * The value of this property MUST be `x509-certificate`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.X_509_CERTIFICATE;
-    /**
      * Specifies whether the certificate is self-signed, i.e., whether it is signed by the same entity whose identity it certifies.
      */
     @SerializedName("is_self_signed")
@@ -136,13 +130,6 @@ public class X509Certificate extends CyberObservableCore {
         this.subjectPublicKeyModulus = subjectPublicKeyModulus;
         this.subjectPublicKeyExponent = subjectPublicKeyExponent;
         this.x509V3Extensions = x509V3Extensions;
-    }
-
-    /**
-     * The value of this property MUST be `x509-certificate`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -351,10 +338,6 @@ public class X509Certificate extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("isSelfSigned");
         sb.append('=');
         sb.append(((this.isSelfSigned == null) ? "<null>" : this.isSelfSigned));
@@ -422,7 +405,6 @@ public class X509Certificate extends CyberObservableCore {
         result = ((result * 31) + ((this.serialNumber == null) ? 0 : this.serialNumber.hashCode()));
         result = ((result * 31) + ((this.subject == null) ? 0 : this.subject.hashCode()));
         result = ((result * 31) + ((this.validityNotBefore == null) ? 0 : this.validityNotBefore.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.version == null) ? 0 : this.version.hashCode()));
         result = ((result * 31) + ((this.signatureAlgorithm == null) ? 0 : this.signatureAlgorithm.hashCode()));
         result = ((result * 31) + ((this.issuer == null) ? 0 : this.issuer.hashCode()));
@@ -445,6 +427,6 @@ public class X509Certificate extends CyberObservableCore {
             return false;
         }
         X509Certificate rhs = ((X509Certificate) other);
-        return ((((((((((((((super.equals(rhs) && ((this.subjectPublicKeyExponent == rhs.subjectPublicKeyExponent) || ((this.subjectPublicKeyExponent != null) && this.subjectPublicKeyExponent.equals(rhs.subjectPublicKeyExponent)))) && ((this.serialNumber == rhs.serialNumber) || ((this.serialNumber != null) && this.serialNumber.equals(rhs.serialNumber)))) && ((this.subject == rhs.subject) || ((this.subject != null) && this.subject.equals(rhs.subject)))) && ((this.validityNotBefore == rhs.validityNotBefore) || ((this.validityNotBefore != null) && this.validityNotBefore.equals(rhs.validityNotBefore)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.version == rhs.version) || ((this.version != null) && this.version.equals(rhs.version)))) && ((this.signatureAlgorithm == rhs.signatureAlgorithm) || ((this.signatureAlgorithm != null) && this.signatureAlgorithm.equals(rhs.signatureAlgorithm)))) && ((this.issuer == rhs.issuer) || ((this.issuer != null) && this.issuer.equals(rhs.issuer)))) && ((this.subjectPublicKeyAlgorithm == rhs.subjectPublicKeyAlgorithm) || ((this.subjectPublicKeyAlgorithm != null) && this.subjectPublicKeyAlgorithm.equals(rhs.subjectPublicKeyAlgorithm)))) && ((this.isSelfSigned == rhs.isSelfSigned) || ((this.isSelfSigned != null) && this.isSelfSigned.equals(rhs.isSelfSigned)))) && ((this.subjectPublicKeyModulus == rhs.subjectPublicKeyModulus) || ((this.subjectPublicKeyModulus != null) && this.subjectPublicKeyModulus.equals(rhs.subjectPublicKeyModulus)))) && ((this.x509V3Extensions == rhs.x509V3Extensions) || ((this.x509V3Extensions != null) && this.x509V3Extensions.equals(rhs.x509V3Extensions)))) && ((this.hashes == rhs.hashes) || ((this.hashes != null) && this.hashes.equals(rhs.hashes)))) && ((this.validityNotAfter == rhs.validityNotAfter) || ((this.validityNotAfter != null) && this.validityNotAfter.equals(rhs.validityNotAfter))));
+        return ((((((((((((((super.equals(rhs) && ((this.subjectPublicKeyExponent == rhs.subjectPublicKeyExponent) || ((this.subjectPublicKeyExponent != null) && this.subjectPublicKeyExponent.equals(rhs.subjectPublicKeyExponent)))) && ((this.serialNumber == rhs.serialNumber) || ((this.serialNumber != null) && this.serialNumber.equals(rhs.serialNumber)))) && ((this.subject == rhs.subject) || ((this.subject != null) && this.subject.equals(rhs.subject)))) && ((this.validityNotBefore == rhs.validityNotBefore) || ((this.validityNotBefore != null) && this.validityNotBefore.equals(rhs.validityNotBefore))))) && ((this.version == rhs.version) || ((this.version != null) && this.version.equals(rhs.version)))) && ((this.signatureAlgorithm == rhs.signatureAlgorithm) || ((this.signatureAlgorithm != null) && this.signatureAlgorithm.equals(rhs.signatureAlgorithm)))) && ((this.issuer == rhs.issuer) || ((this.issuer != null) && this.issuer.equals(rhs.issuer)))) && ((this.subjectPublicKeyAlgorithm == rhs.subjectPublicKeyAlgorithm) || ((this.subjectPublicKeyAlgorithm != null) && this.subjectPublicKeyAlgorithm.equals(rhs.subjectPublicKeyAlgorithm)))) && ((this.isSelfSigned == rhs.isSelfSigned) || ((this.isSelfSigned != null) && this.isSelfSigned.equals(rhs.isSelfSigned)))) && ((this.subjectPublicKeyModulus == rhs.subjectPublicKeyModulus) || ((this.subjectPublicKeyModulus != null) && this.subjectPublicKeyModulus.equals(rhs.subjectPublicKeyModulus)))) && ((this.x509V3Extensions == rhs.x509V3Extensions) || ((this.x509V3Extensions != null) && this.x509V3Extensions.equals(rhs.x509V3Extensions)))) && ((this.hashes == rhs.hashes) || ((this.hashes != null) && this.hashes.equals(rhs.hashes)))) && ((this.validityNotAfter == rhs.validityNotAfter) || ((this.validityNotAfter != null) && this.validityNotAfter.equals(rhs.validityNotAfter))));
     }
 }

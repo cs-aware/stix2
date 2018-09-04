@@ -23,12 +23,6 @@ import java.util.List;
 public class Indicator extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `indicator`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.INDICATOR;
-    /**
      * The name used to identify the Indicator.
      */
     @SerializedName("name")
@@ -97,13 +91,6 @@ public class Indicator extends Core {
         this.validFrom = validFrom;
         this.validUntil = validUntil;
         this.killChainPhases = killChainPhases;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `indicator`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -212,10 +199,6 @@ public class Indicator extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -257,7 +240,6 @@ public class Indicator extends Core {
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
         result = ((result * 31) + ((this.validUntil == null) ? 0 : this.validUntil.hashCode()));
         result = ((result * 31) + ((this.validFrom == null) ? 0 : this.validFrom.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -271,7 +253,7 @@ public class Indicator extends Core {
             return false;
         }
         Indicator rhs = ((Indicator) other);
-        return (((((((((super.equals(rhs) && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.pattern == rhs.pattern) || ((this.pattern != null) && this.pattern.equals(rhs.pattern)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.validUntil == rhs.validUntil) || ((this.validUntil != null) && this.validUntil.equals(rhs.validUntil))))) && ((this.validFrom == rhs.validFrom) || ((this.validFrom != null) && this.validFrom.equals(rhs.validFrom)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+        return (((((((((super.equals(rhs) && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.pattern == rhs.pattern) || ((this.pattern != null) && this.pattern.equals(rhs.pattern)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.validUntil == rhs.validUntil) || ((this.validUntil != null) && this.validUntil.equals(rhs.validUntil))))) && ((this.validFrom == rhs.validFrom) || ((this.validFrom != null) && this.validFrom.equals(rhs.validFrom))))));
     }
 
 }

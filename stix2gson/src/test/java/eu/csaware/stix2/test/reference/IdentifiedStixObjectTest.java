@@ -51,4 +51,12 @@ class IdentifiedStixObjectTest {
         Assertions.assertThrows(IllegalArgumentException.class, code);
     }
 
+    @Test
+    void testUUID() {
+        AttackPattern attackPattern = new AttackPattern(TestConstants.ATTACK_PATTERN_UUID,
+            "Name", "Description",
+            TestConstants.DATE_TIME_CREATED, TestConstants.DATE_TIME_MODIFIED);
+        Assertions.assertEquals(TestConstants.ATTACK_PATTERN_ID, attackPattern.getId());
+    }
+
 }

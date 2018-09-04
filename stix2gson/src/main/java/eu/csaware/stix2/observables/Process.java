@@ -20,13 +20,6 @@ import java.util.List;
  */
 public class Process extends CyberObservableCore {
 
-    /**
-     * The value of this property MUST be `process`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.PROCESS;
-
     @SerializedName("extensions")
     @Expose
     @Valid
@@ -144,13 +137,6 @@ public class Process extends CyberObservableCore {
         this.binaryRef = binaryRef;
         this.parentRef = parentRef;
         this.childRefs = childRefs;
-    }
-
-    /**
-     * The value of this property MUST be `process`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     public ProcessExtensionsDictionary getExtensions() {
@@ -369,10 +355,6 @@ public class Process extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("extensions");
         sb.append('=');
         sb.append(((this.extensions == null) ? "<null>" : this.extensions));
@@ -442,7 +424,6 @@ public class Process extends CyberObservableCore {
         int result = 1;
         result = ((result * 31) + ((this.created == null) ? 0 : this.created.hashCode()));
         result = ((result * 31) + ((this.pid == null) ? 0 : this.pid.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.childRefs == null) ? 0 : this.childRefs.hashCode()));
         result = ((result * 31) + ((this.isHidden == null) ? 0 : this.isHidden.hashCode()));
         result = ((result * 31) + ((this.parentRef == null) ? 0 : this.parentRef.hashCode()));
@@ -468,6 +449,6 @@ public class Process extends CyberObservableCore {
             return false;
         }
         Process rhs = ((Process) other);
-        return (((((((((((((((super.equals(rhs) && ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) && ((this.pid == rhs.pid) || ((this.pid != null) && this.pid.equals(rhs.pid)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.childRefs == rhs.childRefs) || ((this.childRefs != null) && this.childRefs.equals(rhs.childRefs)))) && ((this.isHidden == rhs.isHidden) || ((this.isHidden != null) && this.isHidden.equals(rhs.isHidden)))) && ((this.parentRef == rhs.parentRef) || ((this.parentRef != null) && this.parentRef.equals(rhs.parentRef)))) && ((this.cwd == rhs.cwd) || ((this.cwd != null) && this.cwd.equals(rhs.cwd)))) && ((this.extensions == rhs.extensions) || ((this.extensions != null) && this.extensions.equals(rhs.extensions)))) && ((this.binaryRef == rhs.binaryRef) || ((this.binaryRef != null) && this.binaryRef.equals(rhs.binaryRef)))) && ((this.creatorUserRef == rhs.creatorUserRef) || ((this.creatorUserRef != null) && this.creatorUserRef.equals(rhs.creatorUserRef)))) && ((this.environmentVariables == rhs.environmentVariables) || ((this.environmentVariables != null) && this.environmentVariables.equals(rhs.environmentVariables)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.openedConnectionRefs == rhs.openedConnectionRefs) || ((this.openedConnectionRefs != null) && this.openedConnectionRefs.equals(rhs.openedConnectionRefs)))) && ((this.arguments == rhs.arguments) || ((this.arguments != null) && this.arguments.equals(rhs.arguments)))) && ((this.commandLine == rhs.commandLine) || ((this.commandLine != null) && this.commandLine.equals(rhs.commandLine))));
+        return (((((((((((((((super.equals(rhs) && ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) && ((this.pid == rhs.pid) || ((this.pid != null) && this.pid.equals(rhs.pid))))) && ((this.childRefs == rhs.childRefs) || ((this.childRefs != null) && this.childRefs.equals(rhs.childRefs)))) && ((this.isHidden == rhs.isHidden) || ((this.isHidden != null) && this.isHidden.equals(rhs.isHidden)))) && ((this.parentRef == rhs.parentRef) || ((this.parentRef != null) && this.parentRef.equals(rhs.parentRef)))) && ((this.cwd == rhs.cwd) || ((this.cwd != null) && this.cwd.equals(rhs.cwd)))) && ((this.extensions == rhs.extensions) || ((this.extensions != null) && this.extensions.equals(rhs.extensions)))) && ((this.binaryRef == rhs.binaryRef) || ((this.binaryRef != null) && this.binaryRef.equals(rhs.binaryRef)))) && ((this.creatorUserRef == rhs.creatorUserRef) || ((this.creatorUserRef != null) && this.creatorUserRef.equals(rhs.creatorUserRef)))) && ((this.environmentVariables == rhs.environmentVariables) || ((this.environmentVariables != null) && this.environmentVariables.equals(rhs.environmentVariables)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.openedConnectionRefs == rhs.openedConnectionRefs) || ((this.openedConnectionRefs != null) && this.openedConnectionRefs.equals(rhs.openedConnectionRefs)))) && ((this.arguments == rhs.arguments) || ((this.arguments != null) && this.arguments.equals(rhs.arguments)))) && ((this.commandLine == rhs.commandLine) || ((this.commandLine != null) && this.commandLine.equals(rhs.commandLine))));
     }
 }

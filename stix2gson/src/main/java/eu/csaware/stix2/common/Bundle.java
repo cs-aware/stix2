@@ -23,14 +23,6 @@ public class Bundle extends IdentifiedStixObject {
     public static final transient String SPEC_VERSION = "2.1";
 
     /**
-     * The type of this object, which MUST be the literal `bundle`.
-     * (Required)
-     */
-    @SerializedName("type")
-    @Expose
-    @NotNull
-    private Stix2Type type = Stix2Type.BUNDLE;
-    /**
      * The version of the STIX specification used to represent the content in this bundle.
      * (Required)
      */
@@ -62,14 +54,6 @@ public class Bundle extends IdentifiedStixObject {
         super(id);
         this.specVersion = specVersion;
         this.objects = objects;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `bundle`.
-     * (Required)
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -106,10 +90,6 @@ public class Bundle extends IdentifiedStixObject {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(Bundle.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("id");
         sb.append('=');
         sb.append(super.toString());
@@ -147,7 +127,6 @@ public class Bundle extends IdentifiedStixObject {
     public int hashCode() {
         int result = 1;
         result = ((result * 31) + ((this.specVersion == null) ? 0 : this.specVersion.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.objects == null) ? 0 : this.objects.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -163,8 +142,7 @@ public class Bundle extends IdentifiedStixObject {
         }
         Bundle rhs = ((Bundle) other);
         return (((((this.specVersion == rhs.specVersion) || ((this.specVersion != null) && this.specVersion.equals(rhs.specVersion))) &&
-            super.equals(rhs)) &&
-            ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) &&
+            super.equals(rhs))) &&
             ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))));
     }
 }

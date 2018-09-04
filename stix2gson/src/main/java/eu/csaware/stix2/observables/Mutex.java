@@ -18,12 +18,6 @@ import javax.validation.constraints.NotNull;
 public class Mutex extends CyberObservableCore {
 
     /**
-     * The value of this property MUST be `mutex`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.MUTEX;
-    /**
      * Specifies the name of the mutex object.
      * (Required)
      */
@@ -41,13 +35,6 @@ public class Mutex extends CyberObservableCore {
     public Mutex(String name, Dictionary extensions) {
         super(extensions);
         this.name = name;
-    }
-
-    /**
-     * The value of this property MUST be `mutex`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -84,10 +71,6 @@ public class Mutex extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -103,7 +86,6 @@ public class Mutex extends CyberObservableCore {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -118,7 +100,7 @@ public class Mutex extends CyberObservableCore {
             return false;
         }
         Mutex rhs = ((Mutex) other);
-        return ((super.equals(rhs) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name))));
+        return (super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name))));
     }
 
 }

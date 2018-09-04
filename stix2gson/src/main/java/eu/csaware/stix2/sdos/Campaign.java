@@ -25,12 +25,6 @@ import java.util.List;
 public class Campaign extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `campaign`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.CAMPAIGN;
-    /**
      * The name used to identify the Campaign.
      * (Required)
      */
@@ -99,13 +93,6 @@ public class Campaign extends Core {
         this.firstSeen = firstSeen;
         this.lastSeen = lastSeen;
         this.objective = objective;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `campaign`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -220,10 +207,6 @@ public class Campaign extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -264,7 +247,6 @@ public class Campaign extends Core {
         result = ((result * 31) + ((this.firstSeen == null) ? 0 : this.firstSeen.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.objective == null) ? 0 : this.objective.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -279,7 +261,7 @@ public class Campaign extends Core {
             return false;
         }
         Campaign rhs = ((Campaign) other);
-        return ((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.lastSeen == rhs.lastSeen) || ((this.lastSeen != null) && this.lastSeen.equals(rhs.lastSeen)))) && ((this.firstSeen == rhs.firstSeen) || ((this.firstSeen != null) && this.firstSeen.equals(rhs.firstSeen)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description))))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.objective == rhs.objective) || ((this.objective != null) && this.objective.equals(rhs.objective))));
+        return ((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.lastSeen == rhs.lastSeen) || ((this.lastSeen != null) && this.lastSeen.equals(rhs.lastSeen)))) && ((this.firstSeen == rhs.firstSeen) || ((this.firstSeen != null) && this.firstSeen.equals(rhs.firstSeen)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))))) && ((this.objective == rhs.objective) || ((this.objective != null) && this.objective.equals(rhs.objective))));
     }
 
 }

@@ -22,12 +22,6 @@ import java.util.List;
 public class Ipv6Addr extends CyberObservableCore {
 
     /**
-     * The value of this property MUST be `ipv6-addr`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.IPV6_ADDR;
-    /**
      * Specifies one or more IPv6 addresses expressed using CIDR notation.
      * (Required)
      */
@@ -63,13 +57,6 @@ public class Ipv6Addr extends CyberObservableCore {
         this.value = value;
         this.resolvesToRefs = resolvesToRefs;
         this.belongsToRefs = belongsToRefs;
-    }
-
-    /**
-     * The value of this property MUST be `ipv6-addr`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -134,10 +121,6 @@ public class Ipv6Addr extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("value");
         sb.append('=');
         sb.append(((this.value == null) ? "<null>" : this.value));
@@ -162,7 +145,6 @@ public class Ipv6Addr extends CyberObservableCore {
     public int hashCode() {
         int result = 1;
         result = ((result * 31) + ((this.resolvesToRefs == null) ? 0 : this.resolvesToRefs.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.value == null) ? 0 : this.value.hashCode()));
         result = ((result * 31) + ((this.belongsToRefs == null) ? 0 : this.belongsToRefs.hashCode()));
         result = ((result * 31) + super.hashCode());
@@ -178,7 +160,7 @@ public class Ipv6Addr extends CyberObservableCore {
             return false;
         }
         Ipv6Addr rhs = ((Ipv6Addr) other);
-        return ((((super.equals(rhs) && ((this.resolvesToRefs == rhs.resolvesToRefs) || ((this.resolvesToRefs != null) && this.resolvesToRefs.equals(rhs.resolvesToRefs)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value)))) && ((this.belongsToRefs == rhs.belongsToRefs) || ((this.belongsToRefs != null) && this.belongsToRefs.equals(rhs.belongsToRefs))));
+        return ((((super.equals(rhs) && ((this.resolvesToRefs == rhs.resolvesToRefs) || ((this.resolvesToRefs != null) && this.resolvesToRefs.equals(rhs.resolvesToRefs))))) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value)))) && ((this.belongsToRefs == rhs.belongsToRefs) || ((this.belongsToRefs != null) && this.belongsToRefs.equals(rhs.belongsToRefs))));
     }
 
 }

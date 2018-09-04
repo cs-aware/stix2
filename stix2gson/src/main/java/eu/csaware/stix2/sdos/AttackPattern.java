@@ -25,12 +25,6 @@ import java.util.UUID;
 public class AttackPattern extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `attack-pattern`.
-     */
-    @SerializedName("type")
-    @Expose
-    private Stix2Type type = Stix2Type.ATTACK_PATTERN;
-    /**
      * The name used to identify the Attack Pattern.
      * (Required)
      */
@@ -59,12 +53,12 @@ public class AttackPattern extends Core {
     public AttackPattern() {
     }
 
-//    public AttackPattern(UUID uuid, String name, String description,
-//                         LocalDateTime created, LocalDateTime modified) {
-//        super(Stix2Util.assembleId(type, uuid), created, modified);
-//        this.name = name;
-//        this.description = description;
-//    }
+    public AttackPattern(UUID uuid, String name, String description,
+                         LocalDateTime created, LocalDateTime modified) {
+        super(uuid, created, modified);
+        this.name = name;
+        this.description = description;
+    }
 
     public AttackPattern(String id, String name, String description,
                          LocalDateTime created, LocalDateTime modified) {
@@ -80,13 +74,6 @@ public class AttackPattern extends Core {
         this.name = name;
         this.description = description;
         this.killChainPhases = killChainPhases;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `attack-pattern`.
-     */
-    public Stix2Type getType() {
-        return type;
     }
 
     /**
@@ -151,10 +138,6 @@ public class AttackPattern extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -181,7 +164,6 @@ public class AttackPattern extends Core {
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
         result = ((result * 31) + ((this.killChainPhases == null) ? 0 : this.killChainPhases.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -202,7 +184,7 @@ public class AttackPattern extends Core {
             )
         )
             && ((this.killChainPhases == rhs.killChainPhases) || ((this.killChainPhases != null) && this.killChainPhases.equals(rhs.killChainPhases)))
-        ) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type))));
+        ));
     }
 
 }
