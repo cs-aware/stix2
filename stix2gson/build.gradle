@@ -13,7 +13,6 @@ repositories {
 }
 
 jar {
-
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
