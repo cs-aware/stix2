@@ -23,21 +23,6 @@ import java.util.List;
 public class Report extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `report`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.REPORT_TYPE)
-    private String type = Types.REPORT_TYPE;
-    /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^report--")
-    private String id;
-    /**
      * The name used to identify the Report.
      * (Required)
      */
@@ -81,8 +66,7 @@ public class Report extends Core {
 
     public Report(String id, List<String> labels, String name, String description, LocalDateTime published, List<String> objectRefs,
                   String createdByRef, LocalDateTime created, LocalDateTime modified) {
-        super(createdByRef, labels, created, modified);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified);
         this.name = name;
         this.description = description;
         this.published = published;
@@ -92,35 +76,11 @@ public class Report extends Core {
     public Report(String id, List<String> labels, String name, String description, LocalDateTime published, List<String> objectRefs,
                   String createdByRef, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                   List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.name = name;
         this.description = description;
         this.published = published;
         this.objectRefs = objectRefs;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `report`.
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -207,14 +167,6 @@ public class Report extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -245,9 +197,7 @@ public class Report extends Core {
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
         result = ((result * 31) + ((this.objectRefs == null) ? 0 : this.objectRefs.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.published == null) ? 0 : this.published.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -261,7 +211,7 @@ public class Report extends Core {
             return false;
         }
         Report rhs = ((Report) other);
-        return (((((((super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.objectRefs == rhs.objectRefs) || ((this.objectRefs != null) && this.objectRefs.equals(rhs.objectRefs)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.published == rhs.published) || ((this.published != null) && this.published.equals(rhs.published)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+        return (((((((super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.objectRefs == rhs.objectRefs) || ((this.objectRefs != null) && this.objectRefs.equals(rhs.objectRefs))))) && ((this.published == rhs.published) || ((this.published != null) && this.published.equals(rhs.published))))));
     }
 
 }

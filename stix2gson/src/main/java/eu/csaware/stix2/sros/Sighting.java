@@ -21,21 +21,6 @@ import java.util.List;
 public class Sighting extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `sighting`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.SIGHTING_TYPE)
-    private String type = Types.SIGHTING_TYPE;
-    /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^sighting--")
-    private String id;
-    /**
      * The beginning of the time window during which the SDO referenced by the sighting_of_ref property was sighted.
      */
     @SerializedName("first_seen")
@@ -96,8 +81,7 @@ public class Sighting extends Core {
 
     public Sighting(String id, String sightingOfRef, List<String> whereSightedRefs,
                     LocalDateTime created, LocalDateTime modified) {
-        super(created, modified);
-        this.id = id;
+        super(id, created, modified);
         this.sightingOfRef = sightingOfRef;
         this.whereSightedRefs = whereSightedRefs;
     }
@@ -106,8 +90,7 @@ public class Sighting extends Core {
                     List<String> observedDataRefs, List<String> whereSightedRefs, Boolean summary, String createdByRef,
                     List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                     List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.firstSeen = firstSeen;
         this.lastSeen = lastSeen;
         this.count = count;
@@ -115,29 +98,6 @@ public class Sighting extends Core {
         this.observedDataRefs = observedDataRefs;
         this.whereSightedRefs = whereSightedRefs;
         this.summary = summary;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `sighting`.
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -258,14 +218,6 @@ public class Sighting extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("firstSeen");
         sb.append('=');
         sb.append(((this.firstSeen == null) ? "<null>" : this.firstSeen));
@@ -311,8 +263,6 @@ public class Sighting extends Core {
         result = ((result * 31) + ((this.count == null) ? 0 : this.count.hashCode()));
         result = ((result * 31) + ((this.whereSightedRefs == null) ? 0 : this.whereSightedRefs.hashCode()));
         result = ((result * 31) + ((this.observedDataRefs == null) ? 0 : this.observedDataRefs.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.sightingOfRef == null) ? 0 : this.sightingOfRef.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -327,7 +277,7 @@ public class Sighting extends Core {
             return false;
         }
         Sighting rhs = ((Sighting) other);
-        return (((((((((super.equals(rhs) && ((this.summary == rhs.summary) || ((this.summary != null) && this.summary.equals(rhs.summary)))) && ((this.lastSeen == rhs.lastSeen) || ((this.lastSeen != null) && this.lastSeen.equals(rhs.lastSeen)))) && ((this.firstSeen == rhs.firstSeen) || ((this.firstSeen != null) && this.firstSeen.equals(rhs.firstSeen)))) && ((this.count == rhs.count) || ((this.count != null) && this.count.equals(rhs.count)))) && ((this.whereSightedRefs == rhs.whereSightedRefs) || ((this.whereSightedRefs != null) && this.whereSightedRefs.equals(rhs.whereSightedRefs)))) && ((this.observedDataRefs == rhs.observedDataRefs) || ((this.observedDataRefs != null) && this.observedDataRefs.equals(rhs.observedDataRefs)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.sightingOfRef == rhs.sightingOfRef) || ((this.sightingOfRef != null) && this.sightingOfRef.equals(rhs.sightingOfRef))));
+        return (((((((((super.equals(rhs) && ((this.summary == rhs.summary) || ((this.summary != null) && this.summary.equals(rhs.summary)))) && ((this.lastSeen == rhs.lastSeen) || ((this.lastSeen != null) && this.lastSeen.equals(rhs.lastSeen)))) && ((this.firstSeen == rhs.firstSeen) || ((this.firstSeen != null) && this.firstSeen.equals(rhs.firstSeen)))) && ((this.count == rhs.count) || ((this.count != null) && this.count.equals(rhs.count)))) && ((this.whereSightedRefs == rhs.whereSightedRefs) || ((this.whereSightedRefs != null) && this.whereSightedRefs.equals(rhs.whereSightedRefs)))) && ((this.observedDataRefs == rhs.observedDataRefs) || ((this.observedDataRefs != null) && this.observedDataRefs.equals(rhs.observedDataRefs)))))) && ((this.sightingOfRef == rhs.sightingOfRef) || ((this.sightingOfRef != null) && this.sightingOfRef.equals(rhs.sightingOfRef))));
     }
 
 }

@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -24,21 +24,6 @@ import java.util.List;
  */
 public class IntrusionSet extends Core {
 
-    /**
-     * The type of this object, which MUST be the literal `intrusion-set`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.INTRUSION_SET_TYPE)
-    private String type = Types.INTRUSION_SET_TYPE;
-    /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^intrusion-set--")
-    private String id;
     /**
      * The name used to identify the Intrusion Set.
      * (Required)
@@ -116,8 +101,7 @@ public class IntrusionSet extends Core {
 
     public IntrusionSet(String id, String name, String description, List<String> aliases,
                         List<String> goals, String createdByRef, LocalDateTime created, LocalDateTime modified) {
-        super(createdByRef, created, modified);
-        this.id = id;
+        super(id, createdByRef, created, modified);
         this.name = name;
         this.description = description;
         this.aliases = aliases;
@@ -128,8 +112,7 @@ public class IntrusionSet extends Core {
                         List<String> goals, String resourceLevel, String primaryMotivation, List<String> secondaryMotivations,
                         String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked,
                         List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.name = name;
         this.description = description;
         this.aliases = aliases;
@@ -139,29 +122,6 @@ public class IntrusionSet extends Core {
         this.resourceLevel = resourceLevel;
         this.primaryMotivation = primaryMotivation;
         this.secondaryMotivations = secondaryMotivations;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `intrusion-set`.
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -318,14 +278,6 @@ public class IntrusionSet extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -380,9 +332,7 @@ public class IntrusionSet extends Core {
         result = ((result * 31) + ((this.primaryMotivation == null) ? 0 : this.primaryMotivation.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
         result = ((result * 31) + ((this.secondaryMotivations == null) ? 0 : this.secondaryMotivations.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.goals == null) ? 0 : this.goals.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -397,6 +347,6 @@ public class IntrusionSet extends Core {
             return false;
         }
         IntrusionSet rhs = ((IntrusionSet) other);
-        return (((((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.lastSeen == rhs.lastSeen) || ((this.lastSeen != null) && this.lastSeen.equals(rhs.lastSeen)))) && ((this.firstSeen == rhs.firstSeen) || ((this.firstSeen != null) && this.firstSeen.equals(rhs.firstSeen)))) && ((this.resourceLevel == rhs.resourceLevel) || ((this.resourceLevel != null) && this.resourceLevel.equals(rhs.resourceLevel)))) && ((this.primaryMotivation == rhs.primaryMotivation) || ((this.primaryMotivation != null) && this.primaryMotivation.equals(rhs.primaryMotivation)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.secondaryMotivations == rhs.secondaryMotivations) || ((this.secondaryMotivations != null) && this.secondaryMotivations.equals(rhs.secondaryMotivations)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.goals == rhs.goals) || ((this.goals != null) && this.goals.equals(rhs.goals))));
+        return (((((((((((super.equals(rhs) && ((this.aliases == rhs.aliases) || ((this.aliases != null) && this.aliases.equals(rhs.aliases)))) && ((this.lastSeen == rhs.lastSeen) || ((this.lastSeen != null) && this.lastSeen.equals(rhs.lastSeen)))) && ((this.firstSeen == rhs.firstSeen) || ((this.firstSeen != null) && this.firstSeen.equals(rhs.firstSeen)))) && ((this.resourceLevel == rhs.resourceLevel) || ((this.resourceLevel != null) && this.resourceLevel.equals(rhs.resourceLevel)))) && ((this.primaryMotivation == rhs.primaryMotivation) || ((this.primaryMotivation != null) && this.primaryMotivation.equals(rhs.primaryMotivation)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description))))) && ((this.secondaryMotivations == rhs.secondaryMotivations) || ((this.secondaryMotivations != null) && this.secondaryMotivations.equals(rhs.secondaryMotivations))))) && ((this.goals == rhs.goals) || ((this.goals != null) && this.goals.equals(rhs.goals))));
     }
 }

@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -18,13 +18,6 @@ import javax.validation.constraints.Pattern;
  */
 public class Url extends CyberObservableCore {
 
-    /**
-     * The value of this property MUST be `url`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.URL_TYPE)
-    private String type = Types.URL_TYPE;
     /**
      * url-regex
      * <p>
@@ -46,13 +39,6 @@ public class Url extends CyberObservableCore {
     public Url(String value, Dictionary extensions) {
         super(extensions);
         this.value = value;
-    }
-
-    /**
-     * The value of this property MUST be `url`.
-     */
-    public String getType() {
-        return type;
     }
 
     /**
@@ -93,10 +79,6 @@ public class Url extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("value");
         sb.append('=');
         sb.append(((this.value == null) ? "<null>" : this.value));
@@ -112,7 +94,6 @@ public class Url extends CyberObservableCore {
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.value == null) ? 0 : this.value.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -127,7 +108,7 @@ public class Url extends CyberObservableCore {
             return false;
         }
         Url rhs = ((Url) other);
-        return ((super.equals(rhs) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value))));
+        return (super.equals(rhs) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value))));
     }
 
 }

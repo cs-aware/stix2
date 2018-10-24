@@ -1,16 +1,8 @@
 
 package eu.csaware.stix2.common;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
-import eu.csaware.stix2.observables.*;
-import eu.csaware.stix2.observables.Process;
-import eu.csaware.stix2.sdos.*;
-import eu.csaware.stix2.sros.Relationship;
-import eu.csaware.stix2.sros.Sighting;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -26,30 +18,10 @@ import java.util.Map;
  * <p>
  * A Bundle is a collection of arbitrary STIX Objects and Marking Definitions grouped together in a single container.
  */
-public class Bundle implements TypedStixObject {
+public class Bundle extends IdentifiedStixObject {
 
-    public static final String SPEC_VERSION = "2.1";
+    public static final transient String SPEC_VERSION = "2.1";
 
-    /**
-     * The type of this object, which MUST be the literal `bundle`.
-     * (Required)
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.BUNDLE_TYPE)
-    @NotNull
-    private String type = Types.BUNDLE_TYPE;
-    /**
-     * id
-     * <p>
-     * <p>
-     * (Required)
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^bundle--[a-z][a-z-]+[a-z]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
-    @NotNull
-    private String id;
     /**
      * The version of the STIX specification used to represent the content in this bundle.
      * (Required)
@@ -74,44 +46,14 @@ public class Bundle implements TypedStixObject {
     }
 
     public Bundle(String id, String specVersion) {
-        super();
-        this.id = id;
+        super(id);
         this.specVersion = specVersion;
     }
 
     public Bundle(String id, String specVersion, List<TypedStixObject> objects) {
-        super();
-        this.id = id;
+        super(id);
         this.specVersion = specVersion;
         this.objects = objects;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `bundle`.
-     * (Required)
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * id
-     * <p>
-     * <p>
-     * (Required)
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     * <p>
-     * (Required)
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -148,13 +90,9 @@ public class Bundle implements TypedStixObject {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(Bundle.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("id");
         sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
+        sb.append(super.toString());
         sb.append(',');
         sb.append("specVersion");
         sb.append('=');
@@ -189,9 +127,8 @@ public class Bundle implements TypedStixObject {
     public int hashCode() {
         int result = 1;
         result = ((result * 31) + ((this.specVersion == null) ? 0 : this.specVersion.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.objects == null) ? 0 : this.objects.hashCode()));
+        result = ((result * 31) + super.hashCode());
         return result;
     }
 
@@ -205,8 +142,7 @@ public class Bundle implements TypedStixObject {
         }
         Bundle rhs = ((Bundle) other);
         return (((((this.specVersion == rhs.specVersion) || ((this.specVersion != null) && this.specVersion.equals(rhs.specVersion))) &&
-            ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) &&
-            ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) &&
+            super.equals(rhs))) &&
             ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))));
     }
 }

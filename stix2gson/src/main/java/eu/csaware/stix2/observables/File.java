@@ -7,14 +7,13 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.HashesType;
 import eu.csaware.stix2.common.LocalDateTimeTypeAdapter;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,14 +23,6 @@ import java.util.List;
  * The File Object represents the properties of a file.
  */
 public class File extends CyberObservableCore {
-
-    /**
-     * The value of this property MUST be `file`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.FILE_TYPE)
-    private String type = Types.FILE_TYPE;
 
     @SerializedName("extensions")
     @Expose
@@ -158,13 +149,6 @@ public class File extends CyberObservableCore {
         this.parentDirectoryRef = parentDirectoryRef;
         this.containsRefs = containsRefs;
         this.contentRef = contentRef;
-    }
-
-    /**
-     * The value of this property MUST be `file`.
-     */
-    public String getType() {
-        return type;
     }
 
     public FileExtensionsDictionary getExtensions() {
@@ -381,10 +365,6 @@ public class File extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("extensions");
         sb.append('=');
         sb.append(((this.extensions == null) ? "<null>" : this.extensions));
@@ -451,7 +431,6 @@ public class File extends CyberObservableCore {
         result = ((result * 31) + ((this.containsRefs == null) ? 0 : this.containsRefs.hashCode()));
         result = ((result * 31) + ((this.created == null) ? 0 : this.created.hashCode()));
         result = ((result * 31) + ((this.mimeType == null) ? 0 : this.mimeType.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.accessed == null) ? 0 : this.accessed.hashCode()));
         result = ((result * 31) + ((this.nameEnc == null) ? 0 : this.nameEnc.hashCode()));
         result = ((result * 31) + ((this.magicNumberHex == null) ? 0 : this.magicNumberHex.hashCode()));
@@ -475,7 +454,7 @@ public class File extends CyberObservableCore {
             return false;
         }
         File rhs = ((File) other);
-        return ((((((((((((((super.equals(rhs) && ((this.containsRefs == rhs.containsRefs) || ((this.containsRefs != null) && this.containsRefs.equals(rhs.containsRefs)))) && ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) && ((this.mimeType == rhs.mimeType) || ((this.mimeType != null) && this.mimeType.equals(rhs.mimeType)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.accessed == rhs.accessed) || ((this.accessed != null) && this.accessed.equals(rhs.accessed)))) && ((this.nameEnc == rhs.nameEnc) || ((this.nameEnc != null) && this.nameEnc.equals(rhs.nameEnc)))) && ((this.magicNumberHex == rhs.magicNumberHex) || ((this.magicNumberHex != null) && this.magicNumberHex.equals(rhs.magicNumberHex)))) && ((this.extensions == rhs.extensions) || ((this.extensions != null) && this.extensions.equals(rhs.extensions)))) && ((this.parentDirectoryRef == rhs.parentDirectoryRef) || ((this.parentDirectoryRef != null) && this.parentDirectoryRef.equals(rhs.parentDirectoryRef)))) && ((this.size == rhs.size) || ((this.size != null) && this.size.equals(rhs.size)))) && ((this.hashes == rhs.hashes) || ((this.hashes != null) && this.hashes.equals(rhs.hashes)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified)))) && ((this.contentRef == rhs.contentRef) || ((this.contentRef != null) && this.contentRef.equals(rhs.contentRef))));
+        return ((((((((((((((super.equals(rhs) && ((this.containsRefs == rhs.containsRefs) || ((this.containsRefs != null) && this.containsRefs.equals(rhs.containsRefs)))) && ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) && ((this.mimeType == rhs.mimeType) || ((this.mimeType != null) && this.mimeType.equals(rhs.mimeType))))) && ((this.accessed == rhs.accessed) || ((this.accessed != null) && this.accessed.equals(rhs.accessed)))) && ((this.nameEnc == rhs.nameEnc) || ((this.nameEnc != null) && this.nameEnc.equals(rhs.nameEnc)))) && ((this.magicNumberHex == rhs.magicNumberHex) || ((this.magicNumberHex != null) && this.magicNumberHex.equals(rhs.magicNumberHex)))) && ((this.extensions == rhs.extensions) || ((this.extensions != null) && this.extensions.equals(rhs.extensions)))) && ((this.parentDirectoryRef == rhs.parentDirectoryRef) || ((this.parentDirectoryRef != null) && this.parentDirectoryRef.equals(rhs.parentDirectoryRef)))) && ((this.size == rhs.size) || ((this.size != null) && this.size.equals(rhs.size)))) && ((this.hashes == rhs.hashes) || ((this.hashes != null) && this.hashes.equals(rhs.hashes)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified)))) && ((this.contentRef == rhs.contentRef) || ((this.contentRef != null) && this.contentRef.equals(rhs.contentRef))));
     }
 
 }

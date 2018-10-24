@@ -16,15 +16,8 @@ import java.util.List;
  * <p>
  * The marking-definition object represents a specific marking.
  */
-public class MarkingDefinition {
+public class MarkingDefinition extends TypedStixObject {
 
-    /**
-     * The type of this object, which MUST be the literal `marking-definition`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.MARKING_DEFINITION_TYPE)
-    private String type = Types.MARKING_DEFINITION_TYPE;
     /**
      * identifier
      * <p>
@@ -81,13 +74,6 @@ public class MarkingDefinition {
         this.externalReferences = externalReferences;
         this.objectMarkingRefs = objectMarkingRefs;
         this.granularMarkings = granularMarkings;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `marking-definition`.
-     */
-    public String getType() {
-        return type;
     }
 
     /**
@@ -172,10 +158,6 @@ public class MarkingDefinition {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(MarkingDefinition.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("createdByRef");
         sb.append('=');
         sb.append(((this.createdByRef == null) ? "<null>" : this.createdByRef));
@@ -212,7 +194,6 @@ public class MarkingDefinition {
         result = ((result * 31) + ((this.granularMarkings == null) ? 0 : this.granularMarkings.hashCode()));
         result = ((result * 31) + ((this.createdByRef == null) ? 0 : this.createdByRef.hashCode()));
         result = ((result * 31) + ((this.objectMarkingRefs == null) ? 0 : this.objectMarkingRefs.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         return result;
     }
 
@@ -225,6 +206,6 @@ public class MarkingDefinition {
             return false;
         }
         MarkingDefinition rhs = ((MarkingDefinition) other);
-        return (((((((this.externalReferences == rhs.externalReferences) || ((this.externalReferences != null) && this.externalReferences.equals(rhs.externalReferences))) && ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) && ((this.granularMarkings == rhs.granularMarkings) || ((this.granularMarkings != null) && this.granularMarkings.equals(rhs.granularMarkings)))) && ((this.createdByRef == rhs.createdByRef) || ((this.createdByRef != null) && this.createdByRef.equals(rhs.createdByRef)))) && ((this.objectMarkingRefs == rhs.objectMarkingRefs) || ((this.objectMarkingRefs != null) && this.objectMarkingRefs.equals(rhs.objectMarkingRefs)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type))));
+        return (((((((this.externalReferences == rhs.externalReferences) || ((this.externalReferences != null) && this.externalReferences.equals(rhs.externalReferences))) && ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) && ((this.granularMarkings == rhs.granularMarkings) || ((this.granularMarkings != null) && this.granularMarkings.equals(rhs.granularMarkings)))) && ((this.createdByRef == rhs.createdByRef) || ((this.createdByRef != null) && this.createdByRef.equals(rhs.createdByRef)))) && ((this.objectMarkingRefs == rhs.objectMarkingRefs) || ((this.objectMarkingRefs != null) && this.objectMarkingRefs.equals(rhs.objectMarkingRefs)))));
     }
 }

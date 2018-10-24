@@ -25,21 +25,6 @@ import java.util.Map;
 public class ObservedData extends Core {
 
     /**
-     * The type of this object, which MUST be the literal `observed-data`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.OBSERVED_DATA_TYPE)
-    private String type = Types.OBSERVED_DATA_TYPE;
-    /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^observed-data--")
-    private String id;
-    /**
      * timestamp
      * <p>
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
@@ -90,8 +75,7 @@ public class ObservedData extends Core {
 
     public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved,
                         Map<String, Object> objects, String createdByRef, LocalDateTime created, LocalDateTime modified) {
-        super(createdByRef, created, modified);
-        this.id = id;
+        super(id, createdByRef, created, modified);
         this.firstObserved = firstObserved;
         this.lastObserved = lastObserved;
         this.numberObserved = numberObserved;
@@ -102,35 +86,11 @@ public class ObservedData extends Core {
                         Map<String, Object> objects, String createdByRef, List<String> labels, LocalDateTime created,
                         LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                         List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.firstObserved = firstObserved;
         this.lastObserved = lastObserved;
         this.numberObserved = numberObserved;
         this.objects = objects;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `observed-data`.
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -223,14 +183,6 @@ public class ObservedData extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("firstObserved");
         sb.append('=');
         sb.append(((this.firstObserved == null) ? "<null>" : this.firstObserved));
@@ -262,8 +214,6 @@ public class ObservedData extends Core {
         result = ((result * 31) + ((this.numberObserved == null) ? 0 : this.numberObserved.hashCode()));
         result = ((result * 31) + ((this.lastObserved == null) ? 0 : this.lastObserved.hashCode()));
         result = ((result * 31) + ((this.objects == null) ? 0 : this.objects.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -277,6 +227,6 @@ public class ObservedData extends Core {
             return false;
         }
         ObservedData rhs = ((ObservedData) other);
-        return ((((((((super.equals(rhs) && ((this.firstObserved == rhs.firstObserved) || ((this.firstObserved != null) && this.firstObserved.equals(rhs.firstObserved)))) && ((this.numberObserved == rhs.numberObserved) || ((this.numberObserved != null) && this.numberObserved.equals(rhs.numberObserved)))) && ((this.lastObserved == rhs.lastObserved) || ((this.lastObserved != null) && this.lastObserved.equals(rhs.lastObserved)))) && ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))))) && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+        return ((((((((super.equals(rhs) && ((this.firstObserved == rhs.firstObserved) || ((this.firstObserved != null) && this.firstObserved.equals(rhs.firstObserved)))) && ((this.numberObserved == rhs.numberObserved) || ((this.numberObserved != null) && this.numberObserved.equals(rhs.numberObserved)))) && ((this.lastObserved == rhs.lastObserved) || ((this.lastObserved != null) && this.lastObserved.equals(rhs.lastObserved)))) && ((this.objects == rhs.objects) || ((this.objects != null) && this.objects.equals(rhs.objects))))))));
     }
 }

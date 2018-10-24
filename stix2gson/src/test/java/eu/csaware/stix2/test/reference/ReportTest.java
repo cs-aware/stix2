@@ -2,7 +2,7 @@ package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.OpenVocabularyDefaults;
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.sdos.Report;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
@@ -37,7 +37,7 @@ class ReportTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.REPORT_TYPE, report.getType());
+        Assertions.assertEquals(Stix2Type.REPORT, report.getType());
     }
 
     @Test

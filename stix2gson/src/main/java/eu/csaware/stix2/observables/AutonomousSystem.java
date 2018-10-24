@@ -5,10 +5,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 
 /**
@@ -18,13 +17,6 @@ import javax.validation.constraints.Pattern;
  */
 public class AutonomousSystem extends CyberObservableCore {
 
-    /**
-     * The value of this property MUST be `autonomous-system`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.AUTONOMOUS_SYSTEM_TYPE)
-    private String type = Types.AUTONOMOUS_SYSTEM_TYPE;
     /**
      * Specifies the number assigned to the AS. Such assignments are typically performed by a Regional Internet Registries (RIR).
      * (Required)
@@ -57,13 +49,6 @@ public class AutonomousSystem extends CyberObservableCore {
         this.number = number;
         this.name = name;
         this.rir = rir;
-    }
-
-    /**
-     * The value of this property MUST be `autonomous-system`.
-     */
-    public String getType() {
-        return type;
     }
 
     /**
@@ -128,10 +113,6 @@ public class AutonomousSystem extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("number");
         sb.append('=');
         sb.append(((this.number == null) ? "<null>" : this.number));
@@ -158,7 +139,6 @@ public class AutonomousSystem extends CyberObservableCore {
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.number == null) ? 0 : this.number.hashCode()));
         result = ((result * 31) + ((this.rir == null) ? 0 : this.rir.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -172,7 +152,7 @@ public class AutonomousSystem extends CyberObservableCore {
             return false;
         }
         AutonomousSystem rhs = ((AutonomousSystem) other);
-        return ((((super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.number == rhs.number) || ((this.number != null) && this.number.equals(rhs.number)))) && ((this.rir == rhs.rir) || ((this.rir != null) && this.rir.equals(rhs.rir)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type))));
+        return ((((super.equals(rhs) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.number == rhs.number) || ((this.number != null) && this.number.equals(rhs.number)))) && ((this.rir == rhs.rir) || ((this.rir != null) && this.rir.equals(rhs.rir)))));
     }
 
 }

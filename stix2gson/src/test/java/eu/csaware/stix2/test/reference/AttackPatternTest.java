@@ -2,7 +2,7 @@ package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.sdos.AttackPattern;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
@@ -34,7 +34,7 @@ class AttackPatternTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.ATTACK_PATTERN_TYPE, attackPattern.getType());
+        Assertions.assertEquals(Stix2Type.ATTACK_PATTERN, attackPattern.getType());
     }
 
     @Test

@@ -5,13 +5,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,13 +21,6 @@ import java.util.List;
  */
 public class Software extends CyberObservableCore {
 
-    /**
-     * The value of this property MUST be `software`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.SOFTWARE_TYPE)
-    private String type = Types.SOFTWARE_TYPE;
     /**
      * Specifies the name of the software.
      * (Required)
@@ -78,13 +70,6 @@ public class Software extends CyberObservableCore {
         this.languages = languages;
         this.vendor = vendor;
         this.version = version;
-    }
-
-    /**
-     * The value of this property MUST be `software`.
-     */
-    public String getType() {
-        return type;
     }
 
     /**
@@ -177,10 +162,6 @@ public class Software extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -216,7 +197,6 @@ public class Software extends CyberObservableCore {
         result = ((result * 31) + ((this.vendor == null) ? 0 : this.vendor.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.cpe == null) ? 0 : this.cpe.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.version == null) ? 0 : this.version.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -231,7 +211,7 @@ public class Software extends CyberObservableCore {
             return false;
         }
         Software rhs = ((Software) other);
-        return ((((((super.equals(rhs) && ((this.languages == rhs.languages) || ((this.languages != null) && this.languages.equals(rhs.languages)))) && ((this.vendor == rhs.vendor) || ((this.vendor != null) && this.vendor.equals(rhs.vendor)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.cpe == rhs.cpe) || ((this.cpe != null) && this.cpe.equals(rhs.cpe)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.version == rhs.version) || ((this.version != null) && this.version.equals(rhs.version))));
+        return ((((((super.equals(rhs) && ((this.languages == rhs.languages) || ((this.languages != null) && this.languages.equals(rhs.languages)))) && ((this.vendor == rhs.vendor) || ((this.vendor != null) && this.vendor.equals(rhs.vendor)))) && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name)))) && ((this.cpe == rhs.cpe) || ((this.cpe != null) && this.cpe.equals(rhs.cpe))))) && ((this.version == rhs.version) || ((this.version != null) && this.version.equals(rhs.version))));
     }
 
 }

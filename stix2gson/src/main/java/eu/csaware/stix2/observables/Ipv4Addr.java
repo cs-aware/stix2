@@ -5,11 +5,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +21,6 @@ import java.util.List;
  */
 public class Ipv4Addr extends CyberObservableCore {
 
-    /**
-     * The value of this property MUST be `ipv4-addr`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.IPV4_ADDR_TYPE)
-    private String type = Types.IPV4_ADDR_TYPE;
     /**
      * Specifies one or more IPv4 addresses expressed using CIDR notation.
      * (Required)
@@ -64,13 +56,6 @@ public class Ipv4Addr extends CyberObservableCore {
         this.value = value;
         this.resolvesToRefs = resolvesToRefs;
         this.belongsToRefs = belongsToRefs;
-    }
-
-    /**
-     * The value of this property MUST be `ipv4-addr`.
-     */
-    public String getType() {
-        return type;
     }
 
     /**
@@ -135,10 +120,6 @@ public class Ipv4Addr extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("value");
         sb.append('=');
         sb.append(((this.value == null) ? "<null>" : this.value));
@@ -163,7 +144,6 @@ public class Ipv4Addr extends CyberObservableCore {
     public int hashCode() {
         int result = 1;
         result = ((result * 31) + ((this.resolvesToRefs == null) ? 0 : this.resolvesToRefs.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.value == null) ? 0 : this.value.hashCode()));
         result = ((result * 31) + ((this.belongsToRefs == null) ? 0 : this.belongsToRefs.hashCode()));
         result = ((result * 31) + super.hashCode());
@@ -179,7 +159,7 @@ public class Ipv4Addr extends CyberObservableCore {
             return false;
         }
         Ipv4Addr rhs = ((Ipv4Addr) other);
-        return ((((super.equals(rhs) && ((this.resolvesToRefs == rhs.resolvesToRefs) || ((this.resolvesToRefs != null) && this.resolvesToRefs.equals(rhs.resolvesToRefs)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value)))) && ((this.belongsToRefs == rhs.belongsToRefs) || ((this.belongsToRefs != null) && this.belongsToRefs.equals(rhs.belongsToRefs))));
+        return ((((super.equals(rhs) && ((this.resolvesToRefs == rhs.resolvesToRefs) || ((this.resolvesToRefs != null) && this.resolvesToRefs.equals(rhs.resolvesToRefs))))) && ((this.value == rhs.value) || ((this.value != null) && this.value.equals(rhs.value)))) && ((this.belongsToRefs == rhs.belongsToRefs) || ((this.belongsToRefs != null) && this.belongsToRefs.equals(rhs.belongsToRefs))));
     }
 
 }

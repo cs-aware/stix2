@@ -2,7 +2,7 @@ package eu.csaware.stix2.test.custom.common;
 
 import eu.csaware.stix2.common.Bundle;
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.test.util.TestUtil;
 import eu.csaware.stix2.util.Stix2Gson;
 import org.junit.jupiter.api.AfterAll;
@@ -46,7 +46,7 @@ class BundleTest {
 
     @Test
     void getType() {
-        Assertions.assertEquals(Types.BUNDLE_TYPE, testBundle.getType());
+        Assertions.assertEquals(Stix2Type.BUNDLE, testBundle.getType());
     }
 //
 //	@Test

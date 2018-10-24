@@ -4,7 +4,7 @@ package eu.csaware.stix2.observables;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -18,13 +18,6 @@ import javax.validation.constraints.Pattern;
  */
 public class UserAccount extends CyberObservableCore {
 
-    /**
-     * The value of this property MUST be `user-account`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.USER_ACCOUNT_TYPE)
-    private String type = Types.USER_ACCOUNT_TYPE;
     @SerializedName("extensions")
     @Expose
     @Valid
@@ -147,13 +140,6 @@ public class UserAccount extends CyberObservableCore {
         this.passwordLastChanged = passwordLastChanged;
         this.accountFirstLogin = accountFirstLogin;
         this.accountLastLogin = accountLastLogin;
-    }
-
-    /**
-     * The value of this property MUST be `user-account`.
-     */
-    public String getType() {
-        return type;
     }
 
     public UserAccountExtensionsDictionary getExtensions() {
@@ -386,10 +372,6 @@ public class UserAccount extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("extensions");
         sb.append('=');
         sb.append(((this.extensions == null) ? "<null>" : this.extensions));
@@ -462,7 +444,6 @@ public class UserAccount extends CyberObservableCore {
         result = ((result * 31) + ((this.displayName == null) ? 0 : this.displayName.hashCode()));
         result = ((result * 31) + ((this.accountExpires == null) ? 0 : this.accountExpires.hashCode()));
         result = ((result * 31) + ((this.accountType == null) ? 0 : this.accountType.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.userId == null) ? 0 : this.userId.hashCode()));
         result = ((result * 31) + ((this.extensions == null) ? 0 : this.extensions.hashCode()));
         result = ((result * 31) + ((this.isPrivileged == null) ? 0 : this.isPrivileged.hashCode()));
@@ -485,7 +466,7 @@ public class UserAccount extends CyberObservableCore {
             return false;
         }
         UserAccount rhs = ((UserAccount) other);
-        return (((((((((((((((super.equals(rhs) && ((this.accountCreated == rhs.accountCreated) || ((this.accountCreated != null) && this.accountCreated.equals(rhs.accountCreated)))) && ((this.accountLogin == rhs.accountLogin) || ((this.accountLogin != null) && this.accountLogin.equals(rhs.accountLogin)))) && ((this.displayName == rhs.displayName) || ((this.displayName != null) && this.displayName.equals(rhs.displayName)))) && ((this.accountExpires == rhs.accountExpires) || ((this.accountExpires != null) && this.accountExpires.equals(rhs.accountExpires)))) && ((this.accountType == rhs.accountType) || ((this.accountType != null) && this.accountType.equals(rhs.accountType)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.userId == rhs.userId) || ((this.userId != null) && this.userId.equals(rhs.userId)))) && ((this.extensions == rhs.extensions) || ((this.extensions != null) && this.extensions.equals(rhs.extensions)))) && ((this.isPrivileged == rhs.isPrivileged) || ((this.isPrivileged != null) && this.isPrivileged.equals(rhs.isPrivileged)))) && ((this.passwordLastChanged == rhs.passwordLastChanged) || ((this.passwordLastChanged != null) && this.passwordLastChanged.equals(rhs.passwordLastChanged)))) && ((this.accountLastLogin == rhs.accountLastLogin) || ((this.accountLastLogin != null) && this.accountLastLogin.equals(rhs.accountLastLogin)))) && ((this.accountFirstLogin == rhs.accountFirstLogin) || ((this.accountFirstLogin != null) && this.accountFirstLogin.equals(rhs.accountFirstLogin)))) && ((this.canEscalatePrivs == rhs.canEscalatePrivs) || ((this.canEscalatePrivs != null) && this.canEscalatePrivs.equals(rhs.canEscalatePrivs)))) && ((this.isDisabled == rhs.isDisabled) || ((this.isDisabled != null) && this.isDisabled.equals(rhs.isDisabled)))) && ((this.isServiceAccount == rhs.isServiceAccount) || ((this.isServiceAccount != null) && this.isServiceAccount.equals(rhs.isServiceAccount))));
+        return (((((((((((((((super.equals(rhs) && ((this.accountCreated == rhs.accountCreated) || ((this.accountCreated != null) && this.accountCreated.equals(rhs.accountCreated)))) && ((this.accountLogin == rhs.accountLogin) || ((this.accountLogin != null) && this.accountLogin.equals(rhs.accountLogin)))) && ((this.displayName == rhs.displayName) || ((this.displayName != null) && this.displayName.equals(rhs.displayName)))) && ((this.accountExpires == rhs.accountExpires) || ((this.accountExpires != null) && this.accountExpires.equals(rhs.accountExpires)))) && ((this.accountType == rhs.accountType) || ((this.accountType != null) && this.accountType.equals(rhs.accountType))))) && ((this.userId == rhs.userId) || ((this.userId != null) && this.userId.equals(rhs.userId)))) && ((this.extensions == rhs.extensions) || ((this.extensions != null) && this.extensions.equals(rhs.extensions)))) && ((this.isPrivileged == rhs.isPrivileged) || ((this.isPrivileged != null) && this.isPrivileged.equals(rhs.isPrivileged)))) && ((this.passwordLastChanged == rhs.passwordLastChanged) || ((this.passwordLastChanged != null) && this.passwordLastChanged.equals(rhs.passwordLastChanged)))) && ((this.accountLastLogin == rhs.accountLastLogin) || ((this.accountLastLogin != null) && this.accountLastLogin.equals(rhs.accountLastLogin)))) && ((this.accountFirstLogin == rhs.accountFirstLogin) || ((this.accountFirstLogin != null) && this.accountFirstLogin.equals(rhs.accountFirstLogin)))) && ((this.canEscalatePrivs == rhs.canEscalatePrivs) || ((this.canEscalatePrivs != null) && this.canEscalatePrivs.equals(rhs.canEscalatePrivs)))) && ((this.isDisabled == rhs.isDisabled) || ((this.isDisabled != null) && this.isDisabled.equals(rhs.isDisabled)))) && ((this.isServiceAccount == rhs.isServiceAccount) || ((this.isServiceAccount != null) && this.isServiceAccount.equals(rhs.isServiceAccount))));
     }
 
 }

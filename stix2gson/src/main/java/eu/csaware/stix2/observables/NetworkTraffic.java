@@ -4,7 +4,7 @@ package eu.csaware.stix2.observables;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -19,13 +19,6 @@ import java.util.List;
  */
 public class NetworkTraffic extends CyberObservableCore {
 
-    /**
-     * The value of this property MUST be `network-traffic`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.NETWORK_TRAFFIC_TYPE)
-    private String type = Types.NETWORK_TRAFFIC_TYPE;
     @SerializedName("extensions")
     @Expose
     @Valid
@@ -165,13 +158,6 @@ public class NetworkTraffic extends CyberObservableCore {
         this.dstPayloadRef = dstPayloadRef;
         this.encapsulatesRefs = encapsulatesRefs;
         this.encapsulatedByRef = encapsulatedByRef;
-    }
-
-    /**
-     * The value of this property MUST be `network-traffic`.
-     */
-    public String getType() {
-        return type;
     }
 
     public NetworkTrafficExtensionsDictionary getExtensions() {
@@ -428,10 +414,6 @@ public class NetworkTraffic extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("extensions");
         sb.append('=');
         sb.append(((this.extensions == null) ? "<null>" : this.extensions));
@@ -517,7 +499,6 @@ public class NetworkTraffic extends CyberObservableCore {
         result = ((result * 31) + ((this.encapsulatedByRef == null) ? 0 : this.encapsulatedByRef.hashCode()));
         result = ((result * 31) + ((this.dstByteCount == null) ? 0 : this.dstByteCount.hashCode()));
         result = ((result * 31) + ((this.srcPort == null) ? 0 : this.srcPort.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.srcByteCount == null) ? 0 : this.srcByteCount.hashCode()));
         result = ((result * 31) + ((this.srcPackets == null) ? 0 : this.srcPackets.hashCode()));
         result = ((result * 31) + ((this.extensions == null) ? 0 : this.extensions.hashCode()));
@@ -542,7 +523,7 @@ public class NetworkTraffic extends CyberObservableCore {
             return false;
         }
         NetworkTraffic rhs = ((NetworkTraffic) other);
-        return ((((((((((((((((((super.equals(rhs) && ((this.dstRef == rhs.dstRef) || ((this.dstRef != null) && this.dstRef.equals(rhs.dstRef)))) && ((this.srcPayloadRef == rhs.srcPayloadRef) || ((this.srcPayloadRef != null) && this.srcPayloadRef.equals(rhs.srcPayloadRef)))) && ((this.start == rhs.start) || ((this.start != null) && this.start.equals(rhs.start)))) && ((this.encapsulatedByRef == rhs.encapsulatedByRef) || ((this.encapsulatedByRef != null) && this.encapsulatedByRef.equals(rhs.encapsulatedByRef)))) && ((this.dstByteCount == rhs.dstByteCount) || ((this.dstByteCount != null) && this.dstByteCount.equals(rhs.dstByteCount)))) && ((this.srcPort == rhs.srcPort) || ((this.srcPort != null) && this.srcPort.equals(rhs.srcPort)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.srcByteCount == rhs.srcByteCount) || ((this.srcByteCount != null) && this.srcByteCount.equals(rhs.srcByteCount)))) && ((this.srcPackets == rhs.srcPackets) || ((this.srcPackets != null) && this.srcPackets.equals(rhs.srcPackets)))) && ((this.extensions == rhs.extensions) || ((this.extensions != null) && this.extensions.equals(rhs.extensions)))) && ((this.dstPackets == rhs.dstPackets) || ((this.dstPackets != null) && this.dstPackets.equals(rhs.dstPackets)))) && ((this.ipfix == rhs.ipfix) || ((this.ipfix != null) && this.ipfix.equals(rhs.ipfix)))) && ((this.dstPort == rhs.dstPort) || ((this.dstPort != null) && this.dstPort.equals(rhs.dstPort)))) && ((this.dstPayloadRef == rhs.dstPayloadRef) || ((this.dstPayloadRef != null) && this.dstPayloadRef.equals(rhs.dstPayloadRef)))) && ((this.end == rhs.end) || ((this.end != null) && this.end.equals(rhs.end)))) && ((this.protocols == rhs.protocols) || ((this.protocols != null) && this.protocols.equals(rhs.protocols)))) && ((this.srcRef == rhs.srcRef) || ((this.srcRef != null) && this.srcRef.equals(rhs.srcRef)))) && ((this.encapsulatesRefs == rhs.encapsulatesRefs) || ((this.encapsulatesRefs != null) && this.encapsulatesRefs.equals(rhs.encapsulatesRefs))));
+        return ((((((((((((((((((super.equals(rhs) && ((this.dstRef == rhs.dstRef) || ((this.dstRef != null) && this.dstRef.equals(rhs.dstRef)))) && ((this.srcPayloadRef == rhs.srcPayloadRef) || ((this.srcPayloadRef != null) && this.srcPayloadRef.equals(rhs.srcPayloadRef)))) && ((this.start == rhs.start) || ((this.start != null) && this.start.equals(rhs.start)))) && ((this.encapsulatedByRef == rhs.encapsulatedByRef) || ((this.encapsulatedByRef != null) && this.encapsulatedByRef.equals(rhs.encapsulatedByRef)))) && ((this.dstByteCount == rhs.dstByteCount) || ((this.dstByteCount != null) && this.dstByteCount.equals(rhs.dstByteCount)))) && ((this.srcPort == rhs.srcPort) || ((this.srcPort != null) && this.srcPort.equals(rhs.srcPort))))) && ((this.srcByteCount == rhs.srcByteCount) || ((this.srcByteCount != null) && this.srcByteCount.equals(rhs.srcByteCount)))) && ((this.srcPackets == rhs.srcPackets) || ((this.srcPackets != null) && this.srcPackets.equals(rhs.srcPackets)))) && ((this.extensions == rhs.extensions) || ((this.extensions != null) && this.extensions.equals(rhs.extensions)))) && ((this.dstPackets == rhs.dstPackets) || ((this.dstPackets != null) && this.dstPackets.equals(rhs.dstPackets)))) && ((this.ipfix == rhs.ipfix) || ((this.ipfix != null) && this.ipfix.equals(rhs.ipfix)))) && ((this.dstPort == rhs.dstPort) || ((this.dstPort != null) && this.dstPort.equals(rhs.dstPort)))) && ((this.dstPayloadRef == rhs.dstPayloadRef) || ((this.dstPayloadRef != null) && this.dstPayloadRef.equals(rhs.dstPayloadRef)))) && ((this.end == rhs.end) || ((this.end != null) && this.end.equals(rhs.end)))) && ((this.protocols == rhs.protocols) || ((this.protocols != null) && this.protocols.equals(rhs.protocols)))) && ((this.srcRef == rhs.srcRef) || ((this.srcRef != null) && this.srcRef.equals(rhs.srcRef)))) && ((this.encapsulatesRefs == rhs.encapsulatesRefs) || ((this.encapsulatesRefs != null) && this.encapsulatesRefs.equals(rhs.encapsulatesRefs))));
     }
 
 }

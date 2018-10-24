@@ -1,7 +1,7 @@
 package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.sros.Sighting;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
@@ -35,7 +35,7 @@ class SightingTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.SIGHTING_TYPE, sighting.getType());
+        Assertions.assertEquals(Stix2Type.SIGHTING, sighting.getType());
     }
 
     @Test

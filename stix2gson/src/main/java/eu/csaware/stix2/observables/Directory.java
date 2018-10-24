@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -22,13 +22,6 @@ import java.util.List;
  */
 public class Directory extends CyberObservableCore {
 
-    /**
-     * The value of this property MUST be `directory`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.DIRECTORY_TYPE)
-    private String type = Types.DIRECTORY_TYPE;
     /**
      * Specifies the path, as originally observed, to the directory on the file system.
      * (Required)
@@ -94,13 +87,6 @@ public class Directory extends CyberObservableCore {
         this.modified = modified;
         this.accessed = accessed;
         this.containsRefs = containsRefs;
-    }
-
-    /**
-     * The value of this property MUST be `directory`.
-     */
-    public String getType() {
-        return type;
     }
 
     /**
@@ -219,10 +205,6 @@ public class Directory extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("path");
         sb.append('=');
         sb.append(((this.path == null) ? "<null>" : this.path));
@@ -263,7 +245,6 @@ public class Directory extends CyberObservableCore {
         result = ((result * 31) + ((this.created == null) ? 0 : this.created.hashCode()));
         result = ((result * 31) + ((this.pathEnc == null) ? 0 : this.pathEnc.hashCode()));
         result = ((result * 31) + ((this.modified == null) ? 0 : this.modified.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.accessed == null) ? 0 : this.accessed.hashCode()));
         result = ((result * 31) + super.hashCode());
         return result;
@@ -278,7 +259,7 @@ public class Directory extends CyberObservableCore {
             return false;
         }
         Directory rhs = ((Directory) other);
-        return (((((((super.equals(rhs) && ((this.path == rhs.path) || ((this.path != null) && this.path.equals(rhs.path)))) && ((this.containsRefs == rhs.containsRefs) || ((this.containsRefs != null) && this.containsRefs.equals(rhs.containsRefs)))) && ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) && ((this.pathEnc == rhs.pathEnc) || ((this.pathEnc != null) && this.pathEnc.equals(rhs.pathEnc)))) && ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.accessed == rhs.accessed) || ((this.accessed != null) && this.accessed.equals(rhs.accessed))));
+        return (((((((super.equals(rhs) && ((this.path == rhs.path) || ((this.path != null) && this.path.equals(rhs.path)))) && ((this.containsRefs == rhs.containsRefs) || ((this.containsRefs != null) && this.containsRefs.equals(rhs.containsRefs)))) && ((this.created == rhs.created) || ((this.created != null) && this.created.equals(rhs.created)))) && ((this.pathEnc == rhs.pathEnc) || ((this.pathEnc != null) && this.pathEnc.equals(rhs.pathEnc)))) && ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified))))) && ((this.accessed == rhs.accessed) || ((this.accessed != null) && this.accessed.equals(rhs.accessed))));
     }
 
 }

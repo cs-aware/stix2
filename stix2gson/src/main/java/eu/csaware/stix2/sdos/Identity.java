@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.Core;
 import eu.csaware.stix2.common.ExternalReference;
 import eu.csaware.stix2.common.GranularMarking;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -24,21 +24,6 @@ import java.util.List;
  */
 public class Identity extends Core {
 
-    /**
-     * The type of this object, which MUST be the literal `identity`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.IDENTITY_TYPE)
-    private String type = Types.IDENTITY_TYPE;
-    /**
-     * id
-     * <p>
-     */
-    @SerializedName("id")
-    @Expose
-    @Pattern(regexp = "^identity--")
-    private String id;
     /**
      * The name of this Identity.
      * (Required)
@@ -83,8 +68,7 @@ public class Identity extends Core {
     }
 
     public Identity(String id, String name, String identityClass, LocalDateTime created, LocalDateTime modified) {
-        super(created, modified);
-        this.id = id;
+        super(id, created, modified);
         this.name = name;
         this.identityClass = identityClass;
     }
@@ -92,36 +76,12 @@ public class Identity extends Core {
     public Identity(String id, List<String> labels, String name, String description, String identityClass,
                     List<String> sectors, String contactInformation, String createdByRef, LocalDateTime created, LocalDateTime modified,
                     Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super(createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
-        this.id = id;
+        super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.name = name;
         this.description = description;
         this.identityClass = identityClass;
         this.sectors = sectors;
         this.contactInformation = contactInformation;
-    }
-
-    /**
-     * The type of this object, which MUST be the literal `identity`.
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * id
-     * <p>
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -216,14 +176,6 @@ public class Identity extends Core {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
-        sb.append("id");
-        sb.append('=');
-        sb.append(((this.id == null) ? "<null>" : this.id));
-        sb.append(',');
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null) ? "<null>" : this.name));
@@ -260,9 +212,6 @@ public class Identity extends Core {
         result = ((result * 31) + ((this.contactInformation == null) ? 0 : this.contactInformation.hashCode()));
         result = ((result * 31) + ((this.name == null) ? 0 : this.name.hashCode()));
         result = ((result * 31) + ((this.description == null) ? 0 : this.description.hashCode()));
-        result = ((result * 31) + ((this.id == null) ? 0 : this.id.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
-
         result = ((result * 31) + super.hashCode());
         return result;
     }
@@ -281,8 +230,7 @@ public class Identity extends Core {
             && ((this.contactInformation == rhs.contactInformation) || ((this.contactInformation != null)
             && this.contactInformation.equals(rhs.contactInformation))))
             && ((this.name == rhs.name) || ((this.name != null) && this.name.equals(rhs.name))))
-            && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description))))
-            && ((this.id == rhs.id) || ((this.id != null) && this.id.equals(rhs.id))))
-            && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))));
+            && ((this.description == rhs.description) || ((this.description != null) && this.description.equals(rhs.description)))))
+            ));
     }
 }

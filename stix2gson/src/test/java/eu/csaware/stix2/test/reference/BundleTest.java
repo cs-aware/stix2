@@ -37,7 +37,7 @@ class BundleTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.BUNDLE_TYPE, bundle.getType());
+        Assertions.assertEquals(Stix2Type.BUNDLE, bundle.getType());
     }
 
     @Test

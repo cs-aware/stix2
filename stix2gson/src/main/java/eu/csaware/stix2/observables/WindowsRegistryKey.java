@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.CyberObservableCore;
 import eu.csaware.stix2.common.Dictionary;
 import eu.csaware.stix2.common.LocalDateTimeTypeAdapter;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -24,13 +24,6 @@ import java.util.List;
  */
 public class WindowsRegistryKey extends CyberObservableCore {
 
-    /**
-     * The value of this property MUST be `windows-registry-key`.
-     */
-    @SerializedName("type")
-    @Expose
-    @Pattern(regexp = Types.WINDOWS_REGISTRY_KEY_TYPE)
-    private String type = Types.WINDOWS_REGISTRY_KEY_TYPE;
     /**
      * Specifies the full registry key including the hive.
      * (Required)
@@ -83,13 +76,6 @@ public class WindowsRegistryKey extends CyberObservableCore {
         this.modified = modified;
         this.creatorUserRef = creatorUserRef;
         this.numberOfSubkeys = numberOfSubkeys;
-    }
-
-    /**
-     * The value of this property MUST be `windows-registry-key`.
-     */
-    public String getType() {
-        return type;
     }
 
     /**
@@ -186,10 +172,6 @@ public class WindowsRegistryKey extends CyberObservableCore {
         if (sb.length() > baseLength) {
             sb.append(',');
         }
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null) ? "<null>" : this.type));
-        sb.append(',');
         sb.append("key");
         sb.append('=');
         sb.append(((this.key == null) ? "<null>" : this.key));
@@ -224,7 +206,6 @@ public class WindowsRegistryKey extends CyberObservableCore {
         result = ((result * 31) + ((this.creatorUserRef == null) ? 0 : this.creatorUserRef.hashCode()));
         result = ((result * 31) + ((this.values == null) ? 0 : this.values.hashCode()));
         result = ((result * 31) + ((this.modified == null) ? 0 : this.modified.hashCode()));
-        result = ((result * 31) + ((this.type == null) ? 0 : this.type.hashCode()));
         result = ((result * 31) + ((this.numberOfSubkeys == null) ? 0 : this.numberOfSubkeys.hashCode()));
         result = ((result * 31) + ((this.key == null) ? 0 : this.key.hashCode()));
         result = ((result * 31) + super.hashCode());
@@ -240,7 +221,7 @@ public class WindowsRegistryKey extends CyberObservableCore {
             return false;
         }
         WindowsRegistryKey rhs = ((WindowsRegistryKey) other);
-        return ((((((super.equals(rhs) && ((this.creatorUserRef == rhs.creatorUserRef) || ((this.creatorUserRef != null) && this.creatorUserRef.equals(rhs.creatorUserRef)))) && ((this.values == rhs.values) || ((this.values != null) && this.values.equals(rhs.values)))) && ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified)))) && ((this.type == rhs.type) || ((this.type != null) && this.type.equals(rhs.type)))) && ((this.numberOfSubkeys == rhs.numberOfSubkeys) || ((this.numberOfSubkeys != null) && this.numberOfSubkeys.equals(rhs.numberOfSubkeys)))) && ((this.key == rhs.key) || ((this.key != null) && this.key.equals(rhs.key))));
+        return ((((((super.equals(rhs) && ((this.creatorUserRef == rhs.creatorUserRef) || ((this.creatorUserRef != null) && this.creatorUserRef.equals(rhs.creatorUserRef)))) && ((this.values == rhs.values) || ((this.values != null) && this.values.equals(rhs.values)))) && ((this.modified == rhs.modified) || ((this.modified != null) && this.modified.equals(rhs.modified))))) && ((this.numberOfSubkeys == rhs.numberOfSubkeys) || ((this.numberOfSubkeys != null) && this.numberOfSubkeys.equals(rhs.numberOfSubkeys)))) && ((this.key == rhs.key) || ((this.key != null) && this.key.equals(rhs.key))));
     }
 
 }

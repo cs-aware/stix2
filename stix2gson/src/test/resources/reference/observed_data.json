@@ -1,16 +1,16 @@
 {
-  "type": "observed-data",
-  "id": "observed-data--b67d30ff-02ac-498a-92f9-32f845f448cf",
   "first_observed": "2011-08-01T10:30:21.000Z",
   "last_observed": "2012-08-01T10:30:21.000Z",
   "number_observed": 50,
   "objects": {
     "0": {
-      "type": "file",
-      "name": "foo.exe"
+      "name": "foo.exe",
+      "type": "file"
     }
   },
   "created_by_ref": "identity--311b2d2d-f010-4473-83ec-1edf84858f4c",
   "created": "2016-05-12T08:17:27.000Z",
-  "modified": "2017-03-20T01:27:32.000Z"
+  "modified": "2017-03-20T01:27:32.000Z",
+  "id": "observed-data--b67d30ff-02ac-498a-92f9-32f845f448cf",
+  "type": "observed-data"
 }

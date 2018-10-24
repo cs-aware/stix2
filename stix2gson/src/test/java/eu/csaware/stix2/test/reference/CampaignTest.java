@@ -1,7 +1,7 @@
 package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.sdos.Campaign;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
@@ -33,7 +33,7 @@ class CampaignTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.CAMPAIGN_TYPE, campaign.getType());
+        Assertions.assertEquals(Stix2Type.CAMPAIGN, campaign.getType());
     }
 
     @Test

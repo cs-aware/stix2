@@ -1,7 +1,7 @@
 package eu.csaware.stix2.test.reference;
 
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.common.Types;
+import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.sdos.IntrusionSet;
 import eu.csaware.stix2.test.util.TestConstants;
 import eu.csaware.stix2.test.util.TestUtil;
@@ -36,7 +36,7 @@ class IntrusionSetTest {
 
     @Test
     void testType() {
-        Assertions.assertEquals(Types.INTRUSION_SET_TYPE, intrusionSet.getType());
+        Assertions.assertEquals(Stix2Type.INTRUSION_SET, intrusionSet.getType());
     }
 
     @Test
