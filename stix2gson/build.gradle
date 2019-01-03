@@ -6,7 +6,8 @@ plugins {
 group 'eu.csaware'
 version '0.1.0-SNAPSHOT'
 
-sourceCompatibility = 10
+sourceCompatibility = 11
+targetCompatibility = 11
 
 repositories {
     mavenCentral()
@@ -25,4 +26,5 @@ dependencies {
     compile group: 'org.antlr', name: 'antlr4-runtime', version: '4.7.1'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
+    
 }
