@@ -7,7 +7,6 @@
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="ALTERNATIVE_JRE_PATH" value="11" />
     <option name="PACKAGE_NAME" value="eu.csaware.stix2.test.custom.common" />
     <option name="MAIN_CLASS_NAME" value="eu.csaware.stix2.test.custom.common.BundleTest" />
