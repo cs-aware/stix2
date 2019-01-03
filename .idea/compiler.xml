@@ -4,14 +4,6 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="stix2gson_main" target="1.8" />
-      <module name="stix2gson_test" target="1.8" />
-    </bytecodeTargetLevel>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="stix2gson" options="--add-modules=java.xml.ws.annotation" />
-    </option>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>

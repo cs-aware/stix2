@@ -7,6 +7,7 @@
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
+    <option name="ALTERNATIVE_JRE_PATH" value="C:/dev/jdk-11.0.1" />
     <option name="PACKAGE_NAME" value="eu.csaware.stix2.test" />
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
