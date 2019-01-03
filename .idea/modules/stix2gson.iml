@@ -12,7 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../../stix2gson/build" />
       <excludeFolder url="file://$MODULE_DIR$/../../stix2gson/out" />
     </content>
-    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: javax.validation:validation-api:2.0.1.Final" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.5" level="project" />
