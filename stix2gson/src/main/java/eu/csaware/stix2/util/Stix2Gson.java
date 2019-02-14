@@ -5,9 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import eu.csaware.stix2.common.Stix2Type;
 import eu.csaware.stix2.common.TypedStixObject;
-import eu.csaware.stix2.extension.CSAwareVulnerability;
 
-import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
