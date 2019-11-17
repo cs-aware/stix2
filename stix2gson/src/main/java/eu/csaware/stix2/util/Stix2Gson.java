@@ -32,13 +32,15 @@ public class Stix2Gson {
             stix2Type.setImplementation(customImplementations.get(stix2Type));
         }
 
-        for (Stix2Type value : Stix2Type.values()) {
+        for (Stix2Type value : Stix2Type.TYPES) {
             factory.registerSubtype(value.getImplementation(), value.toJsonString());
         }
 
         return new GsonBuilder()
             .disableHtmlEscaping() //without this patterns don't serialize correctly
             .registerTypeHierarchyAdapter(Collection.class, new EmptyCollectionNonSerializer())
+            .registerTypeHierarchyAdapter(Stix2Type.class, new Stix2TypeSerializer())
+            .registerTypeHierarchyAdapter(Stix2Type.class, new Stix2TypeDeserializer())
             .registerTypeAdapterFactory(factory);
     }
 

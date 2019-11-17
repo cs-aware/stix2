@@ -7,51 +7,94 @@ import eu.csaware.stix2.sdos.*;
 import eu.csaware.stix2.sros.Relationship;
 import eu.csaware.stix2.sros.Sighting;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Represent the type of a STIX 2 object in Java as a type-safe enum with
  * Gson serialisation support.
  */
-public enum Stix2Type {
-    @SerializedName("attack-pattern") ATTACK_PATTERN("attack-pattern", AttackPattern.class, AttackPattern.class),
-    @SerializedName("campaign") CAMPAIGN("campaign", Campaign.class, Campaign.class),
-    @SerializedName("course-of-action") COURSE_OF_ACTION("course-of-action", CourseOfAction.class, CourseOfAction.class),
-    @SerializedName("identity") IDENTITY("identity", Identity.class, Identity.class),
-    @SerializedName("indicator") INDICATOR("indicator", Indicator.class, Indicator.class),
-    @SerializedName("intrusion-set") INTRUSION_SET("intrusion-set", IntrusionSet.class, IntrusionSet.class),
-    @SerializedName("malware") MALWARE("malware", Malware.class, Malware.class),
-    @SerializedName("observed-data") OBSERVED_DATA("observed-data", ObservedData.class, ObservedData.class),
-    @SerializedName("report") REPORT("report", Report.class, Report.class),
-    @SerializedName("threat-actor") THREAT_ACTOR("threat-actor", ThreatActor.class, ThreatActor.class),
-    @SerializedName("tool") TOOL("tool", Tool.class, Tool.class),
-    @SerializedName("vulnerability") VULNERABILITY("vulnerability", Vulnerability.class, Vulnerability.class),
-    @SerializedName("relationship") RELATIONSHIP("relationship", Relationship.class, Relationship.class),
-    @SerializedName("sighting") SIGHTING("sighting", Sighting.class, Sighting.class),
-    @SerializedName("bundle") BUNDLE("bundle", Bundle.class, Bundle.class),
-    @SerializedName("marking-definition") MARKING_DEFINITION("marking-definition", MarkingDefinition.class, MarkingDefinition.class),
-    @SerializedName("artifact") ARTIFACT("artifact", Artifact.class, Artifact.class),
-    @SerializedName("autonomous-system") AUTONOMOUS_SYSTEM("autonomous-system", AutonomousSystem.class, AutonomousSystem.class),
-    @SerializedName("directory") DIRECTORY("directory", Directory.class, Directory.class),
-    @SerializedName("domain-name") DOMAIN_NAME("domain-name", DomainName.class, DomainName.class),
-    @SerializedName("email-addr") EMAIL_ADDR("email-addr", EmailAddr.class, EmailAddr.class),
-    @SerializedName("email-message") EMAIL_MESSAGE("email-message", EmailMessage.class, EmailMessage.class),
-    @SerializedName("file") FILE("file", File.class, File.class),
-    @SerializedName("ipv4-addr") IPV4_ADDR("ipv4-addr", Ipv4Addr.class, Ipv4Addr.class),
-    @SerializedName("ipv6-addr") IPV6_ADDR("ipv6-addr", Ipv6Addr.class, Ipv6Addr.class),
-    @SerializedName("mac-addr") MAC_ADDR("mac-addr", MacAddr.class, MacAddr.class),
-    @SerializedName("mutex") MUTEX("mutex", Mutex.class, Mutex.class),
-    @SerializedName("network-traffic") NETWORK_TRAFFIC("network-traffic", NetworkTraffic.class, NetworkTraffic.class),
-    @SerializedName("process") PROCESS("process", Process.class, Process.class),
-    @SerializedName("software") SOFTWARE("software", Software.class, Software.class),
-    @SerializedName("url") URL("url", Url.class, Url.class),
-    @SerializedName("user-account") USER_ACCOUNT("user-account", UserAccount.class, UserAccount.class),
-    @SerializedName("windows-registry-key") WINDOWS_REGISTRY_KEY("windows-registry-key", WindowsRegistryKey.class, WindowsRegistryKey.class),
-    @SerializedName("x509-certificate") X_509_CERTIFICATE("x509-certificate", X509Certificate.class, X509Certificate.class);
+public class Stix2Type {
+
+    @SerializedName("attack-pattern") public static Stix2Type ATTACK_PATTERN = new Stix2Type("attack-pattern", AttackPattern.class, AttackPattern.class);
+    @SerializedName("campaign") public static Stix2Type CAMPAIGN = new Stix2Type("campaign", Campaign.class, Campaign.class);
+    @SerializedName("course-of-action") public static Stix2Type COURSE_OF_ACTION = new Stix2Type("course-of-action", CourseOfAction.class, CourseOfAction.class);
+    @SerializedName("identity") public static Stix2Type IDENTITY = new Stix2Type("identity", Identity.class, Identity.class);
+    @SerializedName("indicator") public static Stix2Type INDICATOR = new Stix2Type("indicator", Indicator.class, Indicator.class);
+    @SerializedName("intrusion-set") public static Stix2Type INTRUSION_SET = new Stix2Type("intrusion-set", IntrusionSet.class, IntrusionSet.class);
+    @SerializedName("malware") public static Stix2Type MALWARE = new Stix2Type("malware", Malware.class, Malware.class);
+    @SerializedName("observed-data") public static Stix2Type OBSERVED_DATA = new Stix2Type("observed-data", ObservedData.class, ObservedData.class);
+    @SerializedName("report") public static Stix2Type REPORT = new Stix2Type("report", Report.class, Report.class);
+    @SerializedName("threat-actor") public static Stix2Type THREAT_ACTOR = new Stix2Type("threat-actor", ThreatActor.class, ThreatActor.class);
+    @SerializedName("tool") public static Stix2Type TOOL = new Stix2Type("tool", Tool.class, Tool.class);
+    @SerializedName("vulnerability") public static Stix2Type VULNERABILITY = new Stix2Type("vulnerability", Vulnerability.class, Vulnerability.class);
+    @SerializedName("relationship") public static Stix2Type RELATIONSHIP = new Stix2Type("relationship", Relationship.class, Relationship.class);
+    @SerializedName("sighting") public static Stix2Type SIGHTING = new Stix2Type("sighting", Sighting.class, Sighting.class);
+    @SerializedName("bundle") public static Stix2Type BUNDLE = new Stix2Type("bundle", Bundle.class, Bundle.class);
+    @SerializedName("marking-definition") public static Stix2Type MARKING_DEFINITION = new Stix2Type("marking-definition", MarkingDefinition.class, MarkingDefinition.class);
+    @SerializedName("artifact") public static Stix2Type ARTIFACT = new Stix2Type("artifact", Artifact.class, Artifact.class);
+    @SerializedName("autonomous-system") public static Stix2Type AUTONOMOUS_SYSTEM = new Stix2Type("autonomous-system", AutonomousSystem.class, AutonomousSystem.class);
+    @SerializedName("directory") public static Stix2Type DIRECTORY = new Stix2Type("directory", Directory.class, Directory.class);
+    @SerializedName("domain-name") public static Stix2Type DOMAIN_NAME = new Stix2Type("domain-name", DomainName.class, DomainName.class);
+    @SerializedName("email-addr") public static Stix2Type EMAIL_ADDR = new Stix2Type("email-addr", EmailAddr.class, EmailAddr.class);
+    @SerializedName("email-message") public static Stix2Type EMAIL_MESSAGE = new Stix2Type("email-message", EmailMessage.class, EmailMessage.class);
+    @SerializedName("file") public static Stix2Type FILE = new Stix2Type("file", File.class, File.class);
+    @SerializedName("ipv4-addr") public static Stix2Type IPV4_ADDR = new Stix2Type("ipv4-addr", Ipv4Addr.class, Ipv4Addr.class);
+    @SerializedName("ipv6-addr") public static Stix2Type IPV6_ADDR = new Stix2Type("ipv6-addr", Ipv6Addr.class, Ipv6Addr.class);
+    @SerializedName("mac-addr") public static Stix2Type MAC_ADDR = new Stix2Type("mac-addr", MacAddr.class, MacAddr.class);
+    @SerializedName("mutex") public static Stix2Type MUTEX = new Stix2Type("mutex", Mutex.class, Mutex.class);
+    @SerializedName("network-traffic") public static Stix2Type NETWORK_TRAFFIC = new Stix2Type("network-traffic", NetworkTraffic.class, NetworkTraffic.class);
+    @SerializedName("process") public static Stix2Type PROCESS = new Stix2Type("process", Process.class, Process.class);
+    @SerializedName("software") public static Stix2Type SOFTWARE = new Stix2Type("software", Software.class, Software.class);
+    @SerializedName("url") public static Stix2Type URL = new Stix2Type("url", Url.class, Url.class);
+    @SerializedName("user-account") public static Stix2Type USER_ACCOUNT = new Stix2Type("user-account", UserAccount.class, UserAccount.class);
+    @SerializedName("windows-registry-key") public static Stix2Type WINDOWS_REGISTRY_KEY = new Stix2Type("windows-registry-key", WindowsRegistryKey.class, WindowsRegistryKey.class);
+    @SerializedName("x509-certificate") public static Stix2Type X_509_CERTIFICATE = new Stix2Type("x509-certificate", X509Certificate.class, X509Certificate.class);
+
+    public static List<Stix2Type> TYPES = new ArrayList<>(List.of(
+        ATTACK_PATTERN,
+        CAMPAIGN,
+        COURSE_OF_ACTION,
+        IDENTITY,
+        INDICATOR,
+        INTRUSION_SET,
+        MALWARE,
+        OBSERVED_DATA,
+        REPORT,
+        THREAT_ACTOR,
+        TOOL,
+        VULNERABILITY,
+        RELATIONSHIP,
+        SIGHTING,
+        BUNDLE,
+        MARKING_DEFINITION,
+        ARTIFACT,
+        AUTONOMOUS_SYSTEM,
+        DIRECTORY,
+        DOMAIN_NAME,
+        EMAIL_ADDR,
+        EMAIL_MESSAGE,
+        FILE,
+        IPV4_ADDR,
+        IPV6_ADDR,
+        MAC_ADDR,
+        MUTEX,
+        NETWORK_TRAFFIC,
+        PROCESS,
+        SOFTWARE,
+        URL,
+        USER_ACCOUNT,
+        WINDOWS_REGISTRY_KEY,
+        X_509_CERTIFICATE
+    ));
 
     private final String jsonString;
     private final Class<? extends TypedStixObject> defaultImplementation;
     private Class<? extends TypedStixObject> implementation; // not final to allow changing the implementation dynamically
 
-    Stix2Type(String stixType, Class<? extends TypedStixObject> defaultImplementation, Class<? extends TypedStixObject> implementation) {
+
+    public Stix2Type(String stixType, Class<? extends TypedStixObject> defaultImplementation, Class<? extends TypedStixObject> implementation) {
         this.jsonString = stixType;
         this.defaultImplementation = defaultImplementation;
         this.implementation = implementation;
@@ -68,7 +111,7 @@ public enum Stix2Type {
      * Convert from the standardized STIX Json serialisation to the Java enum type.
      */
     public static Stix2Type fromJsonString(String type) {
-        for (Stix2Type value : values()) {
+        for (Stix2Type value : TYPES) {
             if (value.jsonString.equals(type))
                 return value;
         }
@@ -79,7 +122,7 @@ public enum Stix2Type {
      * Convert from the implementation class to the Java enum type.
      */
     public static Stix2Type fromImplementation(Class implementation) {
-        for (Stix2Type value : values()) {
+        for (Stix2Type value : TYPES) {
             if (value.implementation == implementation ||
                 //the following two cases should not be necessary, but in case of a mixed configuration as it can
                 //happen during unit testing, they can fix the situation
@@ -105,7 +148,7 @@ public enum Stix2Type {
      * Reset every STIX type to the default implementation class.
      */
     public static void resetToDefaultImplementation() {
-        for (Stix2Type value : values()) {
+        for (Stix2Type value : TYPES) {
             value.implementation = value.defaultImplementation;
         }
     }
