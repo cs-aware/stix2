@@ -26,7 +26,7 @@ public class Stix2Gson {
 
     public static GsonBuilder commonGsonBuilder(Map<Stix2Type, Class<? extends TypedStixObject>> customImplementations) {
         RuntimeTypeAdapterFactory<TypedStixObject> factory =
-            RuntimeTypeAdapterFactory.of(TypedStixObject.class, "type");
+            RuntimeTypeAdapterFactory.of(TypedStixObject.class, "type", true);
 
         for (Stix2Type stix2Type : customImplementations.keySet()) {
             stix2Type.setImplementation(customImplementations.get(stix2Type));
