@@ -65,7 +65,7 @@ public class ObservedData extends Core {
     @Expose
     @Valid
     @NotNull
-    private Map<String, Object> objects = new HashMap<>();
+    private Map<String, TypedStixObject> objects = new HashMap<>();
 
     /**
      * No args constructor for use in serialization
@@ -74,7 +74,7 @@ public class ObservedData extends Core {
     }
 
     public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved,
-                        Map<String, Object> objects, String createdByRef, LocalDateTime created, LocalDateTime modified) {
+                        Map<String, TypedStixObject> objects, String createdByRef, LocalDateTime created, LocalDateTime modified) {
         super(id, createdByRef, created, modified);
         this.firstObserved = firstObserved;
         this.lastObserved = lastObserved;
@@ -83,7 +83,7 @@ public class ObservedData extends Core {
     }
 
     public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved,
-                        Map<String, Object> objects, String createdByRef, List<String> labels, LocalDateTime created,
+                        Map<String, TypedStixObject> objects, String createdByRef, List<String> labels, LocalDateTime created,
                         LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                         List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
@@ -153,7 +153,7 @@ public class ObservedData extends Core {
      * A dictionary of Cyber Observable Objects that describes the single 'fact' that was observed.
      * (Required)
      */
-    public Map<String, Object> getObjects() {
+    public Map<String, TypedStixObject> getObjects() {
         return objects;
     }
 
@@ -161,7 +161,7 @@ public class ObservedData extends Core {
      * A dictionary of Cyber Observable Objects that describes the single 'fact' that was observed.
      * (Required)
      */
-    public void setObjects(Map<String, Object> objects) {
+    public void setObjects(Map<String, TypedStixObject> objects) {
         this.objects = objects;
     }
 
