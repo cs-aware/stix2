@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -92,6 +93,26 @@ class ObservedDataTest {
     }
 
     @Test
+    void testObservables() {
+        Map<String, TypedStixObject> objects = observedData.getObjects();
+        Assertions.assertNotNull(objects);
+        Assertions.assertEquals(1, observedData.getObjects().size());
+        for (TypedStixObject typedStixObject : objects.values()) {
+            Assertions.assertNotNull(typedStixObject);
+            Assertions.assertTrue(typedStixObject instanceof File);
+        }
+    }
+
+    @Test
+    void testFileObservable() {
+        TypedStixObject typedStixObject = observedData.getObjects().values().iterator().next();
+        Assertions.assertNotNull(typedStixObject);
+        Assertions.assertTrue(typedStixObject instanceof File);
+        File file = (File) typedStixObject;
+        Assertions.assertEquals("foo.exe", file.getName());
+    }
+
+    @Test
     void testNullSafety() {
         ObservedData observedData = new ObservedData();
         Assertions.assertNotNull(observedData.getGranularMarkings());
@@ -102,7 +123,7 @@ class ObservedDataTest {
 
     @Test
     void testCreation() throws IOException {
-        HashMap<String, Object> objects = new HashMap<>();
+        HashMap<String, TypedStixObject> objects = new HashMap<>();
 
         objects.put("0", new File("foo.exe"));
 
