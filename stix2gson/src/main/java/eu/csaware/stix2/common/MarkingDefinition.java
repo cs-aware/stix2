@@ -2,13 +2,17 @@
 package eu.csaware.stix2.common;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -16,7 +20,7 @@ import java.util.List;
  * <p>
  * The marking-definition object represents a specific marking.
  */
-public class MarkingDefinition extends TypedStixObject {
+public class MarkingDefinition extends IdentifiedStixObject {
 
     /**
      * identifier
@@ -34,8 +38,9 @@ public class MarkingDefinition extends TypedStixObject {
      */
     @SerializedName("created")
     @Expose
-    @Pattern(regexp = "^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\\.[0-9]+)?Z$")
-    private String created;
+    @NotNull
+    @JsonAdapter(LocalDateTimeTypeAdapter.class)
+    private LocalDateTime created;
     /**
      * A list of external references which refers to non-STIX information.
      */
@@ -61,19 +66,26 @@ public class MarkingDefinition extends TypedStixObject {
     @Valid
     private List<GranularMarking> granularMarkings = new ArrayList<GranularMarking>();
 
+    @SerializedName("definition_type")
+    @Expose
+    private String definition_type;
+
+    @SerializedName("definition")
+    @Expose
+    private MarkingObject definition;
+
     /**
      * No args constructor for use in serialization
      */
     public MarkingDefinition() {
     }
 
-    public MarkingDefinition(String createdByRef, String created, List<ExternalReference> externalReferences, List<Object> objectMarkingRefs, List<GranularMarking> granularMarkings) {
-        super();
+    public MarkingDefinition(UUID uuid, String createdByRef, LocalDateTime created, String definition_type, MarkingObject definition) {
+        super(uuid);
         this.createdByRef = createdByRef;
         this.created = created;
-        this.externalReferences = externalReferences;
-        this.objectMarkingRefs = objectMarkingRefs;
-        this.granularMarkings = granularMarkings;
+        this.definition_type = definition_type;
+        this.definition = definition;
     }
 
     /**
@@ -99,7 +111,7 @@ public class MarkingDefinition extends TypedStixObject {
      * <p>
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
      */
-    public String getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
@@ -108,7 +120,7 @@ public class MarkingDefinition extends TypedStixObject {
      * <p>
      * Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of 'Z'.
      */
-    public void setCreated(String created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 
@@ -152,6 +164,22 @@ public class MarkingDefinition extends TypedStixObject {
      */
     public void setGranularMarkings(List<GranularMarking> granularMarkings) {
         this.granularMarkings = granularMarkings;
+    }
+
+    public String getDefinition_type() {
+        return definition_type;
+    }
+
+    public void setDefinition_type(String definition_type) {
+        this.definition_type = definition_type;
+    }
+
+    public MarkingObject getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(MarkingObject definition) {
+        this.definition = definition;
     }
 
     @Override
