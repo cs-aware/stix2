@@ -1,6 +1,7 @@
 package eu.csaware.stix2.common;
 
 import com.google.gson.annotations.SerializedName;
+import eu.csaware.stix2.marking.MarkingDefinition;
 import eu.csaware.stix2.observables.*;
 import eu.csaware.stix2.observables.Process;
 import eu.csaware.stix2.sdos.*;
@@ -8,7 +9,6 @@ import eu.csaware.stix2.sros.Relationship;
 import eu.csaware.stix2.sros.Sighting;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

@@ -1,9 +1,12 @@
 
-package eu.csaware.stix2.common;
+package eu.csaware.stix2.marking;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import eu.csaware.stix2.common.ExternalReference;
+import eu.csaware.stix2.common.IdentifiedStixObject;
+import eu.csaware.stix2.common.LocalDateTimeTypeAdapter;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -80,11 +83,11 @@ public class MarkingDefinition extends IdentifiedStixObject {
     public MarkingDefinition() {
     }
 
-    public MarkingDefinition(UUID uuid, String createdByRef, LocalDateTime created, String definition_type, MarkingObject definition) {
+    public MarkingDefinition(UUID uuid, String createdByRef, LocalDateTime created, MarkingObject definition) {
         super(uuid);
         this.createdByRef = createdByRef;
         this.created = created;
-        this.definition_type = definition_type;
+        this.definition_type = definition.getDefinitionType();
         this.definition = definition;
     }
 

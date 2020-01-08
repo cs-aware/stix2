@@ -1,11 +1,9 @@
 
-package eu.csaware.stix2.common;
+package eu.csaware.stix2.marking;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Objects;
 
 
@@ -13,6 +11,7 @@ import java.util.Objects;
  * marking object
  */
 public class StatementMarkingObject implements MarkingObject {
+    public static String DEFINITION_TYPE = "statement";
 
     @SerializedName("statement")
     @Expose
@@ -26,6 +25,11 @@ public class StatementMarkingObject implements MarkingObject {
 
     public StatementMarkingObject(String statement) {
         this.statement = statement;
+    }
+
+    @Override
+    public String getDefinitionType() {
+        return DEFINITION_TYPE;
     }
 
     public String getStatement() {
@@ -48,4 +52,5 @@ public class StatementMarkingObject implements MarkingObject {
     public int hashCode() {
         return Objects.hash(statement);
     }
+
 }

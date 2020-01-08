@@ -1,5 +1,5 @@
 
-package eu.csaware.stix2.common;
+package eu.csaware.stix2.marking;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -9,8 +9,10 @@ import java.util.Objects;
 
 /**
  * Traffic light protocol marking object
+ * https://www.first.org/tlp/
  */
 public class TLPMarkingObject implements MarkingObject {
+    public static String DEFINITION_TYPE = "tlp";
 
     @SerializedName("tlp")
     @Expose
@@ -24,6 +26,11 @@ public class TLPMarkingObject implements MarkingObject {
 
     public TLPMarkingObject(String tlp) {
         this.tlp = tlp;
+    }
+
+    @Override
+    public String getDefinitionType() {
+        return DEFINITION_TYPE;
     }
 
     public String getTlp() {
@@ -46,4 +53,6 @@ public class TLPMarkingObject implements MarkingObject {
     public int hashCode() {
         return Objects.hash(tlp);
     }
+
+
 }

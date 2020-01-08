@@ -4,12 +4,10 @@ package eu.csaware.stix2.sdos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import eu.csaware.stix2.common.*;
-import eu.csaware.stix2.util.Stix2Util;
+import eu.csaware.stix2.marking.GranularMarking;
 
 import javax.validation.Valid;
-import javax.validation.Validation;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

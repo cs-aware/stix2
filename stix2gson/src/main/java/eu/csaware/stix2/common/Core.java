@@ -4,6 +4,7 @@ package eu.csaware.stix2.common;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import eu.csaware.stix2.marking.GranularMarking;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;

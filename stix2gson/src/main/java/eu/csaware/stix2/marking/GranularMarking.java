@@ -1,5 +1,5 @@
 
-package eu.csaware.stix2.common;
+package eu.csaware.stix2.marking;
 
 import java.util.ArrayList;
 import java.util.List;
