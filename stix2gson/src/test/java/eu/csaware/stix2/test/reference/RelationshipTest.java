@@ -105,7 +105,7 @@ class RelationshipTest {
     @Test
     void testCreation() throws IOException {
         Relationship relationship = new Relationship(
-            TestConstants.RELATIONSHIP_ID,
+            TestConstants.RELATIONSHIP_UUID,
             Relationship.TYPE_INDICATES,
             TestConstants.INDICATOR_ID,
             TestConstants.MALWARE_ID,

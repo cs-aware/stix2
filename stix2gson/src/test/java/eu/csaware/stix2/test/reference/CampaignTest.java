@@ -101,7 +101,7 @@ class CampaignTest {
     @Test
     void testCreation() throws IOException {
         Campaign createdCampaign = new Campaign(
-            TestConstants.CAMPAIGN_ID,
+            TestConstants.CAMPAIGN_UUID,
             "Green Group Attacks Against Finance",
             "Campaign by Green Group against a series of targets in the financial services sector.",
             TestConstants.IDENTITY_ID,

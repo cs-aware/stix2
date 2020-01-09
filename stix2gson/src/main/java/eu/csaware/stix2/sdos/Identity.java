@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -65,13 +66,13 @@ public class Identity extends Core {
     public Identity() {
     }
 
-    public Identity(String id, String name, String identityClass, LocalDateTime created, LocalDateTime modified) {
+    public Identity(UUID id, String name, String identityClass, LocalDateTime created, LocalDateTime modified) {
         super(id, created, modified);
         this.name = name;
         this.identityClass = identityClass;
     }
 
-    public Identity(String id, List<String> labels, String name, String description, String identityClass,
+    public Identity(UUID id, List<String> labels, String name, String description, String identityClass,
                     List<String> sectors, String contactInformation, String createdByRef, LocalDateTime created, LocalDateTime modified,
                     Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);

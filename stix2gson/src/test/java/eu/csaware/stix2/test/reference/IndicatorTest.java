@@ -107,7 +107,7 @@ class IndicatorTest {
     void testCreation() throws IOException {
         List<String> labels = Collections.singletonList(OpenVocabularyDefaults.INDICATOR_LABEL_MALICIOUS_ACTIVITY);
         Indicator indicator = new Indicator(
-            TestConstants.INDICATOR_ID,
+            TestConstants.INDICATOR_UUID,
             labels,
             "[file:hashes.MD5 = 'd41d8cd98f00b204e9800998ecf8427e']",
             TestConstants.DATE_TIME_EXTRA,

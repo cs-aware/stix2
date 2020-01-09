@@ -58,14 +58,7 @@ public class AttackPattern extends Core {
         this.description = description;
     }
 
-    public AttackPattern(String id, String name, String description,
-                         LocalDateTime created, LocalDateTime modified) {
-        super(id, created, modified);
-        this.name = name;
-        this.description = description;
-    }
-
-    public AttackPattern(String id, String name, String description, List<KillChainPhase> killChainPhases, String createdByRef,
+    public AttackPattern(UUID id, String name, String description, List<KillChainPhase> killChainPhases, String createdByRef,
                          List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                          List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);

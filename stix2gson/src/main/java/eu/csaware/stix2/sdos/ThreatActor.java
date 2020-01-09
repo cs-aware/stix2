@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -101,14 +102,14 @@ public class ThreatActor extends Core {
     public ThreatActor() {
     }
 
-    public ThreatActor(String id, List<String> labels, String name, String description, String createdByRef,
+    public ThreatActor(UUID id, List<String> labels, String name, String description, String createdByRef,
                        LocalDateTime created, LocalDateTime modified) {
         super(id, createdByRef, labels, created, modified);
         this.name = name;
         this.description = description;
     }
 
-    public ThreatActor(String id, List<String> labels, String name, String description, List<String> aliases,
+    public ThreatActor(UUID id, List<String> labels, String name, String description, List<String> aliases,
                        List<String> roles, List<String> goals, String sophistication, String resourceLevel, String primaryMotivation,
                        List<String> secondaryMotivations, List<String> personalMotivations, String createdByRef, LocalDateTime created,
                        LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,

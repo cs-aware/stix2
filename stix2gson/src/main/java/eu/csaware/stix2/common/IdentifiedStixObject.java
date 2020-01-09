@@ -30,12 +30,6 @@ public abstract class IdentifiedStixObject extends TypedStixObject {
     public IdentifiedStixObject() {
     }
 
-    public IdentifiedStixObject(String id) {
-        this.id = id;
-        if (!Stix2Util.isValidId(id))
-            throw new IllegalArgumentException("Invalid STIX id: " + id);
-    }
-
     public IdentifiedStixObject(UUID uuid) {
         this.id = Stix2Util.assembleId(getType(), uuid);
     }

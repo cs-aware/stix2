@@ -12,6 +12,7 @@ import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -80,14 +81,14 @@ public class Sighting extends Core {
     public Sighting() {
     }
 
-    public Sighting(String id, String sightingOfRef, List<String> whereSightedRefs,
+    public Sighting(UUID id, String sightingOfRef, List<String> whereSightedRefs,
                     LocalDateTime created, LocalDateTime modified) {
         super(id, created, modified);
         this.sightingOfRef = sightingOfRef;
         this.whereSightedRefs = whereSightedRefs;
     }
 
-    public Sighting(String id, LocalDateTime firstSeen, LocalDateTime lastSeen, Integer count, String sightingOfRef,
+    public Sighting(UUID id, LocalDateTime firstSeen, LocalDateTime lastSeen, Integer count, String sightingOfRef,
                     List<String> observedDataRefs, List<String> whereSightedRefs, Boolean summary, String createdByRef,
                     List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                     List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {

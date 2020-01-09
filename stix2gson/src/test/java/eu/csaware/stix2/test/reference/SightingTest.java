@@ -102,7 +102,7 @@ class SightingTest {
     void testCreation() throws IOException {
         List<String> whereSightedRefs = Collections.singletonList(TestConstants.IDENTITY_ID);
         Sighting report = new Sighting(
-            TestConstants.SIGHTING_ID,
+            TestConstants.SIGHTING_UUID,
             TestConstants.INDICATOR_ID,
             whereSightedRefs,
             TestConstants.DATE_TIME_CREATED,

@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -73,14 +74,14 @@ public class Indicator extends Core {
     public Indicator() {
     }
 
-    public Indicator(String id, List<String> labels, String pattern, LocalDateTime validFrom,
+    public Indicator(UUID id, List<String> labels, String pattern, LocalDateTime validFrom,
                      LocalDateTime created, LocalDateTime modified) {
         super(id, labels, created, modified);
         this.pattern = pattern;
         this.validFrom = validFrom;
     }
 
-    public Indicator(String id, List<String> labels, String name, String description, String pattern, LocalDateTime validFrom,
+    public Indicator(UUID id, List<String> labels, String name, String description, String pattern, LocalDateTime validFrom,
                      LocalDateTime validUntil, List<KillChainPhase> killChainPhases, String createdByRef, LocalDateTime created,
                      LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,
                      List<GranularMarking> granularMarkings) {

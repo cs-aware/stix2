@@ -111,7 +111,7 @@ class ThreatActorTest {
     void testCreation() throws IOException {
         List<String> labels = Collections.singletonList(OpenVocabularyDefaults.THREAT_ACTOR_LABEL_CRIME_SYNDICATE);
         ThreatActor threatActor = new ThreatActor(
-            TestConstants.THREAT_ACTOR_ID,
+            TestConstants.THREAT_ACTOR_UUID,
             labels,
             "Evil Org",
             "The Evil Org threat actor group",

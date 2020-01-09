@@ -107,7 +107,7 @@ class ToolTest {
     void testCreation() throws IOException {
         List<String> labels = Collections.singletonList(OpenVocabularyDefaults.TOOL_LABEL_REMOTE_ACCESS);
         Tool tool = new Tool(
-            TestConstants.TOOL_ID,
+            TestConstants.TOOL_UUID,
             labels,
             "VNC",
             TestConstants.IDENTITY_ID,

@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 
 /**
@@ -73,7 +74,7 @@ public class ObservedData extends Core {
     public ObservedData() {
     }
 
-    public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved,
+    public ObservedData(UUID id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved,
                         Map<String, TypedStixObject> objects, String createdByRef, LocalDateTime created, LocalDateTime modified) {
         super(id, createdByRef, created, modified);
         this.firstObserved = firstObserved;
@@ -82,7 +83,7 @@ public class ObservedData extends Core {
         this.objects = objects;
     }
 
-    public ObservedData(String id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved,
+    public ObservedData(UUID id, LocalDateTime firstObserved, LocalDateTime lastObserved, Integer numberObserved,
                         Map<String, TypedStixObject> objects, String createdByRef, List<String> labels, LocalDateTime created,
                         LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                         List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {

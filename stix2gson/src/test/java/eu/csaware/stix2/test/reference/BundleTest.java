@@ -105,7 +105,7 @@ class BundleTest {
     void testCreation() throws IOException {
         List<String> labelsIndicator = Collections.singletonList(OpenVocabularyDefaults.INDICATOR_LABEL_MALICIOUS_ACTIVITY);
         Indicator indicator = new Indicator(
-            TestConstants.INDICATOR_ID,
+            TestConstants.INDICATOR_UUID,
             labelsIndicator,
             "[file:hashes.MD5 = 'd41d8cd98f00b204e9800998ecf8427e']",
             TestConstants.DATE_TIME_EXTRA,
@@ -114,14 +114,14 @@ class BundleTest {
         );
         List<String> labelsMalware = Collections.singletonList(OpenVocabularyDefaults.MALWARE_LABEL_RANSOMWARE);
         Malware malware = new Malware(
-            TestConstants.MALWARE_ID,
+            TestConstants.MALWARE_UUID,
             labelsMalware,
             "Cryptolocker",
             TestConstants.DATE_TIME_CREATED,
             TestConstants.DATE_TIME_MODIFIED
         );
         Relationship relationship = new Relationship(
-            TestConstants.RELATIONSHIP_ID,
+            TestConstants.RELATIONSHIP_UUID,
             Relationship.TYPE_INDICATES,
             TestConstants.INDICATOR_ID,
             TestConstants.MALWARE_ID,

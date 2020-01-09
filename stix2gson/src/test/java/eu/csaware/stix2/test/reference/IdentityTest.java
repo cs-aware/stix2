@@ -102,7 +102,7 @@ class IdentityTest {
     @Test
     void testCreation() throws IOException {
         Identity identity = new Identity(
-            TestConstants.IDENTITY_ID,
+            TestConstants.IDENTITY_UUID,
             "John Smith",
             OpenVocabularyDefaults.IDENTITY_CLASS_INDIVIDUAL,
             TestConstants.DATE_TIME_CREATED,

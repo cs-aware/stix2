@@ -122,7 +122,7 @@ class ReportTest {
         List<String> labels = Collections.singletonList(OpenVocabularyDefaults.REPORT_LABEL_CAMPAIGN);
         List<String> objectsRefs = Arrays.asList(TestConstants.INDICATOR_ID, TestConstants.CAMPAIGN_ID, TestConstants.RELATIONSHIP_ID);
         Report report = new Report(
-            TestConstants.REPORT_ID,
+            TestConstants.REPORT_UUID,
             labels,
             "The Black Vine Cyberespionage Group",
             "A simple report with an indicator and campaign",

@@ -128,7 +128,7 @@ class ObservedDataTest {
         objects.put("0", new File("foo.exe"));
 
         ObservedData observedData = new ObservedData(
-            TestConstants.OBSERVED_DATA_ID,
+            TestConstants.OBSERVED_DATA_UUID,
             TestConstants.DATE_TIME_FIRST_OBSERVED,
             TestConstants.DATE_TIME_LAST_OBSERVED,
             50,
@@ -147,7 +147,7 @@ class ObservedDataTest {
     @Test
     void testSerializationOfEmptyMap() throws IOException {
         ObservedData observedData = new ObservedData(
-            TestConstants.OBSERVED_DATA_ID,
+            TestConstants.OBSERVED_DATA_UUID,
             TestConstants.DATE_TIME_FIRST_OBSERVED,
             TestConstants.DATE_TIME_LAST_OBSERVED,
             50,

@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -68,7 +69,7 @@ public class Relationship extends Core {
     public Relationship() {
     }
 
-    public Relationship(String id, String relationshipType, String sourceRef, String targetRef,
+    public Relationship(UUID id, String relationshipType, String sourceRef, String targetRef,
                         LocalDateTime created, LocalDateTime modified) {
         super(id, created, modified);
         this.relationshipType = relationshipType;
@@ -76,7 +77,7 @@ public class Relationship extends Core {
         this.targetRef = targetRef;
     }
 
-    public Relationship(String id, String relationshipType, String description, String sourceRef, String targetRef,
+    public Relationship(UUID id, String relationshipType, String description, String sourceRef, String targetRef,
                         String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
         this.relationshipType = relationshipType;

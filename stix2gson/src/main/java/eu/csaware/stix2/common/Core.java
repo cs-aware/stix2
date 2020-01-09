@@ -102,20 +102,14 @@ public abstract class Core extends IdentifiedStixObject {
         this.modified = modified;
     }
 
-    public Core(String id, LocalDateTime created, LocalDateTime modified) {
-        super(id);
-        this.created = created;
-        this.modified = modified;
-    }
-
-    public Core(String id, String createdByRef, LocalDateTime created, LocalDateTime modified) {
+    public Core(UUID id, String createdByRef, LocalDateTime created, LocalDateTime modified) {
         super(id);
         this.createdByRef = createdByRef;
         this.created = created;
         this.modified = modified;
     }
 
-    public Core(String id, String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified) {
+    public Core(UUID id, String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified) {
         super(id);
         this.createdByRef = createdByRef;
         this.labels = labels;
@@ -123,21 +117,21 @@ public abstract class Core extends IdentifiedStixObject {
         this.modified = modified;
     }
 
-    public Core(String id, List<String> labels, LocalDateTime created, LocalDateTime modified) {
+    public Core(UUID id, List<String> labels, LocalDateTime created, LocalDateTime modified) {
         super(id);
         this.labels = labels;
         this.created = created;
         this.modified = modified;
     }
 
-    public Core(String id, LocalDateTime created, LocalDateTime modified, List<ExternalReference> externalReferences) {
+    public Core(UUID id, LocalDateTime created, LocalDateTime modified, List<ExternalReference> externalReferences) {
         super(id);
         this.created = created;
         this.modified = modified;
         this.externalReferences = externalReferences;
     }
 
-    public Core(String id, String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
+    public Core(UUID id, String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
                 Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs,
                 List<GranularMarking> granularMarkings) {
         super(id);

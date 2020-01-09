@@ -100,7 +100,7 @@ class CourseOfActionTest {
     @Test
     void testCreation() throws IOException {
         CourseOfAction courseOfAction = new CourseOfAction(
-            TestConstants.COURSE_OF_ACTION_ID,
+            TestConstants.COURSE_OF_ACTION_UUID,
             "Add TCP port 80 Filter Rule to the existing Block UDP 1434 Filter",
             "This is how to add a filter rule to block inbound access to TCP port 80 to the existing UDP 1434 filter ...",
             TestConstants.IDENTITY_ID,

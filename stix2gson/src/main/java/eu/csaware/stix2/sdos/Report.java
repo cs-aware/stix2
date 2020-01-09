@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -64,7 +65,7 @@ public class Report extends Core {
     public Report() {
     }
 
-    public Report(String id, List<String> labels, String name, String description, LocalDateTime published, List<String> objectRefs,
+    public Report(UUID id, List<String> labels, String name, String description, LocalDateTime published, List<String> objectRefs,
                   String createdByRef, LocalDateTime created, LocalDateTime modified) {
         super(id, createdByRef, labels, created, modified);
         this.name = name;
@@ -73,7 +74,7 @@ public class Report extends Core {
         this.objectRefs = objectRefs;
     }
 
-    public Report(String id, List<String> labels, String name, String description, LocalDateTime published, List<String> objectRefs,
+    public Report(UUID id, List<String> labels, String name, String description, LocalDateTime published, List<String> objectRefs,
                   String createdByRef, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                   List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);

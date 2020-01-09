@@ -133,7 +133,7 @@ class AttackPatternTest {
     @Test
     void testCreation() throws IOException {
         AttackPattern createdAttackPattern = new AttackPattern(
-            TestConstants.ATTACK_PATTERN_ID,
+            TestConstants.ATTACK_PATTERN_UUID,
             "Spear Phishing",
             "...",
             TestConstants.DATE_TIME_CREATED,

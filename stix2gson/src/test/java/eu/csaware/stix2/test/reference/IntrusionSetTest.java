@@ -124,7 +124,7 @@ class IntrusionSetTest {
         List<String> aliases = Collections.singletonList("Zookeeper");
         List<String> goals = Arrays.asList("acquisition-theft", "harassment", "damage");
         IntrusionSet intrusionSet = new IntrusionSet(
-            TestConstants.INTRUSION_SET_ID,
+            TestConstants.INTRUSION_SET_UUID,
             "Bobcat Breakin",
             "Incidents usually feature a shared TTP of a bobcat being released...",
             aliases,

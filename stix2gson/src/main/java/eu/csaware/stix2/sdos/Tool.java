@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -56,21 +57,21 @@ public class Tool extends Core {
     public Tool() {
     }
 
-    public Tool(String id, List<String> labels, String name, String createdByRef,
+    public Tool(UUID id, List<String> labels, String name, String createdByRef,
                 LocalDateTime created, LocalDateTime modified) {
         super(id, createdByRef, labels, created, modified);
         this.name = name;
     }
 
 
-    public Tool(String id, List<String> labels, String name, String description, String createdByRef,
+    public Tool(UUID id, List<String> labels, String name, String description, String createdByRef,
                 LocalDateTime created, LocalDateTime modified) {
         super(id, createdByRef, labels, created, modified);
         this.name = name;
         this.description = description;
     }
 
-    public Tool(String id, List<String> labels, String name, String description, String toolVersion, List<KillChainPhase> killChainPhases,
+    public Tool(UUID id, List<String> labels, String name, String description, String toolVersion, List<KillChainPhase> killChainPhases,
                 String createdByRef, LocalDateTime created, LocalDateTime modified, Boolean revoked, List<ExternalReference> externalReferences,
                 List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);

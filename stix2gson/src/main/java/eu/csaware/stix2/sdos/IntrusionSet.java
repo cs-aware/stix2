@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -98,7 +99,7 @@ public class IntrusionSet extends Core {
     public IntrusionSet() {
     }
 
-    public IntrusionSet(String id, String name, String description, List<String> aliases,
+    public IntrusionSet(UUID id, String name, String description, List<String> aliases,
                         List<String> goals, String createdByRef, LocalDateTime created, LocalDateTime modified) {
         super(id, createdByRef, created, modified);
         this.name = name;
@@ -107,7 +108,7 @@ public class IntrusionSet extends Core {
         this.goals = goals;
     }
 
-    public IntrusionSet(String id, String name, String description, List<String> aliases, String firstSeen, String lastSeen,
+    public IntrusionSet(UUID id, String name, String description, List<String> aliases, String firstSeen, String lastSeen,
                         List<String> goals, String resourceLevel, String primaryMotivation, List<String> secondaryMotivations,
                         String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified, Boolean revoked,
                         List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {

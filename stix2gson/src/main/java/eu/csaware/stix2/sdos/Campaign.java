@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -76,13 +77,13 @@ public class Campaign extends Core {
     public Campaign() {
     }
 
-    public Campaign(String id, String name, String description, String createdByRef, LocalDateTime created, LocalDateTime modified) {
+    public Campaign(UUID id, String name, String description, String createdByRef, LocalDateTime created, LocalDateTime modified) {
         super(id, createdByRef, created, modified);
         this.name = name;
         this.description = description;
     }
 
-    public Campaign(String id, String name, String description, List<String> aliases, String firstSeen, String lastSeen,
+    public Campaign(UUID id, String name, String description, List<String> aliases, String firstSeen, String lastSeen,
                     String objective, String createdByRef, List<String> labels, LocalDateTime created, LocalDateTime modified,
                     Boolean revoked, List<ExternalReference> externalReferences, List<String> objectMarkingRefs, List<GranularMarking> granularMarkings) {
         super(id, createdByRef, labels, created, modified, revoked, externalReferences, objectMarkingRefs, granularMarkings);
