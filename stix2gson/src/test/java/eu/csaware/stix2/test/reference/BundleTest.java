@@ -130,7 +130,7 @@ class BundleTest {
         );
         List<TypedStixObject> objects = Arrays.asList(indicator, malware, relationship);
         Bundle bundle = new Bundle(
-            TestConstants.BUNDLE_ID,
+            TestConstants.BUNDLE_UUID,
             "2.0",
             objects
         );

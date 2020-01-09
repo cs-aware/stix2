@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 
 /**
@@ -45,13 +46,24 @@ public class Bundle extends IdentifiedStixObject {
     public Bundle() {
     }
 
-    public Bundle(String id, String specVersion) {
-        super(id);
+    public Bundle(UUID uuid) {
+        super(uuid);
+        this.specVersion = SPEC_VERSION;
+    }
+
+    public Bundle(UUID uuid, String specVersion) {
+        super(uuid);
         this.specVersion = specVersion;
     }
 
-    public Bundle(String id, String specVersion, List<TypedStixObject> objects) {
-        super(id);
+    public Bundle(UUID uuid, List<TypedStixObject> objects) {
+        super(uuid);
+        this.specVersion = SPEC_VERSION;
+        this.objects = objects;
+    }
+
+    public Bundle(UUID uuid, String specVersion, List<TypedStixObject> objects) {
+        super(uuid);
         this.specVersion = specVersion;
         this.objects = objects;
     }
