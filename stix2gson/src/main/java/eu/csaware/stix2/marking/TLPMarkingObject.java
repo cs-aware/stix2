@@ -14,6 +14,26 @@ import java.util.Objects;
 public class TLPMarkingObject implements MarkingObject {
     public static String DEFINITION_TYPE = "tlp";
 
+    /**
+     * TLP:RED = Not for disclosure, restricted to participants only.
+     */
+    public static String TLD_RED = "red";
+
+    /**
+     * TLP:AMBER = Limited disclosure, restricted to participants’ organizations.
+     */
+    public static String TLD_AMBER = "amber";
+
+    /**
+     * TLP:GREEN = Limited disclosure, restricted to the community.
+     */
+    public static String TLD_GREEN = "green";
+
+    /**
+     * TLP:WHITE  = Disclosure is not limited.
+     */
+    public static String TLD_WHITE = "white";
+
     @SerializedName("tlp")
     @Expose
     private String tlp;
