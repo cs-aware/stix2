@@ -81,6 +81,17 @@ public class Sighting extends Core {
     public Sighting() {
     }
 
+    public Sighting(UUID id, String sightingOfRef,
+                    LocalDateTime created, LocalDateTime modified) {
+        super(id, created, modified);
+        this.sightingOfRef = sightingOfRef;
+    }
+    public Sighting(UUID id, List<String> whereSightedRefs,
+                    LocalDateTime created, LocalDateTime modified) {
+        super(id, created, modified);
+        this.whereSightedRefs = whereSightedRefs;
+    }
+
     public Sighting(UUID id, String sightingOfRef, List<String> whereSightedRefs,
                     LocalDateTime created, LocalDateTime modified) {
         super(id, created, modified);
