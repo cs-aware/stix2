@@ -98,6 +98,20 @@ public class Bundle extends IdentifiedStixObject {
         this.objects = objects;
     }
 
+    /**
+     * Get only the STIX Objects of the specified type.
+     */
+    public <T extends TypedStixObject> List<T> getObjects(Class<T> clazz) {
+        List<T> filtered = new ArrayList<>();
+        for (TypedStixObject typedStixObject : objects) {
+            //check by fully qualified name in case we are dealing with multiple classloaders
+            if (typedStixObject.getClass().getName().equals(clazz.getName()))
+                filtered.add((T) typedStixObject);
+        }
+        return filtered;
+    }
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
